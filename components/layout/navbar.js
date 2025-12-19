@@ -7,18 +7,23 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   const navLinks = [
-    { name: "Home", path: "/" },
+    // { name: "", path: "/" },
     { name: "About", path: "/about" },
     { name: "Services", path: "/Services" },
     { name: "Contact", path: "/contact" },
   ];
 
   return (
-    <header className="nav w-[90%] top-10 left-1/2 -translate-x-1/2 fixed rounded-full z-50">
-      <div className="max-w-7xl mx-auto px-8 py-6 flex justify-between items-center">
+    <header className="nav sm:max-w-full max-w-[300] w-[90%] max-h-[90px] top-10 left-1/2 -translate-x-1/2 fixed rounded-full z-50">
+      <div className="relative max-w-7xl mx-auto px-8 py-6 flex justify-between items-center">
         {/* Logo */}
         <Link href="/" className="text-2xl font-semibold text-black">
-          <Image src="/BBC Dark Logo.png" width={130} height={100} />
+          <Image
+            src="/BBC Dark Logo.png"
+            className="md:w-full w-[90px]"
+            width={100}
+            height={90}
+          />
         </Link>
 
         {/* Desktop Menu */}
@@ -41,7 +46,7 @@ export default function Navbar() {
         >
           <span
             className={`h-[3px] w-6 bg-gray-800 rounded transition-transform duration-300 ${
-              open ? "rotate-45 translate-y-[7px]" : ""
+              open ? "rotate-45 translate-y-[9px]" : ""
             }`}
           ></span>
           <span
@@ -59,11 +64,11 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {open && (
-        <nav className="md:hidden bg-white shadow-md border-t animate-slideDown">
+        <nav className="absolute md:hidden bg-gray-400 shadow-md border-t animate-slideDown rounded-3xl w-[90%] left-[50%] -translate-x-1/2">
           <ul className="flex flex-col space-y-4 p-5 font-medium text-black">
             {navLinks.map((link) => (
               <Link
-                key={link.path}
+                key={link.name}
                 href={link.path}
                 onClick={() => setOpen(false)}
                 className="hover:text-grey transition"

@@ -11,7 +11,7 @@ export default function HomeHero() {
     >
       <div className="pt-30 p-10 h-full flex items-center justify-center">
         <div className="z-10 text-center text-white">
-          <h1 className="md:text-3xl 2xl:text-4xl text-xl font-bold mb-4">
+          <h1 className="md:text-3xl xl:text-4xl text-xl font-bold mb-4">
             We are the Innovative Digital Marketing agency in India
           </h1>
           <svg className="animated-text" viewBox="0 0 1320 300">

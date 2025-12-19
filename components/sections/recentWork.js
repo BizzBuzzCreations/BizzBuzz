@@ -18,11 +18,11 @@ export default function RecentWork() {
           className="bg-cover w-full flex justify-center items-center"
         >
           <div className="max-w-7xl mb-5">
-            <div className="w-12/12 mx-auto rounded-2xl bg-white/40 p-5 backdrop-filter backdrop-blur-lg">
+            <div className="w-12/12 mx-auto rounded-2xl bg-white/40 md:p-5 backdrop-filter backdrop-blur-lg">
               <div>
                 <div className="flex flex-wrap items-center overflow-x-auto overflow-y-hidden py-2 justify-center text-gray-800">
-                  <div className="flex flex-col md:w-1/2 xl:w-1/2  p-4">
-                    <div className="bg-white shadow-md rounded-3xl p-4 border border-gray-100">
+                  <div className="flex flex-col md:w-1/2 xl:w-1/2  md:p-4 p-2">
+                    <div className="bg-white shadow-md rounded-3xl md:p-4 p-2 border border-gray-100">
                       <div className="flex-none lg:flex items-center">
                         <div className="h-full w-full lg:h-full lg:w-full lg:mb-0 mb-3">
                           <Image
@@ -53,9 +53,9 @@ export default function RecentWork() {
                       </div>
                     </div>
                   </div>
-                  <div className="flex flex-col md:w-1/2 xl:w-1/2 p-4">
-                    <div className="bg-white shadow-md rounded-3xl p-4 border border-gray-100">
-                      <div className="flex-none lg:flex items-center" >
+                  <div className="flex flex-col md:w-1/2 xl:w-1/2 md:p-4 p-2">
+                    <div className="bg-white shadow-md rounded-3xl md:p-4 p-2 border border-gray-100">
+                      <div className="flex-none lg:flex items-center">
                         <div className="h-full w-full lg:h-full lg:w-full lg:mb-0 mb-3">
                           <Image
                             width={400}
@@ -85,8 +85,8 @@ export default function RecentWork() {
                       </div>
                     </div>
                   </div>
-                  <div className="flex flex-col md:w-1/2 xl:w-1/2 p-4">
-                    <div className="bg-white shadow-md rounded-3xl p-4 border border-gray-100">
+                  <div className="flex flex-col md:w-1/2 xl:w-1/2 md:p-4 p-2">
+                    <div className="bg-white shadow-md rounded-3xl md:p-4 p-2 border border-gray-100">
                       <div className="flex-none lg:flex items-center">
                         <div className="h-full w-full lg:h-full lg:w-full lg:mb-0 mb-3">
                           <Image
@@ -117,8 +117,8 @@ export default function RecentWork() {
                       </div>
                     </div>
                   </div>
-                  <div className="flex flex-col md:w-1/2 xl:w-1/2 p-4">
-                    <div className="bg-white shadow-md rounded-3xl p-4 border border-gray-100">
+                  <div className="flex flex-col md:w-1/2 xl:w-1/2 md:p-4 p-2">
+                    <div className="bg-white shadow-md rounded-3xl md:p-4 p-2 border border-gray-100">
                       <div className="flex-none lg:flex items-center">
                         <div className="h-full w-full lg:h-full lg:w-full lg:mb-0 mb-3">
                           <Image

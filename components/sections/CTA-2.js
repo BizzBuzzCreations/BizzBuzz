@@ -3,7 +3,7 @@ import React from "react";
 export default function CTA2() {
   return (
     <div
-      className="mx-10 rounded-3xl mb-20 shadow-lg shadow-black max-w-6xl mx-auto container"
+      className="rounded-3xl mb-20 shadow-lg shadow-black md:max-w-3xl lg:max-w-5xl xl:max-w-6xl mx-auto container"
       style={{
         background: "#000000",
         backgroundImage: `
