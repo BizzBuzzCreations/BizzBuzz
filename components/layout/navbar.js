@@ -2,16 +2,10 @@
 import Link from "next/link";
 import { useState } from "react";
 import Image from "next/image";
+import { ChevronDown } from "lucide-react";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-
-  const navLinks = [
-    // { name: "", path: "/" },
-    { name: "About", path: "/about" },
-    { name: "Services", path: "/Services" },
-    { name: "Contact", path: "/contact" },
-  ];
 
   return (
     <header className="nav sm:max-w-full max-w-[300] w-[90%] max-h-[90px] top-10 left-1/2 -translate-x-1/2 fixed rounded-full z-50">
@@ -28,15 +22,89 @@ export default function Navbar() {
 
         {/* Desktop Menu */}
         <nav className="hidden md:flex space-x-8 font-medium">
-          {navLinks.map((link) => (
-            <Link
-              key={link.path}
-              href={link.path}
-              className="text-black hover:text-grey transition"
+          <Link href="/about" className="text-black hover:text-grey transition">
+            About
+          </Link>
+          <div className="group relative">
+            <div className="text-black flex justify-center items-center cursor-pointer hover:text-grey transition">
+              Services{" "}
+              <ChevronDown
+                size={20}
+                className="transition-transform duration-300 group-hover:rotate-180"
+              />
+            </div>
+            {/*Service Dropdown menu  */}
+            <div
+              id="dropdown"
+              class="z-10 absolute right-0 top-7 hidden group-hover:block bg-gray-800 border border border-black rounded-base shadow-lg w-65 "
             >
-              {link.name}
-            </Link>
-          ))}
+              <ul
+                class="p-2 text-sm text-white font-medium"
+                aria-labelledby="dropdownDefaultButton"
+              >
+                <li>
+                  <Link
+                    href="/web-development"
+                    class="inline-flex items-center w-full p-2 hover:bg-gray-400 hover:text-black rounded"
+                  >
+                    Website Development
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/search-engine-optimization"
+                    class="inline-flex items-center w-full p-2 hover:bg-gray-400 hover:text-black rounded"
+                  >
+                    Search Engine Optimization (SEO)
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/bpo-services"
+                    class="inline-flex items-center w-full p-2 hover:bg-gray-400 hover:text-black rounded"
+                  >
+                    BPO Services
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/business-consultancy"
+                    class="inline-flex items-center w-full p-2 hover:bg-gray-400 hover:text-black rounded"
+                  >
+                    Buisiness Consultancy
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/social-media-marketing"
+                    class="inline-flex items-center w-full p-2 hover:bg-gray-400 hover:text-black rounded"
+                  >
+                    Social Media Marketing
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/ai-services"
+                    class="inline-flex items-center w-full p-2 hover:bg-gray-400 hover:text-black rounded"
+                  >
+                    AI Services
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <Link
+            href="https://bizzbuzzcreations.com/blog/"
+            className="text-black hover:text-grey transition"
+          >
+            Blog
+          </Link>
+          <Link
+            href="/contact"
+            className="text-black hover:text-grey transition"
+          >
+            Contact
+          </Link>
         </nav>
 
         {/* Hamburger Button */}
@@ -66,16 +134,34 @@ export default function Navbar() {
       {open && (
         <nav className="absolute md:hidden bg-gray-400 shadow-md border-t animate-slideDown rounded-3xl w-[90%] left-[50%] -translate-x-1/2">
           <ul className="flex flex-col space-y-4 p-5 font-medium text-black">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.path}
-                onClick={() => setOpen(false)}
-                className="hover:text-grey transition"
-              >
-                {link.name}
-              </Link>
-            ))}
+            <Link
+              onClick={() => setOpen(false)}
+              href="/about"
+              className="hover:text-grey transition"
+            >
+              About
+            </Link>
+            <Link
+              onClick={() => setOpen(false)}
+              href="/service"
+              className="hover:text-grey transition"
+            >
+              Services
+            </Link>
+            <Link
+              onClick={() => setOpen(false)}
+              href="/blog"
+              className="hover:text-grey transition"
+            >
+              Blog
+            </Link>
+            <Link
+              onClick={() => setOpen(false)}
+              href="/contact"
+              className="hover:text-grey transition"
+            >
+              Contact
+            </Link>
           </ul>
         </nav>
       )}

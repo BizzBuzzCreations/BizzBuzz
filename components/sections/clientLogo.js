@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-export default function clientLogo() {
+export default function ClientLogo() {
   return (
     <>
       <div
