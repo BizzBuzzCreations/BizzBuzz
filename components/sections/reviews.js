@@ -1,5 +1,5 @@
 import React from "react";
-import Script from "next/script";
+import Review_JS from "./review_JS";
 
 export default function Reviews() {
   const reviews = [
@@ -38,18 +38,18 @@ export default function Reviews() {
     <div className="mb-20 container mx-auto">
       <h2 className="text-3xl font-bold text-center mb-5">Customer Reviews</h2>
       <div
-        class="md:max-w-6xl max-w-2xl mx-auto relative"
+        className="md:max-w-6xl max-w-2xl mx-auto relative"
         id="carousel-container"
       >
-        <div class="overflow-hidden py-4">
+        <div className="overflow-hidden py-4">
           <div
             id="track"
-            class="flex transition-transform duration-500 ease-out"
+            className="flex transition-transform duration-500 ease-out"
           >
             {reviews.map((item, index) => (
-              <div key={index} class="min-w-full md:min-w-[33.33%] p-4">
-                <div class="group bg-white rounded-2xl shadow-lg p-8 text-center h-full border border-gray-100 cursor-pointer transition-all duration-300 hover:bg-black/95 hover:scale-105 hover:shadow-2xl">
-                  <div class="bg-purple-100 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-2 transition-colors duration-300 group-hover:bg-white">
+              <div key={index} className="min-w-full md:min-w-[33.33%] p-4">
+                <div className="group bg-white rounded-2xl shadow-lg p-8 text-center h-full border border-gray-100 cursor-pointer transition-all duration-300 hover:bg-black/95 hover:scale-105 hover:shadow-2xl">
+                  <div className="bg-purple-100 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-2 transition-colors duration-300 group-hover:bg-white">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       x="0px"
@@ -76,7 +76,7 @@ export default function Reviews() {
                       ></path>
                     </svg>
                   </div>
-                  <div class="flex items-center mb-1 space-x-1 justify-center">
+                  <div className="flex items-center mb-1 space-x-1 justify-center">
                     {[...Array(5)].map((_, i) => (
                       <svg
                         key={i}
@@ -92,10 +92,10 @@ export default function Reviews() {
                       </svg>
                     ))}
                   </div>
-                  <h3 class="text-2xl font-bold mb-3 text-gray-800 group-hover:text-white transition-colors">
+                  <h3 className="text-2xl font-bold mb-3 text-gray-800 group-hover:text-white transition-colors">
                     {item.name}
                   </h3>
-                  <p class="text-gray-500 group-hover:text-blue-100 transition-colors">
+                  <p className="text-gray-500 group-hover:text-blue-100 transition-colors">
                     {item.para}
                   </p>
                 </div>
@@ -106,43 +106,46 @@ export default function Reviews() {
 
         <button
           id="prevBtn"
-          class="absolute cursor-pointer top-1/2 left-0 -translate-y-1/2 -translate-x- xl:-translate-x-4 bg-white p-3 rounded-full shadow-lg text-blue-900 hover:bg-blue-50 focus:outline-none z-10 transition"
+          className="absolute cursor-pointer top-1/2 left-0 -translate-y-1/2 -translate-x- xl:-translate-x-4 bg-white p-3 rounded-full shadow-lg text-blue-900 hover:bg-blue-50 focus:outline-none z-10 transition"
         >
           <svg
-            class="w-6 h-6"
+            className="w-6 h-6"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
           >
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
               d="M15 19l-7-7 7-7"
             ></path>
           </svg>
         </button>
         <button
           id="nextBtn"
-          class="absolute cursor-pointer top-1/2 right-0 -translate-y-1/2 translate-x- xl:translate-x-4 bg-white p-3 rounded-full shadow-lg text-blue-900 hover:bg-blue-50 focus:outline-none z-10 transition"
+          className="absolute cursor-pointer top-1/2 right-0 -translate-y-1/2 translate-x- xl:translate-x-4 bg-white p-3 rounded-full shadow-lg text-blue-900 hover:bg-blue-50 focus:outline-none z-10 transition"
         >
           <svg
-            class="w-6 h-6"
+            className="w-6 h-6"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
           >
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
               d="M9 5l7 7-7 7"
             ></path>
           </svg>
         </button>
 
-        <div class="flex justify-center mt-8 space-x-2" id="indicators"></div>
-        <Script src="/js/card-carousel.js" strategy="afterInteractive" />
+        <div
+          className="flex justify-center mt-8 space-x-2"
+          id="indicators"
+        ></div>
+        <Review_JS />
       </div>
     </div>
   );

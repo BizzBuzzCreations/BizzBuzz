@@ -103,7 +103,7 @@
 .animated-text text {
   text-transform: uppercase;
   animation: stroke 5s infinite alternate;
-  stroke-width: 2;
+  strokewidth: 2;
   stroke: white;
   font-size: 120px;
 }
@@ -113,7 +113,7 @@
     stroke: white;
     stroke-dashoffset: 25%;
     stroke-dasharray: 0 50%;
-    stroke-width: 2;
+    strokewidth: 2;
   }
   70% {
     fill: rgba(72, 138, 20, 0);
@@ -122,14 +122,14 @@
   80% {
     fill: rgba(72, 138, 20, 0);
     stroke: white;
-    stroke-width: 3;
+    strokewidth: 3;
   }
   100% {
     fill: white;
     stroke: rgba(54, 95, 160, 0);
     stroke-dashoffset: -25%;
     stroke-dasharray: 50% 0;
-    stroke-width: 0;
+    strokewidth: 0;
   }
 }
 

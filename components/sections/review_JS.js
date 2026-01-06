@@ -1,0 +1,93 @@
+"use client";
+
+import { useEffect } from "react";
+
+export default function Review_JS() {
+  useEffect(() => {
+    const track = document.getElementById("track");
+    const nextBtn = document.getElementById("nextBtn");
+    const prevBtn = document.getElementById("prevBtn");
+    const dotsContainer = document.getElementById("indicators");
+    const container = document.getElementById("carousel-container");
+    let index = 0;
+    const items = track.children;
+    let itemsPerView = window.innerWidth >= 768 ? 3 : 1;
+    let maxIndex = items.length - itemsPerView;
+    let autoPlayInterval;
+
+    const initializeDots = () => {
+      dotsContainer.innerHTML = "";
+      for (let i = 0; i <= maxIndex; i++) {
+        const dot = document.createElement("button");
+        dot.className = `h-3 cursor-pointer rounded-full transition-all duration-300 ${
+          i === index ? "bg-blue-900 w-8" : "bg-gray-300 w-3"
+        }`;
+        dot.addEventListener("click", () => {
+          index = i;
+          updateCarousel();
+        });
+        dotsContainer.appendChild(dot);
+      }
+    };
+    initializeDots();
+
+    function updateCarousel() {
+      track.style.transform = `translateX(-${(index * 100) / itemsPerView}%)`;
+      Array.from(dotsContainer?.children).forEach((dot, i) => {
+        dot.className = `h-3 cursor-pointer rounded-full transition-all duration-300 ${
+          i === index ? "bg-blue-900 w-8" : "bg-gray-300 w-3"
+        }`;
+      });
+    }
+
+    function nextSlide() {
+      index = index < maxIndex ? index + 1 : 0;
+      updateCarousel();
+    }
+
+    function prevSlide() {
+      index = index > 0 ? index - 1 : maxIndex;
+      updateCarousel();
+    }
+
+    nextBtn.addEventListener("click", () => {
+      nextSlide();
+      resetTimer();
+    });
+    prevBtn.addEventListener("click", () => {
+      prevSlide();
+      resetTimer();
+    });
+
+    function startTimer() {
+      clearInterval(autoPlayInterval);
+      autoPlayInterval = setInterval(nextSlide, 4000);
+    }
+    function resetTimer() {
+      clearInterval(autoPlayInterval);
+      startTimer();
+    }
+    container.addEventListener("mouseenter", () =>
+      clearInterval(autoPlayInterval)
+    );
+    container.addEventListener("mouseleave", startTimer);
+
+    startTimer();
+
+    window.addEventListener("resize", () => {
+      const newItemsPerView = window.innerWidth >= 768 ? 3 : 1;
+
+      if (newItemsPerView !== itemsPerView) {
+        itemsPerView = newItemsPerView;
+        maxIndex = items.length - itemsPerView;
+        index = Math.min(index, maxIndex);
+
+        initializeDots();
+        updateCarousel();
+        startTimer();
+      }
+    });
+  }, []);
+
+  return null;
+}

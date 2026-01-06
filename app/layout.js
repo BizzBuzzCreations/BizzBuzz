@@ -28,7 +28,7 @@ export default function RootLayout({ children }) {
         <Navbar />
         {children}
         <Footer />
-        <Script src="/js/flowbite.min.js" />
+        <Script src="/js/flowbite.min.js" strategy="afterInteractive" />
       </body>
     </html>
   );

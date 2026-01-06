@@ -14,6 +14,7 @@ export default function Navbar() {
         <Link href="/" className="text-2xl font-semibold text-black">
           <Image
             src="/BBC Dark Logo.png"
+            alt="logo"
             className="md:w-full w-[90px]"
             width={100}
             height={90}
@@ -36,16 +37,16 @@ export default function Navbar() {
             {/*Service Dropdown menu  */}
             <div
               id="dropdown"
-              class="z-10 absolute right-0 top-7 hidden group-hover:block bg-gray-800 border border border-black rounded-base shadow-lg w-65 "
+              className="z-10 absolute right-0 top-7 hidden group-hover:block bg-gray-800 border border border-black rounded-base shadow-lg w-65 "
             >
               <ul
-                class="p-2 text-sm text-white font-medium"
+                className="p-2 text-sm text-white font-medium"
                 aria-labelledby="dropdownDefaultButton"
               >
                 <li>
                   <Link
                     href="/web-development"
-                    class="inline-flex items-center w-full p-2 hover:bg-gray-400 hover:text-black rounded"
+                    className="inline-flex items-center w-full p-2 hover:bg-gray-400 hover:text-black rounded"
                   >
                     Website Development
                   </Link>
@@ -53,7 +54,7 @@ export default function Navbar() {
                 <li>
                   <Link
                     href="/search-engine-optimization"
-                    class="inline-flex items-center w-full p-2 hover:bg-gray-400 hover:text-black rounded"
+                    className="inline-flex items-center w-full p-2 hover:bg-gray-400 hover:text-black rounded"
                   >
                     Search Engine Optimization (SEO)
                   </Link>
@@ -61,7 +62,7 @@ export default function Navbar() {
                 <li>
                   <Link
                     href="/bpo-services"
-                    class="inline-flex items-center w-full p-2 hover:bg-gray-400 hover:text-black rounded"
+                    className="inline-flex items-center w-full p-2 hover:bg-gray-400 hover:text-black rounded"
                   >
                     BPO Services
                   </Link>
@@ -69,7 +70,7 @@ export default function Navbar() {
                 <li>
                   <Link
                     href="/business-consultancy"
-                    class="inline-flex items-center w-full p-2 hover:bg-gray-400 hover:text-black rounded"
+                    className="inline-flex items-center w-full p-2 hover:bg-gray-400 hover:text-black rounded"
                   >
                     Buisiness Consultancy
                   </Link>
@@ -77,7 +78,7 @@ export default function Navbar() {
                 <li>
                   <Link
                     href="/social-media-marketing"
-                    class="inline-flex items-center w-full p-2 hover:bg-gray-400 hover:text-black rounded"
+                    className="inline-flex items-center w-full p-2 hover:bg-gray-400 hover:text-black rounded"
                   >
                     Social Media Marketing
                   </Link>
@@ -85,7 +86,7 @@ export default function Navbar() {
                 <li>
                   <Link
                     href="/ai-services"
-                    class="inline-flex items-center w-full p-2 hover:bg-gray-400 hover:text-black rounded"
+                    className="inline-flex items-center w-full p-2 hover:bg-gray-400 hover:text-black rounded"
                   >
                     AI Services
                   </Link>
@@ -93,7 +94,7 @@ export default function Navbar() {
                 <li>
                   <Link
                     href="/digital-marketing"
-                    class="inline-flex items-center w-full p-2 hover:bg-gray-400 hover:text-black rounded"
+                    className="inline-flex items-center w-full p-2 hover:bg-gray-400 hover:text-black rounded"
                   >
                     Digital Marketing
                   </Link>
@@ -149,13 +150,82 @@ export default function Navbar() {
             >
               About
             </Link>
-            <Link
-              onClick={() => setOpen(false)}
-              href="/service"
-              className="hover:text-grey transition"
-            >
-              Services
-            </Link>
+            <div className="group relative">
+              <div className="text-black flex justify-center items-center cursor-pointer focus:text-grey transition">
+                Services{" "}
+                <ChevronDown
+                  size={20}
+                  className="transition-transform duration-300 group-focus:rotate-180"
+                />
+              </div>
+              {/*Service Dropdown menu  */}
+              <div
+                id="dropdown"
+                className="z-10 absolute right-0 top-7 hidden group-focus-within:block bg-gray-800 border border border-black rounded-base shadow-lg w-65 "
+              >
+                <ul
+                  className="p-2 text-sm text-white font-medium"
+                  aria-labelledby="dropdownDefaultButton"
+                >
+                  <li>
+                    <Link
+                      href="/web-development"
+                      className="inline-flex items-center w-full p-2 hover:bg-gray-400 focus:text-black rounded"
+                    >
+                      Website Development
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/search-engine-optimization"
+                      className="inline-flex items-center w-full p-2 hover:bg-gray-400 focus:text-black rounded"
+                    >
+                      Search Engine Optimization (SEO)
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/bpo-services"
+                      className="inline-flex items-center w-full p-2 hover:bg-gray-400 focus:text-black rounded"
+                    >
+                      BPO Services
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/business-consultancy"
+                      className="inline-flex items-center w-full p-2 hover:bg-gray-400 focus:text-black rounded"
+                    >
+                      Buisiness Consultancy
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/social-media-marketing"
+                      className="inline-flex items-center w-full p-2 hover:bg-gray-400 focus:text-black rounded"
+                    >
+                      Social Media Marketing
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/ai-services"
+                      className="inline-flex items-center w-full p-2 hover:bg-gray-400 focus:text-black rounded"
+                    >
+                      AI Services
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/digital-marketing"
+                      className="inline-flex items-center w-full p-2 hover:bg-gray-400 focus:text-black rounded"
+                    >
+                      Digital Marketing
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
             <Link
               onClick={() => setOpen(false)}
               href="/blog"

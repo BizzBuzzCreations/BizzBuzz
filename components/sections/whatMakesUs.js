@@ -27,7 +27,7 @@ export default function WhatMAkesUs() {
         <h2 id="accordion-flush-heading-1">
           <button
             type="button"
-            class="flex items-center justify-between w-full py-5 font-medium rtl:text-right text-body border-b border-default gap-3"
+            className="flex items-center justify-between w-full py-5 font-medium rtl:text-right text-body border-b border-default gap-3"
             data-accordion-target="#accordion-flush-body-1"
             aria-expanded="true"
             aria-controls="accordion-flush-body-1"
@@ -35,7 +35,7 @@ export default function WhatMAkesUs() {
             <span>Deep Business Understanding</span>
             <svg
               data-accordion-icon
-              class="w-5 h-5 rotate-180 shrink-0"
+              className="w-5 h-5 rotate-180 shrink-0"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -45,9 +45,9 @@ export default function WhatMAkesUs() {
             >
               <path
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 d="m5 15 7-7 7 7"
               />
             </svg>
@@ -55,11 +55,11 @@ export default function WhatMAkesUs() {
         </h2>
         <div
           id="accordion-flush-body-1"
-          class="hidden"
+          className="hidden"
           aria-labelledby="accordion-flush-heading-1"
         >
-          <div class="py-5 border-b border-default text-body">
-            <p class="mb-2">
+          <div className="py-5 border-b border-default text-body">
+            <p className="mb-2">
               Flowbite is an open-source library of interactive components built
               on top of Tailwind CSS including buttons, dropdowns, modals,
               navbars, and more.
@@ -68,7 +68,7 @@ export default function WhatMAkesUs() {
               Check out this guide to learn how to{" "}
               <a
                 href="/docs/getting-started/introduction/"
-                class="text-fg-brand hover:underline"
+                className="text-fg-brand hover:underline"
               >
                 get started
               </a>{" "}
@@ -80,7 +80,7 @@ export default function WhatMAkesUs() {
         <h2 id="accordion-flush-heading-2">
           <button
             type="button"
-            class="flex items-center justify-between w-full py-5 font-medium rtl:text-right text-body border-b border-default gap-3"
+            className="flex items-center justify-between w-full py-5 font-medium rtl:text-right text-body border-b border-default gap-3"
             data-accordion-target="#accordion-flush-body-2"
             aria-expanded="false"
             aria-controls="accordion-flush-body-2"
@@ -88,7 +88,7 @@ export default function WhatMAkesUs() {
             <span>Customized Strategy Building</span>
             <svg
               data-accordion-icon
-              class="w-5 h-5 rotate-180 shrink-0"
+              className="w-5 h-5 rotate-180 shrink-0"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -98,9 +98,9 @@ export default function WhatMAkesUs() {
             >
               <path
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 d="m5 15 7-7 7 7"
               />
             </svg>
@@ -108,11 +108,11 @@ export default function WhatMAkesUs() {
         </h2>
         <div
           id="accordion-flush-body-2"
-          class="hidden"
+          className="hidden"
           aria-labelledby="accordion-flush-heading-2"
         >
-          <div class="py-5 border-b border-default text-body">
-            <p class="mb-2">
+          <div className="py-5 border-b border-default text-body">
+            <p className="mb-2">
               Flowbite is first conceptualized and designed using the Figma
               software so everything you see in the library has a design
               equivalent in our Figma file.
@@ -121,7 +121,7 @@ export default function WhatMAkesUs() {
               Check out the{" "}
               <a
                 href="https://flowbite.com/figma/"
-                class="text-fg-brand hover:underline"
+                className="text-fg-brand hover:underline"
               >
                 Figma design system
               </a>{" "}
@@ -133,7 +133,7 @@ export default function WhatMAkesUs() {
         <h2 id="accordion-flush-heading-3">
           <button
             type="button"
-            class="flex items-center justify-between w-full py-5 font-medium rtl:text-right text-body border-b border-default gap-3"
+            className="flex items-center justify-between w-full py-5 font-medium rtl:text-right text-body border-b border-default gap-3"
             data-accordion-target="#accordion-flush-body-3"
             aria-expanded="false"
             aria-controls="accordion-flush-body-3"
@@ -141,7 +141,7 @@ export default function WhatMAkesUs() {
             <span>Execution With Precision </span>
             <svg
               data-accordion-icon
-              class="w-5 h-5 rotate-180 shrink-0"
+              className="w-5 h-5 rotate-180 shrink-0"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -151,9 +151,9 @@ export default function WhatMAkesUs() {
             >
               <path
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 d="m5 15 7-7 7 7"
               />
             </svg>
@@ -161,28 +161,28 @@ export default function WhatMAkesUs() {
         </h2>
         <div
           id="accordion-flush-body-3"
-          class="hidden"
+          className="hidden"
           aria-labelledby="accordion-flush-heading-3"
         >
-          <div class="py-5 text-body border-b border-default">
-            <p class="mb-2">
+          <div className="py-5 text-body border-b border-default">
+            <p className="mb-2">
               The main difference is that the core components from Flowbite are
               open source under the MIT license, whereas Tailwind UI is a paid
               product. Another difference is that Flowbite relies on smaller and
               standalone components, whereas Tailwind UI offers sections of
               pages.
             </p>
-            <p class="mb-2">
+            <p className="mb-2">
               However, we actually recommend using both Flowbite, Flowbite Pro,
               and even Tailwind UI as there is no technical reason stopping you
               from using the best of two worlds.
             </p>
-            <p class="mb-2">Learn more about these technologies:</p>
-            <ul class="ps-5 list-disc">
+            <p className="mb-2">Learn more about these technologies:</p>
+            <ul className="ps-5 list-disc">
               <li>
                 <a
                   href="https://flowbite.com/pro/"
-                  class="text-fg-brand hover:underline"
+                  className="text-fg-brand hover:underline"
                 >
                   Flowbite Pro
                 </a>
@@ -191,7 +191,7 @@ export default function WhatMAkesUs() {
                 <a
                   href="https://tailwindui.com/"
                   rel="nofollow"
-                  class="text-fg-brand hover:underline"
+                  className="text-fg-brand hover:underline"
                 >
                   Tailwind UI
                 </a>
@@ -202,7 +202,7 @@ export default function WhatMAkesUs() {
         <h2 id="accordion-flush-heading-4">
           <button
             type="button"
-            class="flex items-center justify-between w-full py-5 font-medium rtl:text-right text-body border-b border-default gap-3"
+            className="flex items-center justify-between w-full py-5 font-medium rtl:text-right text-body border-b border-default gap-3"
             data-accordion-target="#accordion-flush-body-4"
             aria-expanded="false"
             aria-controls="accordion-flush-body-4"
@@ -210,7 +210,7 @@ export default function WhatMAkesUs() {
             <span>Execution With Precision </span>
             <svg
               data-accordion-icon
-              class="w-5 h-5 rotate-180 shrink-0"
+              className="w-5 h-5 rotate-180 shrink-0"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -220,9 +220,9 @@ export default function WhatMAkesUs() {
             >
               <path
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 d="m5 15 7-7 7 7"
               />
             </svg>
@@ -230,28 +230,28 @@ export default function WhatMAkesUs() {
         </h2>
         <div
           id="accordion-flush-body-4"
-          class="hidden"
+          className="hidden"
           aria-labelledby="accordion-flush-heading-4"
         >
-          <div class="py-5 text-body border-b border-default">
-            <p class="mb-2">
+          <div className="py-5 text-body border-b border-default">
+            <p className="mb-2">
               The main difference is that the core components from Flowbite are
               open source under the MIT license, whereas Tailwind UI is a paid
               product. Another difference is that Flowbite relies on smaller and
               standalone components, whereas Tailwind UI offers sections of
               pages.
             </p>
-            <p class="mb-2">
+            <p className="mb-2">
               However, we actually recommend using both Flowbite, Flowbite Pro,
               and even Tailwind UI as there is no technical reason stopping you
               from using the best of two worlds.
             </p>
-            <p class="mb-2">Learn more about these technologies:</p>
-            <ul class="ps-5 list-disc">
+            <p className="mb-2">Learn more about these technologies:</p>
+            <ul className="ps-5 list-disc">
               <li>
                 <a
                   href="https://flowbite.com/pro/"
-                  class="text-fg-brand hover:underline"
+                  className="text-fg-brand hover:underline"
                 >
                   Flowbite Pro
                 </a>
@@ -260,7 +260,7 @@ export default function WhatMAkesUs() {
                 <a
                   href="https://tailwindui.com/"
                   rel="nofollow"
-                  class="text-fg-brand hover:underline"
+                  className="text-fg-brand hover:underline"
                 >
                   Tailwind UI
                 </a>

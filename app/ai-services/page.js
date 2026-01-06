@@ -39,70 +39,70 @@ export default function SocialMediaMarketing() {
 
       <div className="container max-w-6xl mx-auto mb-20">
         <h2 className="text-3xl font-bold mb-10 text-center">What We Offer</h2>
-        <div class="flex flex-wrap justify-center items-center gap-10">
-          <div class="">
-            <div class="bg-white rounded-lg overflow-hidden shadow-2xl max-w-sm group overflow-hidden transition-transform duration-300 hover:translate-y-[-10px]">
-              <div class="h-48 w-full overflow-hidden">
+        <div className="flex flex-wrap justify-center items-center gap-10">
+          <div className="">
+            <div className="bg-white rounded-lg overflow-hidden shadow-2xl max-w-sm group overflow-hidden transition-transform duration-300 hover:translate-y-[-10px]">
+              <div className="h-48 w-full overflow-hidden">
                 <Image
                   width={500}
                   height={500}
-                  class="h-full w-full object-cover transform overflow-hidden transition-transform duration-[300ms] group-hover:scale-125 object-end"
+                  className="h-full w-full object-cover transform overflow-hidden transition-transform duration-[300ms] group-hover:scale-125 object-end"
                   src="/Dev (1).webp"
                   alt="Home in Countryside"
                 />
               </div>
 
-              <div class="p-6 pb-4 group-hover:bg-black duration-[0.3s]">
-                <h4 class="mt-1 font-bold text-xl leading-tight truncate group-hover:text-white duration-[0.3s]">
+              <div className="p-6 pb-4 group-hover:bg-black duration-[0.3s]">
+                <h4 className="mt-1 font-bold text-xl leading-tight truncate group-hover:text-white duration-[0.3s]">
                   AI-Driven Website Development
                 </h4>
-                <p class="Card-info text-gray-500 mt-2 group-hover:text-white">
+                <p className="Card-info text-gray-500 mt-2 group-hover:text-white">
                   Builds intelligent, and personalized websites that adapt to
                   user behavior for a browsing experience.
                 </p>
               </div>
             </div>
           </div>
-          <div class="">
-            <div class="bg-white rounded-lg overflow-hidden shadow-2xl max-w-sm group overflow-hidden transition-transform duration-300 hover:translate-y-[-10px]">
-              <div class="h-48 w-full overflow-hidden">
+          <div className="">
+            <div className="bg-white rounded-lg overflow-hidden shadow-2xl max-w-sm group overflow-hidden transition-transform duration-300 hover:translate-y-[-10px]">
+              <div className="h-48 w-full overflow-hidden">
                 <Image
                   width={500}
                   height={500}
-                  class="h-full w-full object-cover transform overflow-hidden transition-transform duration-[300ms] group-hover:scale-125 object-end"
+                  className="h-full w-full object-cover transform overflow-hidden transition-transform duration-[300ms] group-hover:scale-125 object-end"
                   src="/SEO.webp"
                   alt="Home in Countryside"
                 />
               </div>
 
-              <div class="p-6 pb-4 group-hover:bg-black duration-[0.3s]">
-                <h4 class="mt-1 font-bold text-xl leading-tight truncate group-hover:text-white duration-[0.3s]">
+              <div className="p-6 pb-4 group-hover:bg-black duration-[0.3s]">
+                <h4 className="mt-1 font-bold text-xl leading-tight truncate group-hover:text-white duration-[0.3s]">
                   AI-Driven BPO Chatbots
                 </h4>
-                <p class="Card-info text-gray-500 mt-2 group-hover:text-white">
+                <p className="Card-info text-gray-500 mt-2 group-hover:text-white">
                   Automates customer interactions with smart AI chatbots,
                   improving efficiency and client satisfaction.
                 </p>
               </div>
             </div>
           </div>
-          <div class="">
-            <div class="bg-white rounded-lg overflow-hidden shadow-2xl max-w-sm group overflow-hidden transition-transform duration-300 hover:translate-y-[-10px]">
-              <div class="h-48 w-full overflow-hidden">
+          <div className="">
+            <div className="bg-white rounded-lg overflow-hidden shadow-2xl max-w-sm group overflow-hidden transition-transform duration-300 hover:translate-y-[-10px]">
+              <div className="h-48 w-full overflow-hidden">
                 <Image
                   width={500}
                   height={500}
-                  class="h-full w-full object-cover transform overflow-hidden transition-transform duration-[300ms] group-hover:scale-125 object-end"
+                  className="h-full w-full object-cover transform overflow-hidden transition-transform duration-[300ms] group-hover:scale-125 object-end"
                   src="/BPO.webp"
                   alt="Home in Countryside"
                 />
               </div>
 
-              <div class="p-6 pb-4 group-hover:bg-black duration-[0.3s]">
-                <h4 class="mt-1 font-bold text-xl leading-tight truncate group-hover:text-white duration-[0.3s]">
+              <div className="p-6 pb-4 group-hover:bg-black duration-[0.3s]">
+                <h4 className="mt-1 font-bold text-xl leading-tight truncate group-hover:text-white duration-[0.3s]">
                   AI-Driven Digital Marketing
                 </h4>
-                <p class="Card-info text-gray-500 mt-2 group-hover:text-white">
+                <p className="Card-info text-gray-500 mt-2 group-hover:text-white">
                   Optimizes campaigns and predicts trends using AI insights to
                   maximize engagement and ROI.
                 </p>
