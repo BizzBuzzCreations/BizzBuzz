@@ -15,7 +15,7 @@ export default function SearchEngineOptimization() {
         description="Top SEO services in Prayagraj to boost your Google ranking, increase traffic, attract more customers, and enhance your online presence with simple, effective strategies."
       />
 
-      <div className="flex flex-wrap gap-20 justify-center items-center mb-10 mt-10">
+      <div className="flex flex-wrap px-5 gap-5 lg:gap-20 justify-center items-center mb-10 mt-10">
         <div className="">
           <Image
             className="rounded-lg"
@@ -80,7 +80,7 @@ export default function SearchEngineOptimization() {
         </div>
       </div>
 
-      <div className="flex flex-wrap gap-20 justify-center items-center mb-20 py-20 bg-[#e8e8e8]">
+      <div className="flex flex-wrap lg:gap-20 justify-center px-5 items-center mb-20 py-20 bg-[#e8e8e8]">
         <div className="max-w-xl text-center md:text-left">
           <h2 className="text-3xl font-bold mb-3">Why SEO is Important?</h2>
           <p>

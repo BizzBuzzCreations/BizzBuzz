@@ -6,6 +6,7 @@ import { ChevronDown } from "lucide-react";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [openService, setOpenService] = useState(false);
 
   return (
     <header className="nav sm:max-w-full max-w-[300] w-[90%] max-h-[90px] top-10 left-1/2 -translate-x-1/2 fixed rounded-full z-50">
@@ -150,18 +151,25 @@ export default function Navbar() {
             >
               About
             </Link>
-            <div className="group relative">
-              <div className="text-black flex justify-center items-center cursor-pointer focus:text-grey transition">
+            <div className="">
+              <div
+                onClick={() => setOpenService(!openService)}
+                className="text-black flex items-center cursor-pointer focus:text-grey transition"
+              >
                 Services{" "}
                 <ChevronDown
                   size={20}
-                  className="transition-transform duration-300 group-focus:rotate-180"
+                  className={`transition-transform duration-300 ${
+                    openService ? "rotate-180" : ""
+                  }`}
                 />
               </div>
               {/*Service Dropdown menu  */}
               <div
                 id="dropdown"
-                className="z-10 absolute right-0 top-7 hidden group-focus-within:block bg-gray-800 border border border-black rounded-base shadow-lg w-65 "
+                className={`z-10 absolute left-4 top-22  ${
+                  openService ? "block" : "hidden"
+                } bg-gray-800 border border border-black rounded-base shadow-lg w-65 `}
               >
                 <ul
                   className="p-2 text-sm text-white font-medium"
@@ -171,6 +179,10 @@ export default function Navbar() {
                     <Link
                       href="/web-development"
                       className="inline-flex items-center w-full p-2 hover:bg-gray-400 focus:text-black rounded"
+                      onClick={() => {
+                        setOpen(!open);
+                        setOpenService(!openService);
+                      }}
                     >
                       Website Development
                     </Link>
@@ -179,6 +191,10 @@ export default function Navbar() {
                     <Link
                       href="/search-engine-optimization"
                       className="inline-flex items-center w-full p-2 hover:bg-gray-400 focus:text-black rounded"
+                      onClick={() => {
+                        setOpen(!open);
+                        setOpenService(!openService);
+                      }}
                     >
                       Search Engine Optimization (SEO)
                     </Link>
@@ -187,6 +203,10 @@ export default function Navbar() {
                     <Link
                       href="/bpo-services"
                       className="inline-flex items-center w-full p-2 hover:bg-gray-400 focus:text-black rounded"
+                      onClick={() => {
+                        setOpen(!open);
+                        setOpenService(!openService);
+                      }}
                     >
                       BPO Services
                     </Link>
@@ -195,6 +215,10 @@ export default function Navbar() {
                     <Link
                       href="/business-consultancy"
                       className="inline-flex items-center w-full p-2 hover:bg-gray-400 focus:text-black rounded"
+                      onClick={() => {
+                        setOpen(!open);
+                        setOpenService(!openService);
+                      }}
                     >
                       Buisiness Consultancy
                     </Link>
@@ -203,6 +227,10 @@ export default function Navbar() {
                     <Link
                       href="/social-media-marketing"
                       className="inline-flex items-center w-full p-2 hover:bg-gray-400 focus:text-black rounded"
+                      onClick={() => {
+                        setOpen(!open);
+                        setOpenService(!openService);
+                      }}
                     >
                       Social Media Marketing
                     </Link>
@@ -211,6 +239,10 @@ export default function Navbar() {
                     <Link
                       href="/ai-services"
                       className="inline-flex items-center w-full p-2 hover:bg-gray-400 focus:text-black rounded"
+                      onClick={() => {
+                        setOpen(!open);
+                        setOpenService(!openService);
+                      }}
                     >
                       AI Services
                     </Link>
@@ -219,6 +251,10 @@ export default function Navbar() {
                     <Link
                       href="/digital-marketing"
                       className="inline-flex items-center w-full p-2 hover:bg-gray-400 focus:text-black rounded"
+                      onClick={() => {
+                        setOpen(!open);
+                        setOpenService(!openService);
+                      }}
                     >
                       Digital Marketing
                     </Link>

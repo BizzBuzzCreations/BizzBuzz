@@ -4,7 +4,7 @@ import Snowfall from "react-snowfall";
 
 export default function ServicesHero({ heading, description }) {
   return (
-    <div className='container text-white text-center flex flex-col justify-center items-center h-[80vh] bg-[url("/black-bg.jpg")] bg-cover bg-no-repeat'>
+    <div className='px-5 text-white text-center flex flex-col justify-center items-center h-[80vh] bg-[url("/black-bg.jpg")] bg-cover bg-no-repeat'>
       <Snowfall color="white" />
       <h1 className="md:text-5xl text-3xl mb-6">{heading}</h1>
       <p className="max-w-3xl mx-auto mb-8">{description}</p>

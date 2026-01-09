@@ -16,7 +16,7 @@ export default function BusinessConsultancy() {
         description="Business consultancy provides expert advice to improve operations, increase efficiency, solve problems, and drive growth, helping businesses achieve strategic goals."
       />
 
-      <div className="flex flex-wrap gap-20 justify-center items-center mb-20 mt-10">
+      <div className="flex flex-wrap px-5 gap-10 lg:gap-20 justify-center items-center mb-20 mt-10">
         <div className="">
           <Image
             className="rounded-lg"
@@ -26,7 +26,7 @@ export default function BusinessConsultancy() {
             alt="image"
           />
         </div>
-        <div className="max-w-xl text-center md:text-left">
+        <div className="max-w-xl text-center lg:text-left">
           <h2 className="text-3xl font-bold mb-3">
             Why Choose Bizz Buzz Creations for Business Consultancy?
           </h2>
@@ -39,7 +39,7 @@ export default function BusinessConsultancy() {
         </div>
       </div>
 
-      <div className="container max-w-6xl mx-auto">
+      <div className="container max-w-6xl mx-auto px-5">
         <h2 className="text-3xl font-bold mb-5 text-center">What We Offer</h2>
         <p className="max-w-4xl mx-auto text-center mb-10">
           Business consultancy identifies key challenges, provides expert
@@ -83,9 +83,9 @@ export default function BusinessConsultancy() {
         </div>
       </div>
 
-      <div className="flex flex-wrap gap-20 justify-center items-center mb-20 py-20 bg-[#e8e8e8]">
-        <div className="max-w-xl text-center md:text-left">
-          <h2 className="text-3xl font-bold mb-3">
+      <div className="flex flex-wrap px-5 gap-10 lg:gap-20 justify-center items-center mb-20 py-20 bg-[#e8e8e8]">
+        <div className="max-w-xl md:text-left">
+          <h2 className="text-3xl font-bold mb-5">
             What Makes Business Consultancy Essential?
           </h2>
           <div className="flex justify-center items-center mb-5">
