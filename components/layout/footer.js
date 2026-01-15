@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -29,36 +30,60 @@ export default function Footer() {
               </h4>
               <ul className="space-y-3">
                 <li>
-                  <a
-                    href="#"
+                  <Link
+                    href="/web-development"
                     className="text-sm hover:text-gray-300 transition-colors"
                   >
-                    Start a Project
-                  </a>
+                    Website Development
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#"
+                  <Link
+                    href="/search-engine-optimization"
                     className="text-sm hover:text-gray-300 transition-colors"
                   >
-                    Join the Team
-                  </a>
+                    Search Engine Optimization (SEO)
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#"
+                  <Link
+                    href="/bpo-services"
                     className="text-sm hover:text-gray-300 transition-colors"
                   >
-                    Press & Media
-                  </a>
+                    BPO Services
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#"
+                  <Link
+                    href="/business-consultancy"
                     className="text-sm hover:text-gray-300 transition-colors"
                   >
-                    Drop Us a Note
-                  </a>
+                    Buisiness Consultancy
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/digital-marketing"
+                    className="text-sm hover:text-gray-300 transition-colors"
+                  >
+                    Digital Marketing
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/social-media-marketing"
+                    className="text-sm hover:text-gray-300 transition-colors"
+                  >
+                    Social Media Marketing
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/ai-services"
+                    className="text-sm hover:text-gray-300 transition-colors"
+                  >
+                    AI Services
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -68,52 +93,28 @@ export default function Footer() {
               </h4>
               <ul className="space-y-3">
                 <li>
-                  <a
-                    href="#"
-                    className="text-sm hover:text-gray-300 transition-colors"
-                  >
-                    Work
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-sm hover:text-gray-300 transition-colors"
-                  >
-                    Services
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-sm hover:text-gray-300 transition-colors"
-                  >
-                    Latest
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
+                  <Link
+                    href="/about"
                     className="text-sm hover:text-gray-300 transition-colors"
                   >
                     About
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#"
+                  <Link
+                    href="https://bizzbuzzcreations.com/blog"
                     className="text-sm hover:text-gray-300 transition-colors"
                   >
-                    Careers
-                  </a>
+                    Blog
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#"
+                  <Link
+                    href="/contact"
                     className="text-sm hover:text-gray-300 transition-colors"
                   >
                     Contact
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -123,28 +124,28 @@ export default function Footer() {
               </h4>
               <ul className="space-y-3">
                 <li>
-                  <a
+                  <Link
                     href="#"
                     className="text-sm hover:text-gray-300 transition-colors"
                   >
                     Instagram
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     href="#"
                     className="text-sm hover:text-gray-300 transition-colors"
                   >
                     LinkedIn
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     href="#"
                     className="text-sm hover:text-gray-300 transition-colors"
                   >
                     Twitter
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -153,15 +154,22 @@ export default function Footer() {
         <div className="mt-16 pt-6 border-t border-zinc-800">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between">
             <div className="flex space-x-6 mb-4 md:mb-0">
-              <a href="#" className="text-xs text-gray-500 hover:text-gray-300">
+              <Link
+                href="#"
+                className="text-xs text-gray-500 hover:text-gray-300"
+              >
                 Sitemap
-              </a>
-              <a href="#" className="text-xs text-gray-500 hover:text-gray-300">
+              </Link>
+              <Link
+                href="#"
+                className="text-xs text-gray-500 hover:text-gray-300"
+              >
                 Privacy Policy
-              </a>
+              </Link>
             </div>
             <div className="text-xs text-gray-500">
-              © 2025, Site. All Rights Reserved.
+              © {new Date().getFullYear()}, BizzBuzz Creations. All Rights
+              Reserved.
             </div>
           </div>
         </div>

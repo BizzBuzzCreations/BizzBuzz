@@ -15,7 +15,7 @@ export default function HomeHero() {
             We are the Innovative Digital Marketing agency in India
           </h1>
           <svg className="animated-text" viewBox="0 0 1320 300">
-            <text x="50%" y="50%" dy=".35em" text-anchor="middle">
+            <text x="50%" y="50%" dy=".35em" textAnchor="middle">
               BizzBuzz Creations
             </text>
           </svg>

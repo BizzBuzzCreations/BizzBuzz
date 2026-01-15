@@ -17,11 +17,16 @@ export default function ContactForm() {
   };
   return (
     <div>
-      <h3 className="text-2xl font-semibold text-black mb-8">Send us a message</h3>
+      <h3 className="text-2xl font-semibold text-black mb-8">
+        Send us a message
+      </h3>
       <form className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label for="name" className="block text-lg font-medium text-black mb-2">
+            <label
+              htmlFor="name"
+              className="block text-lg font-medium text-black mb-2"
+            >
               Full Name
             </label>
             <input
@@ -35,7 +40,7 @@ export default function ContactForm() {
           </div>
           <div>
             <label
-              for="email"
+              htmlFor="email"
               className="block text-lg font-medium text-black mb-2"
             >
               Email Address
@@ -53,7 +58,7 @@ export default function ContactForm() {
 
         <div>
           <label
-            for="subject"
+            htmlFor="subject"
             className="block text-lg font-medium text-black mb-2"
           >
             Subject
@@ -70,7 +75,7 @@ export default function ContactForm() {
 
         <div>
           <label
-            for="message"
+            htmlFor="message"
             className="block text-lg font-medium text-black mb-2"
           >
             Message

@@ -122,6 +122,7 @@ export default function RecentWork() {
                       <div className="flex-none lg:flex items-center">
                         <div className="h-full w-full lg:h-full lg:w-full lg:mb-0 mb-3">
                           <Image
+                            alt="leadGen"
                             width={400}
                             height={400}
                             src="/leadGen.webp"
