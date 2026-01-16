@@ -208,7 +208,7 @@ export default function About() {
       </div>
 
       {/* industries we serve */}
-      <div className="container mb-20 bg-[#c2dae0] py-20 pt-10 max-w-6xl mx-auto px-10 rounded-2xl border border-[#A1C5CC] shadow-lg shadow-gray-400">
+      <div className="container mb-20 bg-blue-300 py-20 pt-10 max-w-6xl mx-auto px-10 rounded-2xl border border-[#A1C5CC] shadow-lg shadow-gray-400">
         <h2 className="text-3xl font-bold mb-15 text-center">
           Industries We Serve
         </h2>

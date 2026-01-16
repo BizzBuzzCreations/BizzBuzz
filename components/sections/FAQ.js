@@ -5,7 +5,7 @@ export default function FAQ() {
     <div className="mb-20 max-w-5xl mx-auto container">
       <h2 className="text-3xl font-bold text-center mb-12">How It Works</h2>
 
-      <ul className="max-w-7xl mx-auto mt-20 divide-y  shadow shadow-gray-600 rounded-xl">
+      <ul className="max-w-7xl mx-auto mt-20 divide-y shadow shadow-blue-600 rounded-xl">
         <li>
           <details className="group">
             <summary className="flex items-center gap-3 px-4 py-3 font-medium marker:content-none hover:cursor-pointer">

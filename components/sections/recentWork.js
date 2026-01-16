@@ -9,7 +9,7 @@ export default function RecentWork() {
         backgroundImage: 'url("/building.webp")',
       }}
     >
-      <div className="mx-auto w-full bg-white/10 backdrop-filter backdrop-blur-lg py-6">
+      <div className="mx-auto w-full backdrop-filter backdrop-blur-md py-6">
         <h2 className="text-3xl font-bold text-center my-5 ">
           Our Recent Work
         </h2>
@@ -18,11 +18,11 @@ export default function RecentWork() {
           className="bg-cover w-full flex justify-center items-center"
         >
           <div className="max-w-7xl mb-5">
-            <div className="w-12/12 mx-auto rounded-2xl bg-white/40 md:p-5 backdrop-filter backdrop-blur-lg">
+            <div className="w-12/12 mx-auto rounded-2xl md:p-5">
               <div>
                 <div className="flex flex-wrap items-center overflow-x-auto overflow-y-hidden py-2 justify-center text-gray-800">
                   <div className="flex flex-col md:w-1/2 xl:w-1/2  md:p-4 p-2">
-                    <div className="bg-white shadow-md rounded-3xl md:p-4 p-2 border border-gray-100">
+                    <div className="bg-white/40 shadow-md rounded-3xl md:p-4 p-2 border border-gray-100">
                       <div className="flex-none lg:flex items-center">
                         <div className="h-full w-full lg:h-full lg:w-full lg:mb-0 mb-3">
                           <Image
@@ -35,12 +35,12 @@ export default function RecentWork() {
                         </div>
                         <div className="flex flex-col md:w-1/2 w-65 ml-3 justify-between py-2">
                           <div className="flex flex-wrap">
-                            <h3 className="flex-auto text-lg font-medium">
+                            <h3 className="flex-auto text-lg font-medium text-black">
                               Website redesigns
                             </h3>
                           </div>
-                          <div className="flex py-4 text-sm text-gray-500">
-                            <div className="flex-1 inline-flex items-center">
+                          <div className="flex py-4 text-sm text-black">
+                            <div className="flex-1 inline-flex items-center ">
                               <p>
                                 If you're looking for random paragraphs, you've
                                 come to the right place. When a random word or a
@@ -54,7 +54,7 @@ export default function RecentWork() {
                     </div>
                   </div>
                   <div className="flex flex-col md:w-1/2 xl:w-1/2 md:p-4 p-2">
-                    <div className="bg-white shadow-md rounded-3xl md:p-4 p-2 border border-gray-100">
+                    <div className="bg-white/40 shadow-md rounded-3xl md:p-4 p-2 border border-gray-100">
                       <div className="flex-none lg:flex items-center">
                         <div className="h-full w-full lg:h-full lg:w-full lg:mb-0 mb-3">
                           <Image
@@ -67,11 +67,11 @@ export default function RecentWork() {
                         </div>
                         <div className="flex flex-col md:w-1/2 w-65 ml-3 justify-between py-2">
                           <div className="flex flex-wrap">
-                            <h3 className="flex-auto text-lg font-medium">
+                            <h3 className="flex-auto text-lg font-medium text-black">
                               SEO result graphs
                             </h3>
                           </div>
-                          <div className="flex py-4 text-sm text-gray-500">
+                          <div className="flex py-4 text-sm text-black">
                             <div className="flex-1 inline-flex items-center">
                               <p>
                                 If you're looking for random paragraphs, you've
@@ -86,7 +86,7 @@ export default function RecentWork() {
                     </div>
                   </div>
                   <div className="flex flex-col md:w-1/2 xl:w-1/2 md:p-4 p-2">
-                    <div className="bg-white shadow-md rounded-3xl md:p-4 p-2 border border-gray-100">
+                    <div className="bg-white/40 shadow-md rounded-3xl md:p-4 p-2 border border-gray-100">
                       <div className="flex-none lg:flex items-center">
                         <div className="h-full w-full lg:h-full lg:w-full lg:mb-0 mb-3">
                           <Image
@@ -99,11 +99,11 @@ export default function RecentWork() {
                         </div>
                         <div className="flex flex-col md:w-1/2 w-65 ml-3 justify-between py-2">
                           <div className="flex flex-wrap">
-                            <h3 className="flex-auto text-lg font-medium">
+                            <h3 className="flex-auto text-lg font-medium text-black">
                               Social media creatives
                             </h3>
                           </div>
-                          <div className="flex py-4 text-sm text-gray-500">
+                          <div className="flex py-4 text-sm text-black">
                             <div className="flex-1 inline-flex items-center">
                               <p>
                                 If you're looking for random paragraphs, you've
@@ -118,7 +118,7 @@ export default function RecentWork() {
                     </div>
                   </div>
                   <div className="flex flex-col md:w-1/2 xl:w-1/2 md:p-4 p-2">
-                    <div className="bg-white shadow-md rounded-3xl md:p-4 p-2 border border-gray-100">
+                    <div className="bg-white/40 shadow-md rounded-3xl md:p-4 p-2 border border-gray-100">
                       <div className="flex-none lg:flex items-center">
                         <div className="h-full w-full lg:h-full lg:w-full lg:mb-0 mb-3">
                           <Image
@@ -131,11 +131,11 @@ export default function RecentWork() {
                         </div>
                         <div className="flex flex-col md:w-1/2 w-65 ml-3 justify-between py-2">
                           <div className="flex flex-wrap">
-                            <h3 className="flex-auto text-lg font-medium">
+                            <h3 className="flex-auto text-lg font-medium text-black">
                               Lead generation ad results
                             </h3>
                           </div>
-                          <div className="flex py-4 text-sm text-gray-500">
+                          <div className="flex py-4 text-sm text-black">
                             <div className="flex-1 inline-flex items-center">
                               <p>
                                 If you're looking for random paragraphs, you've

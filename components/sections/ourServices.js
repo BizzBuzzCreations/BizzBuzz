@@ -11,7 +11,7 @@ export default function OurServices() {
 
         <div className="flex flex-wrap gap-5 items-center justify-center overflow-hidden">
           <div
-            className="tilt-card w-90 h-90 bg-gradient-to-br from-black to-black/78
+            className="service-card tilt-card w-90 h-90 bg-gradient-to-br from-black to-black/78
  rounded-2xl shadow-2xl relative cursor-pointer transition-all duration-300 ease-out hover:scale-100"
           >
             <div className="glow opacity-0 transition-opacity duration-300"></div>
@@ -37,7 +37,7 @@ export default function OurServices() {
             </div>
           </div>
           <div
-            className="tilt-card w-90 h-90 bg-gradient-to-br from-black to-black/78
+            className="service-card tilt-card w-90 h-90 bg-gradient-to-br from-black to-black/78
  rounded-2xl shadow-2xl relative cursor-pointer transition-all duration-300 ease-out hover:scale-100"
           >
             <div className="glow opacity-0 transition-opacity duration-300"></div>
@@ -63,7 +63,7 @@ export default function OurServices() {
             </div>
           </div>
           <div
-            className="tilt-card w-90 h-90 bg-gradient-to-br from-black to-black/78
+            className="service-card tilt-card w-90 h-90 bg-gradient-to-br from-black to-black/78
  rounded-2xl shadow-2xl relative cursor-pointer transition-all duration-300 ease-out hover:scale-100"
           >
             <div className="glow opacity-0 transition-opacity duration-300"></div>
@@ -89,7 +89,7 @@ export default function OurServices() {
             </div>
           </div>
           <div
-            className="tilt-card w-90 h-90 bg-gradient-to-br from-black to-black/78
+            className="service-card tilt-card w-90 h-90 bg-gradient-to-br from-black to-black/78
  rounded-2xl shadow-2xl relative cursor-pointer transition-all duration-300 ease-out hover:scale-100"
           >
             <div className="glow opacity-0 transition-opacity duration-300"></div>
@@ -115,7 +115,7 @@ export default function OurServices() {
             </div>
           </div>
           <div
-            className="tilt-card w-90 h-90 bg-gradient-to-br from-black to-black/78
+            className="service-card tilt-card w-90 h-90 bg-gradient-to-br from-black to-black/78
  rounded-2xl shadow-2xl relative cursor-pointer transition-all duration-300 ease-out hover:scale-100"
           >
             <div className="glow opacity-0 transition-opacity duration-300"></div>
@@ -141,7 +141,7 @@ export default function OurServices() {
             </div>
           </div>
           <div
-            className="tilt-card w-90 h-90 bg-gradient-to-br from-black to-black/78
+            className="service-card tilt-card w-90 h-90 bg-gradient-to-br from-black to-black/78
  rounded-2xl shadow-2xl relative cursor-pointer transition-all duration-300 ease-out hover:scale-100"
           >
             <div className="glow opacity-0 transition-opacity duration-300"></div>
@@ -172,3 +172,13 @@ export default function OurServices() {
     </>
   );
 }
+<div className="min-h-screen w-full bg-[#020617] relative">
+  {/* Dark Radial Glow Background */}
+  <div
+    className="absolute inset-0 z-0"
+    style={{
+      backgroundImage: `radial-gradient(circle 500px at 50% 200px, #3e3e3e, transparent)`,
+    }}
+  />
+  {/* Your Content/Components */}
+</div>;

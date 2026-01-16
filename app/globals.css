@@ -134,6 +134,14 @@
 }
 
 /* service card style */
+.service-card {
+  background-color: #0766ad;
+  background-image: radial-gradient(at 7% 93%, #0766ad 0%, transparent 60%),
+    radial-gradient(at 12% 64%, #29adb2 0%, transparent 50%),
+    radial-gradient(at 52% 83%, #c5e898 0%, transparent 40%),
+    radial-gradient(at 19% 72%, #f3f3f3 0%, transparent 30%);
+}
+
 .tilt-card {
   transform-style: preserve-3d;
   transform: perspective(1000px);
@@ -152,19 +160,21 @@
   background-image: radial-gradient(circle at 50% -20%, #ffffff22, #0000000f);
 }
 
-/* About header animation */
-.about-sec {
-  animation: text 10s infinite;
+/* logo carousel */
+
+.animate-scrollReverse {
+  animation: scrollReverse 30s linear infinite;
 }
 
-@keyframes text {
+.animate-scrollReverse:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scrollReverse {
   0% {
-    background-position: 0 0;
+    transform: translateX(-55%);
   }
-  50% {
-    background-position: 200px 0;
-  }
-  100% {
-    background-position: 0 0;
+  95% {
+    transform: translateX(50%);
   }
 }

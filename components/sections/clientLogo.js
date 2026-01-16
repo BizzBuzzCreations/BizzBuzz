@@ -5,17 +5,15 @@ export default function ClientLogo() {
   return (
     <>
       <div
-        className="py-10 pb-10 mb-10 bg-gray-200"
+        className="relative flex justify-around gap-5 overflow-hidden shrink-0"
         style={{
-          background: "#ffffff",
-          backgroundImage:
-            "radial-gradient(circle at 1px 1px, rgba(0, 0, 0, 0.35) 1px, transparent 0)",
-          backgroundSize: "20px 20px",
+          maskImage:
+            "linear-gradient(to left, transparent 0%, black 20%, black 80%, transparent 95%)",
         }}
       >
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-full mx-auto ">
           <h2 className="text-3xl font-bold text-center mb-10">Our Clients</h2>
-          <div className="flex flex-wrap gap-10 justify-center items-center">
+          <div className="animate-scrollReverse py-20 flex flex-nowrap w-max min-w-full overflow-hidden relative gap-10 justify-around shrink-0">
             <Image
               src="/parivartanLogo.png"
               width={150}
@@ -59,22 +57,22 @@ export default function ClientLogo() {
               height={150}
               alt="ukclaims"
             />
+            <Image
+              src="/ukclaims.png"
+              width={150}
+              height={150}
+              alt="ukclaims"
+            />
+            <Image
+              src="/ukclaims.png"
+              width={150}
+              height={150}
+              alt="ukclaims"
+            />
+         
           </div>
         </div>
       </div>
     </>
   );
 }
-<div className="min-h-screen w-full bg-white relative">
-  {/* Noise Texture (Darker Dots) Background */}
-  <div
-    className="absolute inset-0 z-0"
-    style={{
-      background: "#ffffff",
-      backgroundImage:
-        "radial-gradient(circle at 1px 1px, rgba(0, 0, 0, 0.35) 1px, transparent 0)",
-      backgroundSize: "20px 20px",
-    }}
-  />
-  {/* Your Content/Components */}
-</div>;
