@@ -11,7 +11,7 @@ export default function ClientLogo() {
             "linear-gradient(to left, transparent 0%, black 20%, black 80%, transparent 95%)",
         }}
       >
-        <div className="max-w-full mx-auto ">
+        <div className="max-w-full mx-auto mt-10">
           <h2 className="text-3xl font-bold text-center mb-10">Our Clients</h2>
           <div className="animate-scrollReverse py-20 flex flex-nowrap w-max min-w-full overflow-hidden relative gap-10 justify-around shrink-0">
             <Image
@@ -69,7 +69,6 @@ export default function ClientLogo() {
               height={150}
               alt="ukclaims"
             />
-         
           </div>
         </div>
       </div>

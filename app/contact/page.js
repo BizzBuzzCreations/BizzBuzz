@@ -5,7 +5,7 @@ export default function Contact() {
   return (
     <>
       <section
-        className="container py-40 px-4 md:px-12 lg:px-24"
+        className="py-40 px-4 md:px-12 lg:px-24"
         style={{
           backgroundImage: `
           repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.1) 0, rgba(0, 0, 0, 0.1) 1px, transparent 1px, transparent 20px),
