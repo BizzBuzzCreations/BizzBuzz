@@ -3,6 +3,20 @@
 @plugin "flowbite/plugin";
 @source "../node_modules/flowbite";
 
+/* globals.css */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-fira), sans-serif;
+}
+
+body {
+  font-family: var(--font-ibm), sans-serif;
+}
+
 /* Navbar style */
 .nav {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
@@ -103,7 +117,7 @@
 .animated-text text {
   text-transform: uppercase;
   animation: stroke 5s infinite alternate;
-  strokewidth: 2;
+  stroke-width: 2;
   stroke: white;
   font-size: 120px;
 }
@@ -113,7 +127,7 @@
     stroke: white;
     stroke-dashoffset: 25%;
     stroke-dasharray: 0 50%;
-    strokewidth: 2;
+    stroke-width: 2;
   }
   70% {
     fill: rgba(72, 138, 20, 0);
@@ -122,21 +136,22 @@
   80% {
     fill: rgba(72, 138, 20, 0);
     stroke: white;
-    strokewidth: 3;
+    stroke-width: 3;
   }
   100% {
     fill: white;
     stroke: rgba(54, 95, 160, 0);
     stroke-dashoffset: -25%;
     stroke-dasharray: 50% 0;
-    strokewidth: 0;
+    stroke-width: 0;
   }
 }
 
 /* service card style */
 .service-card {
   background-color: #0766ad;
-  background-image: radial-gradient(at 7% 93%, #0766ad 0%, transparent 60%),
+  background-image:
+    radial-gradient(at 7% 93%, #0766ad 0%, transparent 60%),
     radial-gradient(at 12% 64%, #29adb2 0%, transparent 50%),
     radial-gradient(at 52% 83%, #c5e898 0%, transparent 40%),
     radial-gradient(at 19% 72%, #f3f3f3 0%, transparent 30%);

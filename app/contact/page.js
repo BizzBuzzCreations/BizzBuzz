@@ -56,7 +56,7 @@ export default function Contact() {
                       <h4 className="text-lg font-semibold text-black mb-1">
                         Phone
                       </h4>
-                      <p className="text-lg text-gray-600">+1 (555) 123-4567</p>
+                      <p className="text-lg text-gray-600">+91 8115585285</p>
                     </div>
                   </div>
 
@@ -80,7 +80,9 @@ export default function Contact() {
                       <h4 className="text-lg font-semibold text-black mb-1">
                         Email
                       </h4>
-                      <p className="text-lg text-gray-600">hello@company.com</p>
+                      <p className="text-lg text-gray-600">
+                        info@bizzbuzzcreations.com
+                      </p>
                     </div>
                   </div>
 
@@ -111,9 +113,9 @@ export default function Contact() {
                         Office
                       </h4>
                       <p className="text-lg text-gray-600">
-                        123 Business Ave, Suite 100
-                        <br />
-                        New York, NY 10001
+                        43/33, Tej Bahdur Sapru Rd, near Jain Electronics,
+                        Agnipath Colony, Civil Lines <br />
+                        Prayagraj, Uttar Pradesh- 211001
                       </p>
                     </div>
                   </div>
@@ -139,9 +141,7 @@ export default function Contact() {
                         Business Hours
                       </h4>
                       <p className="text-lg text-gray-600">
-                        Mon - Fri: 9:00 AM - 6:00 PM
-                        <br />
-                        Sat: 10:00 AM - 4:00 PM
+                        Mon - Sat: 11:00 AM - 7:00 PM
                       </p>
                     </div>
                   </div>

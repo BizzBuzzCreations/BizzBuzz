@@ -21,7 +21,7 @@ export default function RecentWork() {
             <div className="w-12/12 mx-auto rounded-2xl md:p-5">
               <div>
                 <div className="flex flex-wrap items-center overflow-x-auto overflow-y-hidden py-2 justify-center text-gray-800">
-                  <div className="flex flex-col md:w-1/2 xl:w-1/2  md:p-4 p-2">
+                  <div className="flex flex-col md:w-1/2 xl:w-1/2 w-[300px] md:p-4 p-2">
                     <div className="bg-white/40 shadow-md rounded-3xl md:p-4 p-2 border border-gray-100">
                       <div className="flex-none lg:flex items-center">
                         <div className="h-full w-full lg:h-full lg:w-full lg:mb-0 mb-3">
@@ -53,7 +53,7 @@ export default function RecentWork() {
                       </div>
                     </div>
                   </div>
-                  <div className="flex flex-col md:w-1/2 xl:w-1/2 md:p-4 p-2">
+                  <div className="flex flex-col w-[300px] md:w-1/2 xl:w-1/2 md:p-4 p-2">
                     <div className="bg-white/40 shadow-md rounded-3xl md:p-4 p-2 border border-gray-100">
                       <div className="flex-none lg:flex items-center">
                         <div className="h-full w-full lg:h-full lg:w-full lg:mb-0 mb-3">
@@ -85,7 +85,7 @@ export default function RecentWork() {
                       </div>
                     </div>
                   </div>
-                  <div className="flex flex-col md:w-1/2 xl:w-1/2 md:p-4 p-2">
+                  <div className="flex flex-col w-[300px] md:w-1/2 xl:w-1/2 md:p-4 p-2">
                     <div className="bg-white/40 shadow-md rounded-3xl md:p-4 p-2 border border-gray-100">
                       <div className="flex-none lg:flex items-center">
                         <div className="h-full w-full lg:h-full lg:w-full lg:mb-0 mb-3">
@@ -117,7 +117,7 @@ export default function RecentWork() {
                       </div>
                     </div>
                   </div>
-                  <div className="flex flex-col md:w-1/2 xl:w-1/2 md:p-4 p-2">
+                  <div className="flex flex-col w-[300px] md:w-1/2 xl:w-1/2 md:p-4 p-2">
                     <div className="bg-white/40 shadow-md rounded-3xl md:p-4 p-2 border border-gray-100">
                       <div className="flex-none lg:flex items-center">
                         <div className="h-full w-full lg:h-full lg:w-full lg:mb-0 mb-3">

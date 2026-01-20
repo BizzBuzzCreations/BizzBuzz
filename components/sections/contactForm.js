@@ -1,4 +1,5 @@
 "use client";
+import { sendMail } from "@/actions/serverActions";
 import React, { useState } from "react";
 
 export default function ContactForm() {
@@ -15,12 +16,29 @@ export default function ContactForm() {
       [e.target.name]: e.target.value,
     });
   };
+
+  const handleSubmit = async () => {
+    if (
+      !formData?.name ||
+      !formData?.email ||
+      !formData?.subject ||
+      !formData?.message
+    ) {
+      return;
+    }
+    await sendMail({
+      name: formData?.name,
+      email: formData?.email,
+      subject: formData?.subject,
+      text: formData?.message,
+    });
+  };
   return (
     <div>
       <h3 className="text-2xl font-semibold text-black mb-8">
         Send us a message
       </h3>
-      <form className="space-y-6">
+      <form className="space-y-6" action={handleSubmit}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label
@@ -36,6 +54,7 @@ export default function ContactForm() {
               id="name"
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-black text-lg"
               placeholder="Your name"
+              required
             />
           </div>
           <div>
@@ -52,6 +71,7 @@ export default function ContactForm() {
               id="email"
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-black text-lg"
               placeholder="your@email.com"
+              required
             />
           </div>
         </div>
@@ -70,6 +90,7 @@ export default function ContactForm() {
             id="subject"
             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-black text-lg"
             placeholder="What is this regarding?"
+            required
           />
         </div>
 
@@ -87,6 +108,7 @@ export default function ContactForm() {
             rows="5"
             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-black text-lg"
             placeholder="Tell us about your project..."
+            required
           ></textarea>
         </div>
 
