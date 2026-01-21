@@ -4,6 +4,7 @@ import Script from "next/script";
 import Navbar from "../components/layout/navbar";
 import Footer from "../components/layout/footer";
 import { ToastContainer, Bounce } from "react-toastify";
+import FlowbiteInit from "@/components/sections/FlowbiteInit";
 
 const firaSans = Fira_Sans({
   subsets: ["latin"],
@@ -31,6 +32,7 @@ export default function RootLayout({ children }) {
         className={`${firaSans.variable} ${ibmPlexSans.variable} antialiased`}
       >
         <Navbar />
+        <FlowbiteInit />
         {children}
         <Footer />
         <Script src="/js/flowbite.min.js" strategy="afterInteractive" />
