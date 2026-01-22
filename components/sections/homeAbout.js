@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function HomeAbout() {
   return (
-    <div className="container py-10 flex flex-wrap justify-center gap-20 items-center mx-auto mb-20">
+    <div className="px-10 py-10 flex flex-wrap justify-center gap-10 items-center mx-auto mb-20">
       <div className="md:text-start text-center">
         <p>About Us</p>
         <h2 className="md:text-4xl text-3xl font-bold mb-4">
@@ -24,7 +24,13 @@ export default function HomeAbout() {
           </button>
         </Link>
       </div>
-      <Image src="/banner.png" alt="banner" width={400} height={400} />
+      <Image
+        src="/Industry Authority (1).png"
+        alt="banner"
+        width={500}
+        height={500}
+        className="xl:w-lg lg:w-md"
+      />
     </div>
   );
 }

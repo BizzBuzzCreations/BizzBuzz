@@ -14,6 +14,7 @@ export default function BusinessConsultancy() {
       <ServicesHero
         heading="Business Consultancy Services in Prayagraj"
         description="Business consultancy provides expert advice to improve operations, increase efficiency, solve problems, and drive growth, helping businesses achieve strategic goals."
+        img="/businesscons.webp"
       />
 
       <div className="flex flex-wrap px-5 gap-10 lg:gap-20 justify-center items-center mb-20 mt-10">

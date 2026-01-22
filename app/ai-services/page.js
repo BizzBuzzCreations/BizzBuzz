@@ -13,6 +13,7 @@ export default function SocialMediaMarketing() {
       <ServicesHero
         heading="One-Stop AI Solution for Your Business"
         description="AI is not the future—it’s happening now. Our solutions simplify complex workflows, optimize performance, and fuel business growth."
+        img="/aiservice.webp"
       />
 
       <div className="flex flex-wrap gap-10 lg:gap-20 justify-center items-center mb-20 mt-10">

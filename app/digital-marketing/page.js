@@ -16,6 +16,7 @@ export default function digitalMarketing() {
         description="We create the marketing agency in prayagraj that truly speaks to
             people and delivers results that matter. Our focus is simple—clear
             communication, trust, and growth for your business."
+        img="/digitalmarketing.webp"
       />
 
       <div className="flex flex-wrap px-5 gap-5 lg:gap-20 justify-center items-center mb-10 mt-10">

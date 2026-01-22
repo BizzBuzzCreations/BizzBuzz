@@ -33,8 +33,7 @@ export default function About() {
         <h2 className="text-3xl font-bold mb-10 text-center">Who We Are</h2>
         <div className="mx-auto 2xl:px-15 px-5 flex flex-wrap justify-center items-center gap-15 mb-20">
           <Image
-            className="rounded-lg shadow-lg shadow-gray-400"
-            src="/team.webp"
+            src="/banner.png"
             alt="team"
             width={500}
             height={500}

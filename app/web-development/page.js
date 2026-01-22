@@ -15,6 +15,7 @@ export default function WebDevelopment() {
         description="We write smart and easy code that helps your business grow. From
         websites to custom solutions, our work makes things smooth, trusted, and
         result-driven."
+        img="/web-dev.webp"
       />
 
       <div className="flex flex-wrap lg:gap-20 justify-center items-center mb-10 px-5">

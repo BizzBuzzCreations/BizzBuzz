@@ -13,6 +13,7 @@ export default function SearchEngineOptimization() {
       <ServicesHero
         heading="Search Engine Optimization (SEO) Services in Prayagraj"
         description="Top SEO services in Prayagraj to boost your Google ranking, increase traffic, attract more customers, and enhance your online presence with simple, effective strategies."
+        img="/seo2.webp"
       />
 
       <div className="flex flex-wrap px-5 gap-5 lg:gap-20 justify-center items-center mb-10 mt-10">

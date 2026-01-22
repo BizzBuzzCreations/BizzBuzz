@@ -13,6 +13,7 @@ export default function SocialMediaMarketing() {
       <ServicesHero
         heading="Social Media Marketing (SMM) Services in Prayagraj"
         description="Services providing Social Media Marketing in prayagraj helps to augment the online presence of businesses, provide engagement to audiences for a better flow, and drive traffic with efficiency."
+        img="/socialmedia (2).webp"
       />
 
       <div className="flex flex-wrap px-5 lg:gap-20 justify-center items-center mb-10 mt-10">
