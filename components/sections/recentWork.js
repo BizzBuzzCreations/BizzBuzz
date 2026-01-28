@@ -10,7 +10,7 @@ export default function RecentWork() {
       }}
     >
       <div className="mx-auto w-full backdrop-filter backdrop-blur-md py-6">
-        <h2 className="text-3xl font-bold text-center my-5 ">
+        <h2 className="md:text-4xl text-3xl font-bold text-center my-5 ">
           Our Recent Work
         </h2>
         <div

@@ -131,9 +131,9 @@ export default function SocialMediaMarketing() {
         <div className="">
           <Image
             className="rounded-lg"
-            width={500}
-            height={500}
-            src="/ai-img.webp"
+            width={400}
+            height={400}
+            src="/aiImg.webp"
             alt="image"
           />
         </div>

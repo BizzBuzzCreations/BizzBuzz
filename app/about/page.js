@@ -13,12 +13,6 @@ import {
   Goal,
   TrendingUp,
   ChartNoAxesCombined,
-  Heart,
-  Building,
-  GraduationCap,
-  Hospital,
-  MapPin,
-  Handshake,
 } from "lucide-react";
 import OurServices from "@/components/sections/ourServices";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
@@ -33,7 +27,7 @@ export default function About() {
         <h2 className="text-3xl font-bold mb-10 text-center">Who We Are</h2>
         <div className="mx-auto 2xl:px-15 px-5 flex lg:flex-row flex-col justify-center items-center gap-15 mb-20">
           <Image src="/banner.png" alt="team" width={500} height={500} />
-          <div>
+          <div className="text-gray-900">
             <p className="leading-relaxed lg:text-left text-center max-w-xl mx-auto mb-4">
               A place where innovation meets excellence! For almost a year,
               we’ve been helping businesses with a full range of services
@@ -203,7 +197,7 @@ export default function About() {
 
       <CTA2 />
       <WhyChooseUs />
-      <ClientLogo />
+      {/* <ClientLogo /> */}
       <Reviews />
       <Counter />
       <CTA />

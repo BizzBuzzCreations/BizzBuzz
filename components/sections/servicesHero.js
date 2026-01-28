@@ -3,7 +3,6 @@ import { Handshake, Rocket } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import Snowfall from "react-snowfall";
 
 export default function ServicesHero({ heading, description, img }) {
   return (
@@ -12,13 +11,8 @@ export default function ServicesHero({ heading, description, img }) {
         background:
           "radial-gradient(circle, rgba(86, 167, 229, 1) 0%, rgba(4, 99, 219, 1) 70%)",
       }}
-      className="min-h-screen text-white lg:pt-24 pt-50 pb-12 px-6 md:px-12 flex flex-col lg:flex-row items-center justify-center gap-12"
+      className="min-h-[90vh] text-white lg:pt-24 pt-50 pb-12 px-6 md:px-12 flex flex-col lg:flex-row items-center justify-center gap-12"
     >
-      {(new Date().getMonth() === 11 || new Date().getMonth() === 0) && (
-        <div className="absolute inset-0 z-0">
-          <Snowfall color="#dee4fd" />
-        </div>
-      )}
       <div>
         <h1 className="sm:text-5xl md:max-w-2xl lg:text-left text-center text-3xl mb-6">
           {heading}

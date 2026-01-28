@@ -36,7 +36,7 @@ export default function Reviews() {
   ];
   return (
     <div className="mb-20 container mx-auto">
-      <h2 className="text-3xl font-bold text-center mb-5">Customer Reviews</h2>
+      <h2 className="md:text-4xl text-3xl font-bold text-center mb-5">Customer Reviews</h2>
       <div
         className="md:max-w-6xl max-w-2xl mx-auto relative"
         id="carousel-container"

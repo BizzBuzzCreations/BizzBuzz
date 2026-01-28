@@ -21,34 +21,42 @@ export default function Home() {
       <HomeAbout />
 
       {/* Our Services */}
-      <OurServices />
+      <div className="bg-gray-50 py-10">
+        <OurServices />
+      </div>
 
       {/* CTA-2 Section */}
       <CTA2 />
 
-      {/* What Makes Us Different section */}
-      <WhatMAkesUs />
+      <div className="bg-gray-50 py-10">
+        {/* What Makes Us Different section */}
+        <WhatMAkesUs />
 
-      {/* Why choose us */}
-      <WhyChooseUs />
+        {/* Why choose us */}
+        <WhyChooseUs />
+      </div>
 
       {/* Why Choose Us Section */}
       <RecentWork />
 
       {/* our client carousel */}
-      <ClientLogo />
+      {/* <ClientLogo /> */}
 
-      {/* Reviews section */}
-      <Reviews />
+      <div className="py-10">
+        {/* Reviews section */}
+        <Reviews />
+      </div>
 
       {/* Growth counter  */}
       <Counter />
 
-      {/* FAQ section */}
-      <FAQ />
+      <div className="bg-gray-50 py-10">
+        {/* FAQ section */}
+        <FAQ />
 
-      {/* CTA section */}
-      <CTA />
+        {/* CTA section */}
+        <CTA />
+      </div>
     </>
   );
 }
