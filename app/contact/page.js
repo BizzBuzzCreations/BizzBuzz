@@ -28,7 +28,7 @@ export default function Contact() {
             </p>
           </div>
 
-          <div className="bg-white p-12 rounded-lg shadow-sm">
+          <div className="bg-white border border-gray-200 p-12 rounded-lg shadow-sm">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
               <div>
                 <h3 className="text-2xl font-semibold text-black mb-8">

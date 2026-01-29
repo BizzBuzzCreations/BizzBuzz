@@ -21,17 +21,17 @@ export default function Home() {
       <HomeAbout />
 
       {/* Our Services */}
-      <div className="bg-gray-50 py-10">
+      <div className="py-10">
         <OurServices />
       </div>
 
       {/* CTA-2 Section */}
       <CTA2 />
 
-      <div className="bg-gray-50 py-10">
-        {/* What Makes Us Different section */}
-        <WhatMAkesUs />
+      {/* What Makes Us Different section */}
+      <WhatMAkesUs />
 
+      <div className="py-10">
         {/* Why choose us */}
         <WhyChooseUs />
       </div>
@@ -50,7 +50,7 @@ export default function Home() {
       {/* Growth counter  */}
       <Counter />
 
-      <div className="bg-gray-50 py-10">
+      <div className="py-10">
         {/* FAQ section */}
         <FAQ />
 

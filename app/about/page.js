@@ -136,7 +136,12 @@ export default function About() {
           growth:
         </p>
         <div className="container mx-auto px-10 flex flex-wrap justify-center items-center gap-10">
-          <div className="relative bg-gray-200 p-5 rounded-lg max-w-sm shadow-lg shadow-gray-400 border border-gray-300">
+          <div
+            style={{
+              background: "linear-gradient(to right, #0B60B0 0%, #40A2D8 100%)",
+            }}
+            className="relative p-4 text-white rounded-lg max-w-sm shadow-lg shadow-gray-400 border border-gray-700"
+          >
             <Search size={30} className="mb-2 " />
             <h3 className="text-2xl font-semibold mb-2">
               Business & Competitor Analysis
@@ -150,7 +155,12 @@ export default function About() {
               </span>
             </div>
           </div>
-          <div className="relative bg-gray-200 p-5 rounded-lg max-w-sm shadow-lg shadow-gray-400 border border-gray-300">
+          <div
+            style={{
+              background: "linear-gradient(to right, #0B60B0 0%, #40A2D8 100%)",
+            }}
+            className="relative p-4 text-white rounded-lg max-w-sm shadow-lg shadow-gray-400 border border-gray-700"
+          >
             <Goal size={30} className="mb-2 " />
             <h3 className="text-2xl font-semibold mb-2">Strategy & Planning</h3>
             <p className="text-lg leading-relaxed max-w-xl mx-auto mb-4">
@@ -163,7 +173,12 @@ export default function About() {
               </span>
             </div>
           </div>
-          <div className="relative bg-gray-200 p-5 rounded-lg max-w-sm shadow-lg shadow-gray-400 border border-gray-300">
+          <div
+            style={{
+              background: "linear-gradient(to right, #0B60B0 0%, #40A2D8 100%)",
+            }}
+            className="relative p-4 text-white rounded-lg max-w-sm shadow-lg shadow-gray-400 border border-gray-700"
+          >
             <TrendingUp size={30} className="mb-2 " />
             <h3 className="text-2xl font-semibold mb-2">
               Execution & Optimization
@@ -178,7 +193,12 @@ export default function About() {
               </span>
             </div>
           </div>
-          <div className="relative bg-gray-200 p-5 rounded-lg max-w-sm shadow-lg shadow-gray-400 border border-gray-300">
+          <div
+            style={{
+              background: "linear-gradient(to right, #0B60B0 0%, #40A2D8 100%)",
+            }}
+            className="relative  p-4 text-white rounded-lg max-w-sm shadow-lg shadow-gray-400 border border-gray-700"
+          >
             <ChartNoAxesCombined size={30} className="mb-2 " />
             <h3 className="text-2xl font-semibold mb-2">
               Tracking, Scaling & Growth

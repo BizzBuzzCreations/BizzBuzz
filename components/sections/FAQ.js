@@ -8,19 +8,19 @@ export default function FAQ() {
       </h2>
 
       <div
-        id="accordion-flush"
+        id="accordion-faq"
         data-accordion="collapse"
         data-active-classes="bg-neutral-primary text-heading"
         data-inactive-classes="text-body"
         className="w-full max-w-4xl mx-auto"
       >
-        <h2 id="accordion-flush-heading-1">
+        <h2 id="accordion-flush-heading-5">
           <button
             type="button"
             className="flex items-center justify-between w-full py-5 font-medium rtl:text-right text-body border-b border-default gap-3"
-            data-accordion-target="#accordion-flush-body-1"
+            data-accordion-target="#accordion-flush-body-5"
             aria-expanded="true"
-            aria-controls="accordion-flush-body-1"
+            aria-controls="accordion-flush-body-5"
           >
             <span>Deep Business Understanding</span>
             <svg
@@ -44,9 +44,9 @@ export default function FAQ() {
           </button>
         </h2>
         <div
-          id="accordion-flush-body-1"
+          id="accordion-flush-body-5"
           className="hidden"
-          aria-labelledby="accordion-flush-heading-1"
+          aria-labelledby="accordion-flush-heading-5"
         >
           <div className="py-5 border-b border-default text-body">
             <p className="mb-2">
@@ -67,13 +67,13 @@ export default function FAQ() {
             </p>
           </div>
         </div>
-        <h2 id="accordion-flush-heading-2">
+        <h2 id="accordion-flush-heading-6">
           <button
             type="button"
             className="flex items-center justify-between w-full py-5 font-medium rtl:text-right text-body border-b border-default gap-3"
-            data-accordion-target="#accordion-flush-body-2"
+            data-accordion-target="#accordion-flush-body-6"
             aria-expanded="false"
-            aria-controls="accordion-flush-body-2"
+            aria-controls="accordion-flush-body-6"
           >
             <span>Customized Strategy Building</span>
             <svg
@@ -97,9 +97,9 @@ export default function FAQ() {
           </button>
         </h2>
         <div
-          id="accordion-flush-body-2"
+          id="accordion-flush-body-6"
           className="hidden"
-          aria-labelledby="accordion-flush-heading-2"
+          aria-labelledby="accordion-flush-heading-6"
         >
           <div className="py-5 border-b border-default text-body">
             <p className="mb-2">
@@ -120,13 +120,13 @@ export default function FAQ() {
             </p>
           </div>
         </div>
-        <h2 id="accordion-flush-heading-3">
+        <h2 id="accordion-flush-heading-7">
           <button
             type="button"
             className="flex items-center justify-between w-full py-5 font-medium rtl:text-right text-body border-b border-default gap-3"
-            data-accordion-target="#accordion-flush-body-3"
+            data-accordion-target="#accordion-flush-body-7"
             aria-expanded="false"
-            aria-controls="accordion-flush-body-3"
+            aria-controls="accordion-flush-body-7"
           >
             <span>Execution With Precision </span>
             <svg
@@ -150,9 +150,9 @@ export default function FAQ() {
           </button>
         </h2>
         <div
-          id="accordion-flush-body-3"
+          id="accordion-flush-body-7"
           className="hidden"
-          aria-labelledby="accordion-flush-heading-3"
+          aria-labelledby="accordion-flush-heading-7"
         >
           <div className="py-5 text-body border-b border-default">
             <p className="mb-2">
@@ -189,13 +189,13 @@ export default function FAQ() {
             </ul>
           </div>
         </div>
-        <h2 id="accordion-flush-heading-4">
+        <h2 id="accordion-flush-heading-8">
           <button
             type="button"
             className="flex items-center justify-between w-full py-5 font-medium rtl:text-right text-body border-b border-default gap-3"
-            data-accordion-target="#accordion-flush-body-4"
+            data-accordion-target="#accordion-flush-body-8"
             aria-expanded="false"
-            aria-controls="accordion-flush-body-4"
+            aria-controls="accordion-flush-body-8"
           >
             <span>Execution With Precision </span>
             <svg
@@ -219,9 +219,9 @@ export default function FAQ() {
           </button>
         </h2>
         <div
-          id="accordion-flush-body-4"
+          id="accordion-flush-body-8"
           className="hidden"
-          aria-labelledby="accordion-flush-heading-4"
+          aria-labelledby="accordion-flush-heading-8"
         >
           <div className="py-5 text-body border-b border-default">
             <p className="mb-2">
