@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function HomeAbout() {
   return (
-    <div className="px-10 py-10 flex flex-col lg:flex-row  justify-center gap-10 items-center mx-auto mb-20">
+    <div className="px-10 py-10 flex flex-col lg:flex-row  justify-center gap-10 items-center mx-auto">
       <div className="md:text-start text-center">
         <p className="text-gray-900">About Us</p>
         <h2 className="md:text-4xl text-3xl font-bold mb-4">

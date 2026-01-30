@@ -9,8 +9,8 @@ export default function Navbar() {
   const [openService, setOpenService] = useState(false);
 
   return (
-    <header className="nav sm:max-w-8xl max-w-[300] w-[90%] max-h-[90px] md:top-8 top-2 left-1/2 -translate-x-1/2 fixed rounded-full z-50">
-      <div className="relative max-w-7xl mx-auto px-8 py-6 flex justify-between items-center">
+    <header className="nav sm:max-w-8xl max-w-[300] w-[90%] md:max-h-[90px] max-h-[70px] md:top-8 top-2 left-1/2 -translate-x-1/2 fixed rounded-full z-50">
+      <div className="relative max-w-7xl mx-auto px-8 md:py-6 py-4 flex justify-between items-center">
         {/* Logo */}
         <Link href="/" className="text-2xl font-semibold text-black">
           <Image

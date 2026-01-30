@@ -2,7 +2,7 @@ import React from "react";
 
 export default function FAQ() {
   return (
-    <div className="mb-20 max-w-5xl mx-auto container">
+    <div className="mb-20 max-w-5xl p-4 mx-auto container">
       <h2 className="md:text-4xl text-3xl font-bold text-center mb-12">
         How It Works
       </h2>

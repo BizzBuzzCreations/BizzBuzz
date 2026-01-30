@@ -21,9 +21,7 @@ export default function Home() {
       <HomeAbout />
 
       {/* Our Services */}
-      <div className="py-10">
-        <OurServices />
-      </div>
+      <OurServices />
 
       {/* CTA-2 Section */}
       <CTA2 />
@@ -31,10 +29,8 @@ export default function Home() {
       {/* What Makes Us Different section */}
       <WhatMAkesUs />
 
-      <div className="py-10">
-        {/* Why choose us */}
-        <WhyChooseUs />
-      </div>
+      {/* Why choose us */}
+      <WhyChooseUs />
 
       {/* Why Choose Us Section */}
       <RecentWork />

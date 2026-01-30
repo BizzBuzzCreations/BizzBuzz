@@ -80,7 +80,7 @@ export default function Contact() {
                       <h4 className="text-lg font-semibold text-black mb-1">
                         Email
                       </h4>
-                      <p className="text-lg text-gray-600">
+                      <p className="text-lg text-gray-600 break-all">
                         info@bizzbuzzcreations.com
                       </p>
                     </div>

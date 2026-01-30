@@ -14,12 +14,21 @@ import {
 export default function OurServices() {
   return (
     <>
-      <div className="mb-20 max-w-6xl mx-auto container">
+      <div
+        style={{
+          backgroundImage: `
+          repeating-linear-gradient(45deg, rgba(255, 0, 100, 0.1) 0, rgba(255, 0, 100, 0.1) 1px, transparent 1px, transparent 20px),
+        repeating-linear-gradient(-45deg, rgba(255, 0, 100, 0.1) 0, rgba(255, 0, 100, 0.1) 1px, transparent 1px, transparent 20px)
+        `,
+          backgroundSize: "40px 40px",
+        }}
+        className="py-20"
+      >
         <h2 className="md:text-4xl text-3xl font-bold mb-10 text-center ">
           Our Digital Marketing Services
         </h2>
 
-        <div className="flex flex-wrap gap-10 items-center justify-center overflow-hidden">
+        <div className="flex flex-wrap sm:p-0 p-2 max-w-6xl mx-auto gap-10 items-center justify-center overflow-hidden">
           <div className="group relative max-w-lg overflow-hidden rounded-2xl border border-gray-300 bg-white p-6 transition-all duration-300 hover:shadow-xl hover:scale-105 cursor-pointer">
             {/* Animated Left Border */}
             <span className="absolute left-0 bottom-0 h-0 w-1 bg-[#0B60B0] transition-all duration-500 group-hover:h-full" />

@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function AboutHero() {
   return (
     <div
-      className="min-h-[90vh] md:pt-50 pt-40 lg:text-left text-center text-white gap-10 flex 2xl:px-15 px-5 lg:flex-row flex-col justify-center items-center bg-gray-100 pb-30 mb-10"
+      className="min-h-[90vh] md:pt-50 pt-30 lg:text-left text-center text-white gap-10 flex 2xl:px-15 px-5 lg:flex-row flex-col justify-center items-center bg-gray-100 pb-30 mb-10"
       style={{
         background: "radial-gradient(circle at top, #1c1c1c, #000000)",
       }}

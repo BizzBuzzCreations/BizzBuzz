@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function WhatMAkesUs() {
   return (
-    <div className="container mx-auto p-4 flex flex-col justify-center gap-5 items-center mb-20">
+    <div className="container py-20 mx-auto p-4 flex flex-col justify-center gap-5 items-center">
       <div className=" text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-10 max-w-4xl">
           How Our Digital Services Transform Your Marketing
