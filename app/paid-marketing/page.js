@@ -6,6 +6,7 @@ import CTA2 from "@/components/sections/CTA-2";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import Counter from "@/components/sections/counter";
 import CTA from "@/components/sections/CTA";
+import ConsultationPopup from "@/components/sections/popupForm";
 
 export default function SearchEngineOptimization() {
   return (
@@ -140,7 +141,7 @@ export default function SearchEngineOptimization() {
           />
         </div>
       </div>
-
+      <ConsultationPopup/>
       <CTA2 />
       <WhyChooseUs />
       <Counter />
