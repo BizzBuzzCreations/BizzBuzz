@@ -1,19 +1,45 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { X, Phone, MessageCircle } from "lucide-react";
 import { sendMail } from "@/actions/serverActions";
 import { toast, Bounce } from "react-toastify";
+import { usePathname } from "next/navigation";
 
 export default function ConsultationPopup() {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
+  const [wobble, setWobble] = useState(false);
+  const ref = useRef(null);
   const [form, setForm] = useState({
     name: "",
     contact: "",
     email: "",
   });
 
-  if (!open) return null;
+  const pathname = usePathname();
+  useEffect(() => {
+    if (pathname === "/") {
+      setTimeout(() => setOpen(true), 12000);
+    } else {
+      setOpen(false);
+    }
+  }, [pathname]);
+
+  useEffect(() => {
+    if (!wobble || !ref.current) return;
+
+    const el = ref.current;
+    el.classList.remove("wobble");
+    void el.offsetWidth;
+    el.classList.add("wobble");
+
+    const timer = setTimeout(() => {
+      el.classList.remove("wobble");
+      setWobble(false);
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [wobble]);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -46,12 +72,27 @@ export default function ConsultationPopup() {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex justify-center items-start pt-16">
+    <div
+      onClick={() => setWobble(true)}
+      className={`fixed inset-0 z-50 flex justify-center items-center 
+  transition-all duration-500 ease-out
+  ${
+    open
+      ? "opacity-100 translate-y-0"
+      : "opacity-0 -translate-y-4 pointer-events-none"
+  }`}
+    >
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/60"></div>
+      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
 
       {/* Popup Box */}
-      <div className="relative z-10 w-full max-w-4xl bg-white rounded-xl shadow-xl overflow-hidden min-h-[75vh]">
+      <div
+        ref={ref}
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
+        className="relative z-10 w-full max-w-4xl bg-white rounded-xl shadow-xl overflow-hidden"
+      >
         {/* Header */}
         <div className="relative bg-black py-4 text-center">
           <h2 className="text-white text-lg font-semibold">
@@ -59,7 +100,7 @@ export default function ConsultationPopup() {
           </h2>
           <button
             onClick={() => setOpen(false)}
-            className="absolute right-5 top-4 text-white"
+            className="cursor-pointer absolute right-5 top-4 text-white"
           >
             <X size={20} />
           </button>
@@ -74,19 +115,19 @@ export default function ConsultationPopup() {
               Innovate and Integrate Everyday
             </p>
 
-            <h4 className="font-semibold mb-3">Why Choose Us</h4>
+            <h4 className="font-semibold mb-2">Why Choose Us</h4>
 
             <div className="bg-[#eef8fc] rounded-lg p-4 grid grid-cols-3 gap-4 text-sm font-semi-bold mb-6">
               <div>
-                <p className="text-xl">500+</p>
+                <p className="text-xl font-bold">500+</p>
                 <p>Projects Delivered</p>
               </div>
               <div>
-                <p className="text-xl">30000+</p>
+                <p className="text-xl font-bold">30000+</p>
                 <p>Leads Generated</p>
               </div>
               <div>
-                <p className="text-xl">4.9</p>
+                <p className="text-xl font-bold">4.9</p>
                 <p>Google Rating</p>
               </div>
             </div>
@@ -133,21 +174,29 @@ export default function ConsultationPopup() {
 
               <button
                 type="submit"
-                className="w-full bg-black text-white py-3 rounded-md font-medium">
+                className="cursor-pointer w-full bg-black text-white py-3 rounded-md font-medium"
+              >
                 Book Appointment
               </button>
             </form>
 
             <div className="flex gap-4 mt-6">
-              <button className="flex-1 flex items-center justify-center gap-2 border border-black py-3 rounded-md text-sm hover:bg-black hover:text-white transition">
-                <Phone size={16} />
-                Call now
-              </button>
-
-              <button className="flex-1 flex items-center justify-center gap-2 border border-green-500 text-green-500 py-3 rounded-md text-sm hover:bg-green-500 hover:text-white transition">
-                <MessageCircle size={16} />
-                WhatsApp
-              </button>
+              <a href="tel:+918115585285">
+                <button className="cursor-pointer flex-1 flex items-center justify-center gap-2 border border-black py-3 px-10 rounded-md text-sm hover:bg-black hover:text-white transition">
+                  <Phone size={16} />
+                  Call now
+                </button>
+              </a>
+              <a
+                href="https://wa.me/+918115585285"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <button className="cursor-pointer flex-1 flex items-center justify-center gap-2 border border-green-500 text-green-500 py-3 px-10 rounded-md text-sm hover:bg-green-500 hover:text-white transition">
+                  <MessageCircle size={16} />
+                  WhatsApp
+                </button>
+              </a>
             </div>
           </div>
         </div>

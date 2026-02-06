@@ -8,9 +8,9 @@ export default function HomeHero() {
         background:
           "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(120, 180, 255, 0.25), transparent 70%), #000000",
       }}
-      className=" min-h-[90vh] mb-10 flex flex-col justify-center items-center"
+      className="min-h-[90vh] md:pt-50 pt-30 text-center text-white flex 2xl:px-15 px-5 flex-col justify-center items-center pb-30 mb-10"
     >
-      <div className="sm:pt-30 pt-10 p-10 h-full flex items-center justify-center">
+      <div className="h-full flex items-center justify-center">
         <div className="z-10 text-center text-white">
           <h1 className="md:text-3xl xl:text-4xl text-xl font-bold mb-4">
             We are the Innovative Digital Marketing agency in India

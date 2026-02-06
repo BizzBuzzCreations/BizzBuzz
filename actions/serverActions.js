@@ -1,5 +1,8 @@
 "use server";
+import connectDB from "@/db/connect";
 import nodemailer from "nodemailer";
+import Job from "@/models/jobs";
+
 const SMTP_SERVER_HOST = process.env.SMTP_SERVER_HOST;
 const SMTP_SERVER_USERNAME = process.env.SMTP_SERVER_USERNAME;
 const SMTP_SERVER_PASSWORD = process.env.SMTP_SERVER_PASSWORD;
@@ -13,6 +16,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+// Function to send email
 export async function sendMail({ name, email, subject, text, contact }) {
   try {
     //  Verify SMTP connection
@@ -50,6 +54,99 @@ export async function sendMail({ name, email, subject, text, contact }) {
     return {
       success: false,
       message: "Failed to send message.",
+    };
+  }
+}
+
+// Function to publish a job
+export async function publishJob({
+  title,
+  department,
+  experience,
+  location,
+  type,
+  description,
+  applyForm,
+}) {
+  await connectDB();
+
+  if (
+    !title ||
+    !department ||
+    !experience ||
+    !location ||
+    !type ||
+    !description ||
+    !applyForm
+  ) {
+    return {
+      success: false,
+      message: "All fields are required.",
+    };
+  }
+  try {
+    const newJob = new Job({
+      title,
+      department,
+      experience,
+      location,
+      type,
+      description,
+      applyForm,
+    });
+    await newJob.save();
+    return {
+      success: true,
+      message: "Job published successfully.",
+    };
+  } catch (error) {
+    console.error("Job publish failed:", error);
+    return {
+      success: false,
+      message: "Failed to publish job.",
+    };
+  }
+}
+
+// Function to get all jobs
+export async function getAllJobs() {
+  await connectDB();
+  try {
+    const jobs = await Job.find({}).lean();
+    const plainJobs = jobs.map((job) => ({
+      ...job,
+      _id: job._id.toString(), // ✅ convert ObjectId
+      createdAt: job.createdAt?.toISOString(), // ✅ convert Date
+      updatedAt: job.updatedAt?.toISOString(), // ✅ convert Date
+    }));
+
+    return {
+      success: true,
+      data: plainJobs,
+    };
+  } catch (error) {
+    console.error("Get jobs failed:", error);
+    return {
+      success: false,
+      message: "Failed to fetch jobs.",
+    };
+  }
+}
+
+//Function to delete a job
+export async function deleteJob({ id }) {
+  await connectDB();
+  try {
+    await Job.findByIdAndDelete(id);
+    return {
+      success: true,
+      message: "Job deleted successfully.",
+    };
+  } catch (error) {
+    console.error("Delete job failed:", error);
+    return {
+      success: false,
+      message: "Failed to delete job.",
     };
   }
 }

@@ -10,6 +10,7 @@ import Reviews from "@/components/sections/reviews";
 import WhatMAkesUs from "@/components/sections/whatMakesUs";
 import RecentWork from "@/components/sections/recentWork";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
+import ConsultationPopup from "@/components/sections/popupForm";
 
 export default function Home() {
   return (
@@ -53,6 +54,8 @@ export default function Home() {
         {/* CTA section */}
         <CTA />
       </div>
+      {/* Popup form */}
+      <ConsultationPopup />
     </>
   );
 }
