@@ -20,7 +20,6 @@ export default function PostingForm() {
     const fetchJobs = async () => {
       const response = await getAllJobs();
       if (response?.success) {
-        console.log(response.data);
         setAllJobs(response?.data);
       }
     };
