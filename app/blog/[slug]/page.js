@@ -60,7 +60,7 @@ export default async function SingleBlog({ params }) {
         {/* Header */}
         <div className="py-8">
           <h1
-            className="text-3xl font-bold mb-2"
+            className="md:text-3xl xl:text-4xl text-2xl font-bold mb-4 font-bold mb-2"
             dangerouslySetInnerHTML={{ __html: post.title.rendered }}
           />
           <p className="text-gray-500 text-sm">

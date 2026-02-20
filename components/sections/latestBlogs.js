@@ -16,7 +16,9 @@ export default async function LatestBlogs() {
   return (
     <section className="bg-white">
       <div className="text-center">
-        <h2 className="text-4xl font-bold text-black">Our Latest Blogs</h2>
+        <h2 className="md:text-4xl text-3xl font-bold text-black">
+          Our Latest Blogs
+        </h2>
         <p className="text-lg text-gray-600">
           Explore, discover, and find inspiration through these exciting Blogs.
         </p>

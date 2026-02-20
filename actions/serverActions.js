@@ -7,6 +7,7 @@ const SMTP_SERVER_HOST = process.env.SMTP_SERVER_HOST;
 const SMTP_SERVER_USERNAME = process.env.SMTP_SERVER_USERNAME;
 const SMTP_SERVER_PASSWORD = process.env.SMTP_SERVER_PASSWORD;
 const SITE_MAIL_RECIEVER = process.env.SITE_MAIL_RECIEVER;
+let lastRequestTime = 0;
 
 const transporter = nodemailer.createTransport({
   service: "gmail",
@@ -18,6 +19,17 @@ const transporter = nodemailer.createTransport({
 
 // Function to send email
 export async function sendMail({ name, email, subject, text, contact }) {
+  const now = Date.now();
+
+  //  Block if request comes within 10 seconds
+  if (now - lastRequestTime < 10000) {
+    return {
+      success: false,
+      message: "Please wait before sending another message.",
+    };
+  }
+
+  lastRequestTime = now;
   try {
     //  Verify SMTP connection
     await transporter.verify();
