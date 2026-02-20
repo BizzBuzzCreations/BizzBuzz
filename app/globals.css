@@ -245,3 +245,171 @@ body {
 .styles-module_chatHeader__gaeOA .styles-module_avatar__afcc4 img {
   object-fit: cover !important;
 }
+
+/* Loadind card skeliton */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite linear;
+  background: linear-gradient(to right, #f6f7f8 4%, #edeef1 25%, #f6f7f8 36%);
+  background-size: 1000px 100%;
+}
+
+/* For single blog page */
+.article {
+  max-width: 750px;
+  margin: auto;
+  line-height: 1.8;
+  font-size: 18px;
+  color: #333;
+}
+
+.article h2 {
+  margin-top: 2.5rem;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.article h3 {
+  margin-top: 2rem;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.article h4 {
+  margin-top: 1.75rem;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.article h5 {
+  margin-top: 1.5rem;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.article h6 {
+  margin-top: 1.25rem;
+  font-size: 16px;
+  font-weight: 600;
+  color: #555;
+}
+
+.article p {
+  margin-bottom: 1.5rem;
+}
+
+.article img {
+  border-radius: 10px;
+  margin: 2rem 0;
+}
+
+.article blockquote {
+  border-left: 4px solid #6366f1;
+  padding-left: 1rem;
+  color: #555;
+  font-style: italic;
+  margin: 2rem 0;
+}
+
+.article pre {
+  background: #111;
+  color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+.article ul {
+  list-style: disc;
+  padding-left: 24px;
+}
+
+.article ol {
+  list-style: decimal;
+  padding-left: 24px;
+}
+
+.article a {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+.article svg,
+.article .emoji {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+}
+
+.article summary {
+  list-style: none;
+}
+
+.article summary::-webkit-details-marker {
+  display: none;
+}
+
+.article summary::marker {
+  display: none;
+}
+
+.article .e-n-accordion-item-title-icon {
+  display: none;
+}
+
+.article details {
+  border-radius: 12px;
+  margin-top: 1.5rem;
+  overflow: hidden;
+  border: 1px solid #e5e5e5;
+}
+
+.article summary {
+  cursor: pointer;
+  padding: 1.2rem 1.5rem;
+  background: #f7f7f7;
+  font-weight: 600;
+  position: relative;
+  transition: background 0.3s ease;
+}
+
+.article summary:hover {
+  background: #eeeeee;
+}
+
+.article summary::after {
+  content: "";
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid #333;
+  border-bottom: 2px solid #333;
+  transform: translateY(-50%) rotate(45deg);
+  transition: transform 0.3s ease;
+}
+
+.article details[open] summary::after {
+  transform: translateY(-50%) rotate(225deg);
+}
+
+.article details > div {
+  padding: 1.2rem 1.5rem;
+  background: #ffffff;
+  border-top: 1px solid #eee;
+}
+
+.article .elementor-toc__header,
+.article .elementor-toc__spinner-container {
+  display: none;
+}

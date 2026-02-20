@@ -29,14 +29,14 @@ export default function RecentWork() {
                             width={400}
                             height={400}
                             src="/website.jpg"
-                            alt="Work"
+                            alt="website-development"
                             className="w-full object-cover lg:h-full rounded-2xl"
                           />
                         </div>
                         <div className="flex flex-col md:w-1/2 w-65 ml-3 justify-between py-2">
                           <div className="flex flex-wrap">
                             <h3 className="flex-auto text-lg font-medium text-black">
-                              Website redesigns
+                              Website Development
                             </h3>
                           </div>
                           <div className="flex py-4 text-sm text-black">
@@ -61,15 +61,15 @@ export default function RecentWork() {
                           <Image
                             width={400}
                             height={400}
-                            src="/seoGraph.webp"
-                            alt="Work"
+                            src="/seoGraph.png"
+                            alt="seo-graph"
                             className="w-full object-cover lg:h-full rounded-2xl"
                           />
                         </div>
                         <div className="flex flex-col md:w-1/2 w-65 ml-3 justify-between py-2">
                           <div className="flex flex-wrap">
                             <h3 className="flex-auto text-lg font-medium text-black">
-                              SEO result graphs
+                              SEO Result Graphs
                             </h3>
                           </div>
                           <div className="flex py-4 text-sm text-black">
@@ -95,14 +95,14 @@ export default function RecentWork() {
                             width={400}
                             height={400}
                             src="/socialmedia.jpg"
-                            alt="Work"
+                            alt="social-media"
                             className="w-full object-cover lg:h-full rounded-2xl"
                           />
                         </div>
                         <div className="flex flex-col md:w-1/2 w-65 ml-3 justify-between py-2">
                           <div className="flex flex-wrap">
                             <h3 className="flex-auto text-lg font-medium text-black">
-                              Social media creatives
+                              Social Media Creatives
                             </h3>
                           </div>
                           <div className="flex py-4 text-sm text-black">
@@ -125,7 +125,7 @@ export default function RecentWork() {
                       <div className="flex-none lg:flex items-center">
                         <div className="h-full w-full lg:h-full lg:w-full lg:mb-0 mb-3">
                           <Image
-                            alt="leadGen"
+                            alt="lead-gen"
                             width={400}
                             height={400}
                             src="/leadGen.webp"
@@ -135,7 +135,7 @@ export default function RecentWork() {
                         <div className="flex flex-col md:w-1/2 w-65 ml-3 justify-between py-2">
                           <div className="flex flex-wrap">
                             <h3 className="flex-auto text-lg font-medium text-black">
-                              Lead generation ad results
+                              Lead Generation Ad Results
                             </h3>
                           </div>
                           <div className="flex py-4 text-sm text-black">

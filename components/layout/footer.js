@@ -195,7 +195,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="https://blog.bizzbuzzcreations.com/blog"
+                    href="/blog"
                     className="text-sm hover:text-gray-300 transition-colors"
                   >
                     Blog

@@ -150,3 +150,85 @@ export async function deleteJob({ id }) {
     };
   }
 }
+
+// Fetch latest 3 blogs
+export async function getLatestThreeBlogs() {
+  try {
+    const res = await fetch(
+      `https://blog.bizzbuzzcreations.com/wp-json/wp/v2/posts?per_page=3&orderby=date&order=desc&_fields=id,date,slug,link,title,excerpt,yoast_head_json`,
+      {
+        next: { revalidate: 3600 },
+      },
+    );
+
+    const response = await res.json();
+
+    return {
+      success: true,
+      data: response,
+    };
+  } catch (error) {
+    console.error("Failed to fetch latest blogs:", error);
+
+    return {
+      success: false,
+      message: "Failed to fetch latest blogs.",
+    };
+  }
+}
+
+//Fetch all blogs
+export async function getLatestBlogs(page, category, posts) {
+  try {
+    const offset = 3 + (page - 1) * posts;
+    const res = await fetch(
+      `https://blog.bizzbuzzcreations.com/wp-json/wp/v2/posts?per_page=${posts}&offset=${offset}&_fields=id,date,slug,link,title,excerpt,yoast_head_json`,
+    );
+    const totalPages = res.headers.get("X-WP-TotalPages");
+    const response = await res.json();
+    return {
+      success: true,
+      data: response,
+      totalPages,
+    };
+  } catch (error) {
+    console.error("Failded to fetch blogs:", error);
+    return {
+      success: false,
+      message: "Failded to fetch blogs.",
+    };
+  }
+}
+
+// Fetch single blog by slug
+export async function getBlogBySlug(slug) {
+  try {
+    const res = await fetch(
+      `https://blog.bizzbuzzcreations.com/wp-json/wp/v2/posts?slug=${slug}&_embed&_fields=id,date,slug,link,title,content,excerpt,yoast_head_json,_embedded`,
+      {
+        next: { revalidate: 3600 },
+      },
+    );
+
+    const response = await res.json();
+    const post = response?.[0];
+
+    if (!post) {
+      return {
+        success: false,
+        message: "Blog not found.",
+      };
+    }
+
+    return {
+      success: true,
+      data: post,
+    };
+  } catch (error) {
+    console.error("Failed to fetch blog:", error);
+    return {
+      success: false,
+      message: "Failed to fetch blog.",
+    };
+  }
+}

@@ -1,5 +1,4 @@
 import React from "react";
-import OurServices_JS from "./ourServices_JS";
 import Link from "next/link";
 import {
   MoveRight,

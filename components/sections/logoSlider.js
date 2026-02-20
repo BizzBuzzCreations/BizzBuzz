@@ -1,5 +1,4 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
@@ -17,7 +16,7 @@ const items = [
 
 const LogoSlider = () => {
   return (
-    <div className="bg-gray-100 py-10">
+    <div className="bg-gray-100 py-10 pb-20">
       <h2 className="text-3xl md:text-4xl font-bold mb-10 max-w-2xl text-center mx-auto mb-10">
         Our Clients
       </h2>
