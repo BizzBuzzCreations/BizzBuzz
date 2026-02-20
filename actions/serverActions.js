@@ -65,7 +65,7 @@ export async function sendMail({ name, email, subject, text, contact }) {
     console.error("Email send failed:", error);
     return {
       success: false,
-      message: error.message || "Failed to send message.",
+      message: "Failed to send message.",
     };
   }
 }
