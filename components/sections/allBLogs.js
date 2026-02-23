@@ -59,7 +59,7 @@ export default function AllBLogs() {
     <>
       {loading ? (
         // <!-- Grid Skeleton -->
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 py-10 lg:py-20 sm:py-16">
+        <div className=" sm:px-12 md:px-16 px-8 mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 py-10 lg:py-20 sm:py-16 lg:max-w-screen-xl sm:max-w-xl md:max-w-full">
           <div className="bg-white rounded-xl p-4 shadow-lg space-y-3">
             <div className="w-full h-48 rounded animate-shimmer"></div>
             <div className="h-4 w-3/4 animate-shimmer rounded"></div>
