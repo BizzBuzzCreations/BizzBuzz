@@ -158,13 +158,13 @@ export default function AllBLogs() {
                   Page {currPage} of {totalPages}
                 </p>
                 <button
-                  disabled={currPage === totalPages || loading}
+                  disabled={currPage == totalPages || loading}
                   onClick={() => {
                     if (loading) return;
                     setPosts(9);
                     setCurrPage((prev) => prev + 1);
                   }}
-                  className={`${currPage === totalPages ? "opacity-50 cursor-not-allowed " : "hover:text-white hover:bg-black hover:border-black"} p-1 cursor-pointer rounded border text-black bg-white `}
+                  className={`${currPage == totalPages ? "opacity-50 cursor-not-allowed " : "hover:text-white hover:bg-black hover:border-black"} p-1 cursor-pointer rounded border text-black bg-white `}
                 >
                   <ArrowRight />
                 </button>
