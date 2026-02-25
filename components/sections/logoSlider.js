@@ -10,8 +10,14 @@ const items = [
   { img: "/fibernet.png", text: "Fibernet" },
   { img: "/meshvinmedia-1.png", text: "Meshvi" },
   { img: "/mmdf.png", text: "MDF" },
-  { img: "/parivartanLogo.png", text: "Parivartan" },
   { img: "/ukclaims.png", text: "UK Claims" },
+  { img: "/WILLIAM.png", text: "William" },
+  { img: "/RED EAGLE1.png", text: "RED EAGLE" },
+  { img: "/PARIVARTAN1.png", text: "Parivartan" },
+  { img: "/NEEEL KANTH.png", text: "Neeel Kanth" },
+  { img: "/LA PRISTINE1.png", text: "La Pristine" },
+  { img: "/GRAND WEDDINZ1.png", text: "Grand WeddinZ" },
+  { img: "/transcendes.png", text: "Transcendes" },
 ];
 
 const LogoSlider = () => {
