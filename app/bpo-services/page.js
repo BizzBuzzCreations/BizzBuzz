@@ -8,11 +8,11 @@ import Counter from "@/components/sections/counter";
 import CTA from "@/components/sections/CTA";
 import { Target } from "lucide-react";
 
-export const metadata = {
-  title: "BPO Outsource Service Provider in UAE",
-  description:
-    "We handle the complex processes so you can focus on what matters most—your success. With our support, growth becomes easier, smoother, and stress-free.",
-};
+  export const metadata = {
+    title: "BPO Outsource Service Provider in UAE",
+    description:
+      "We handle the complex processes so you can focus on what matters most—your success. With our support, growth becomes easier, smoother, and stress-free.",
+  };
 
 export default function BPO() {
   return (

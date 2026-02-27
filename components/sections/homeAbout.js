@@ -17,9 +17,11 @@ export default function HomeAbout() {
           results and deliver measurable ROI.
         </p>
         <Link href="/about" className="inline-block">
-          <button class="relative cursor-pointer border-2 border-gray-900 text-gray-900 px-6 py-3 rounded-lg overflow-hidden group">
-            <span class="absolute inset-0 bg-gray-900 transform -translate-x-full group-hover:translate-x-0 transition duration-300"></span>
-            <span class="relative z-10 group-hover:text-white">Learn More</span>
+          <button className="relative cursor-pointer border-2 border-gray-900 text-gray-900 px-6 py-3 rounded-lg overflow-hidden group">
+            <span className="absolute inset-0 bg-gray-900 transform -translate-x-full group-hover:translate-x-0 transition duration-300"></span>
+            <span className="relative z-10 group-hover:text-white">
+              Learn More
+            </span>
           </button>
         </Link>
       </div>

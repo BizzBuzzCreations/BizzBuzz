@@ -2,6 +2,12 @@ import { getLatestThreeBlogs } from "@/actions/serverActions";
 import AllBLogs from "@/components/sections/allBLogs";
 import Link from "next/link";
 
+export const metadata = {
+  title: "BizzBuzz Creations Blog | Digital Marketing & SEO Insights",
+  description:
+    "Explore expert tips on SEO, performance marketing, and lead generation. Learn how BizzBuzz Creations helps businesses grow with data-driven strategies.",
+};
+
 export default async function Blogs() {
   const res = await getLatestThreeBlogs();
   const blogs = res.data;
@@ -15,7 +21,7 @@ export default async function Blogs() {
   }
 
   return (
-    <section className="bg-white py-40">
+    <section className="bg-white md:py-40 py-25">
       <div className="text-center">
         <h1 className="text-4xl font-bold text-black">Our Latest Blogs</h1>
         <p className="text-lg text-gray-600">

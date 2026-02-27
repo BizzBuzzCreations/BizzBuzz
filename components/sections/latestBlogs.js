@@ -25,8 +25,8 @@ export default async function LatestBlogs() {
       </div>
 
       {/* Latest blogs */}
-      <div className="px-8 pt-10 mx-auto lg:max-w-screen-xl sm:max-w-xl md:max-w-full sm:px-12 md:px-16 lg:pt-20 sm:pt-16">
-        <div className="grid gap-x-8 gap-y-12 sm:gap-y-16 md:grid-cols-2 lg:grid-cols-3 mb-20">
+      <div className="px-8 pt-10 mx-auto lg:max-w-screen-xl sm:max-w-xl md:max-w-full sm:px-12 md:px-16 sm:pt-15 mb-5">
+        <div className="grid gap-x-8 gap-y-12 sm:gap-y-16 md:grid-cols-2 lg:grid-cols-3 mb-15">
           {blogs.length > 0 &&
             blogs.map((e, index) => (
               <div className="relative" key={index}>
@@ -73,6 +73,16 @@ export default async function LatestBlogs() {
                 </div>
               </div>
             ))}
+        </div>
+        <div className="text-center">
+          <Link href="/blog" className="inline-block">
+            <button className="relative cursor-pointer border-2 border-gray-900 text-gray-900 px-6 py-3 rounded-lg overflow-hidden group">
+              <span className="absolute inset-0 bg-gray-900 transform -translate-x-full group-hover:translate-x-0 transition duration-300"></span>
+              <span className="relative z-10 group-hover:text-white">
+                View All Blogs
+              </span>
+            </button>
+          </Link>
         </div>
       </div>
     </section>

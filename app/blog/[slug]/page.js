@@ -13,7 +13,7 @@ export async function generateMetadata({ params }) {
     };
   }
 
-  const post = res.data;
+  const post = res?.data;
   const seo = post?.yoast_head_json;
 
   if (!seo) {
@@ -54,6 +54,11 @@ export default async function SingleBlog({ params }) {
     day: "numeric",
   });
 
+  const filteredData = post?.content.rendered.replaceAll(
+    "https://blog.bizzbuzzcreations.com",
+    "https://bizzbuzzcreations.com",
+  );
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-40">
       <div className="max-w-3xl mx-auto">
@@ -61,7 +66,7 @@ export default async function SingleBlog({ params }) {
         <div className="py-8">
           <h1
             className="md:text-3xl xl:text-4xl text-2xl font-bold mb-4 font-bold mb-2"
-            dangerouslySetInnerHTML={{ __html: post.title.rendered }}
+            dangerouslySetInnerHTML={{ __html: post?.title?.rendered }}
           />
           <p className="text-gray-500 text-sm">
             Published on <time dateTime={post?.date}>{formattedDate}</time>
@@ -78,7 +83,7 @@ export default async function SingleBlog({ params }) {
         {/* Content */}
         <div
           className="article"
-          dangerouslySetInnerHTML={{ __html: post?.content.rendered }}
+          dangerouslySetInnerHTML={{ __html: filteredData }}
         />
         <div className="my-12 p-6 border border-gray-200 rounded-2xl bg-white shadow-md hover:shadow-lg transition duration-300">
           <div className="flex items-center gap-4 mb-4">

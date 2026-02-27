@@ -78,7 +78,9 @@ export default function AllBLogs() {
         </div>
       ) : (
         <div className="px-8 mx-auto lg:max-w-screen-xl sm:max-w-xl md:max-w-full sm:px-12 md:px-16 ">
-          <div className="grid gap-x-8 gap-y-12 sm:gap-y-16 md:grid-cols-2 lg:grid-cols-3 mb-20">
+          <div
+            className={`grid gap-x-8 gap-y-12 sm:gap-y-16 md:grid-cols-2 lg:grid-cols-3 ${showAll ? "mb-20" : ""}`}
+          >
             {blogs.length > 0 &&
               blogs.map((e, index) => (
                 <div className="relative" key={index}>
