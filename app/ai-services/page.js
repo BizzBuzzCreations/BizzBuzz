@@ -10,6 +10,9 @@ export const metadata = {
   title: "AI Services - Bizz Buzz Creations",
   description:
     "AI is not the future—it’s happening now. Our solutions simplify complex workflows, optimize performance, and fuel business growth.",
+  alternates: {
+    canonical: "https://bizzbuzzcreations.com/ai-services",
+  },
 };
 
 export default function SocialMediaMarketing() {

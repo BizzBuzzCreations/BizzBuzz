@@ -12,6 +12,9 @@ export const metadata = {
   title: "Business Consultancy Services in Prayagraj – Grow Smarter!",
   description:
     "Business consultancy services in Prayagraj to streamline processes, boost efficiency, and unlock your business’s potential. Let’s grow!",
+    alternates: {
+    canonical: "https://bizzbuzzcreations.com/business-consultancy",
+  },
 };
 
 export default function BusinessConsultancy() {

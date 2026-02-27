@@ -11,6 +11,9 @@ export const metadata = {
   title: "Social Media Marketing in Prayagraj",
   description:
     "Social media marketing in Prayagraj to boost your brand, engage customers, and grow online. Let’s take your social media to the next level!",
+    alternates: {
+    canonical: "https://bizzbuzzcreations.com/social-media-marketing",
+  },
 };
 
 export default function SocialMediaMarketing() {

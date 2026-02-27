@@ -3,6 +3,9 @@ import React from "react";
 export const metadata = {
   title: "Privacy Policy of Bizzbuzz Creations",
   description: "About our policies || Bizzbuzz Creations",
+  alternates: {
+    canonical: "https://bizzbuzzcreations.com/privacy-policy",
+  },
 };
 
 export default function page() {

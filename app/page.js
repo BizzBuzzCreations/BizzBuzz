@@ -20,7 +20,9 @@ export const metadata = {
     "Searching for the best digital marketing agency in Prayagraj? We offer expert SEO, SMM, rank higher, increase visibility and result-driven strategies to grow your business and generate quality leads.",
   keywords:
     "best digital marketing agency in allahabad, best digital marketing agency in prayagraj, best digital marketing company in prayagraj, professional digital marketing, Best SEO Service in prayagraj, Expert SEO service, SMM services in prayagraj, Best SMM agency in prayagraj, local SEO services in prayagraj, Best Paid Ads services in prayagraj, Professional SEO Services in Prayagraj",
-  canonical: "https://bizzbuzzcreations.com/",
+  alternates: {
+    canonical: "https://bizzbuzzcreations.com/",
+  },
   openGraph: {
     title:
       "Best Digital Marketing Agency in Prayagraj | Best SEO Service Company in Prayagraj | Best SMM Service In Prayagraj",

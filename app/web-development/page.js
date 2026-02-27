@@ -11,6 +11,9 @@ export const metadata = {
   title: "Website Development Services in Prayagraj",
   description:
     "Want a standout website? website development services in prayagraj create responsive, user-friendly, sites for business. Get started now!",
+  alternates: {
+    canonical: "https://bizzbuzzcreations.com/web-development",
+  },
 };
 
 export default function WebDevelopment() {

@@ -6,6 +6,9 @@ export const metadata = {
   title: "BizzBuzz Creations Blog | Digital Marketing & SEO Insights",
   description:
     "Explore expert tips on SEO, performance marketing, and lead generation. Learn how BizzBuzz Creations helps businesses grow with data-driven strategies.",
+  alternates: {
+    canonical: "https://bizzbuzzcreations.com/blog",
+  },
 };
 
 export default async function Blogs() {

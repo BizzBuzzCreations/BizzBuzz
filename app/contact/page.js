@@ -5,6 +5,9 @@ export const metadata = {
   title: "Contact Us",
   description:
     "Got questions? We’re here to help! Reach out today and let’s connect. We’re ready to assist you with whatever you need!",
+    alternates: {
+    canonical: "https://bizzbuzzcreations.com/contact",
+  },
 };
 
 export default function Contact() {

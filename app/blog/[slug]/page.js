@@ -26,6 +26,9 @@ export async function generateMetadata({ params }) {
   return {
     title: seo.title,
     description: seo.description,
+    alternates: {
+      canonical: `https://bizzbuzzcreations.com/blog/${slug}`,
+    },
     openGraph: {
       title: seo.og_title,
       description: seo.og_description,

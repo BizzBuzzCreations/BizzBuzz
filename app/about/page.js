@@ -21,6 +21,9 @@ export const metadata = {
   title: "Bizz Buzz Creations: BPO | Digital Marketing | Website Services",
   description:
     "At Bizz Buzz Creation, we know how quickly things change in business—and we’re built to keep up. Know More",
+  alternates: {
+    canonical: "https://bizzbuzzcreations.com/about",
+  },
 };
 
 export default function About() {

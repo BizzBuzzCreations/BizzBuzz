@@ -12,6 +12,9 @@ import { Target } from "lucide-react";
     title: "BPO Outsource Service Provider in UAE",
     description:
       "We handle the complex processes so you can focus on what matters most—your success. With our support, growth becomes easier, smoother, and stress-free.",
+      alternates: {
+    canonical: "https://bizzbuzzcreations.com/bpo-services",
+  },
   };
 
 export default function BPO() {

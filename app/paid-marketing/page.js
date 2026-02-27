@@ -12,6 +12,9 @@ export const metadata = {
     "Paid Marketing Services | Google & Meta Ads Agency – BizzBuzz Creations",
   description:
     "Boost sales with ROI-driven paid marketing services. BizzBuzz Creations offers Google Ads, Meta Ads & performance marketing for high-quality leads and conversions.",
+    alternates: {
+    canonical: "https://bizzbuzzcreations.com/paid-marketing",
+  },
 };
 
 export default function SearchEngineOptimization() {

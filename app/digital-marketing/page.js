@@ -12,6 +12,9 @@ export const metadata = {
   title: "Digital Marketing Services in Prayagraj",
   description:
     "Choose Bizz Buzz Creations because we are not just the digital marketing agency in Prayagraj, but a trusted partner for businesses worldwide.",
+    alternates: {
+    canonical: "https://bizzbuzzcreations.com/digital-marketing",
+  },
 };
 
 export default function digitalMarketing() {

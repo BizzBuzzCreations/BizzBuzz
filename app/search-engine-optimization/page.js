@@ -11,6 +11,9 @@ export const metadata = {
   title: "Seo Services in Prayagraj",
   description:
     "Best seo services in Prayagraj to improve your website’s ranking, drive traffic, and grow your online presence. Let’s Start today!",
+    alternates: {
+    canonical: "https://bizzbuzzcreations.com/search-engine-optimization",
+  },
 };
 
 export default function SearchEngineOptimization() {
