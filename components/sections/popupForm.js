@@ -104,6 +104,7 @@ export default function ConsultationPopup() {
           <button
             onClick={() => setOpen(false)}
             className="cursor-pointer absolute right-5 top-4 text-white hover:scale-115 transition"
+            aria-label="close popup"
           >
             <X size={20} />
           </button>

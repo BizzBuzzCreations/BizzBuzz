@@ -43,7 +43,7 @@ export default function RootLayout({ children }) {
         <Whatsapp />
         <Navbar />
         <FlowbiteInit />
-        {children}
+        <main>{children}</main>
         <Footer />
         <Script src="/js/flowbite.min.js" strategy="afterInteractive" />
         <ToastContainer

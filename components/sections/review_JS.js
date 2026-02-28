@@ -19,6 +19,7 @@ export default function Review_JS() {
       dotsContainer.innerHTML = "";
       for (let i = 0; i <= maxIndex; i++) {
         const dot = document.createElement("button");
+        dot.setAttribute("aria-label", `Go to review ${i + 1}`);
         dot.className = `h-3 cursor-pointer rounded-full transition-all duration-300 ${
           i === index ? "bg-gray-900 w-8" : "bg-gray-300 w-3"
         }`;
@@ -68,7 +69,7 @@ export default function Review_JS() {
       startTimer();
     }
     container.addEventListener("mouseenter", () =>
-      clearInterval(autoPlayInterval)
+      clearInterval(autoPlayInterval),
     );
     container.addEventListener("mouseleave", startTimer);
 

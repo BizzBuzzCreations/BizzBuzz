@@ -125,6 +125,7 @@ export default function Navbar() {
         {/* Hamburger Button */}
         <button
           className="md:hidden flex flex-col space-y-[5px]"
+          aria-label="Toggle mobile menu"
           onClick={() => setOpen(!open)}
         >
           <span

@@ -80,7 +80,6 @@ export default function Reviews() {
                       <svg
                         key={i}
                         className="w-5 h-5 text-fg-yellow mb-2"
-                        aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
                         height="24"
@@ -106,6 +105,7 @@ export default function Reviews() {
         <button
           id="prevBtn"
           className="absolute cursor-pointer top-1/2 left-0 -translate-y-1/2 -translate-x- xl:-translate-x-4 bg-white p-3 rounded-full shadow-lg text-blue-900 hover:bg-blue-50 focus:outline-none z-10 transition"
+          aria-label="Previous review"
         >
           <svg
             className="w-6 h-6"
@@ -124,6 +124,7 @@ export default function Reviews() {
         <button
           id="nextBtn"
           className="absolute cursor-pointer top-1/2 right-0 -translate-y-1/2 translate-x- xl:translate-x-4 bg-white p-3 rounded-full shadow-lg text-blue-900 hover:bg-blue-50 focus:outline-none z-10 transition"
+          aria-label="Next review"
         >
           <svg
             className="w-6 h-6"

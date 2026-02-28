@@ -14,6 +14,7 @@ export default function ServiceCard({ heading, description, imageUrl }) {
         height="20"
         width="20"
         src={imageUrl}
+        alt="service-img"
       />
       <div className="absolute inset-0 ring-1 ring-white/30 ring-inset bg-gradient-to-l from-black/80 via-black/50 to-black/20 rounded-2xl overflow-hidden"></div>
       <div className="relative z-10 flex items-center space-x-4">
@@ -22,6 +23,7 @@ export default function ServiceCard({ heading, description, imageUrl }) {
           height="64"
           width="64"
           src={imageUrl}
+          alt="service-img"
         />
         <div className="flex flex-col transition duration-300 group-hover:-translate-x-2">
           <div

@@ -45,11 +45,11 @@ export default async function Blogs() {
                   <img
                     src={`${e?.yoast_head_json?.og_image[0]?.url}`}
                     className="object-cover w-full h-56 transition-all duration-300 ease-out sm:h-64 group-hover:scale-110"
-                    alt="Adventure"
+                    alt={e?.title?.rendered}
                   />
                 </Link>
                 <div className="relative mt-5">
-                  <p className="uppercase font-semibold text-xs mb-2.5 text-[#56a7e5]">
+                  <p className="uppercase font-semibold text-xs mb-2.5 text-slate-700">
                     {new Date(e?.date).toLocaleDateString("en-US", {
                       month: "short",
                       day: "numeric",
@@ -62,7 +62,7 @@ export default async function Blogs() {
                     className="block mb-3 hover:underline"
                   >
                     <h2
-                      className="text-xl lg:text-2xl leading-tight font-semibold leading-5 text-black  transition-colors duration-200 hover:text-[#56a7e5] "
+                      className="text-xl lg:text-2xl leading-tight font-semibold leading-5 text-black  transition-colors duration-200 hover:text-slate-700"
                       dangerouslySetInnerHTML={{
                         __html: e?.title?.rendered,
                       }}
@@ -74,7 +74,8 @@ export default async function Blogs() {
 
                   <Link
                     href={`/blog/${e?.slug}`}
-                    className="font-medium underline text-[#56a7e5]"
+                    className="font-medium underline text-slate-700 hover:text-slate-900"
+                    aria-label={`Read more about ${e?.title?.rendered}`}
                   >
                     Read More
                   </Link>
