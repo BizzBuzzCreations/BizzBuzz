@@ -29,6 +29,13 @@ export async function sendMail({ name, email, subject, text, contact }) {
     };
   }
 
+  if (!email) {
+    return {
+      success: false,
+      message: "Email is required.",
+    };
+  }
+
   lastRequestTime = now;
   try {
     //  Verify SMTP connection
