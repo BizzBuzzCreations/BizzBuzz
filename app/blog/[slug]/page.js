@@ -1,4 +1,5 @@
 import { getBlogBySlug } from "@/actions/serverActions";
+import AllBlogScripts from "@/components/sections/allBlogScripts";
 import { User } from "lucide-react";
 import { notFound } from "next/navigation";
 
@@ -41,6 +42,8 @@ export async function generateMetadata({ params }) {
 
 export default async function SingleBlog({ params }) {
   const { slug } = await params;
+
+  <AllBlogScripts slug={slug} />;
 
   const res = await getBlogBySlug(slug);
 
