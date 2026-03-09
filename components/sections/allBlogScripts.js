@@ -4,6 +4,7 @@ import Script from "next/script";
 export default function AllBlogScripts({ slug }) {
   return (
     <>
+      {/*Scripts for this blog the-future-of-digital-marketing-in-2026-ai-seo-ads-conversion-strategy */}
       {slug ===
         "the-future-of-digital-marketing-in-2026-ai-seo-ads-conversion-strategy" && (
         <Script type="application/ld+json" strategy="beforeInteractive">
@@ -58,6 +59,7 @@ export default function AllBlogScripts({ slug }) {
         </Script>
       )}
 
+      {/*Scripts for this blog answer-engine-optimization-aeo-the-new-seo-strategy-for-ai-search */}
       {slug ===
         "answer-engine-optimization-aeo-the-new-seo-strategy-for-ai-search" && (
         <>
@@ -136,6 +138,51 @@ export default function AllBlogScripts({ slug }) {
 }`}
           </Script>
         </>
+      )}
+
+      {/*Scripts for this blog generative-engine-optimization-geo-how-to-rank-in-ai-generated-results */}
+      {slug ===
+        "generative-engine-optimization-geo-how-to-rank-in-ai-generated-results" && (
+        <Script type="application/ld+json" strategy="beforeInteractive">
+          {`{
+"@context": "https://schema.org",
+"@type": "FAQPage",
+"mainEntity": [
+{
+"@type": "Question",
+"name": "What is Generative Engine Optimization (GEO)?",
+"acceptedAnswer": {
+"@type": "Answer",
+"text": "Generative Engine Optimization (GEO) is the process of optimizing content so AI-powered search engines can include, summarize, or cite it inside AI-generated responses and search answers."
+}
+},
+{
+"@type": "Question",
+"name": "How is GEO different from traditional SEO?",
+"acceptedAnswer": {
+"@type": "Answer",
+"text": "Traditional SEO focuses on ranking webpages in search results, while GEO focuses on making content understandable and extractable for AI systems so it can appear in AI-generated answers."
+}
+},
+{
+"@type": "Question",
+"name": "How can you rank in AI-generated search results?",
+"acceptedAnswer": {
+"@type": "Answer",
+"text": "To rank in AI-generated search results, focus on structured content, topical authority, entity optimization, semantic search intent, and schema markup that helps AI systems extract information."
+}
+},
+{
+"@type": "Question",
+"name": "Why is Generative Engine Optimization important for the future of search?",
+"acceptedAnswer": {
+"@type": "Answer",
+"text": "Generative Engine Optimization is important because search engines are shifting toward AI-generated answers. Businesses that optimize for GEO can gain higher visibility, authority, and brand mentions in AI-driven search results."
+}
+}
+]
+}`}
+        </Script>
       )}
     </>
   );
