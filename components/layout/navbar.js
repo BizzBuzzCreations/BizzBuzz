@@ -81,7 +81,7 @@ export default function Navbar() {
                     href="/business-consultancy"
                     className="inline-flex items-center w-full p-2 hover:bg-gray-400 hover:text-black rounded"
                   >
-                    Buisiness Consultancy
+                    Business Consultancy
                   </Link>
                 </li>
                 <li>
@@ -238,7 +238,7 @@ export default function Navbar() {
                         setOpenService(!openService);
                       }}
                     >
-                      Buisiness Consultancy
+                      Business Consultancy
                     </Link>
                   </li>
                   <li>
