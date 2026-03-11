@@ -152,7 +152,7 @@ export default function Footer() {
                     href="/business-consultancy"
                     className="text-sm hover:text-gray-300 transition-colors"
                   >
-                    Buisiness Consultancy
+                    Business Consultancy
                   </Link>
                 </li>
                 <li>
