@@ -26,7 +26,9 @@ export default async function Blogs() {
   return (
     <section className="bg-white md:py-40 py-25">
       <div className="text-center">
-        <h1 className="text-4xl font-bold text-black">Our Latest Blogs</h1>
+        <h1 className="md:text-4xl text-3xl font-bold text-black">
+          Our Latest Blogs
+        </h1>
         <p className="text-lg text-gray-600">
           Explore, discover, and find inspiration through these exciting Blogs.
         </p>

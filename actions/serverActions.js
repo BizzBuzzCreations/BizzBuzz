@@ -197,11 +197,14 @@ export async function getLatestThreeBlogs() {
 }
 
 //Fetch all blogs
-export async function getLatestBlogs(page, category, posts) {
+export async function getLatestBlogs(page, categoryId, posts) {
   try {
-    const offset = 3 + (page - 1) * posts;
+    const skip = categoryId && categoryId !== "all" ? 0 : 3;
+    const offset = skip + (page - 1) * posts;
     const res = await fetch(
-      `https://blog.bizzbuzzcreations.com/wp-json/wp/v2/posts?per_page=${posts}&offset=${offset}&_fields=id,date,slug,link,title,excerpt,yoast_head_json`,
+      `https://blog.bizzbuzzcreations.com/wp-json/wp/v2/posts?per_page=${posts}&offset=${offset}${
+        categoryId && categoryId !== "all" ? `&categories=${categoryId}` : ""
+      }&_fields=id,date,slug,link,title,excerpt,yoast_head_json`,
     );
     const totalPages = res.headers.get("X-WP-TotalPages");
     const response = await res.json();
@@ -248,6 +251,38 @@ export async function getBlogBySlug(slug) {
     return {
       success: false,
       message: "Failed to fetch blog.",
+    };
+  }
+}
+
+// Fetch every blog category
+export async function getBlogsCategory() {
+  try {
+    const res = await fetch(
+      `https://blog.bizzbuzzcreations.com/wp-json/wp/v2/categories?per_page=100&_fields=name,count,id`,
+      {
+        next: { revalidate: 3600 },
+      },
+    );
+
+    const response = await res.json();
+
+    if (!response) {
+      return {
+        success: false,
+        message: "Blog categories not found.",
+      };
+    }
+
+    return {
+      success: true,
+      data: response,
+    };
+  } catch (error) {
+    console.error("Failed to fetch blog categories:", error);
+    return {
+      success: false,
+      message: "Failed to fetch blog categories.",
     };
   }
 }
