@@ -102,7 +102,7 @@ export default function AllBLogs() {
 
   return (
     <>
-      <div className="lg:max-w-screen-xl sm:max-w-xl md:max-w-full sm:px-12 md:px-18 px-8">
+      <div className="lg:max-w-screen-xl sm:max-w-xl md:max-w-full sm:px-12 md:px-18 px-8 mx-auto">
         {showAll && (
           <h2 className="md:text-4xl text-3xl font-bold md:py-15 md:mb-0 mb-10 text-center">
             Our Previous Blogs
@@ -110,8 +110,8 @@ export default function AllBLogs() {
         )}
 
         {showAll && (
-          <div className="flex items-center gap-3 justify-end items-center mb-6">
-            <div className="relative w-64 me-6" ref={ref}>
+          <div className="flex items-center gap-6 md:justify-end justify-center mb-10 flex-wrap">
+            <div className="relative w-64" ref={ref}>
               {/* Trigger */}
               <button
                 onClick={() => setOpen((o) => !o)}
@@ -174,31 +174,33 @@ export default function AllBLogs() {
                 </ul>
               </div>
             </div>
-            <button
-              disabled={currPage === 1 || loading}
-              onClick={() => {
-                if (loading) return;
-                setPosts(9);
-                setCurrPage((prev) => prev - 1);
-              }}
-              className={`${currPage === 1 ? "opacity-50 cursor-not-allowed " : "hover:text-white hover:bg-black hover:border-black"} p-1 cursor-pointer rounded border text-black bg-white `}
-            >
-              <ArrowLeft />
-            </button>
-            <p className="text-gray-500">
-              Page {currPage} of {totalPages}
-            </p>
-            <button
-              disabled={currPage == totalPages || loading}
-              onClick={() => {
-                if (loading) return;
-                setPosts(9);
-                setCurrPage((prev) => prev + 1);
-              }}
-              className={`${currPage == totalPages ? "opacity-50 cursor-not-allowed " : "hover:text-white hover:bg-black hover:border-black"} p-1 cursor-pointer rounded border text-black bg-white `}
-            >
-              <ArrowRight />
-            </button>
+            <div className="flex gap-3 justify-end items-center">
+              <button
+                disabled={currPage === 1 || loading}
+                onClick={() => {
+                  if (loading) return;
+                  setPosts(9);
+                  setCurrPage((prev) => prev - 1);
+                }}
+                className={`${currPage === 1 ? "opacity-50 cursor-not-allowed " : "hover:text-white hover:bg-black hover:border-black"} p-1 cursor-pointer rounded border text-black bg-white `}
+              >
+                <ArrowLeft />
+              </button>
+              <p className="text-gray-500">
+                Page {currPage} of {totalPages}
+              </p>
+              <button
+                disabled={currPage == totalPages || loading}
+                onClick={() => {
+                  if (loading) return;
+                  setPosts(9);
+                  setCurrPage((prev) => prev + 1);
+                }}
+                className={`${currPage == totalPages ? "opacity-50 cursor-not-allowed " : "hover:text-white hover:bg-black hover:border-black"} p-1 cursor-pointer rounded border text-black bg-white `}
+              >
+                <ArrowRight />
+              </button>
+            </div>
           </div>
         )}
       </div>
