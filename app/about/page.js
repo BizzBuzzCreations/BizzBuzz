@@ -85,7 +85,7 @@ export default function About() {
                 Our Vision
               </h3>
               <p className="text-lg leading-relaxed text-center max-w-xl mx-auto mb-4">
-                To become a trusted digital marketing agency in Prayagraj and
+                To become a trusted digital marketing strategist in Prayagraj and
                 across India, known for results, integrity, and long-term client
                 success.
               </p>

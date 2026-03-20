@@ -11,7 +11,7 @@ export default function HomeAbout() {
           We Are BizzBuzz Creations
         </h2>
         <p className="max-w-lg mb-6 text-gray-900">
-          BizzBuzz Creations is a full-service digital marketing agency
+          BizzBuzz Creations is a full-service digital marketing strategist
           dedicated to helping businesses thrive in the online world. Our team
           of experts specializes in creating customized strategies that drive
           results and deliver measurable ROI.
