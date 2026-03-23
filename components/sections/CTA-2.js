@@ -19,7 +19,7 @@ export default function CTA2() {
           }}
         >
           <h2 className="md:text-2xl text-xl max-w-2xl font-bold mb-6">
-            LOOKING FOR THE BEST DIGITAL MARKETING STRATEGIST IN PRAYAGRAJ TO BOOST
+            LOOKING FOR THE BEST DIGITAL MARKETING Company IN PRAYAGRAJ TO BOOST
             YOUR REVENUE?
           </h2>
 

@@ -15,7 +15,7 @@ export default function AboutHero() {
           About BizzBuzz Creations
         </h1>
         <p className="max-w-xl mb-10">
-          BizzBuzz Creations is a results-driven digital marketing strategist in
+          BizzBuzz Creations is a results-driven digital marketing agency in
           Prayagraj helping businesses grow their online presence, generate
           quality leads, and build long-term brand value. We combine data-backed
           strategies, creative execution, and the latest Google-approved

@@ -2,6 +2,8 @@
 import connectDB from "@/db/connect";
 import nodemailer from "nodemailer";
 import Job from "@/models/jobs";
+import Submission from "@/models/submissions";
+import Comment from "@/models/comments";
 
 const SMTP_SERVER_HOST = process.env.SMTP_SERVER_HOST;
 const SMTP_SERVER_USERNAME = process.env.SMTP_SERVER_USERNAME;
@@ -37,7 +39,20 @@ export async function sendMail({ name, email, subject, text, contact }) {
   }
 
   lastRequestTime = now;
+
+  await connectDB();
   try {
+    // Store submission in database
+    const newSub = new Submission({
+      name,
+      email,
+      subject,
+      phone: contact,
+      message: text,
+    });
+
+    await newSub.save();
+
     //  Verify SMTP connection
     await transporter.verify();
     console.log("SMTP connection ready");
@@ -166,6 +181,110 @@ export async function deleteJob({ id }) {
     return {
       success: false,
       message: "Failed to delete job.",
+    };
+  }
+}
+
+// Function to get all submissions
+export async function getAllSubmissions() {
+  await connectDB();
+  try {
+    const submissions = await Job.find({}).lean();
+    const plainSubmissions = submissions.map((sub) => ({
+      ...sub,
+      _id: sub._id.toString(), // ✅ convert ObjectId
+      createdAt: sub.createdAt?.toISOString(), // ✅ convert Date
+      updatedAt: sub.updatedAt?.toISOString(), // ✅ convert Date
+    }));
+
+    return {
+      success: true,
+      data: plainSubmissions,
+    };
+  } catch (error) {
+    console.error("Get submissions failed:", error);
+    return {
+      success: false,
+      message: "Failed to fetch submissions.",
+    };
+  }
+}
+
+// Function to post comment
+export async function postComment({ name, message, blog }) {
+  await connectDB();
+
+  if (!name || !message || !blog) {
+    return {
+      success: false,
+      message: "All fields are required.",
+    };
+  }
+  try {
+    const newComment = new Comment({
+      name,
+      message,
+      blog,
+    });
+    await newComment.save();
+    return {
+      success: true,
+      message: "Comment added successfully.",
+    };
+  } catch (error) {
+    console.error("Posting comment failed:", error);
+    return {
+      success: false,
+      message: "Failed to add comment.",
+    };
+  }
+}
+
+// Function to get all comments
+export async function getAllComments(slug) {
+  await connectDB();
+  try {
+    let comments = null;
+    if (!slug) {
+      comments = await Comment.find({}).lean();
+    } else {
+      comments = await Comment.find({ blog: slug }).lean();
+    }
+
+    const plainComments = comments.map((com) => ({
+      ...com,
+      _id: com._id.toString(), // ✅ convert ObjectId
+      createdAt: com.createdAt?.toISOString(), // ✅ convert Date
+      updatedAt: com.updatedAt?.toISOString(), // ✅ convert Date
+    }));
+
+    return {
+      success: true,
+      data: plainComments,
+    };
+  } catch (error) {
+    console.error("Get comments failed:", error);
+    return {
+      success: false,
+      message: "Failed to fetch comments.",
+    };
+  }
+}
+
+//Function to delete a comment
+export async function deleteComment({ id }) {
+  await connectDB();
+  try {
+    await Comment.findByIdAndDelete(id);
+    return {
+      success: true,
+      message: "Comment deleted successfully.",
+    };
+  } catch (error) {
+    console.error("Delete Comment failed:", error);
+    return {
+      success: false,
+      message: "Failed to delete Comment.",
     };
   }
 }
