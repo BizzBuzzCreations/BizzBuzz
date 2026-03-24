@@ -1,4 +1,5 @@
 import { getBlogBySlug } from "@/actions/serverActions";
+import CommentSidebar from "@/components/sections/comments";
 import { User } from "lucide-react";
 import { notFound } from "next/navigation";
 
@@ -63,7 +64,7 @@ export default async function SingleBlog({ params }) {
   );
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-40">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-40 lg:flex gap-5">
       <div className="max-w-3xl mx-auto">
         {/* Header */}
         <div className="py-8">
@@ -110,6 +111,7 @@ export default async function SingleBlog({ params }) {
           </p>
         </div>
       </div>
+      <CommentSidebar slug={slug} />
     </div>
   );
 }

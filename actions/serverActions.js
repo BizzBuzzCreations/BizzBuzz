@@ -211,7 +211,7 @@ export async function getAllSubmissions() {
 }
 
 // Function to post comment
-export async function postComment({ name, message, blog }) {
+export async function postComment(name, message, blog) {
   await connectDB();
 
   if (!name || !message || !blog) {
@@ -230,6 +230,7 @@ export async function postComment({ name, message, blog }) {
     return {
       success: true,
       message: "Comment added successfully.",
+      data: newComment,
     };
   } catch (error) {
     console.error("Posting comment failed:", error);
