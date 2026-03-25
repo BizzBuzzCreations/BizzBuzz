@@ -184,7 +184,7 @@ export async function deleteJob({ id }) {
 export async function getAllSubmissions() {
   await connectDB();
   try {
-    const submissions = await Job.find({}).lean();
+    const submissions = await Submission.find({}).lean();
     const plainSubmissions = submissions.map((sub) => ({
       ...sub,
       _id: sub._id.toString(), // ✅ convert ObjectId
