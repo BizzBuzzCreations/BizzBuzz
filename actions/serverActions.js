@@ -1,35 +1,16 @@
 "use server";
 import connectDB from "@/db/connect";
-import nodemailer from "nodemailer";
 import Job from "@/models/jobs";
 import Submission from "@/models/submissions";
 import Comment from "@/models/comments";
+import { Resend } from "resend";
 
-const SMTP_SERVER_HOST = process.env.SMTP_SERVER_HOST;
-const SMTP_SERVER_USERNAME = process.env.SMTP_SERVER_USERNAME;
-const SMTP_SERVER_PASSWORD = process.env.SMTP_SERVER_PASSWORD;
-const SITE_MAIL_RECIEVER = process.env.SITE_MAIL_RECIEVER;
-let lastRequestTime = 0;
-
-const transporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: SMTP_SERVER_USERNAME,
-    pass: SMTP_SERVER_PASSWORD,
-  },
-});
+const resend = new Resend(process.env.RESEND_API_KEY);
+const lastRequestMap = new Map();
 
 // Function to send email
 export async function sendMail({ name, email, subject, text, contact }) {
   const now = Date.now();
-
-  //  Block if request comes within 10 seconds
-  if (now - lastRequestTime < 10000) {
-    return {
-      success: false,
-      message: "Please wait before sending another message.",
-    };
-  }
 
   if (!email) {
     return {
@@ -38,29 +19,25 @@ export async function sendMail({ name, email, subject, text, contact }) {
     };
   }
 
-  lastRequestTime = now;
+  const key = email;
+  const lastTime = lastRequestMap.get(key) || 0;
+
+  //  Block if request comes within 10 seconds
+  if (now - lastTime < 10000) {
+    return {
+      success: false,
+      message: "Please wait before sending another message.",
+    };
+  }
 
   await connectDB();
+
   try {
-    // Store submission in database
-    const newSub = new Submission({
-      name,
-      email,
-      subject,
-      phone: contact,
-      message: text,
-    });
-
-    await newSub.save();
-
-    //  Verify SMTP connection
-    await transporter.verify();
-    console.log("SMTP connection ready");
-
     // Send email
-    const info = await transporter.sendMail({
-      from: `"BizzBuzz Website" <bizzbuzzcreation@gmail.com>`,
-      to: SITE_MAIL_RECIEVER,
+    const { data, error } = await resend.emails.send({
+      from: "BizzBuzz Website <contact@bizzbuzzcreations.com>",
+      to: process.env.SITE_MAIL_RECIEVER,
+      replyTo: email,
       subject: subject,
       html: `
     <div style="font-family: Arial, sans-serif; background:#f4f7fb; padding:20px;">
@@ -79,6 +56,24 @@ export async function sendMail({ name, email, subject, text, contact }) {
     </div>
   `,
     });
+    if (error) {
+      console.error("EMAIL ERROR:", error);
+      return { success: false, message: "Email failed to send" };
+    }
+
+    lastRequestMap.set(key, now);
+
+    // Store submission in database
+    const newSub = new Submission({
+      name,
+      email,
+      subject,
+      phone: contact,
+      message: text,
+    });
+
+    await newSub.save();
+
     return {
       success: true,
       message: "Message sent!",
@@ -211,7 +206,7 @@ export async function getAllSubmissions() {
 }
 
 // Function to post comment
-export async function postComment({ name, message, blog }) {
+export async function postComment(name, message, blog) {
   await connectDB();
 
   if (!name || !message || !blog) {
@@ -230,6 +225,7 @@ export async function postComment({ name, message, blog }) {
     return {
       success: true,
       message: "Comment added successfully.",
+      data: newComment,
     };
   } catch (error) {
     console.error("Posting comment failed:", error);
