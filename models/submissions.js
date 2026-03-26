@@ -6,7 +6,7 @@ const submissionSchema = new Schema(
     name: { type: String },
     email: { type: String },
     subject: { type: String },
-    phone: { type: String },
+    phone: { type: Number },
     message: { type: String },
   },
   { timestamps: true },

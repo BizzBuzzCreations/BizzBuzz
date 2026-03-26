@@ -1,8 +1,6 @@
 import { Fira_Sans, IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
-import Navbar from "../components/layout/navbar";
-import Footer from "../components/layout/footer";
 import { ToastContainer, Bounce } from "react-toastify";
 import FlowbiteInit from "@/components/sections/FlowbiteInit";
 import Whatsapp from "@/components/sections/whatsapp";
@@ -44,10 +42,8 @@ export default function RootLayout({ children }) {
         className={`${firaSans.variable} ${ibmPlexSans.variable} antialiased`}
       >
         <Whatsapp />
-        <Navbar />
         <FlowbiteInit />
         <main>{children}</main>
-        <Footer />
         <Script src="/js/flowbite.min.js" strategy="afterInteractive" />
         <ToastContainer
           position="top-right"

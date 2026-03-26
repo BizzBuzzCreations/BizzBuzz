@@ -191,7 +191,7 @@ export default function ConsultationPopup() {
 
               <input
                 name="contact"
-                type="tel"
+                type="number"
                 placeholder="Enter 10 Digit Mobile Number"
                 value={form.contact}
                 onChange={handleChange}

@@ -3,7 +3,7 @@ export default function robots() {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: "/job-posting/",
+      disallow: "/admin/",
     },
     sitemap: "https://bizzbuzzcreations.com/sitemap.xml",
   };
