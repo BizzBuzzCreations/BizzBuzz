@@ -196,7 +196,7 @@ export default function CommentSidebar({ slug }) {
           <div className="flex-1 overflow-y-auto px-3 py-3 flex flex-col gap-2.5">
             {comments.map((c) => (
               <div
-                key={c.id}
+                key={c._id}
                 className="bg-white border border-[#e4e4e0] rounded-lg px-4 py-3"
               >
                 {/* Top row */}

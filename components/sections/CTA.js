@@ -22,7 +22,7 @@ export default function CTA() {
       email: formData?.email,
       subject: "Request for consultancy",
       text: "Want to start a project",
-      contact: "not given",
+      contact: null,
     });
 
     if (response?.success) {
