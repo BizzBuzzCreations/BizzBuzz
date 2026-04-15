@@ -4,6 +4,7 @@ import { getBlogsCategory, getLatestBlogs } from "@/actions/serverActions";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Cookies from "js-cookie";
+import he from "he";
 
 export default function AllBLogs() {
   const [blogs, setBlogs] = useState([]);
@@ -74,11 +75,12 @@ export default function AllBLogs() {
   }, [showAll, currPage, posts, selected]);
 
   function truncateHTML(html, limit = 120) {
-    const text = new DOMParser().parseFromString(html, "text/html")
-      .documentElement.textContent;
-
-    return text.length > limit ? text.slice(0, limit) + "..." : text;
-  }
+      if (!html) return "";
+  
+      const text = he.decode(html.replace(/<[^>]*>/g, "")); // remove HTML tags
+  
+      return text.length > limit ? text.slice(0, limit) + "..." : text;
+    }
 
   useEffect(() => {
     const handler = (e) => {

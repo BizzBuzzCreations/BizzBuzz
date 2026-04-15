@@ -1,17 +1,18 @@
 import { getLatestThreeBlogs } from "@/actions/serverActions";
 import Link from "next/link";
+import he from "he";
 
 export default async function LatestBlogs() {
   const res = await getLatestThreeBlogs();
   const blogs = res.data;
 
   function truncateHTML(html, limit = 120) {
-    if (!html) return "";
-
-    const text = html.replace(/<[^>]*>/g, ""); // remove HTML tags
-
-    return text.length > limit ? text.slice(0, limit) + "..." : text;
-  }
+        if (!html) return "";
+    
+        const text = he.decode(html.replace(/<[^>]*>/g, "")); // remove HTML tags
+    
+        return text.length > limit ? text.slice(0, limit) + "..." : text;
+      }
 
   return (
     <section className="bg-white">

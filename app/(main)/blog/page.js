@@ -1,6 +1,7 @@
 import { getLatestThreeBlogs } from "@/actions/serverActions";
 import AllBLogs from "@/components/sections/allBLogs";
 import Link from "next/link";
+import he from "he";
 
 export const metadata = {
   title: "BizzBuzz Creations Blog | Digital Marketing & SEO Insights",
@@ -18,7 +19,7 @@ export default async function Blogs() {
   function truncateHTML(html, limit = 120) {
     if (!html) return "";
 
-    const text = html.replace(/<[^>]*>/g, ""); // remove HTML tags
+    const text = he.decode(html.replace(/<[^>]*>/g, "")); // remove HTML tags
 
     return text.length > limit ? text.slice(0, limit) + "..." : text;
   }
