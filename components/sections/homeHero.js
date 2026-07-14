@@ -13,7 +13,7 @@ export default function HomeHero() {
       <div className="h-full flex items-center justify-center">
         <div className="z-10 text-center text-white">
           <h1 className="md:text-3xl xl:text-4xl text-xl font-bold mb-4">
-            We are the Innovative Digital Marketing strategist in India
+           India’s Trusted Digital Marketing Agency
           </h1>
           <svg className="animated-text" viewBox="0 0 1320 300">
             <text x="50%" y="50%" dy=".35em" textAnchor="middle">
@@ -21,9 +21,9 @@ export default function HomeHero() {
             </text>
           </svg>
           <p className="max-w-3xl mb-10 mx-auto">
-            At BizzBuzz Creations, we help you attract customers, generate
-            leads, and grow revenue with Google Ads, Meta Ads, SEO, Web Design,
-            and Content Marketing — all tailored to your business goals.
+            Looking for a trusted digital marketing agency in Prayagraj that helps 
+            your business generate more leads, 
+            increase website traffic, and grow revenue? Welcome to BizzBuzz Creations.
           </p>
           <Link href="/contact" className="inline-block">
             <button className="animated-button mx-auto">
@@ -34,7 +34,7 @@ export default function HomeHero() {
               >
                 <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
               </svg>
-              <span className="text">Start Now</span>
+              <span className="text">Get Free Consultation</span>
               <span className="circle"></span>
               <svg
                 viewBox="0 0 24 24"

@@ -11,8 +11,10 @@ export default function RecentWork() {
     >
       <div className="mx-auto w-full backdrop-filter backdrop-blur-md py-6">
         <h2 className="md:text-4xl text-3xl font-bold text-center my-5 ">
-          Our Recent Work
+         Real Results. Measurable Growth. 
         </h2>
+        <p className="md:text-xl text-center my-5 ">At BizzBuzz Creations, we believe that successful digital marketing is measured by business growth—not just clicks, impressions, or rankings. Every project we undertake is driven by a clear objective: helping our clients generate more leads, increase sales, and build a stronger digital presence.</p>
+        <br />
         <div
           id="services"
           className="bg-cover w-full flex justify-center items-center"
@@ -42,11 +44,8 @@ export default function RecentWork() {
                           <div className="flex py-4 text-sm text-black">
                             <div className="flex-1 inline-flex items-center ">
                               <p>
-                                Our website redesign initiatives are based on a
-                                clear plan, good user experience, and modern
-                                design. The results reveal that people are more
-                                interested, things happen faster, and more
-                                people buy on important pages.
+                                High-Converting Websites Fast, responsive, and mobile-first websites built with SEO-friendly architecture. 
+                                We engineer clean digital spaces designed to turn casual visitors into paying customers.
                               </p>
                             </div>
                           </div>
@@ -75,11 +74,8 @@ export default function RecentWork() {
                           <div className="flex py-4 text-sm text-black">
                             <div className="flex-1 inline-flex items-center">
                               <p>
-                                Our SEO campaigns are built on strong research,
-                                technical optimization, and quality content. The
-                                graphs of these results illustrate that search
-                                visibility, traffic growth, and keyword rankings
-                                have all steadily improved over time.
+                                Sustainable Organic Growth Dominate search rankings and attract high-intent buyers. 
+                                We optimize your online presence to increase organic Google traffic and secure consistent inbound leads.
                               </p>
                             </div>
                           </div>
@@ -108,11 +104,8 @@ export default function RecentWork() {
                           <div className="flex py-4 text-sm text-black">
                             <div className="flex-1 inline-flex items-center">
                               <p>
-                                We design social media visuals that align with
-                                your brand voice and marketing goals. Our
-                                creatives, from posts to advertising, are made
-                                to get people to interact with your brand, trust
-                                you, and make your online presence stronger.
+                                Maximized ROI, Zero Wasted Spend Turn your marketing budget into measurable revenue. 
+                                We launch highly targeted, data-driven paid campaigns optimized to lower acquisition costs and scale sales.
                               </p>
                             </div>
                           </div>
@@ -141,11 +134,8 @@ export default function RecentWork() {
                           <div className="flex py-4 text-sm text-black">
                             <div className="flex-1 inline-flex items-center">
                               <p>
-                                Smart targeting, persuasive copy, and optimized
-                                landing pages are the main things our lead
-                                generation ads focus on. We assist companies get
-                                high-quality leads that are more likely to turn
-                                into genuine customers.
+                                Brands People Remember Go beyond daily posting. 
+                                We create scroll-stopping short-form videos and engagement strategies that build customer trust and turn social followers into active buyers.
                               </p>
                             </div>
                           </div>

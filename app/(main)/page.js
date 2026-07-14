@@ -15,9 +15,9 @@ import LatestBlogs from "@/components/sections/latestBlogs";
 
 export const metadata = {
   title:
-    "Best Digital Marketing Agency in Prayagraj | SEO & SMM Services Company in Prayagraj | BizzBuzz Creations",
+    "Digital Marketing Agency in Prayagraj | BizzBuzz Creations",
   description:
-    "Searching for the best digital marketing agency in Prayagraj? We offer expert SEO, SMM, rank higher, increase visibility and result-driven strategies to grow your business and generate quality leads.",
+    "Grow your business with BizzBuzz Creations, a trusted digital marketing agency in Prayagraj offering SEO, Google Ads, web development & social media.",
   keywords:
     "best digital marketing agency in allahabad, best digital marketing agency in prayagraj, best digital marketing company in prayagraj, professional digital marketing, Best SEO Service in prayagraj, Expert SEO service, SMM services in prayagraj, Best SMM agency in prayagraj, local SEO services in prayagraj, Best Paid Ads services in prayagraj, Professional SEO Services in Prayagraj",
   alternates: {
@@ -27,7 +27,7 @@ export const metadata = {
     title:
       "Best Digital Marketing Agency in Prayagraj | Best SEO Service Company in Prayagraj | Best SMM Service In Prayagraj",
     description:
-      "Searching for the best digital marketing agency in Prayagraj? We offer expert SEO, SMM, rank higher, increase visibility and result-driven strategies to grow your business and generate quality leads.",
+      "Grow your business with BizzBuzz Creations, a trusted digital marketing agency in Prayagraj offering SEO, Google Ads, web development & social media.",
     url: "https://bizzbuzzcreations.com/",
     type: "website",
     siteName: "BizzBuzz Creations",

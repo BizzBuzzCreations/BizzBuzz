@@ -1,4 +1,5 @@
 import { getBlogBySlug } from "@/actions/serverActions";
+import { getFeaturedImage } from "@/lib/getFeaturedImage";
 import CommentSidebar from "@/components/sections/comments";
 import { User } from "lucide-react";
 import { notFound } from "next/navigation";
@@ -50,7 +51,7 @@ export default async function SingleBlog({ params }) {
   }
   const post = res?.data;
 
-  const featuredImage = post?.yoast_head_json?.og_image?.[0]?.url;
+  const featuredImage = getFeaturedImage(post);
 
   const formattedDate = new Date(post?.date).toLocaleDateString("en-IN", {
     year: "numeric",

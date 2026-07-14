@@ -4,7 +4,7 @@ export default function FAQ() {
   return (
     <div className="mb-20 max-w-5xl p-4 mx-auto container">
       <h2 className="md:text-4xl text-3xl font-bold text-center mb-12">
-        How It Works
+        FAQs
       </h2>
 
       <div
@@ -22,7 +22,7 @@ export default function FAQ() {
             aria-expanded="true"
             aria-controls="accordion-flush-body-5"
           >
-            <span>Boost Online Visibility</span>
+            <span>How much does digital marketing cost in India?</span>
             <svg
               data-accordion-icon
               className="w-5 h-5 rotate-180 shrink-0"
@@ -49,10 +49,7 @@ export default function FAQ() {
         >
           <div className="py-5 border-b border-default text-body">
             <p className="mb-2">
-              IT Consulting & IT Services at Bizz Buzz Creations offer expert
-              guidance and ongoing support to optimize your technology, improve
-              security, reduce costs, and streamline operations—boosting
-              productivity and keeping your business competitive.
+              Depends on your goals and city. Get a free custom quote.
             </p>
           </div>
         </div>
@@ -64,7 +61,7 @@ export default function FAQ() {
             aria-expanded="false"
             aria-controls="accordion-flush-body-6"
           >
-            <span>Enhance Brand Awareness</span>
+            <span>What does a digital marketing agency do?</span>
             <svg
               data-accordion-icon
               className="w-5 h-5 rotate-180 shrink-0"
@@ -91,9 +88,7 @@ export default function FAQ() {
         >
           <div className="py-5 border-b border-default text-body">
             <p className="mb-2">
-              At Bizz Buzz Creations, our IT services boost security with
-              firewalls, encryption, system updates, and continuous monitoring,
-              protecting your business from threats and ensuring data safety.
+              Handles your SEO, ads, social media, and website — so you get found online.
             </p>
           </div>
         </div>
@@ -105,7 +100,7 @@ export default function FAQ() {
             aria-expanded="false"
             aria-controls="accordion-flush-body-7"
           >
-            <span>Increase Lead Generation</span>
+            <span>Can a Prayagraj business rank across India?</span>
             <svg
               data-accordion-icon
               className="w-5 h-5 rotate-180 shrink-0"
@@ -132,10 +127,7 @@ export default function FAQ() {
         >
           <div className="py-5 text-body border-b border-default">
             <p className="mb-2">
-              Increase lead generation by leveraging data-driven strategies,
-              targeted campaigns, and personalized content to attract qualified
-              prospects, nurture relationships, and convert them into loyal
-              clients for sustained business growth.
+              Yes. Local SEO plus a wider keyword strategy makes it possible.
             </p>
           </div>
         </div>
@@ -147,7 +139,7 @@ export default function FAQ() {
             aria-expanded="false"
             aria-controls="accordion-flush-body-8"
           >
-            <span>Drive Targeted Traffic</span>
+            <span>How long does SEO take to show results?</span>
             <svg
               data-accordion-icon
               className="w-5 h-5 rotate-180 shrink-0"
@@ -174,11 +166,7 @@ export default function FAQ() {
         >
           <div className="py-5 text-body border-b border-default">
             <p className="mb-2">
-              Bizz Buzz Creations offers IT services including IT Management,
-              Web Development, Cloud Computing, Tech Support, alongside
-              Corporate Event Management, Financial Advisory, Business
-              Consulting, Networking, Digital Marketing, and BPO Outsourcing
-              solutions.
+              Usually 2–3 months for visible movement. Ads work faster.
             </p>
           </div>
         </div>
@@ -190,7 +178,7 @@ export default function FAQ() {
             aria-expanded="false"
             aria-controls="accordion-flush-body-9"
           >
-            <span>Performance Track and Optimize</span>
+            <span> Is SEO still relevant with AI tools like ChatGPT?</span>
             <svg
               data-accordion-icon
               className="w-5 h-5 rotate-180 shrink-0"
@@ -217,10 +205,7 @@ export default function FAQ() {
         >
           <div className="py-5 text-body border-b border-default">
             <p className="mb-2">
-              Track performance with real-time analytics, assess campaign
-              effectiveness, and continuously optimize strategies to enhance
-              ROI, improve outcomes, and ensure sustained growth by adapting to
-              market trends and customer behavior.
+              Yes — you now need to rank on Google and show up in AI answers.
             </p>
           </div>
         </div>

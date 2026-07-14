@@ -8,13 +8,13 @@ export default function HomeAbout() {
       <div className="md:text-start text-center">
         <p className="text-gray-900">About Us</p>
         <h2 className="md:text-4xl text-3xl font-bold mb-4">
-          We Are BizzBuzz Creations
+          We Do Not Just Market Brands — We Build Businesses That Grow.
+
         </h2>
         <p className="max-w-lg mb-6 text-gray-900">
-          BizzBuzz Creations is a full-service digital marketing company
-          dedicated to helping businesses thrive in the online world. Our team
-          of experts specializes in creating customized strategies that drive
-          results and deliver measurable ROI.
+          At <b>BizzBuzz Creations</b>, we believe digital marketing should do more than increase website traffic—it should help your business grow sustainably.<br />
+          As a leading <b>digital marketing company in Allahabad</b>, we combine creativity, technology, and data-driven decision-making to help businesses reach the right audience at the right time. 
+          Instead of using one-size-fits-all marketing campaigns, we develop customized strategies based on your industry, competitors, customer behavior, and business objectives.
         </p>
         <Link
           href="/about"

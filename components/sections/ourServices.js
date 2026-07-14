@@ -24,8 +24,11 @@ export default function OurServices() {
         className="py-20"
       >
         <h2 className="md:text-4xl text-3xl font-bold mb-10 text-center ">
-          Our Digital Marketing Services
+          Complete Digital Marketing Solutions to Grow Your Business
         </h2>
+        <p className="text-lg text-gray-600 text-center mb-20">
+          Every business has different goals, challenges, and audiences. That is why we do not believe in one-size-fits-all marketing. At BizzBuzz Creations, we create customized digital marketing strategies that help businesses attract qualified customers, increase conversions, and achieve sustainable growth.
+        </p>
 
         <div className="flex flex-wrap sm:p-0 p-2 max-w-6xl mx-auto gap-10 items-center justify-center">
           <div className="group relative max-w-lg overflow-hidden rounded-2xl border border-gray-300 bg-white p-6 transition-all duration-300 hover:shadow-xl hover:scale-105 cursor-pointer">
@@ -42,12 +45,12 @@ export default function OurServices() {
               {/* Text */}
               <div>
                 <h3 className="text-lg font-semibold text-gray-900">
-                  SEO Optimization
+                  Search Engine Optimization (SEO)
                 </h3>
                 <p className="mt-1 text-sm text-gray-600">
-                  Top SEO services in Prayagraj to boost your Google ranking,
-                  increase traffic, attract more customers, and enhance your
-                  online presence with simple, effective strategies.
+                <b>Increase Your Google Rankings & Drive Organic Traffic</b><br />
+                 Rank higher on Google and AI-driven search engines. We combine technical SEO, local relevance, and quality content to ensure your business in 
+                 Allahabad, and across India gets found however customers search.
                 </p>
                 {/* Button */}
                 <div className="mt-6">
@@ -56,7 +59,7 @@ export default function OurServices() {
                     className="inline-block"
                   >
                     <button className="rounded-lg py-2 flex gap-2 items-center text-sm font-medium text-[#0B60B0] transition hover:text-[#0B60B0]/80">
-                      Know More <MoveRight size={16} />
+                      Explore SEO Services <MoveRight size={16} />
                     </button>
                   </Link>
                 </div>
@@ -77,18 +80,18 @@ export default function OurServices() {
               {/* Text */}
               <div>
                 <h3 className="text-lg font-semibold text-gray-900">
-                  Website Development
+                  Website Design & Development
                 </h3>
                 <p className="mt-1 text-sm text-gray-600">
-                  We write smart and easy code that helps your business grow.
-                  From websites to custom solutions, our work makes things
-                  smooth, trusted, and result-driven.
+                  <b>Build a Website That Converts Visitors Into Customers</b><br />
+                  A slow website kills conversions. We build fast, responsive, and clean websites—from local business pages to custom platforms—designed to deliver 
+                  a smooth user experience that turns visitors into buyers.
                 </p>
                 {/* Button */}
                 <div className="mt-6">
                   <Link href="/web-development" className="inline-block">
                     <button className="rounded-lg py-2 flex gap-2 items-center text-sm font-medium text-[#0B60B0] transition hover:text-[#0B60B0]/80">
-                      Know More <MoveRight size={16} />
+                      Build Your Website <MoveRight size={16} />
                     </button>
                   </Link>
                 </div>
@@ -112,16 +115,15 @@ export default function OurServices() {
                   Social Media Marketing
                 </h3>
                 <p className="mt-1 text-sm text-gray-600">
-                  Services providing Social Media Marketing in prayagraj helps
-                  to augment the online presence of businesses, provide
-                  engagement to audiences for a better flow, and drive traffic
-                  with efficiency.
+                <b>Build a Strong Brand That People Trust</b><br />
+                  Stop the scroll and build a brand that sells. We create high-impact Instagram, Facebook, and YouTube Shorts campaigns, 
+                  leveraging short-form video and social commerce to drive real customer engagement.
                 </p>
                 {/* Button */}
                 <div className="mt-6">
                   <Link href="/social-media-marketing" className="inline-block">
                     <button className="rounded-lg py-2 flex gap-2 items-center text-sm font-medium text-[#0B60B0] transition hover:text-[#0B60B0]/80">
-                      Know More <MoveRight size={16} />
+                      Grow Your Social Presence <MoveRight size={16} />
                     </button>
                   </Link>
                 </div>
@@ -142,19 +144,18 @@ export default function OurServices() {
               {/* Text */}
               <div>
                 <h3 className="text-lg font-semibold text-gray-900">
-                  Paid Marketing & Lead Generation
+                  Google Ads & Paid Marketing
                 </h3>
                 <p className="mt-1 text-sm text-gray-600">
-                  Our data-driven ad tactics and lead systems that convert well
-                  will help your organization flourish. Use campaigns that are
-                  meant to grow your business faster to turn clicks into
-                  consumers.
+                <b>Reach Customers Ready to Buy</b><br />
+                  Stop wasting ad spend. We launch targeted, AI-optimized campaigns with smart audience segmentation, and
+                   high-converting landing pages designed to turn clicks into genuine, scalable leads. 
                 </p>
                 {/* Button */}
                 <div className="mt-6">
                   <Link href="/paid-marketing" className="inline-block">
                     <button className="rounded-lg py-2 flex gap-2 items-center text-sm font-medium text-[#0B60B0] transition hover:text-[#0B60B0]/80">
-                      Know More <MoveRight size={16} />
+                       Start Google Ads <MoveRight size={16} />
                     </button>
                   </Link>
                 </div>
@@ -175,18 +176,18 @@ export default function OurServices() {
               {/* Text */}
               <div>
                 <h3 className="text-lg font-semibold text-gray-900">
-                  Digital Marketing
+                  Content Marketing
                 </h3>
                 <p className="mt-1 text-sm text-gray-600">
-                  Experience the future of technology with our revolutionary
-                  quantum computing solution.Experience the future of technology
-                  with our revolutionary quantum computing solution.
+                <b>Create Content That Educates, Engages & Converts</b><br />
+                  Build authority with content that converts. We map out and create high-value content that answers customer questions, 
+                  boosts your SEO, and seamlessly guides prospects through the buyer’s journey.
                 </p>
                 {/* Button */}
                 <div className="mt-6">
                   <Link href="/digital-marketing" className="inline-block">
                     <button className="rounded-lg py-2 flex gap-2 items-center text-sm font-medium text-[#0B60B0] transition hover:text-[#0B60B0]/80">
-                      Know More <MoveRight size={16} />
+                      Build Your Content Strategy <MoveRight size={16} />
                     </button>
                   </Link>
                 </div>
@@ -207,18 +208,18 @@ export default function OurServices() {
               {/* Text */}
               <div>
                 <h3 className="text-lg font-semibold text-gray-900">
-                  Business Consultancy Services
+                  Business Consulting
                 </h3>
                 <p className="mt-1 text-sm text-gray-600">
-                  Business consultancy offers expert advice to improve
-                  operations, boost efficiency, solve problems, and drive
-                  growth.
+                <b>Strategic Guidance for Sustainable Growth</b><br />
+                  Streamline operations and plan for sustainable growth. We bridge the gap between business fundamentals and digital strategy, 
+                  giving Prayagraj businesses and scaling Indian brands a clear roadmap to success
                 </p>
                 {/* Button */}
                 <div className="mt-6">
                   <Link href="/business-consultancy" className="inline-block">
                     <button className="rounded-lg py-2 flex gap-2 items-center text-sm font-medium text-[#0B60B0] transition hover:text-[#0B60B0]/80">
-                      Know More <MoveRight size={16} />
+                      Speak With a Consultant <MoveRight size={16} />
                     </button>
                   </Link>
                 </div>

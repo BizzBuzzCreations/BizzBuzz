@@ -1,4 +1,5 @@
 import { getLatestThreeBlogs } from "@/actions/serverActions";
+import { getFeaturedImage } from "@/lib/getFeaturedImage";
 import Link from "next/link";
 import he from "he";
 
@@ -29,17 +30,21 @@ export default async function LatestBlogs() {
       <div className="px-8 pt-10 mx-auto lg:max-w-screen-xl sm:max-w-xl md:max-w-full sm:px-12 md:px-16 sm:pt-15 mb-5">
         <div className="grid gap-x-8 gap-y-12 sm:gap-y-16 md:grid-cols-2 lg:grid-cols-3 mb-15">
           {blogs.length > 0 &&
-            blogs.map((e, index) => (
+            blogs.map((e, index) => {
+              const featuredImage = getFeaturedImage(e);
+              return (
               <div className="relative" key={index}>
                 <Link
                   href={`/blog/${e?.slug}`}
                   className="block overflow-hidden group rounded-xl shadow-lg shadow-gray-300"
                 >
-                  <img
-                    src={`${e?.yoast_head_json?.og_image[0]?.url}`}
-                    className="object-cover w-full h-56 transition-all duration-300 ease-out sm:h-64 group-hover:scale-110"
-                    alt={e?.title?.rendered}
-                  />
+                  {featuredImage && (
+                    <img
+                      src={featuredImage}
+                      className="object-cover w-full h-56 transition-all duration-300 ease-out sm:h-64 group-hover:scale-110"
+                      alt={e?.title?.rendered}
+                    />
+                  )}
                 </Link>
                 <div className="relative mt-5">
                   <p className="uppercase font-semibold text-xs mb-2.5 text-slate-700">
@@ -74,7 +79,8 @@ export default async function LatestBlogs() {
                   </Link>
                 </div>
               </div>
-            ))}
+              );
+            })}
         </div>
         <div className="text-center">
           <Link href="/blog" className="inline-block">

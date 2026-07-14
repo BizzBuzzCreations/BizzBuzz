@@ -9,7 +9,6 @@ export default function AllBlogScripts({ slug }) {
         "the-future-of-digital-marketing-in-2026-ai-seo-ads-conversion-strategy" && (
         <Script type="application/ld+json" strategy="beforeInteractive">
           {`{
-          
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
@@ -54,8 +53,7 @@ export default function AllBlogScripts({ slug }) {
       }
     }
   ]
-
-          }`}
+}`}
         </Script>
       )}
 
@@ -89,6 +87,7 @@ export default function AllBlogScripts({ slug }) {
   "dateModified": "2026-03-05"
 }`}
           </Script>
+
           <Script type="application/ld+json" strategy="beforeInteractive">
             {`{
   "@context": "https://schema.org",
@@ -145,44 +144,124 @@ export default function AllBlogScripts({ slug }) {
         "generative-engine-optimization-geo-how-to-rank-in-ai-generated-results" && (
         <Script type="application/ld+json" strategy="beforeInteractive">
           {`{
-"@context": "https://schema.org",
-"@type": "FAQPage",
-"mainEntity": [
-{
-"@type": "Question",
-"name": "What is Generative Engine Optimization (GEO)?",
-"acceptedAnswer": {
-"@type": "Answer",
-"text": "Generative Engine Optimization (GEO) is the process of optimizing content so AI-powered search engines can include, summarize, or cite it inside AI-generated responses and search answers."
-}
-},
-{
-"@type": "Question",
-"name": "How is GEO different from traditional SEO?",
-"acceptedAnswer": {
-"@type": "Answer",
-"text": "Traditional SEO focuses on ranking webpages in search results, while GEO focuses on making content understandable and extractable for AI systems so it can appear in AI-generated answers."
-}
-},
-{
-"@type": "Question",
-"name": "How can you rank in AI-generated search results?",
-"acceptedAnswer": {
-"@type": "Answer",
-"text": "To rank in AI-generated search results, focus on structured content, topical authority, entity optimization, semantic search intent, and schema markup that helps AI systems extract information."
-}
-},
-{
-"@type": "Question",
-"name": "Why is Generative Engine Optimization important for the future of search?",
-"acceptedAnswer": {
-"@type": "Answer",
-"text": "Generative Engine Optimization is important because search engines are shifting toward AI-generated answers. Businesses that optimize for GEO can gain higher visibility, authority, and brand mentions in AI-driven search results."
-}
-}
-]
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Generative Engine Optimization (GEO)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Generative Engine Optimization (GEO) is the process of optimizing content so AI-powered search engines can include, summarize, or cite it inside AI-generated responses and search answers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is GEO different from traditional SEO?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Traditional SEO focuses on ranking webpages in search results, while GEO focuses on making content understandable and extractable for AI systems so it can appear in AI-generated answers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can you rank in AI-generated search results?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To rank in AI-generated search results, focus on structured content, topical authority, entity optimization, semantic search intent, and schema markup that helps AI systems extract information."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is Generative Engine Optimization important for the future of search?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Generative Engine Optimization is important because search engines are shifting toward AI-generated answers. Businesses that optimize for GEO can gain higher visibility, authority, and brand mentions in AI-driven search results."
+      }
+    }
+  ]
 }`}
         </Script>
+      )}
+
+      {/* NEW BLOG SCRIPT */}
+      {slug ===
+        "why-digital-marketing-agency-not-giving-results" && (
+        <>
+          <Script type="application/ld+json" strategy="beforeInteractive">
+            {`{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Is Your Digital Marketing Agency Actually Growing Your Business — Or Just Burning Your Budget?",
+  "description": "10 warning signs your digital marketing agency is failing your business, with actionable fixes for ROI, funnel strategy, SEO, remarketing, and brand positioning.",
+  "author": {
+    "@type": "Person",
+    "name": "Shreya Kesarwani",
+    "jobTitle": "Senior Digital Marketing Strategist",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "BizzBuzz Creations"
+    }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BizzBuzz Creations",
+    "url": "https://bizzbuzzcreations.com"
+  },
+  "datePublished": "2026-05-01",
+  "dateModified": "2026-05-01"
+}`}
+          </Script>
+
+          <Script type="application/ld+json" strategy="beforeInteractive">
+            {`{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why are my digital ads not converting in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The most common reason ads fail to convert is a missing or broken funnel. If your ad is sending people to a slow website or a landing page with no clear call-to-action, even a perfect ad will fail. Other causes include wrong audience targeting, wrong messaging for the buyer journey stage, or no remarketing strategy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I know if my digital marketing agency is working?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ask for a monthly report showing lead volume, cost per lead, and revenue attribution. If your agency cannot provide this, or reports only show reach and impressions, that is a red flag. Also verify you have access to your own Google Analytics and ad accounts."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a good ROI for digital marketing in India?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A well-optimized paid ads campaign should generate at least 3x–5x ROAS. For SEO, ROI builds over time and typically surpasses paid channels within 12–18 months due to compounding organic traffic."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long should I give a digital marketing agency before expecting results?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For paid ads: meaningful data within 30–60 days. For SEO: measurable ranking improvements within 3–4 months. For brand building: consistent progress month-over-month. Six months with zero measurable progress means something is wrong."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is remarketing and why does it matter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Remarketing targets people who already interacted with your brand with ads designed to bring them back. It matters because 80% of customers don't buy on first interaction. Remarketing keeps your brand visible during the consideration phase and improves advertising efficiency."
+      }
+    }
+  ]
+}`}
+          </Script>
+        </>
       )}
     </>
   );

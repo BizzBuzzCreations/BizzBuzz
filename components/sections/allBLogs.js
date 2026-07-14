@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState, useRef } from "react";
 import { getBlogsCategory, getLatestBlogs } from "@/actions/serverActions";
+import { getFeaturedImage } from "@/lib/getFeaturedImage";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Cookies from "js-cookie";
@@ -231,17 +232,21 @@ export default function AllBLogs() {
             className={`grid gap-x-8 gap-y-12 sm:gap-y-16 md:grid-cols-2 lg:grid-cols-3 ${showAll ? "mb-20" : ""}`}
           >
             {blogs.length > 0 &&
-              blogs.map((e, index) => (
+              blogs.map((e, index) => {
+                const featuredImage = getFeaturedImage(e);
+                return (
                 <div className="relative" key={index}>
                   <Link
                     href={`/blog/${e?.slug}`}
                     className="block overflow-hidden group rounded-xl shadow-lg shadow-gray-300"
                   >
-                    <img
-                      src={`${e?.yoast_head_json?.og_image[0]?.url}`}
-                      className="object-cover w-full h-56 transition-all duration-300 ease-out sm:h-64 group-hover:scale-110"
-                      alt={e?.title?.rendered}
-                    />
+                    {featuredImage && (
+                      <img
+                        src={featuredImage}
+                        className="object-cover w-full h-56 transition-all duration-300 ease-out sm:h-64 group-hover:scale-110"
+                        alt={e?.title?.rendered}
+                      />
+                    )}
                   </Link>
                   <div className="relative mt-5">
                     <p className="uppercase font-semibold text-xs mb-2.5 text-slate-700">
@@ -276,7 +281,8 @@ export default function AllBLogs() {
                     </Link>
                   </div>
                 </div>
-              ))}
+                );
+              })}
           </div>
           <div className="w-full text-center">
             {!showAll && (

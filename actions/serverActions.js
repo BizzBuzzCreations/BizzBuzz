@@ -289,7 +289,7 @@ export async function deleteComment({ id }) {
 export async function getLatestThreeBlogs() {
   try {
     const res = await fetch(
-      `https://blog.bizzbuzzcreations.com/wp-json/wp/v2/posts?per_page=3&orderby=date&order=desc&_fields=id,date,slug,link,title,excerpt,yoast_head_json`,
+      `https://blog.bizzbuzzcreations.com/wp-json/wp/v2/posts?per_page=3&orderby=date&order=desc&_embed&_fields=id,date,slug,link,title,excerpt,yoast_head_json,_links,_embedded`,
       {
         next: { revalidate: 3600 },
       },
@@ -319,7 +319,7 @@ export async function getLatestBlogs(page, categoryId, posts) {
     const res = await fetch(
       `https://blog.bizzbuzzcreations.com/wp-json/wp/v2/posts?per_page=${posts}&offset=${offset}${
         categoryId && categoryId !== "all" ? `&categories=${categoryId}` : ""
-      }&_fields=id,date,slug,link,title,excerpt,yoast_head_json`,
+      }&_embed&_fields=id,date,slug,link,title,excerpt,yoast_head_json,_links,_embedded`,
     );
     const totalPages = res.headers.get("X-WP-TotalPages");
     const response = await res.json();
@@ -341,7 +341,7 @@ export async function getLatestBlogs(page, categoryId, posts) {
 export async function getBlogBySlug(slug) {
   try {
     const res = await fetch(
-      `https://blog.bizzbuzzcreations.com/wp-json/wp/v2/posts?slug=${slug}&_embed&_fields=id,date,slug,link,title,content,excerpt,yoast_head_json,_embedded`,
+      `https://blog.bizzbuzzcreations.com/wp-json/wp/v2/posts?slug=${slug}&_embed&_fields=id,date,slug,link,title,content,excerpt,yoast_head_json,_links,_embedded`,
       {
         next: { revalidate: 3600 },
       },
