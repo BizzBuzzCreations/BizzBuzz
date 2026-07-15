@@ -8,13 +8,11 @@ export default function HomeAbout() {
       <div className="md:text-start text-center">
         <p className="text-gray-900">About Us</p>
         <h2 className="md:text-4xl text-3xl font-bold mb-4">
-          We Do Not Just Market Brands — We Build Businesses That Grow.
-
+         We Are BizzBuzz Creations
         </h2>
         <p className="max-w-lg mb-6 text-gray-900">
-          At <b>BizzBuzz Creations</b>, we believe digital marketing should do more than increase website traffic—it should help your business grow sustainably.<br />
-          As a leading <b>digital marketing company in Allahabad</b>, we combine creativity, technology, and data-driven decision-making to help businesses reach the right audience at the right time. 
-          Instead of using one-size-fits-all marketing campaigns, we develop customized strategies based on your industry, competitors, customer behavior, and business objectives.
+          We're not just another agency running the same playbook for every client. <b>BizzBuzz Creations</b> is built on the idea that real growth comes from understanding a business first and marketing it second. That's why local businesses trust us as one of the <b>best digital marketing companies</b> in Prayagraj  and why brands from Allahabad to Lucknow to Delhi rely on us as they expand their digital footprint across India.
+          Our team blends SEO expertise, AI-assisted campaign optimization, paid advertising know-how, and sharp creative work to deliver digital marketing solutions that actually move the needle  more visibility, more leads, and more revenue, no matter which city or state your customers are searching from.
         </p>
         <Link
           href="/about"

@@ -263,6 +263,40 @@ export default function AllBlogScripts({ slug }) {
           </Script>
         </>
       )}
+
+      {/* NEW BLOG SCRIPT */}
+      {slug === "seo-traffic-is-dropping" && (
+        <Script type="application/ld+json" strategy="beforeInteractive">
+          {`{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Why Your Traffic Report Is Lying to You (Even When the Numbers Look Fine)",
+  "name": "Traffic Report Misleading? Why SEO Traffic Is Dropping",
+  "description": "Traffic report misleading data is becoming common. Learn why SEO traffic is dropping, how AI search affects clicks, and what metrics matter now.",
+  "author": {
+    "@type": "Organization",
+    "name": "Bizzbuzz Creations",
+    "url": "https://www.bizzbuzzcreations.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Bizzbuzz Creations",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.bizzbuzzcreations.com/logo.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.bizzbuzzcreations.com/blog/seo-traffic-is-dropping"
+  },
+  "datePublished": "2026-07-15",
+  "dateModified": "2026-07-15",
+  "image": "https://www.bizzbuzzcreations.com/images/seo-traffic-is-dropping.jpg",
+  "keywords": "traffic report misleading, why is SEO traffic dropping, AI search impact on SEO, zero click searches, branded search vs organic traffic"
+}`}
+        </Script>
+      )}
     </>
   );
 }

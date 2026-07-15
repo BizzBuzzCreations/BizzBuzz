@@ -5,29 +5,6 @@ import { usePathname } from "next/navigation";
 import { Sparkles } from "lucide-react";
 import React from "react";
 
-const features = [
-  {
-    icon: "📈",
-    title: "Local SEO:",
-    text: "Dominate Google search rankings",
-  },
-  {
-    icon: "🔗",
-    title: "Paid Ads:",
-    text: "Maximize your marketing ROI",
-  },
-  {
-    icon: "📧",
-    title: "Lead Generation:",
-    text: "Turn traffic into sales",
-  },
-  {
-    icon: "⭐",
-    title: "Social Media:",
-    text: "Build massive brand awareness.",
-  },
-];
-
 export default function CTA2() {
   const params = usePathname();
 
@@ -45,15 +22,6 @@ export default function CTA2() {
           <h2 className="uppercase md:text-2xl text-lg max-w-4xl font-extrabold mb-5 tracking-tight">
             LOOKING FOR A DIGITAL GROWTH PARTNER IN PRAYAGRAJ TO SCALE YOUR BUSINESS? 
           </h2>
-
-          <div className="grid sm:grid-cols-2 gap-x-10 gap-y-2 mb-6 max-w-4xl font-medium">
-            {features.map((f) => (
-              <p key={f.title} className="text-sm sm:text-base text-center">
-                <span className="mr-1.5">{f.icon}</span>
-                <span className="font-bold">{f.title}</span> {f.text}
-              </p>
-            ))}
-          </div>
 
           <div className="flex-wrap items-center justify-center sm:gap-3 bg-white rounded-3xl p-1 inline-flex mx-auto">
             <Link href={`${params}#CTA`}>

@@ -101,14 +101,14 @@ export default async function SingleBlog({ params }) {
             <div>
               <p className="text-sm text-gray-500">Written by</p>
               <p className="text-lg font-semibold text-gray-900">
-                {post?.yoast_head_json?.author}
+                {post?._embedded?.author?.[0]?.name}
               </p>
             </div>
           </div>
 
           {/* Author Bio */}
           <p className="text-gray-600 leading-relaxed text-sm">
-            {post?.yoast_head_json?.schema?.["@graph"]?.[6]?.description}
+            {post?._embedded?.author?.[0]?.description}
           </p>
         </div>
       </div>

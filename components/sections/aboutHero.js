@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { CheckCircle } from "lucide-react";
 
 export default function AboutHero() {
   return (
@@ -12,16 +13,26 @@ export default function AboutHero() {
     >
       <div>
         <h1 className="md:text-3xl xl:text-4xl text-xl font-bold mb-4">
-          About BizzBuzz Creations
+          Digital Marketing Agency in India — Bizzbuzz Creations
         </h1>
+        <h2 className="md:text-3xl xl:text-2xl text-xl font-bold mb-4">
+          Turning Bold Ideas Into Digital Success Stories
+        </h2>
         <p className="max-w-xl mb-10">
-          BizzBuzz Creations is a results-driven digital marketing agency in
-          Prayagraj helping businesses grow their online presence, generate
-          quality leads, and build long-term brand value. We combine data-backed
-          strategies, creative execution, and the latest Google-approved
-          practices to deliver measurable growth for startups, local businesses,
-          and established brands.
+          We don't just run campaigns — we build brands that people remember, trust, and search for. From strategy to execution, 
+          Bizzbuzz Creations helps Indian businesses grow online with data-driven digital marketing solutions designed for real results in 2026 and beyond.
         </p>
+        <div className="flex flex-wrap justify-center lg:justify-start items-center gap-x-6 gap-y-2">
+          <div className="flex items-center gap-2">
+            <CheckCircle className="text-green-500" size={18} />
+            <span>90+ Projects Delivered</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <CheckCircle className="text-green-500" size={18} />
+            <span>50+ Happy Clients Across India</span>
+          </div>
+        </div>
+        <br></br>
         <Link href="/contact" className="inline-block">
           <button className="animated-button mx-auto">
             <svg

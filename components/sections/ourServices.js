@@ -23,9 +23,7 @@ export default function OurServices() {
         }}
         className="py-20"
       >
-        <h2 className="md:text-4xl text-3xl font-bold mb-10 text-center ">
-          Complete Digital Marketing Solutions to Grow Your Business
-        </h2>
+        <h2 className="md:text-4xl text-3xl font-bold mb-10 text-center ">Our Digital Marketing Services</h2>
         <p className="text-lg text-gray-600 text-center mb-20">
           Every business has different goals, challenges, and audiences. That is why we do not believe in one-size-fits-all marketing. At BizzBuzz Creations, we create customized digital marketing strategies that help businesses attract qualified customers, increase conversions, and achieve sustainable growth.
         </p>
@@ -49,8 +47,8 @@ export default function OurServices() {
                 </h3>
                 <p className="mt-1 text-sm text-gray-600">
                 <b>Increase Your Google Rankings & Drive Organic Traffic</b><br />
-                 Rank higher on Google and AI-driven search engines. We combine technical SEO, local relevance, and quality content to ensure your business in 
-                 Allahabad, and across India gets found however customers search.
+                 Rank higher on Google and AI-driven search engines. We combine technical SEO, local relevance, and quality content to ensure your business in Allahabad, 
+                 and across India gets found however customers search.
                 </p>
                 {/* Button */}
                 <div className="mt-6">
@@ -84,8 +82,8 @@ export default function OurServices() {
                 </h3>
                 <p className="mt-1 text-sm text-gray-600">
                   <b>Build a Website That Converts Visitors Into Customers</b><br />
-                  A slow website kills conversions. We build fast, responsive, and clean websites—from local business pages to custom platforms—designed to deliver 
-                  a smooth user experience that turns visitors into buyers.
+                  A slow website kills conversions. We build fast, responsive, 
+                  and clean websites—from local business pages to custom platforms—designed to deliver a smooth user experience that turns visitors into buyers.
                 </p>
                 {/* Button */}
                 <div className="mt-6">
@@ -148,8 +146,8 @@ export default function OurServices() {
                 </h3>
                 <p className="mt-1 text-sm text-gray-600">
                 <b>Reach Customers Ready to Buy</b><br />
-                  Stop wasting ad spend. We launch targeted, AI-optimized campaigns with smart audience segmentation, and
-                   high-converting landing pages designed to turn clicks into genuine, scalable leads. 
+                  Stop wasting ad spend. We launch targeted, AI-optimized campaigns with smart audience segmentation and 
+                  high-converting landing pages designed to turn clicks into genuine, scalable leads. 
                 </p>
                 {/* Button */}
                 <div className="mt-6">
@@ -213,7 +211,7 @@ export default function OurServices() {
                 <p className="mt-1 text-sm text-gray-600">
                 <b>Strategic Guidance for Sustainable Growth</b><br />
                   Streamline operations and plan for sustainable growth. We bridge the gap between business fundamentals and digital strategy, 
-                  giving Prayagraj businesses and scaling Indian brands a clear roadmap to success
+                  giving Prayagraj businesses and scaling Indian brands a clear roadmap to success.
                 </p>
                 {/* Button */}
                 <div className="mt-6">

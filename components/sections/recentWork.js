@@ -13,7 +13,7 @@ export default function RecentWork() {
         <h2 className="md:text-4xl text-3xl font-bold text-center my-5 ">
          Real Results. Measurable Growth. 
         </h2>
-        <p className="md:text-xl text-center my-5 ">At BizzBuzz Creations, we believe that successful digital marketing is measured by business growth—not just clicks, impressions, or rankings. Every project we undertake is driven by a clear objective: helping our clients generate more leads, increase sales, and build a stronger digital presence.</p>
+        <p className="md:text-xl text-center my-5 ">At BizzBuzz Creations, we focus on revenue over vanity metrics. We design data-driven digital strategies that drive leads, scale sales, and build a powerful brand presence.</p>
         <br />
         <div
           id="services"

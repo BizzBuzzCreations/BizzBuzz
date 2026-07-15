@@ -255,7 +255,7 @@ export default function AllBLogs() {
                         day: "numeric",
                         year: "numeric",
                       })}
-                      &nbsp;&nbsp; by {e?.yoast_head_json?.author}
+                      &nbsp;&nbsp; by {e?._embedded?.author?.[0]?.name}
                     </p>
                     <Link
                       href={`/blog/${e?.slug}`}
