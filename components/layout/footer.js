@@ -109,7 +109,7 @@ export default function Footer() {
             </div>
           </div>
           <div className="hidden md:block md:col-span-1 lg:hidden"></div>
-          <div className="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-2 lg:grid-cols-4 col-span-1 md:col-span-7 lg:col-span-8 gap-y-12 sm:gap-x-8 md:gap-x-8 lg:gap-x-10">
+          <div className="grid grid-cols-2 sm:grid-cols-2  md:grid-cols-2 lg:grid-cols-4 col-span-1 md:col-span-7 lg:col-span-8 gap-y-12 sm:gap-x-8 md:gap-x-8 lg:gap-x-10">
             <div className="col-span-1">
               <h4 className="text-sm font-normal uppercase tracking-wide text-gray-400 mb-5">
                 Services
@@ -220,7 +220,7 @@ export default function Footer() {
                 </li>
               </ul>
             </div>
-            <div className="sm:col-span-1 md:col-span-2s lg:col-span-2">
+            <div className="col-span-2 sm:col-span-1 md:col-span-2s lg:col-span-2">
               <h4 className="text-sm font-normal uppercase tracking-wide text-gray-400 mb-5">
                 Get In Touch
               </h4>
@@ -320,7 +320,7 @@ export default function Footer() {
                   </div>
                   <div>
                     <p className="text-sm hover:text-gray-300 transition-colors">
-                      Mon - Sat: 11:00 AM - 7:00 PM
+                      Mon - Sat: 12:00 PM - 8:00 PM
                     </p>
                   </div>
                 </div>

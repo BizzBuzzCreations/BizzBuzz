@@ -115,7 +115,7 @@ export default function About() {
           <h3 className="text-2xl font-bold mt-15 mb-10 text-center">
             Our Core Values
           </h3>
-          <div className="grid grid-cols-5 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
             <div className="bg-gray-200 flex flex-col items-center p-4 rounded-xl w-full shadow-lg shadow-gray-400 border border-gray-300">
               <BarChart3 size={32} className="mb-2" />
               <h4 className="text-lg font-semibold mb-2 text-center">

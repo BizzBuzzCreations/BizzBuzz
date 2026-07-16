@@ -57,7 +57,9 @@ export default async function Career() {
                 </a>
               </div>
 
-              <p className="my-2 text-sm text-gray-600">{job.description}</p>
+              <p className="my-3 text-sm text-gray-600 leading-relaxed whitespace-pre-line">
+                {job.description}
+              </p>
 
               {/* Tags container */}
               <div className="flex flex-wrap gap-3 mt-2 text-xs text-white-700 items-center">

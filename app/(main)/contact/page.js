@@ -147,7 +147,7 @@ export default function Contact() {
                         Business Hours
                       </h4>
                       <p className="text-lg text-gray-600">
-                        Mon - Sat: 11:00 AM - 7:00 PM
+                        Mon - Sat: 12:00 PM - 8:00 PM
                       </p>
                     </div>
                   </div>

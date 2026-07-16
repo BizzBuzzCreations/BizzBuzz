@@ -4,6 +4,14 @@ import CommentSidebar from "@/components/sections/comments";
 import { User } from "lucide-react";
 import { notFound } from "next/navigation";
 
+function sanitizeBlogContent(html) {
+  if (!html) return html;
+  return html
+    .replace(/<style[\s\S]*?<\/style>/gi, "")
+    .replace(/<script[\s\S]*?<\/script>/gi, "")
+    .replace(/<link[^>]*>/gi, "");
+}
+
 export async function generateMetadata({ params }) {
   const { slug } = await params;
 
@@ -59,9 +67,11 @@ export default async function SingleBlog({ params }) {
     day: "numeric",
   });
 
-  const filteredData = post?.content.rendered.replaceAll(
-    "https://blog.bizzbuzzcreations.com",
-    "https://bizzbuzzcreations.com",
+  const filteredData = sanitizeBlogContent(
+    post?.content.rendered.replaceAll(
+      "https://blog.bizzbuzzcreations.com",
+      "https://bizzbuzzcreations.com",
+    ),
   );
 
   return (

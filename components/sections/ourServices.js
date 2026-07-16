@@ -24,8 +24,10 @@ export default function OurServices() {
         className="py-20"
       >
         <h2 className="md:text-4xl text-3xl font-bold mb-10 text-center ">Our Digital Marketing Services</h2>
-        <p className="text-lg text-gray-600 text-center mb-20">
-          Every business has different goals, challenges, and audiences. That is why we do not believe in one-size-fits-all marketing. At BizzBuzz Creations, we create customized digital marketing strategies that help businesses attract qualified customers, increase conversions, and achieve sustainable growth.
+        <p className="text-lg text-gray-600 text-center mb-20 max-w-2xl mx-auto px-4">
+          We don&apos;t believe in one-size-fits-all marketing. Our customized
+          digital strategies help businesses attract qualified customers,
+          increase conversions, and grow sustainably.
         </p>
 
         <div className="flex flex-wrap sm:p-0 p-2 max-w-6xl mx-auto gap-10 items-center justify-center">
