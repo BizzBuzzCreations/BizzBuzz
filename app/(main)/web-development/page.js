@@ -11,29 +11,28 @@ import CTA from "@/components/sections/CTA";
 
 const faqs = [
   {
-    question: "How much does it cost to build a website in 2026?",
+    question: "How much does a website cost in 2026?",
     answer:
-      "A static website costs Rs 15,000 for 5 pages, but if a website is created using coding, the price range varies.",
+      "Costs vary based on features, but we offer affordable, tailored pricing.",
   },
   {
-    question: "How does a website help grow my business?",
-    answer:
-      "A website builds trust, authority, and high-conversion traffic, generating leads for your business.",
+    question: "Why does my business need a website?",
+    answer: "It builds trust and generates consistent leads online.",
   },
   {
-    question: "Will my website work on all devices and browsers?",
+    question: "Will my website work on all devices?",
     answer:
-      "No, BizzBuzz creates device-compatible websites that are highly optimized and responsive.",
+      "Yes, all our websites are fully responsive and mobile-friendly.",
   },
   {
-    question: "Will AI replace website developers?",
+    question: "Can you add AI features to my website?",
     answer:
-      "No, AI cannot copy human strategies and ideas, and according to the Google 2026 update, website content must also be human-written.",
+      "Yes, we integrate AI tools like chatbots and automation where useful.",
   },
   {
-    question: "Can you integrate AI into my website?",
+    question: "Do you offer support after launch?",
     answer:
-      "Yes, AI can be integrated for chatbots, automation, personalization, and smarter user experience.",
+      "Yes, we provide ongoing maintenance, updates, and security support.",
   },
 ];
 
@@ -97,10 +96,9 @@ export default function WebDevelopment() {
   return (
     <>
       <ServicesHero
-        heading="Top Website Development Services in Prayagraj"
-        description="We write smart and easy code that helps your business grow. From
-        websites to custom solutions, our work makes things smooth, trusted, and
-        result-driven."
+        heading="Top Website Development Company in India"
+        description="Custom, high-performance websites for businesses in Prayagraj and across India.
+        First impressions happen fast. We build fast, secure websites for businesses in Prayagraj and across India, websites that actually bring in customers."
         img="/web-dev.webp"
       />
 
@@ -116,43 +114,56 @@ export default function WebDevelopment() {
         </div>
         <div className="max-w-xl text-center lg:text-left">
           <h2 className="text-3xl font-bold mb-3">
-            Why We Are the Best Website Development Services in Prayagraj
+            Web Development Services in Prayagraj - Serving All of India
           </h2>
           <p>
-            At BizzBuzz Creations, we provide scalable custom web development to elevate your brand presence. 
-            Whether you are a retail & e-commerce store, local service provider, healthcare & education, real estate & PropTech, 
-            finance & banking, or manufacturing & sales. Our top-rated web developers & professional web designers create high-performance 
-            & AI-integrated web designs for all industries across India. Our vision is to innovate & integrate every day your brand growth with our best web development service in India.
+            Your website is usually the first conversation you have with a customer, 
+            and most people decide whether to trust a business within seconds of landing on it. At BizzBuzz Creations, 
+            we build websites that don't just look sharp; they convert visitors into customers. 
+            Whether you're a local business in Prayagraj or Allahabad looking for a website development company near you, 
+            a small business owner in India searching for a website developer businesses can rely on, or a startup in India needing a custom website developer for startups, 
+            our team of website developers builds fast, secure, and scalable websites tailored to how your business actually works.
+          </p>
+          <br />
+          <p>
+            We're a full-service web development company in Prayagraj, proudly serving clients locally across Allahabad and Uttar Pradesh, 
+            as well as businesses across the UK, USA, India, and globally. From your first idea to a fully launched, search-optimized website, 
+            we handle the strategy, design, and code so you don't have to juggle five different freelancers to get it right.
           </p>
         </div>
       </div>
 
       <div className="container max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold mb-10 text-center">What We Offer</h2>
+        <h2 className="text-3xl font-bold mb-10 text-center">Web Development Services We Offer</h2>
         <div className="flex flex-wrap justify-center items-center mb-20 gap-10">
           <ServiceCard
-            heading="Wordpress Development Services"
-            description="As the best web development services in India. Our WordPress development experts turn your business into a global store. We provide high-performance websites, which helps to build a high Google ranking website and has strong technology for security purposes, as it provides AI-driven threat detection. We deliver an intelligent and user-retaining website. Modern WordPress integrates your global store with voice search or AI search engines."
-            imageUrl="/wordpress.png"
-          />
-          <ServiceCard
-            heading="Shopify Development Services"
-            description="As a top e-commerce web development service in India. Our Shopify development experts turn your business into a global store. Shopify offers fast loading features along with excellent UI/UX design. It is ideal for brands that want to sell globally without managing multiple stores. Every customer wants the fastest one-click checkout. Its AI integration provides users with automated content and product details at scale."
-            imageUrl="/online-shop.png"
-          />
-          <ServiceCard
-            heading="PHP web Application Development Services"
-            description="As a top PHP web application company in India. Our full-stack PHP developer turns your business website future-ready. Modernizing a legacy PHP application fills the gap three times faster than the old version, which helps in building a high Google ranking website that has more chances of high conversion. Security aspects are also very strong with modern PHP, which prevents it from getting hacked."
+            heading="Custom Web Development & Design"
+            description="Off-the-shelf templates only get you so far. Our custom web development team builds mobile-first, responsive websites around your specific goals lead generation, bookings, or online sales combining clean design with solid, maintainable code. We make sure your site scales with your business instead of becoming outdated in a year."
             imageUrl="/web-design.svg"
           />
           <ServiceCard
-            heading="REACT.JS & NEXT.JS Development Services"
-            description="As a custom React.js development agency and Next.js web development agency. Our web developers work to provide your website with high-performing architecture and AI-integrated frontends. Next.js supports server-side rendering, which increases your website's Google ranking faster, and conversion rates increase three times. It provides hundreds of features to your new business, which makes your business website future-ready."
+            heading="Shopify & Ecommerce Development"
+            description="As specialist Shopify website developers, we build fast-loading, conversion-focused online stores with smooth checkout experiences. Whether you're an e-commerce website developer for small business needs or a growing retail brand, we design for speed, mobile shoppers, and global scalability, handling real-world traffic reliably, from 20 products to 20,000."
             imageUrl="/web-design.svg"
           />
           <ServiceCard
-            heading="Website Maintenance & Redesigning"
-            description="As a web design company in Prayagraj. We provide affordable web design services for all small or big businesses in any part of India. If you need emergency website repair services or website redesign services, we are here for you. We redesign the best UI/UX for high conversions. Our professional developers provide Core Web Vitals maintenance, database optimization services, and 24/7 monitoring."
+            heading="PHP Web Application Development"
+            description="For businesses with complex backend needs, our full-stack PHP developers build and modernize custom web applications from internal tools to customer-facing platforms. We specialize in updating legacy PHP systems, which often improves both security and site speed dramatically, along with fast, focused landing pages built purely for conversions."
+            imageUrl="/web-design.svg"
+          />
+          <ServiceCard
+            heading="REACT & NEXT.JS Development"
+            description="Our React and Next.js developers build high-performing, AI-integrated frontends using server-side rendering to boost load speed and Google ranking. For projects needing pixel-perfect fundamentals, our HTML, CSS, and JavaScript developers craft responsive interfaces from scratch or integrate seamlessly with your existing backend and in-house team."
+            imageUrl="/web-design.svg"
+          />
+          <ServiceCard
+            heading="Website Redesign & Management"
+            description="An outdated website quietly costs you customers every day. Our redesign services modernize your UI/UX for higher conversions and fix Core Web Vitals without losing rankings you've already earned. Afterward, our ongoing website management covers monitoring, security updates, performance checks, and backups, so your site stays fast and online 24/7."
+            imageUrl="/web-design.svg"
+          />
+          <ServiceCard
+            heading="Website Redesign & Management"
+            description="An outdated website quietly costs you customers every day. Our redesign services modernize your UI/UX for higher conversions and fix Core Web Vitals without losing rankings you've already earned. Afterward, our ongoing website management covers monitoring, security updates, performance checks, and backups, so your site stays fast and online 24/7."
             imageUrl="/web-design.svg"
           />
         </div>            
@@ -161,14 +172,18 @@ export default function WebDevelopment() {
       <div className="flex lg:flex-row flex-col lg:gap-20 justify-center items-center mb-5 md:mb-20 px-5 py-20 bg-[#e8e8e8]">
         <div className="max-w-xl text-center lg:text-left">
           <h2 className="text-3xl font-bold mb-3">
-            WHY CHOOSE BIZZBUZZ CREATIONS?
+            Why Choose BizzBuzz Creations?
           </h2>
           <p>
-            YOU NEED THE BEST WEBSITE DEVELOPMENT SERVICES IN 2026
-            At BIZZBUZZ Creations, we follow a result-driven strategy for your business.
-            Our experts build a website for you that not only looks good but also sells. We help you to create an online presence for your business to reach globally, 
-            which builds trust among users. At times, you might think that your social media reach might be limited, but a website built by BIZZBUZZ Creations provides 
-            you 10 times higher conversion and higher traffic. You can even know the intent of customers from websites, and it provides a higher Google ranking by fixing core web vitals.
+            We follow a results-driven approach, not just building websites that look good but ones that sell. 
+            A well-built website typically outperforms social media alone for generating trust and traffic and gives you far clearer insight into customer intent than any social platform can. 
+            Combined with strong Core Web Vitals and technical SEO, our sites are built to rank, not just launch and be forgotten.
+          </p>
+          <br />
+          <p>
+            Ready to get started? Get in touch with our team for a free consultation, 
+            and let's talk about what your website should actually be doing for your business.
+
           </p>
         </div>
         <div className="">

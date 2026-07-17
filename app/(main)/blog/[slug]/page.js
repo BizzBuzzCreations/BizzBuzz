@@ -1,6 +1,7 @@
 import { getBlogBySlug } from "@/actions/serverActions";
 import { getFeaturedImage } from "@/lib/getFeaturedImage";
-import CommentSidebar from "@/components/sections/comments";
+import { extractTableOfContents } from "@/lib/extractTableOfContents";
+import BlogContactForm from "@/components/sections/blogContactForm";
 import { User } from "lucide-react";
 import { notFound } from "next/navigation";
 
@@ -67,16 +68,47 @@ export default async function SingleBlog({ params }) {
     day: "numeric",
   });
 
-  const filteredData = sanitizeBlogContent(
+  const rawContent = sanitizeBlogContent(
     post?.content.rendered.replaceAll(
       "https://blog.bizzbuzzcreations.com",
       "https://bizzbuzzcreations.com",
     ),
   );
 
+  const { html: filteredData, toc } = extractTableOfContents(rawContent);
+
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-40 lg:flex gap-5">
-      <div className="max-w-3xl mx-auto">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-40 lg:flex lg:items-start gap-8">
+      {/* Table of Contents */}
+      {toc.length > 0 && (
+        <aside className="hidden lg:block w-56 shrink-0 sticky top-28 self-start">
+          <div className="border border-gray-200 rounded-2xl p-5 bg-white shadow-sm">
+            <h3 className="text-sm font-bold uppercase tracking-wide text-gray-900 mb-4">
+              Contents
+            </h3>
+            <ol className="space-y-3">
+              {toc.map((item, index) => (
+                <li key={item.id}>
+                  <a
+                    href={`#${item.id}`}
+                    className={`flex gap-2 text-sm text-gray-600 hover:text-black transition-colors ${
+                      item.level === 3 ? "pl-4" : ""
+                    }`}
+                  >
+                    <span className="font-semibold text-black shrink-0">
+                      {index + 1}.
+                    </span>
+                    <span>{item.text}</span>
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </aside>
+      )}
+
+      {/* Blog content */}
+      <div className="max-w-3xl mx-auto lg:mx-0 flex-1 min-w-0">
         {/* Header */}
         <div className="py-8">
           <h1
@@ -122,7 +154,11 @@ export default async function SingleBlog({ params }) {
           </p>
         </div>
       </div>
-      <CommentSidebar slug={slug} />
+
+      {/* Contact Form */}
+      <aside className="lg:w-80 shrink-0 sticky top-28 self-start mt-8 lg:mt-0">
+        <BlogContactForm />
+      </aside>
     </div>
   );
 }
