@@ -162,8 +162,8 @@ export default function WebDevelopment() {
             imageUrl="/web-design.svg"
           />
           <ServiceCard
-            heading="Website Redesign & Management"
-            description="An outdated website quietly costs you customers every day. Our redesign services modernize your UI/UX for higher conversions and fix Core Web Vitals without losing rankings you've already earned. Afterward, our ongoing website management covers monitoring, security updates, performance checks, and backups, so your site stays fast and online 24/7."
+            heading="WordPress Development"
+            description="Our WordPress developers build high-performance, SEO-ready websites with strong security, including protection against common vulnerabilities and AI-assisted threat monitoring. WordPress remains one of the most flexible platforms for content-heavy sites and businesses that want full control over updates without needing a developer for every change."
             imageUrl="/web-design.svg"
           />
         </div>            

@@ -1,6 +1,12 @@
 import React from "react";
 
-export default function ServiceCard({ heading, description, imageUrl }) {
+export default function ServiceCard({
+  heading,
+  description,
+  imageUrl,
+  points,
+  footer,
+}) {
   return (
     <div
       className="relative p-3  w-md shadow-lg md:w-lg bg-white rounded-3xl flex overflow-hidden items-center min-w-[300px] cursor-pointer group"
@@ -37,6 +43,23 @@ export default function ServiceCard({ heading, description, imageUrl }) {
             {heading}
           </div>
           <p className="text-xs text-gray-50/70 text-balance">{description}</p>
+          {points && points.length > 0 && (
+            <>
+              <p className="text-xs font-bold text-gray-50 mt-2">
+                What we do:
+              </p>
+              <ul className="text-xs text-gray-50/70 list-disc pl-4 mt-1 space-y-0.5">
+                {points.map((point) => (
+                  <li key={point}>{point}</li>
+                ))}
+              </ul>
+            </>
+          )}
+          {footer && (
+            <p className="text-xs text-gray-50/70 text-balance mt-2">
+              {footer}
+            </p>
+          )}
         </div>
       </div>
     </div>

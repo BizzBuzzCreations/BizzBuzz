@@ -36,12 +36,12 @@ export default async function LatestBlogs() {
               <div className="relative" key={index}>
                 <Link
                   href={`/blog/${e?.slug}`}
-                  className="block overflow-hidden group rounded-xl shadow-lg shadow-gray-300"
+                  className="block overflow-hidden group rounded-xl shadow-lg shadow-gray-300 aspect-[1.91/1] bg-gray-100"
                 >
                   {featuredImage && (
                     <img
                       src={featuredImage}
-                      className="object-cover w-full h-56 transition-all duration-300 ease-out sm:h-64 group-hover:scale-110"
+                      className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-105"
                       alt={e?.title?.rendered}
                     />
                   )}

@@ -11,29 +11,29 @@ import CTA from "@/components/sections/CTA";
 
 const faqs = [
   {
-    question: "How to rank my business on Google Maps?",
+    question: "What is the best SEO service for my business?",
     answer:
-      "Make your Google My Business optimized, get some customers' reviews, include keywords, and make sure that all your company details are uniform.",
+      "The best SEO service combines AI SEO, content optimization, and high-intent keyword targeting. It should focus on generating leads, not just traffic.",
   },
   {
-    question: "Can SEO help me earn money from my website?",
+    question: "How much do SEO services cost in India?",
     answer:
-      "SEO helps attract potential customers who are already looking for your products or services, making them your clients without investing any money.",
+      "SEO services in India typically range from affordable monthly plans to premium packages, depending on competition, goals, and strategy.",
   },
   {
-    question: "Do you have any AI involved in SEO?",
+    question: "How long does SEO take to show results?",
     answer:
-      "Sure, we can use AI for our research and analysis. However, only a human SEO expert creates and analyzes the strategy.",
+      "SEO usually takes 3 to 6 months for strong results, but AI SEO can improve visibility faster through featured snippets and AI answers.",
   },
   {
-    question: "SEO or PPC — which one is better?",
+    question: "Can SEO guarantee first-page ranking on Google?",
     answer:
-      "SEO allows us to gain free traffic in the long term, and PPC provides immediate results.",
-  },
+      "No ethical SEO agency can guarantee rankings. The right strategy improves visibility, authority, and long-term growth instead of false promises.",
+  },  
   {
-    question: "What does your SEO service offer?",
+    question: "Is SEO still worth it in 2026?",
     answer:
-      "We provide keyword research, fixing of any issues, creation of new content, link building, local SEO, and monthly reports for your website.",
+      "Yes, but modern SEO must include AI SEO, semantic SEO, and answer engine optimization to stay competitive in evolving search.",
   },
 ];
 
@@ -97,8 +97,8 @@ export default function SearchEngineOptimization() {
   return (
     <>
       <ServicesHero
-        heading="Top Search Engine Optimization (SEO) Services in Prayagraj"
-        description="Top SEO services in Prayagraj to boost your Google ranking, increase traffic, attract more customers, and enhance your online presence with simple, effective strategies."
+        heading="Be the Brand Google Ranks & AI Recommends"
+        description="At BizzBuzz Creations, we build high-performance SEO strategies for businesses in Prayagraj and across India, helping you rank higher, get discovered in AI search, and attract customers ready to buy."
         img="/seO2.jpg"
       />
 
@@ -114,60 +114,107 @@ export default function SearchEngineOptimization() {
         </div>
         <div className="max-w-xl text-center lg:text-left"> 
           <h2 className="text-3xl font-bold mb-3">
-            Best SEO services in prayagraj
+            SEO Services in Prayagraj – Serving All of India
           </h2>
           <p>
-            At BizzBuzz Creations, we take an approach to long-term growth so that your business ranks high in Google, drives high traffic, and generates high-quality leads.
-            We offer result-driven and AI-powered SEO services. Whether you are a local service provider, retail & e-commerce store, healthcare & education, real estate & PropTech, finance & banking, or manufacturing & sales.
-            Our top-rated SEO experts help your business to grow faster all across India.
+            Your visibility on search engines is often the first interaction a customer has with your business, 
+            and most users decide which brand to trust within seconds of seeing search results. At <b>BizzBuzz Creations</b>, 
+            we don’t just improve rankings; we help your business get discovered by the right audience at the right time.
           </p>
+          <br></br>
           <p>
-            Our vision is to innovate and integrate every day; this is the vision we follow for your business, which makes your business a global store.
+            Whether you're a local business in Prayagraj or Allahabad looking for an SEO company near you, 
+            a small business owner in India searching for reliable SEO services, or a startup needing a data-driven SEO strategy to grow faster, 
+            our team builds customized SEO solutions that drive real traffic, leads, and sales.
+          </p>
+          <br></br>
+          <p>
+            From <b>Google rankings to AI search visibility</b>, we optimize your presence across search platforms so your business doesn’t just appear; it stands out and gets chosen.
           </p>
         </div>
       </div>
 
       <div className="container max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold mb-10 text-center">OUR CORE SEO SERVICES FOR YOUR BUSINESS</h2>
-        <h5 className="text-3xl mb-10 text-center">Building your business into a lead and revenue machine in 2026 with</h5>
+        <h2 className="text-3xl font-bold mb-10 text-center">Our Core SEO Services</h2>
         <div className="flex flex-wrap justify-center items-center mb-20 gap-10">
           <ServiceCard
-            heading="On Page SEO"
-            description="Your business does not need just traffic but quality traffic. We help you in making your business website appear on the first page of Google and giving a better experience to the user so that it gets a high conversion rate. We do affordable SEO so that users get a zero-click visibility experience from your website, which increases the value of the business."
+            heading="AI Search Optimization"
+            description="AI is transforming how people search, and your business needs to adapt to stay visible. We optimize your website for AI-driven platforms so your content gets understood, trusted, and recommended."
+            points={[
+              "AI search optimization",
+              "AI search visibility",
+              "AI ranking factors implementation",
+              "Optimize website for ChatGPT",
+            ]}
             imageUrl="/doc.svg"
           />
           <ServiceCard
-            heading="Off Page SEO"
-            description="Every business is built on trust, and every year the Google algorithm gives more value to trust and experience. A business's reputation increases when we create links of your business on trusted sites. We provide you with a professional off-page SEO audit service that pushes your website on Google and the proper use of LSI keywords with high-quality content."
+            heading="Generative Engine Optimization (GEO)"
+            description="Search engines are evolving into answer engines, where users get instant responses. Our GEO strategy ensures your business becomes part of those AI-generated answers."
+            points={[
+              "Generative engine optimization",
+              "SEO strategy for generative AI",
+              "LLM SEO optimization",
+              "Google AI Overview optimization",
+            ]}
             imageUrl="/link-round-svgrepo-com.svg"
           />
           <ServiceCard
-            heading="Technical SEO"
-            description="Just ranking your business on Google is not enough but also across AI-driven platforms. Our strategy involves keyword research that prioritizes user intent involving AI visibility and geo-targeting to maximize your reach. As the best SEO, and GEO services, which help rank in AI search results, effective strategy for long-term growth."
+            heading="Answer Engine Optimization (AEO)"
+            description="Modern users want quick answers without scrolling through pages. We optimize your content so it becomes the direct answer across search engines and AI tools."
+            points={[
+              "Answer engine optimization",
+              "Featured snippet optimization",
+              "Zero-click search SEO",
+              "Ranking in AI-generated answers",
+            ]}
             imageUrl="/setting-2-svgrepo-com.svg"
           />
           <ServiceCard
-            heading="Content & Link Building"
-            description="As experts in AI-friendly content optimization, our aim is to get your business website presence on Google and other search engines. It is our responsibility to fix and improve weak content so your website performs better and increases sales. We focus on conversion tracking and the best search engine optimization service to scale your business revenue."
+            heading="Semantic SEO & Topical Authority"
+            description="Search engines now focus on meaning and expertise rather than just keywords. We build your website into a trusted authority within your niche."
+            points={[
+              "Semantic SEO strategies",
+              "Topical authority SEO",
+              "Entity-based SEO",
+              "Content clustering & pillar pages",
+            ]}
             imageUrl="/connect-svgrepo-com.svg"
           />
           <ServiceCard
-            heading="Local SEO & Penalty Checks"
-            description="Being the best SEO service provider in India, our focus is to capture the local market first because the conversion of local searches is higher, and along with that, the trust of new customers is built in Google Business Profile. We focus on hyper-local targeting. Now the time has come to dominate the local market with BizzBuzz Creations, an expert local SEO service."
+            heading="AI Content Optimization"
+            description="Content must now work for both humans and AI systems. We create and refine content that ranks, gets cited, and drives real engagement."
+            points={[
+              "AI content optimization",
+              "Content optimization for AI search",
+              "Semantic keyword targeting",
+              "Topic cluster content strategy",
+            ]}
             imageUrl="/map-point-wave-svgrepo-com.svg"
+          />
+          <ServiceCard
+            heading="High-Intent & Local SEO"
+            description="Driving traffic is not enough; you need customers ready to take action. We target high-intent and location-based searches to generate real business results."
+            points={[
+              "SEO services for small business",
+              "Hire SEO expert India",
+              "Ecommerce SEO services India",
+              "Local SEO & voice search optimization",
+            ]}
+            imageUrl="/doc.svg"
           />
         </div>
       </div>
 
       <div className="flex lg:flex-row flex-col lg:gap-20 justify-center px-5 items-center mb-20 py-20 bg-[#e8e8e8]">
         <div className="max-w-xl text-center lg:text-left">
-          <h2 className="text-3xl font-bold mb-3">WHY CHOOSE BIZZBUZZ CREATIONS?</h2>
+          <h2 className="text-3xl font-bold mb-3">Why Choose BizzBuzz Creations?</h2>
           <p>
-            <b>YOU NEED BEST SEARCH ENGINE OPTIMIZATION (SEO) SERVICES IN 2026</b>
-            <br></br>
-            <br></br>
-            At BIZZBUZZ Creations, we follow a semantic SEO strategy for your business.
-            In 2026, in this era of AI, SEO services now not only provide you keywords but also provide you digital authority so that Google feels that you are genuine and not an artificial intelligence bot. Whether you are a small business or a large business, OUR SEO strategy increases your website traffic organically and online visibility, builds your brand authority, generates high-intent leads, and helps you rank fast in Google. SEO helps your business not just survive in the AI era but dominate it.
+            At BizzBuzz Creations, we don’t follow outdated SEO; we build <b>AI-first strategies designed for 2026 search trends</b>. 
+            Our focus is on AI search optimization, semantic SEO, and high-intent keyword targeting to recover and grow your organic rankings. 
+            We help your website get <b>visible in Google AI Overviews, ChatGPT answers, and zero-click searches</b>, not just traditional SERPs. 
+            With data-driven execution, content built for AI understanding, and a strong focus on conversions, we turn declining traffic into consistent growth. 
+            We don’t just improve rankings we make your brand <b>trusted, discoverable, and recommended across modern search platforms</b>.
           </p>
         </div>
         <div className="">

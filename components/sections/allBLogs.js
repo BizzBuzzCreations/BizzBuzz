@@ -108,7 +108,7 @@ export default function AllBLogs() {
       <div className="lg:max-w-screen-xl sm:max-w-xl md:max-w-full sm:px-12 md:px-18 px-8 mx-auto">
         {showAll && (
           <h2 className="md:text-4xl text-3xl font-bold md:py-15 md:mb-0 mb-10 text-center">
-            Our Previous Blogs
+            All Blogs
           </h2>
         )}
 
@@ -238,12 +238,12 @@ export default function AllBLogs() {
                 <div className="relative" key={index}>
                   <Link
                     href={`/blog/${e?.slug}`}
-                    className="block overflow-hidden group rounded-xl shadow-lg shadow-gray-300"
+                    className="block overflow-hidden group rounded-xl shadow-lg shadow-gray-300 aspect-[1.91/1] bg-gray-100"
                   >
                     {featuredImage && (
                       <img
                         src={featuredImage}
-                        className="object-cover w-full h-56 transition-all duration-300 ease-out sm:h-64 group-hover:scale-110"
+                        className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-105"
                         alt={e?.title?.rendered}
                       />
                     )}

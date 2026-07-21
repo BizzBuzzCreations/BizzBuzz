@@ -21,7 +21,7 @@ export default function digitalMarketing() {
   return (
     <>
       <ServicesHero
-        heading="Digital Marketing Services in Pryagraj"
+        heading="Digital Marketing Services in Prayagraj"
         description="We create the marketing agency in prayagraj that truly speaks to
             people and delivers results that matter. Our focus is simple—clear
             communication, trust, and growth for your business."
