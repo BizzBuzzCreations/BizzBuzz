@@ -17,7 +17,6 @@
     "lucide-react": "^0.560.0",
     "mongoose": "^9.1.6",
     "next": "16.2.11",
-    "nodemailer": "^7.0.12",
     "react": "19.2.1",
     "react-dom": "19.2.1",
     "react-floating-whatsapp": "^5.0.8",
