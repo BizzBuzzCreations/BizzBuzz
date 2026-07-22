@@ -1,5 +1,3 @@
-import Script from "next/script";
-
 //All Script for all Blog Pages
 export default function AllBlogScripts({ slug }) {
   return (
@@ -7,8 +5,10 @@ export default function AllBlogScripts({ slug }) {
       {/*Scripts for this blog the-future-of-digital-marketing-in-2026-ai-seo-ads-conversion-strategy */}
       {slug ===
         "the-future-of-digital-marketing-in-2026-ai-seo-ads-conversion-strategy" && (
-        <Script type="application/ld+json" strategy="beforeInteractive">
-          {`{
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: `{
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
@@ -53,16 +53,19 @@ export default function AllBlogScripts({ slug }) {
       }
     }
   ]
-}`}
-        </Script>
+}`,
+          }}
+        />
       )}
 
       {/*Scripts for this blog answer-engine-optimization-aeo-the-new-seo-strategy-for-ai-search */}
       {slug ===
         "answer-engine-optimization-aeo-the-new-seo-strategy-for-ai-search" && (
         <>
-          <Script type="application/ld+json" strategy="beforeInteractive">
-            {`{
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: `{
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "Answer Engine Optimization (AEO): The New SEO Strategy for AI Search",
@@ -85,11 +88,14 @@ export default function AllBlogScripts({ slug }) {
   },
   "datePublished": "2026-03-05",
   "dateModified": "2026-03-05"
-}`}
-          </Script>
+}`,
+            }}
+          />
 
-          <Script type="application/ld+json" strategy="beforeInteractive">
-            {`{
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: `{
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
@@ -134,16 +140,19 @@ export default function AllBlogScripts({ slug }) {
       }
     }
   ]
-}`}
-          </Script>
+}`,
+            }}
+          />
         </>
       )}
 
       {/*Scripts for this blog generative-engine-optimization-geo-how-to-rank-in-ai-generated-results */}
       {slug ===
         "generative-engine-optimization-geo-how-to-rank-in-ai-generated-results" && (
-        <Script type="application/ld+json" strategy="beforeInteractive">
-          {`{
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: `{
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
@@ -180,16 +189,19 @@ export default function AllBlogScripts({ slug }) {
       }
     }
   ]
-}`}
-        </Script>
+}`,
+          }}
+        />
       )}
 
       {/* NEW BLOG SCRIPT */}
       {slug ===
         "why-digital-marketing-agency-not-giving-results" && (
         <>
-          <Script type="application/ld+json" strategy="beforeInteractive">
-            {`{
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: `{
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "Is Your Digital Marketing Agency Actually Growing Your Business — Or Just Burning Your Budget?",
@@ -210,11 +222,14 @@ export default function AllBlogScripts({ slug }) {
   },
   "datePublished": "2026-05-01",
   "dateModified": "2026-05-01"
-}`}
-          </Script>
+}`,
+            }}
+          />
 
-          <Script type="application/ld+json" strategy="beforeInteractive">
-            {`{
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: `{
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
@@ -259,15 +274,18 @@ export default function AllBlogScripts({ slug }) {
       }
     }
   ]
-}`}
-          </Script>
+}`,
+            }}
+          />
         </>
       )}
 
       {/* NEW BLOG SCRIPT */}
       {slug === "seo-traffic-is-dropping" && (
-        <Script type="application/ld+json" strategy="beforeInteractive">
-          {`{
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: `{
   "@context": "https://schema.org",
   "@type": "BlogPosting",
   "headline": "Why Your Traffic Report Is Lying to You (Even When the Numbers Look Fine)",
@@ -294,14 +312,17 @@ export default function AllBlogScripts({ slug }) {
   "dateModified": "2026-07-15",
   "image": "https://www.bizzbuzzcreations.com/images/seo-traffic-is-dropping.jpg",
   "keywords": "traffic report misleading, why is SEO traffic dropping, AI search impact on SEO, zero click searches, branded search vs organic traffic"
-}`}
-        </Script>
+}`,
+          }}
+        />
       )}
 
       {/* NEW BLOG SCRIPT */}
       {slug === "is-wordpress-good-for-seo" && (
-        <Script type="application/ld+json" strategy="beforeInteractive">
-          {`{
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: `{
   "@context": "https://schema.org",
   "@graph": [
     {
@@ -391,8 +412,9 @@ export default function AllBlogScripts({ slug }) {
       ]
     }
   ]
-}`}
-        </Script>
+}`,
+          }}
+        />
       )}
     </>
   );
