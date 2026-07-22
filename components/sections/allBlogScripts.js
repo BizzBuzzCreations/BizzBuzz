@@ -297,6 +297,103 @@ export default function AllBlogScripts({ slug }) {
 }`}
         </Script>
       )}
+
+      {/* NEW BLOG SCRIPT */}
+      {slug === "is-wordpress-good-for-seo" && (
+        <Script type="application/ld+json" strategy="beforeInteractive">
+          {`{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://bizzbuzzcreations.com/blog/is-wordpress-good-for-seo/#article",
+      "headline": "Is WordPress Good for SEO? Complete Guide for Businesses",
+      "description": "Learn whether WordPress is good for SEO, its technical SEO advantages, common mistakes, and how businesses can improve rankings with proper optimization.",
+      "image": "https://bizzbuzzcreations.com/wp-content/uploads/wordpress-seo-guide.jpg",
+      "author": {
+        "@type": "Organization",
+        "name": "BizzBuzz Creations",
+        "url": "https://bizzbuzzcreations.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "BizzBuzz Creations",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://bizzbuzzcreations.com/wp-content/uploads/logo.png"
+        }
+      },
+      "datePublished": "2026-07-21",
+      "dateModified": "2026-07-21",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://bizzbuzzcreations.com/blog/is-wordpress-good-for-seo/"
+      },
+      "articleSection": "SEO",
+      "keywords": [
+        "WordPress SEO",
+        "Is WordPress good for SEO",
+        "WordPress SEO optimization",
+        "SEO friendly CMS"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://bizzbuzzcreations.com/blog/is-wordpress-good-for-seo/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does WordPress guarantee a first page ranking?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. WordPress does not guarantee first page rankings. SEO results depend on competition, content quality, technical optimization, backlinks, and ongoing improvements."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does it take to see SEO results on WordPress?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most businesses start seeing SEO improvements within three to six months, but results depend on industry competition, website condition, and consistency of optimization."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need a developer to manage WordPress SEO?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not always. Many SEO tasks can be managed using plugins, but technical issues like speed optimization, schema errors, and server configuration may require professional help."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is a free WordPress theme good enough for SEO?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, a free WordPress theme can be SEO friendly if it is lightweight, properly coded, mobile responsive, and regularly updated."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://bizzbuzzcreations.com/#organization",
+      "name": "BizzBuzz Creations",
+      "url": "https://bizzbuzzcreations.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://bizzbuzzcreations.com/wp-content/uploads/logo.png"
+      },
+      "sameAs": [
+        "https://www.facebook.com/bizzbuzzcreations",
+        "https://www.instagram.com/bizzbuzzcreations",
+        "https://www.linkedin.com/company/bizzbuzz-creations/"
+      ]
+    }
+  ]
+}`}
+        </Script>
+      )}
     </>
   );
 }

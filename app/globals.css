@@ -113,6 +113,11 @@ body {
   opacity: 1;
 }
 
+.animated-button-lg:hover .circle {
+  width: 700px;
+  height: 700px;
+}
+
 /* Animated SVG Text */
 .animated-text text {
   text-transform: uppercase;
