@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import AboutFAQ from "@/components/sections/AboutFAQ";
+import DifferentiatorsCarousel from "@/components/sections/differentiatorsCarousel";
 
 const roadmapSteps = [
   {
@@ -89,24 +90,28 @@ export default function About() {
           <h2 className="text-3xl font-bold mb-10 text-center">
             Our Mission, Vision & Core Values
           </h2>
-          <div className="flex flex-wrap justify-center items-center gap-10">
-            <div className="bg-gray-200 flex flex-col items-center p-5 rounded-xl max-w-lg shadow-lg shadow-gray-400 border border-gray-300">
-              <Target size={40} className="mb-2" />
-              <h3 className="text-2xl font-semibold mb-4 text-center">
+          <div className="flex flex-wrap justify-center items-stretch gap-8">
+            <div className="group relative flex flex-1 min-w-[280px] max-w-lg flex-col items-center rounded-2xl border-2 border-blue-200 bg-white p-8 text-center shadow-md transition-all duration-300 hover:-translate-y-1.5 hover:border-blue-400 hover:shadow-2xl hover:shadow-blue-100">
+              <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-50 text-blue-600 transition-colors duration-300 group-hover:bg-blue-600 group-hover:text-white">
+                <Target size={32} />
+              </div>
+              <h3 className="text-2xl font-semibold mb-4 text-center text-gray-900">
                 Our Mission
               </h3>
-              <p className="text-lg leading-relaxed text-center max-w-xl mx-auto mb-4">
-                To help every business unlock measurable growth through smart, ethical, 
+              <p className="text-lg leading-relaxed text-center max-w-xl mx-auto mb-4 text-gray-600">
+                To help every business unlock measurable growth through smart, ethical,
                 and future-ready digital marketing — no fluff, no shortcuts, only strategy that works.
               </p>
             </div>
-            <div className="bg-gray-200 flex flex-col items-center p-5 rounded-xl max-w-lg shadow-lg shadow-gray-400 border border-gray-300">
-              <Rocket size={40} className="mb-2" />
-              <h3 className="text-2xl font-semibold mb-4 text-center">
+            <div className="group relative flex flex-1 min-w-[280px] max-w-lg flex-col items-center rounded-2xl border-2 border-blue-200 bg-white p-8 text-center shadow-md transition-all duration-300 hover:-translate-y-1.5 hover:border-blue-400 hover:shadow-2xl hover:shadow-blue-100">
+              <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-50 text-blue-600 transition-colors duration-300 group-hover:bg-blue-600 group-hover:text-white">
+                <Rocket size={32} />
+              </div>
+              <h3 className="text-2xl font-semibold mb-4 text-center text-gray-900">
                 Our Vision
               </h3>
-              <p className="text-lg leading-relaxed text-center max-w-xl mx-auto mb-4">
-                To become India's most trusted digital marketing partner, 
+              <p className="text-lg leading-relaxed text-center max-w-xl mx-auto mb-4 text-gray-600">
+                To become India's most trusted digital marketing partner,
                 known for turning ambitious brands into industry leaders through innovation and consistency.
               </p>
             </div>
@@ -115,56 +120,69 @@ export default function About() {
           <h3 className="text-2xl font-bold mt-15 mb-10 text-center">
             Our Core Values
           </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-            <div className="bg-gray-200 flex flex-col items-center p-4 rounded-xl w-full shadow-lg shadow-gray-400 border border-gray-300">
-              <BarChart3 size={32} className="mb-2" />
-              <h4 className="text-lg font-semibold mb-2 text-center">
-                Results Over Reports
-              </h4>
-              <p className="text-sm leading-relaxed text-center">
-                We measure success in real growth, not just polished monthly
-                PDFs.
-              </p>
-            </div>
-            <div className="bg-gray-200 flex flex-col items-center p-4 rounded-xl w-full shadow-lg shadow-gray-400 border border-gray-300">
-              <Eye size={32} className="mb-2" />
-              <h4 className="text-lg font-semibold mb-2 text-center">
-                Transparency First
-              </h4>
-              <p className="text-sm leading-relaxed text-center">
-                Clear communication, honest timelines, and zero hidden
-                agendas, always.
-              </p>
-            </div>
-            <div className="bg-gray-200 flex flex-col items-center p-4 rounded-xl w-full shadow-lg shadow-gray-400 border border-gray-300">
-              <Lightbulb size={32} className="mb-2" />
-              <h4 className="text-lg font-semibold mb-2 text-center">
-                Innovation-Led Thinking
-              </h4>
-              <p className="text-sm leading-relaxed text-center">
-                We track algorithm shifts and AI search trends before they
-                trend.
-              </p>
-            </div>
-            <div className="bg-gray-200 flex flex-col items-center p-4 rounded-xl w-full shadow-lg shadow-gray-400 border border-gray-300">
-              <Users size={32} className="mb-2" />
-              <h4 className="text-lg font-semibold mb-2 text-center">
-                Client-Centric Culture
-              </h4>
-              <p className="text-sm leading-relaxed text-center">
-                Every strategy is built around your business, never a generic
-                template.       
-              </p>
-            </div>
-            <div className="bg-gray-200 flex flex-col items-center p-4 rounded-xl w-full shadow-lg shadow-gray-400 border border-gray-300">
-              <ShieldCheck size={32} className="mb-2" />
-              <h4 className="text-lg font-semibold mb-2 text-center">
-                Integrity in Execution
-              </h4>
-              <p className="text-sm leading-relaxed text-center">
-                Ethical, white-hat practices that protect your brand&apos;s
-                reputation long-term.
-              </p>
+          <div className="relative">
+            <div className="hidden lg:block absolute left-[10%] right-[10%] top-[60px] h-0.5 bg-linear-to-r from-blue-200 via-blue-400 to-blue-200" />
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 relative">
+              <div className="group relative flex flex-col items-center rounded-2xl border border-gray-200 bg-white p-6 pt-8 w-full text-center shadow-md transition-all duration-300 hover:-translate-y-1.5 hover:border-blue-300 hover:shadow-xl hover:shadow-blue-100">
+                <div className="relative z-10 mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-blue-50 text-blue-600 ring-4 ring-white transition-all duration-300 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white">
+                  <BarChart3 size={26} />
+                </div>
+                <h4 className="text-lg font-semibold mb-2 text-center text-gray-900">
+                  Results Over Reports
+                </h4>
+                <p className="text-sm leading-relaxed text-center text-gray-600">
+                  We measure success in real growth, not just polished monthly
+                  PDFs.
+                </p>
+              </div>
+              <div className="group relative flex flex-col items-center rounded-2xl border border-gray-200 bg-white p-6 pt-8 w-full text-center shadow-md transition-all duration-300 hover:-translate-y-1.5 hover:border-blue-300 hover:shadow-xl hover:shadow-blue-100">
+                <div className="relative z-10 mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-blue-50 text-blue-600 ring-4 ring-white transition-all duration-300 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white">
+                  <Eye size={26} />
+                </div>
+                <h4 className="text-lg font-semibold mb-2 text-center text-gray-900">
+                  Transparency First
+                </h4>
+                <p className="text-sm leading-relaxed text-center text-gray-600">
+                  Clear communication, honest timelines, and zero hidden
+                  agendas, always.
+                </p>
+              </div>
+              <div className="group relative flex flex-col items-center rounded-2xl border border-gray-200 bg-white p-6 pt-8 w-full text-center shadow-md transition-all duration-300 hover:-translate-y-1.5 hover:border-blue-300 hover:shadow-xl hover:shadow-blue-100">
+                <div className="relative z-10 mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-blue-50 text-blue-600 ring-4 ring-white transition-all duration-300 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white">
+                  <Lightbulb size={26} />
+                </div>
+                <h4 className="text-lg font-semibold mb-2 text-center text-gray-900">
+                  Innovation-Led Thinking
+                </h4>
+                <p className="text-sm leading-relaxed text-center text-gray-600">
+                  We track algorithm shifts and AI search trends before they
+                  trend.
+                </p>
+              </div>
+              <div className="group relative flex flex-col items-center rounded-2xl border border-gray-200 bg-white p-6 pt-8 w-full text-center shadow-md transition-all duration-300 hover:-translate-y-1.5 hover:border-blue-300 hover:shadow-xl hover:shadow-blue-100">
+                <div className="relative z-10 mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-blue-50 text-blue-600 ring-4 ring-white transition-all duration-300 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white">
+                  <Users size={26} />
+                </div>
+                <h4 className="text-lg font-semibold mb-2 text-center text-gray-900">
+                  Client-Centric Culture
+                </h4>
+                <p className="text-sm leading-relaxed text-center text-gray-600">
+                  Every strategy is built around your business, never a generic
+                  template.
+                </p>
+              </div>
+              <div className="group relative flex flex-col items-center rounded-2xl border border-gray-200 bg-white p-6 pt-8 w-full text-center shadow-md transition-all duration-300 hover:-translate-y-1.5 hover:border-blue-300 hover:shadow-xl hover:shadow-blue-100">
+                <div className="relative z-10 mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-blue-50 text-blue-600 ring-4 ring-white transition-all duration-300 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white">
+                  <ShieldCheck size={26} />
+                </div>
+                <h4 className="text-lg font-semibold mb-2 text-center text-gray-900">
+                  Integrity in Execution
+                </h4>
+                <p className="text-sm leading-relaxed text-center text-gray-600">
+                  Ethical, white-hat practices that protect your brand&apos;s
+                  reputation long-term.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -181,54 +199,7 @@ export default function About() {
             rankings,&quot; we chose a different path — building sustainable
             digital growth systems instead of chasing quick wins.
           </p>
-          <div className="grid md:grid-cols-3 grid-cols-1 gap-6 max-w-6xl mx-auto">
-            <div className="p-6 border border-gray-300 rounded-lg shadow-lg shadow-gray-400 bg-gray-100">
-              <h3 className="font-bold text-lg mb-2">Data Over Guesswork</h3>
-              <p className="leading-relaxed">
-                Every decision is backed by real performance data, not
-                assumptions or industry &quot;best guesses.&quot;
-              </p>
-            </div>
-            <div className="p-6 border border-gray-300 rounded-lg shadow-lg shadow-gray-400 bg-gray-100">
-              <h3 className="font-bold text-lg mb-2">
-                AI & Search-Ready Strategy
-              </h3>
-              <p className="leading-relaxed">
-                We optimize for how India searches today — voice assistants,
-                AI tools, and answer engines, not just Google.
-              </p>
-            </div>
-            <div className="p-6 border border-gray-300 rounded-lg shadow-lg shadow-gray-400 bg-gray-100">
-              <h3 className="font-bold text-lg mb-2">Full-Funnel Marketing</h3>
-              <p className="leading-relaxed">
-                From brand awareness to final conversion, we manage the
-                entire customer journey under one roof.
-              </p>
-            </div>
-            <div className="p-6 border border-gray-300 rounded-lg shadow-lg shadow-gray-400 bg-gray-100">
-              <h3 className="font-bold text-lg mb-2">
-                Custom Roadmaps, Not Templates
-              </h3>
-              <p className="leading-relaxed">
-                Every client gets a strategy built around their industry,
-                competitors, and specific business goals.
-              </p>
-            </div>
-            <div className="p-6 border border-gray-300 rounded-lg shadow-lg shadow-gray-400 bg-gray-100">
-              <h3 className="font-bold text-lg mb-2">Radical Transparency</h3>
-              <p className="leading-relaxed">
-                Live performance dashboards, not vague monthly summaries — you
-                see exactly where your budget goes.
-              </p>
-            </div>
-            <div className="p-6 border border-gray-300 rounded-lg shadow-lg shadow-gray-400 bg-gray-100">
-              <h3 className="font-bold text-lg mb-2">Proven Delivery</h3>
-              <p className="leading-relaxed">
-                90+ projects and 50+ clients trust us to turn strategy into
-                measurable, repeatable growth.
-              </p>
-            </div>
-          </div>
+          <DifferentiatorsCarousel />
         </div>
       </div>
 
