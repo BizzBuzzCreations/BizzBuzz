@@ -63,7 +63,7 @@ const DifferentiatorsCarousel = () => {
     >
       {differentiators.map((item, index) => (
         <SplideSlide key={index} className="h-auto py-2">
-          <div className="group h-full flex flex-col p-6 border border-gray-200 rounded-xl bg-white shadow-md transition-all duration-300 hover:-translate-y-1.5 hover:border-blue-400 hover:shadow-xl hover:shadow-blue-100">
+          <div className="group h-full flex flex-col p-6 border border-black rounded-xl bg-white shadow-md transition-all duration-300 hover:-translate-y-1.5 hover:border-blue-400 hover:shadow-xl hover:shadow-blue-100">
             <h3 className="font-bold text-lg mb-2 text-gray-900 transition-colors duration-300 group-hover:text-blue-600">
               {item.title}
             </h3>
