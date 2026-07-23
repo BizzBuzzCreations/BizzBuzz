@@ -58,9 +58,10 @@ export default function RoadmapTimeline({ steps }) {
             key={i}
             d={d}
             fill="none"
-            stroke="#60a5fa"
+            stroke="#000000"
             strokeWidth="3"
             strokeLinecap="round"
+            strokeDasharray="2 10"
           />
         ))}
       </svg>
