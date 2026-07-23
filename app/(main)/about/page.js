@@ -19,6 +19,7 @@ import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import AboutFAQ from "@/components/sections/AboutFAQ";
 import DifferentiatorsCarousel from "@/components/sections/differentiatorsCarousel";
 import TrustAdvantage from "@/components/sections/trustAdvantage";
+import RoadmapTimeline from "@/components/sections/roadmapTimeline";
 
 const roadmapSteps = [
   {
@@ -217,38 +218,9 @@ export default function About() {
           deliver consistent results across 90+ projects.
         </p>
 
-        {/* Desktop: zig-zag alternating timeline */}
-        <div className="hidden lg:block relative max-w-4xl mx-auto">
-          <div className="absolute left-1/2 top-0 bottom-0 w-0.5 -translate-x-1/2 bg-blue-200" />
-          <div className="space-y-16">
-            {roadmapSteps.map((step, i) => {
-              const isLeft = i % 2 === 1;
-              return (
-                <div key={step.number} className="relative">
-                  <div className="absolute left-1/2 top-1/2 z-10 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-blue-600 text-white font-bold text-lg shadow-lg ring-4 ring-white">
-                    {step.number}
-                  </div>
-                  <div className="grid grid-cols-2 gap-x-28">
-                    <div className={isLeft ? "col-start-1" : "col-start-2"}>
-                      <div className="group relative border border-black rounded-xl bg-white shadow-md p-5 transition-all duration-300 hover:-translate-y-1 hover:border-blue-400 hover:shadow-xl hover:shadow-blue-100">
-                        <div
-                          className={`absolute top-1/2 -translate-y-1/2 h-0.5 w-16 bg-blue-300 ${
-                            isLeft ? "-right-16" : "-left-16"
-                          }`}
-                        />
-                        <h4 className="font-bold text-lg mb-2 text-gray-900">
-                          Step {step.number}: {step.title}
-                        </h4>
-                        <p className="leading-relaxed text-gray-600">
-                          {step.desc}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+        {/* Desktop: flowing zig-zag timeline */}
+        <div className="hidden lg:block">
+          <RoadmapTimeline steps={roadmapSteps} />
         </div>
 
         {/* Mobile / tablet: stacked timeline */}
