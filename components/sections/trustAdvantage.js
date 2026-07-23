@@ -40,59 +40,46 @@ const items = [
   },
 ];
 
-const NODE_Y = [40, 120, 40, 120, 40, 120];
-const NODE_X = [50, 150, 250, 350, 450, 550];
-const PATH = NODE_X.map((x, i) => `${i === 0 ? "M" : "L"}${x},${NODE_Y[i]}`).join(" ");
+const RING_COLOR = ["#2563eb", "#9ca3af"]; // blue, gray — alternating
+const DIAMETER = 230; // wider than the grid column so neighbors overlap naturally
+const INNER = 166;
 
 export default function TrustAdvantage() {
   return (
     <div className="max-w-6xl mx-auto">
-      {/* Desktop: zig-zag connected roadmap */}
+      {/* Desktop: overlapping connected ring chain */}
       <div className="hidden lg:block">
-        <div className="relative h-40 mb-8">
-          <svg
-            viewBox="0 0 600 160"
-            preserveAspectRatio="none"
-            className="absolute inset-0 h-full w-full"
-          >
-            <path
-              d={PATH}
-              fill="none"
-              stroke="#bfdbfe"
-              strokeWidth="3"
-              strokeLinecap="round"
-              vectorEffect="non-scaling-stroke"
-            />
-            <path
-              d={PATH}
-              fill="none"
-              stroke="#2563eb"
-              strokeWidth="3"
-              strokeLinecap="round"
-              strokeDasharray="14 10"
-              vectorEffect="non-scaling-stroke"
-              className="animate-dash-flow"
-            />
-          </svg>
-          <div className="absolute inset-0 grid grid-cols-6">
-            {items.map((item, i) => {
-              const Icon = item.icon;
-              return (
-                <div key={item.title} className="flex justify-center">
+        <div className="grid grid-cols-6 mb-6" style={{ height: DIAMETER }}>
+          {items.map((item, i) => {
+            const Icon = item.icon;
+            return (
+              <div
+                key={item.title}
+                className="relative flex items-center justify-center"
+                style={{ zIndex: i + 1 }}
+              >
+                <div
+                  className="flex items-center justify-center rounded-full border-10 bg-white"
+                  style={{
+                    width: DIAMETER,
+                    height: DIAMETER,
+                    borderColor: RING_COLOR[i % 2],
+                  }}
+                >
                   <div
-                    style={{ marginTop: NODE_Y[i] - 32 }}
-                    className="flex h-16 w-16 items-center justify-center rounded-full bg-blue-600 text-white shadow-lg ring-4 ring-blue-100"
+                    className="flex items-center justify-center rounded-full bg-slate-800"
+                    style={{ width: INNER, height: INNER }}
                   >
-                    <Icon size={28} />
+                    <Icon className="text-white" size={30} />
                   </div>
                 </div>
-              );
-            })}
-          </div>
+              </div>
+            );
+          })}
         </div>
-        <div className="grid grid-cols-6 gap-4">
+        <div className="grid grid-cols-6">
           {items.map((item) => (
-            <div key={item.title} className="text-center px-1">
+            <div key={item.title} className="text-center px-2">
               <h3 className="font-bold text-base mb-2">{item.title}</h3>
               <p className="text-sm leading-relaxed text-gray-600">
                 {item.desc}
@@ -104,15 +91,20 @@ export default function TrustAdvantage() {
 
       {/* Mobile / tablet fallback: simple stacked cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:hidden">
-        {items.map((item) => {
+        {items.map((item, i) => {
           const Icon = item.icon;
           return (
             <div
               key={item.title}
               className="flex flex-col items-center text-center p-6 border border-black rounded-xl bg-white shadow-md"
             >
-              <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-blue-600 text-white shadow-lg ring-4 ring-blue-100">
-                <Icon size={26} />
+              <div
+                className="mb-4 flex h-16 w-16 items-center justify-center rounded-full border-8 bg-white"
+                style={{ borderColor: RING_COLOR[i % 2] }}
+              >
+                <div className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-800">
+                  <Icon className="text-white" size={18} />
+                </div>
               </div>
               <h3 className="font-bold text-lg mb-2">{item.title}</h3>
               <p className="leading-relaxed text-gray-600">{item.desc}</p>
