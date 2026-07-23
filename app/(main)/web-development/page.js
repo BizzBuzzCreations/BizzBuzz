@@ -4,6 +4,14 @@ import ServicesHero from "@/components/sections/servicesHero";
 import React, { useState } from "react";
 import Image from "next/image";
 import ServiceCard from "@/components/sections/serviceCard";
+import {
+  LayoutTemplate,
+  ShoppingCart,
+  Server,
+  Atom,
+  RefreshCw,
+  Newspaper,
+} from "lucide-react";
 import CTA2 from "@/components/sections/CTA-2";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import Counter from "@/components/sections/counter";
@@ -139,32 +147,32 @@ export default function WebDevelopment() {
           <ServiceCard
             heading="Custom Web Development & Design"
             description="Off-the-shelf templates only get you so far. Our custom web development team builds mobile-first, responsive websites around your specific goals lead generation, bookings, or online sales combining clean design with solid, maintainable code. We make sure your site scales with your business instead of becoming outdated in a year."
-            imageUrl="/web-design.svg"
+            icon={LayoutTemplate}
           />
           <ServiceCard
             heading="Shopify & Ecommerce Development"
             description="As specialist Shopify website developers, we build fast-loading, conversion-focused online stores with smooth checkout experiences. Whether you're an e-commerce website developer for small business needs or a growing retail brand, we design for speed, mobile shoppers, and global scalability, handling real-world traffic reliably, from 20 products to 20,000."
-            imageUrl="/web-design.svg"
+            icon={ShoppingCart}
           />
           <ServiceCard
             heading="PHP Web Application Development"
             description="For businesses with complex backend needs, our full-stack PHP developers build and modernize custom web applications from internal tools to customer-facing platforms. We specialize in updating legacy PHP systems, which often improves both security and site speed dramatically, along with fast, focused landing pages built purely for conversions."
-            imageUrl="/web-design.svg"
+            icon={Server}
           />
           <ServiceCard
             heading="REACT & NEXT.JS Development"
             description="Our React and Next.js developers build high-performing, AI-integrated frontends using server-side rendering to boost load speed and Google ranking. For projects needing pixel-perfect fundamentals, our HTML, CSS, and JavaScript developers craft responsive interfaces from scratch or integrate seamlessly with your existing backend and in-house team."
-            imageUrl="/web-design.svg"
+            icon={Atom}
           />
           <ServiceCard
             heading="Website Redesign & Management"
             description="An outdated website quietly costs you customers every day. Our redesign services modernize your UI/UX for higher conversions and fix Core Web Vitals without losing rankings you've already earned. Afterward, our ongoing website management covers monitoring, security updates, performance checks, and backups, so your site stays fast and online 24/7."
-            imageUrl="/web-design.svg"
+            icon={RefreshCw}
           />
           <ServiceCard
             heading="WordPress Development"
             description="Our WordPress developers build high-performance, SEO-ready websites with strong security, including protection against common vulnerabilities and AI-assisted threat monitoring. WordPress remains one of the most flexible platforms for content-heavy sites and businesses that want full control over updates without needing a developer for every change."
-            imageUrl="/web-design.svg"
+            icon={Newspaper}
           />
         </div>            
       </div>
