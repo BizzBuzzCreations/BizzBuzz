@@ -18,6 +18,7 @@ import {
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import AboutFAQ from "@/components/sections/AboutFAQ";
 import DifferentiatorsCarousel from "@/components/sections/differentiatorsCarousel";
+import TrustAdvantage from "@/components/sections/trustAdvantage";
 
 const roadmapSteps = [
   {
@@ -252,50 +253,7 @@ export default function About() {
           — Bizzbuzz Creations is built for that.
         </p>
 
-        <div className="grid md:grid-cols-3 grid-cols-1 gap-6 max-w-6xl mx-auto">
-          <div className="p-6 border border-gray-300 rounded-lg shadow-lg shadow-gray-400 bg-gray-100">
-            <h3 className="font-bold text-lg mb-2">Proven Track Record</h3>
-            <p className="leading-relaxed">
-              90+ projects delivered across India with real, measurable
-              business outcomes.
-            </p>
-          </div>
-          <div className="p-6 border border-gray-300 rounded-lg shadow-lg shadow-gray-400 bg-gray-100">
-            <h3 className="font-bold text-lg mb-2">Future-Focused SEO</h3>
-            <p className="leading-relaxed">
-              We optimize for traditional search, AI search, and voice
-              assistants — all at once.
-            </p>
-          </div>
-          <div className="p-6 border border-gray-300 rounded-lg shadow-lg shadow-gray-400 bg-gray-100">
-            <h3 className="font-bold text-lg mb-2">End-to-End Services</h3>
-            <p className="leading-relaxed">
-              SEO, paid ads, content, social, and web design — everything
-              under one roof.
-            </p>
-          </div>
-          <div className="p-6 border border-gray-300 rounded-lg shadow-lg shadow-gray-400 bg-gray-100">
-            <h3 className="font-bold text-lg mb-2">Honest Partnerships</h3>
-            <p className="leading-relaxed">
-              No inflated promises, just clear strategy, consistent effort,
-              and steady growth.
-            </p>
-          </div>
-          <div className="p-6 border border-gray-300 rounded-lg shadow-lg shadow-gray-400 bg-gray-100">
-            <h3 className="font-bold text-lg mb-2">
-              Dedicated Account Support
-            </h3>
-            <p className="leading-relaxed">
-              You get a real team that knows your brand, not a ticket number.
-            </p>
-          </div>
-          <div className="p-6 border border-gray-300 rounded-lg shadow-lg shadow-gray-400 bg-gray-100">
-            <h3 className="font-bold text-lg mb-2">Growing Client Base</h3>
-            <p className="leading-relaxed">
-              50+ businesses across India already trust us with their growth.
-            </p>
-          </div>
-        </div>
+        <TrustAdvantage />
 
         <p className="text-lg leading-relaxed text-center max-w-3xl mx-auto mt-12 font-medium">
           If you&apos;re looking for a digital marketing agency that treats
