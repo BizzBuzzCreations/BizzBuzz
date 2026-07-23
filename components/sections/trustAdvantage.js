@@ -52,15 +52,15 @@ export default function TrustAdvantage() {
       {items.map((item) => {
         const Icon = item.icon;
         return (
-          <div key={item.title} className="flex flex-col items-center">
+          <div key={item.title} className="h-full flex flex-col items-center">
             <div
-              className="z-10 -mb-12 flex h-24 w-24 items-center justify-center rounded-full border-[6px] bg-white shadow-md"
+              className="z-10 -mb-12 flex h-24 w-24 shrink-0 items-center justify-center rounded-full border-[6px] bg-white shadow-md"
               style={{ borderColor: item.color }}
             >
               <Icon size={30} style={{ color: item.color }} />
             </div>
             <div
-              className="w-full rounded-2xl pt-16 pb-6 px-4 text-center shadow-md"
+              className="w-full flex-1 rounded-2xl pt-16 pb-6 px-4 text-center shadow-md"
               style={{ backgroundColor: item.color }}
             >
               <h3 className="text-white font-bold text-lg mb-2">
