@@ -65,7 +65,7 @@ export default function Navbar() {
                     href="/search-engine-optimization"
                     className="inline-flex items-center w-full p-2 hover:bg-gray-400 hover:text-black rounded"
                   >
-                    SEO
+                    Search Engine Optimization (SEO)
                   </Link>
                 </li>
                 <li>
@@ -73,7 +73,7 @@ export default function Navbar() {
                     href="/social-media-marketing"
                     className="inline-flex items-center w-full p-2 hover:bg-gray-400 hover:text-black rounded"
                   >
-                    SMM
+                    Social Media Marketing (SMM)
                   </Link>
                 </li>
                 <li>
@@ -214,7 +214,7 @@ export default function Navbar() {
                         setOpenService(!openService);
                       }}
                     >
-                      SEO
+                      Search Engine Optimization (SEO)
                     </Link>
                   </li>
                   <li>
@@ -226,7 +226,7 @@ export default function Navbar() {
                         setOpenService(!openService);
                       }}
                     >
-                      SMM
+                      Social Media Marketing (SMM)
                     </Link>
                   </li>
                   <li>
