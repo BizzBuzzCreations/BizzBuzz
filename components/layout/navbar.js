@@ -46,6 +46,14 @@ export default function Navbar() {
               >
                 <li>
                   <Link
+                    href="/bpo-services"
+                    className="inline-flex items-center w-full p-2 hover:bg-gray-400 hover:text-black rounded"
+                  >
+                    BPO Service
+                  </Link>
+                </li>
+                <li>
+                  <Link
                     href="/web-development"
                     className="inline-flex items-center w-full p-2 hover:bg-gray-400 hover:text-black rounded"
                   >
@@ -57,7 +65,15 @@ export default function Navbar() {
                     href="/search-engine-optimization"
                     className="inline-flex items-center w-full p-2 hover:bg-gray-400 hover:text-black rounded"
                   >
-                    Search Engine Optimization (SEO)
+                    SEO
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/social-media-marketing"
+                    className="inline-flex items-center w-full p-2 hover:bg-gray-400 hover:text-black rounded"
+                  >
+                    SMM
                   </Link>
                 </li>
                 <li>
@@ -65,15 +81,23 @@ export default function Navbar() {
                     href="/paid-marketing"
                     className="inline-flex items-center w-full p-2 hover:bg-gray-400 hover:text-black rounded"
                   >
-                    Paid Marketing
+                    Google Ads & Paid Marketing
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/bpo-services"
+                    href="/ai-services"
                     className="inline-flex items-center w-full p-2 hover:bg-gray-400 hover:text-black rounded"
                   >
-                    BPO Services
+                    AI Automation
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/digital-marketing"
+                    className="inline-flex items-center w-full p-2 hover:bg-gray-400 hover:text-black rounded"
+                  >
+                    Marketing Automation
                   </Link>
                 </li>
                 <li>
@@ -82,30 +106,6 @@ export default function Navbar() {
                     className="inline-flex items-center w-full p-2 hover:bg-gray-400 hover:text-black rounded"
                   >
                     Business Consultancy
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/social-media-marketing"
-                    className="inline-flex items-center w-full p-2 hover:bg-gray-400 hover:text-black rounded"
-                  >
-                    Social Media Marketing
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/ai-services"
-                    className="inline-flex items-center w-full p-2 hover:bg-gray-400 hover:text-black rounded"
-                  >
-                    AI Services
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/digital-marketing"
-                    className="inline-flex items-center w-full p-2 hover:bg-gray-400 hover:text-black rounded"
-                  >
-                    Digital Marketing
                   </Link>
                 </li>
               </ul>
@@ -183,6 +183,18 @@ export default function Navbar() {
                 >
                   <li>
                     <Link
+                      href="/bpo-services"
+                      className="inline-flex items-center w-full p-2 hover:bg-gray-400 focus:text-black rounded"
+                      onClick={() => {
+                        setOpen(!open);
+                        setOpenService(!openService);
+                      }}
+                    >
+                      BPO Service
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
                       href="/web-development"
                       className="inline-flex items-center w-full p-2 hover:bg-gray-400 focus:text-black rounded"
                       onClick={() => {
@@ -202,7 +214,19 @@ export default function Navbar() {
                         setOpenService(!openService);
                       }}
                     >
-                      Search Engine Optimization (SEO)
+                      SEO
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/social-media-marketing"
+                      className="inline-flex items-center w-full p-2 hover:bg-gray-400 focus:text-black rounded"
+                      onClick={() => {
+                        setOpen(!open);
+                        setOpenService(!openService);
+                      }}
+                    >
+                      SMM
                     </Link>
                   </li>
                   <li>
@@ -214,19 +238,31 @@ export default function Navbar() {
                         setOpenService(!openService);
                       }}
                     >
-                      Paid Marketing
+                      Google Ads & Paid Marketing
                     </Link>
                   </li>
                   <li>
                     <Link
-                      href="/bpo-services"
+                      href="/ai-services"
                       className="inline-flex items-center w-full p-2 hover:bg-gray-400 focus:text-black rounded"
                       onClick={() => {
                         setOpen(!open);
                         setOpenService(!openService);
                       }}
                     >
-                      BPO Services
+                      AI Automation
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/digital-marketing"
+                      className="inline-flex items-center w-full p-2 hover:bg-gray-400 focus:text-black rounded"
+                      onClick={() => {
+                        setOpen(!open);
+                        setOpenService(!openService);
+                      }}
+                    >
+                      Marketing Automation
                     </Link>
                   </li>
                   <li>
@@ -239,42 +275,6 @@ export default function Navbar() {
                       }}
                     >
                       Business Consultancy
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/social-media-marketing"
-                      className="inline-flex items-center w-full p-2 hover:bg-gray-400 focus:text-black rounded"
-                      onClick={() => {
-                        setOpen(!open);
-                        setOpenService(!openService);
-                      }}
-                    >
-                      Social Media Marketing
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/ai-services"
-                      className="inline-flex items-center w-full p-2 hover:bg-gray-400 focus:text-black rounded"
-                      onClick={() => {
-                        setOpen(!open);
-                        setOpenService(!openService);
-                      }}
-                    >
-                      AI Services
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/digital-marketing"
-                      className="inline-flex items-center w-full p-2 hover:bg-gray-400 focus:text-black rounded"
-                      onClick={() => {
-                        setOpen(!open);
-                        setOpenService(!openService);
-                      }}
-                    >
-                      Digital Marketing
                     </Link>
                   </li>
                 </ul>
