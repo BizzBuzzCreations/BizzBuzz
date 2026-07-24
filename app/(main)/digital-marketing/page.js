@@ -6,8 +6,8 @@ import CTA2 from "@/components/sections/CTA-2";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import Counter from "@/components/sections/counter";
 import CTA from "@/components/sections/CTA";
-import OurServices from "@/components/sections/ourServices";
 import DigitalMarketingFAQ from "@/components/sections/digitalMarketingFAQ";
+import MarketingAutomationSystems from "@/components/sections/marketingAutomationSystems";
 
 export const metadata = {
   title: "Digital Marketing Services in Prayagraj",
@@ -56,7 +56,7 @@ export default function digitalMarketing() {
         </div>
       </div>
 
-      <OurServices />
+      <MarketingAutomationSystems />
 
       <div className="flex lg:flex-row flex-col lg:gap-20 justify-center items-center mb-5 md:mb-20 py-20 bg-[#e8e8e8]">
         <div className="max-w-xl text-center lg:text-left">
