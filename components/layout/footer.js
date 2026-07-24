@@ -117,6 +117,14 @@ export default function Footer() {
               <ul className="space-y-3">
                 <li>
                   <Link
+                    href="/bpo-services"
+                    className="text-sm hover:text-gray-300 transition-colors"
+                  >
+                    BPO Service
+                  </Link>
+                </li>
+                <li>
+                  <Link
                     href="/web-development"
                     className="text-sm hover:text-gray-300 transition-colors"
                   >
@@ -133,18 +141,34 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/paid-marketing"
+                    href="/social-media-marketing"
                     className="text-sm hover:text-gray-300 transition-colors"
                   >
-                    Paid Marketing
+                    Social Media Marketing (SMM)
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/bpo-services"
+                    href="/paid-marketing"
                     className="text-sm hover:text-gray-300 transition-colors"
                   >
-                    BPO Services
+                    Google Ads & Paid Marketing
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/ai-services"
+                    className="text-sm hover:text-gray-300 transition-colors"
+                  >
+                    AI Automation
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/digital-marketing"
+                    className="text-sm hover:text-gray-300 transition-colors"
+                  >
+                    Marketing Automation
                   </Link>
                 </li>
                 <li>
@@ -153,30 +177,6 @@ export default function Footer() {
                     className="text-sm hover:text-gray-300 transition-colors"
                   >
                     Business Consultancy
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/digital-marketing"
-                    className="text-sm hover:text-gray-300 transition-colors"
-                  >
-                    Digital Marketing
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/social-media-marketing"
-                    className="text-sm hover:text-gray-300 transition-colors"
-                  >
-                    Social Media Marketing
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/ai-services"
-                    className="text-sm hover:text-gray-300 transition-colors"
-                  >
-                    AI Services
                   </Link>
                 </li>
               </ul>
