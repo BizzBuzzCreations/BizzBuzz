@@ -7,6 +7,7 @@ import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import Counter from "@/components/sections/counter";
 import CTA from "@/components/sections/CTA";
 import OurServices from "@/components/sections/ourServices";
+import DigitalMarketingFAQ from "@/components/sections/digitalMarketingFAQ";
 
 export const metadata = {
   title: "Digital Marketing Services in Prayagraj",
@@ -21,10 +22,9 @@ export default function digitalMarketing() {
   return (
     <>
       <ServicesHero
-        heading="Digital Marketing Services in Prayagraj"
-        description="We create the marketing agency in prayagraj that truly speaks to
-            people and delivers results that matter. Our focus is simple—clear
-            communication, trust, and growth for your business."
+        heading="Stop Chasing Leads Manually, Let Marketing Automation Do It While You Sleep"
+        description="Bizzbuzz Creations builds marketing automation systems that run your email campaigns, nurture leads, update your CRM, and reply on WhatsApp automatically. 
+        No more missed follow-ups, no more manual grunt work, just a marketing engine that works even when your team's logged off."
         img="/digitalmarketing.webp"
       />
 
@@ -40,14 +40,18 @@ export default function digitalMarketing() {
         </div>
         <div className="max-w-xl text-center lg:text-left">
           <h2 className="text-3xl font-bold mb-3">
-            Why Choose BBC for Best Digital Marketing Services in Prayagraj
+            One Automation Partner, Every Channel Your Customers Actually Use
           </h2>
           <p>
-            Choose Bizz Buzz Creations because we are not just the best digital
-            marketing agency in Prayagraj, but a trusted partner for businesses
-            worldwide. By working with international clients, we bring advanced
-            strategies and proven techniques to help your business grow faster.
-            Our focus is simple—transparency, trust, and results that matter.
+            Most businesses don't lose customers because their product is wrong; they lose them because nobody followed up in time. 
+            A lead fills a form and waits three days for a reply. A customer abandons a cart and never hears from you again. 
+            That's the gap marketing automation is built to close. At <b>Bizzbuzz Creations</b>, we set up marketing automation tools that handle the follow-up, 
+            the reminders, and the repetitive campaigns for you, so every lead gets a timely response.
+          </p>
+          <p>
+            As a marketing automation agency, we don't just install software and walk away; we design the actual workflow, write the messaging,
+            and connect it to your CRM so your sales team wakes up to warm leads, not cold silence. Whether you're a startup running your first automation for small business marketing, 
+            or a growing brand that needs full-scale email marketing automation and WhatsApp marketing automation, we build the system around how your customers actually behave
           </p>
         </div>
       </div>
@@ -56,14 +60,15 @@ export default function digitalMarketing() {
 
       <div className="flex lg:flex-row flex-col lg:gap-20 justify-center items-center mb-5 md:mb-20 py-20 bg-[#e8e8e8]">
         <div className="max-w-xl text-center lg:text-left">
-          <h2 className="text-3xl font-bold mb-3">How We Work</h2>
+          <h2 className="text-3xl font-bold mb-3">Why Choose Bizzbuzz Creations</h2>
+          <h3><b>Automation That's Actually Set Up to Sell, Not Just Send</b></h3>
           <p>
-            We begin by understanding your goals by carefully listening to your
-            needs and business vision. In step one, we plan the strategy by
-            creating a custom digital roadmap for growth. In step two, we
-            execute with precision through creative campaigns, SEO, branding,
-            and web development. Finally, in step three, we measure and improve
-            performance with regular reports and transparent results.
+            We don't sell you a tool subscription and walk away — we build the workflow, 
+            write the messaging, and connect every piece to your CRM ourselves. 
+            As your marketing automation agency, we treat email, WhatsApp, and lead nurturing as one connected system, 
+            not separate campaigns running blind. Startups get plans that scale with real volume, 
+            not enterprise pricing from day one. And every workflow is reviewed and improved monthly, 
+            not left running on autopilot and forgotten.
           </p>
         </div>
         <div className="">
@@ -76,6 +81,8 @@ export default function digitalMarketing() {
           />
         </div>
       </div>
+
+      <DigitalMarketingFAQ />
 
       <CTA2 />
       <WhyChooseUs />
