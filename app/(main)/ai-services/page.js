@@ -6,6 +6,7 @@ import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import Counter from "@/components/sections/counter";
 import CTA from "@/components/sections/CTA";
 import { Bot, Sparkles, Workflow, Radar } from "lucide-react";
+import AIServicesFAQ from "@/components/sections/aiServicesFAQ";
 
 const aiServices = [
   {
@@ -111,13 +112,12 @@ export default function SocialMediaMarketing() {
             Let BizzBee AI Build Your Dream Website Effortlessly
           </h2>
           <p className="mb-5">
-            Building a website used to be complex and time-consuming, but with
-            BizzBee AI, it’s effortless. Just share your business details or
-            ideas, and I’ll create your website — no coding, no stress.
+            We're not a custom AI solutions company that hands you a demo and disappears. Every AI agent, content engine, 
+            or automation is built around your real workflow, tested with your team, and refined after launch, not left running blind.
           </p>
           <p>
-            From design to layout and content, BizzBee AI handles it all, so you
-            can focus on growing your business.
+             As an AI consulting services partner, we combine AI integration services with GEO from day one, 
+             so you're both operationally efficient and visible wherever your customers are searching, including inside AI answers.
           </p>
         </div>
         <div className="">
@@ -130,6 +130,8 @@ export default function SocialMediaMarketing() {
           />
         </div>
       </div>
+
+      <AIServicesFAQ />
 
       <CTA2 />
       <WhyChooseUs />
