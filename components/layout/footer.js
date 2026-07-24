@@ -160,7 +160,7 @@ export default function Footer() {
                     href="/ai-services"
                     className="text-sm hover:text-gray-300 transition-colors"
                   >
-                    AI Automation
+                    AI Solutions
                   </Link>
                 </li>
                 <li>
