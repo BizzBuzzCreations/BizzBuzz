@@ -6,6 +6,7 @@ import CTA2 from "@/components/sections/CTA-2";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import Counter from "@/components/sections/counter";
 import CTA from "@/components/sections/CTA";
+import BPOServicesFAQ from "@/components/sections/bpoServicesFAQ";
 import {
   Target,
   Bot,
@@ -125,6 +126,8 @@ export default function BPO() {
           />
         </div>
       </div>
+
+      <BPOServicesFAQ />
 
       <CTA2 />
       <WhyChooseUs />
