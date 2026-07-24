@@ -60,7 +60,6 @@ export default function BPO() {
             and growing companies across India that need a full-scale BPO company for inbound and outbound calling, data entry, and 24/7 customer support outsourcing. 
             Whatever the size of your business, the approach stays the same:  we learn your process first, then build a team around it, 
             instead of forcing your business into a generic template.
-
           </p>
         </div>
       </div>
