@@ -109,7 +109,7 @@ export default function SocialMediaMarketing() {
       <div className="flex lg:flex-row flex-col px-5 gap-10 lg:gap-20 justify-center items-center mb-20 py-20 bg-[#e8e8e8]">
         <div className="max-w-xl text-center lg:text-left">
           <h2 className="text-3xl font-bold mb-5">
-            Let BizzBee AI Build Your Dream Website Effortlessly
+            Why Choose Bizzbuzz Creations
           </h2>
           <p className="mb-5">
             We're not a custom AI solutions company that hands you a demo and disappears. Every AI agent, content engine, 
