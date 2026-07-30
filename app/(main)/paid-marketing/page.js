@@ -11,9 +11,9 @@ import PaidMarketingFAQ from "@/components/sections/paidMarketingFAQ";
 
 export const metadata = {
   title:
-    "Paid Marketing Services | Google & Meta Ads Agency – BizzBuzz Creations",
+    "Paid Marketing Services in India | Google & Meta Ads | BizzBuzz Creations",
   description:
-    "Boost sales with ROI-driven paid marketing services. BizzBuzz Creations offers Google Ads, Meta Ads & performance marketing for high-quality leads and conversions.",
+    "Boost leads & sales with expert paid marketing services. Google Ads, Meta Ads & performance campaigns by BizzBuzz Creations in India & Prayagraj.",
     alternates: {
     canonical: "https://bizzbuzzcreations.com/paid-marketing",
   },

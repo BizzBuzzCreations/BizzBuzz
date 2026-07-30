@@ -18,9 +18,10 @@ import {
 } from "lucide-react";
 
   export const metadata = {
-    title: "BPO Outsource Service Provider in UAE",
+    title:
+      "BPO Services in India | Call Center & Outsourcing | Bizzbuzz Creations",
     description:
-      "We handle the complex processes so you can focus on what matters most—your success. With our support, growth becomes easier, smoother, and stress-free.",
+      "Outsource call center, back office & customer support with AI-powered BPO services. Serving Prayagraj & businesses across India.",
       alternates: {
     canonical: "https://bizzbuzzcreations.com/bpo-services",
   },

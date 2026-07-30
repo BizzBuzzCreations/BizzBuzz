@@ -2,9 +2,9 @@ import ContactForm from "@/components/sections/contactForm";
 import React from "react";
 
 export const metadata = {
-  title: "Contact Us",
+  title: "Contact BizzBuzz Creations | Free SEO & Marketing Consultation",
   description:
-    "Got questions? We’re here to help! Reach out today and let’s connect. We’re ready to assist you with whatever you need!",
+    "Need more leads & sales? Contact our experts today for SEO, social media & website services in Prayagraj. Free consultation available.",
   alternates: {
     canonical: "https://bizzbuzzcreations.com/contact",
   },

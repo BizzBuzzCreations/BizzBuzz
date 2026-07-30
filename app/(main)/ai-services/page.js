@@ -36,9 +36,9 @@ const aiServices = [
 ];
 
 export const metadata = {
-  title: "AI Services - Bizz Buzz Creations",
+  title: "AI Solutions Company in India | Bizzbuzz Creations",
   description:
-    "AI is not the future—it’s happening now. Our solutions simplify complex workflows, optimize performance, and fuel business growth.",
+    "Get custom AI solutions, chatbots, automation & GEO services. Bizzbuzz Creations helps businesses in India & Prayagraj scale with AI.",
   alternates: {
     canonical: "https://bizzbuzzcreations.com/ai-services",
   },

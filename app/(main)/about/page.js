@@ -50,9 +50,9 @@ const roadmapSteps = [
 ];
 
 export const metadata = {
-  title: "Bizz Buzz Creations: BPO | Digital Marketing | Website Services",
+  title: "About BizzBuzz Creations | Digital Marketing Agency in Prayagraj",
   description:
-    "At Bizz Buzz Creation, we know how quickly things change in business—and we’re built to keep up. Know More",
+    "Learn about BizzBuzz Creations, a digital marketing agency in Prayagraj helping businesses across India grow with SEO, ads, social media & AI strategies.",
   alternates: {
     canonical: "https://bizzbuzzcreations.com/about",
   },

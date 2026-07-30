@@ -2,7 +2,7 @@ import { getBlogBySlug } from "@/actions/serverActions";
 import { getFeaturedImage } from "@/lib/getFeaturedImage";
 import { extractTableOfContents } from "@/lib/extractTableOfContents";
 import BlogContactForm from "@/components/sections/blogContactForm";
-import { User } from "lucide-react";
+import { User, ImageOff } from "lucide-react";
 import { notFound } from "next/navigation";
 
 function sanitizeBlogContent(html) {
@@ -120,12 +120,17 @@ export default async function SingleBlog({ params }) {
           </p>
         </div>
         {/* Featured Image */}
-        {featuredImage && (
+        {featuredImage ? (
           <img
             src={featuredImage}
             alt={post?.title?.rendered}
             className="w-full h-auto mb-8 rounded-lg"
           />
+        ) : (
+          <div className="w-full aspect-[1.91/1] mb-8 rounded-lg flex flex-col items-center justify-center gap-2 bg-gradient-to-br from-gray-50 to-gray-200 text-gray-400">
+            <ImageOff size={36} />
+            <span className="text-sm font-medium">Image unavailable</span>
+          </div>
         )}
         {/* Content */}
         <div

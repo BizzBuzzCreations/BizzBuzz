@@ -10,9 +10,10 @@ import CTA from "@/components/sections/CTA";
 import BusinessConsultancyFAQ from "@/components/sections/businessConsultancyFAQ";
 
 export const metadata = {
-  title: "Business Consultancy Services in Prayagraj – Grow Smarter!",
+  title:
+    "Business Consulting Services in India | Strategy & Growth | Bizzbuzz Creations",
   description:
-    "Business consultancy services in Prayagraj to streamline processes, boost efficiency, and unlock your business’s potential. Let’s grow!",
+    "Expert business consulting services for startups & companies in India. Get strategy, growth, and operations support in Prayagraj & across India.",
     alternates: {
     canonical: "https://bizzbuzzcreations.com/business-consultancy",
   },

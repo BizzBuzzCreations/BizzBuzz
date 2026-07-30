@@ -10,9 +10,9 @@ import DigitalMarketingFAQ from "@/components/sections/digitalMarketingFAQ";
 import MarketingAutomationSystems from "@/components/sections/marketingAutomationSystems";
 
 export const metadata = {
-  title: "Digital Marketing Services in Prayagraj",
+  title: "Marketing Automation Services in India | Bizzbuzz Creations",
   description:
-    "Choose Bizz Buzz Creations because we are not just the digital marketing agency in Prayagraj, but a trusted partner for businesses worldwide.",
+    "Automate emails, CRM, and WhatsApp with marketing automation services. Get more leads and sales with smart workflows across India & Prayagraj.",
     alternates: {
     canonical: "https://bizzbuzzcreations.com/digital-marketing",
   },

@@ -1,13 +1,21 @@
-"use client";
-
 import ServicesHero from "@/components/sections/servicesHero";
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import ServiceCard from "@/components/sections/serviceCard";
 import CTA2 from "@/components/sections/CTA-2";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import Counter from "@/components/sections/counter";
 import CTA from "@/components/sections/CTA";
+import { FAQSection } from "@/components/ui/faq-accordion";
+
+export const metadata = {
+  title: "SEO Services in India | AI SEO, GEO & Local SEO | BizzBuzz Creations",
+  description:
+    "Rank higher on Google & AI search with expert SEO services. AI SEO, GEO, AEO & local SEO by BizzBuzz Creations in Prayagraj & across India.",
+  alternates: {
+    canonical: "https://bizzbuzzcreations.com/search-engine-optimization",
+  },
+};
 
 const faqs = [
   {
@@ -29,69 +37,13 @@ const faqs = [
     question: "Can SEO guarantee first-page ranking on Google?",
     answer:
       "No ethical SEO agency can guarantee rankings. The right strategy improves visibility, authority, and long-term growth instead of false promises.",
-  },  
+  },
   {
     question: "Is SEO still worth it in 2026?",
     answer:
       "Yes, but modern SEO must include AI SEO, semantic SEO, and answer engine optimization to stay competitive in evolving search.",
   },
 ];
-
-function FAQSection() {
-  const [openIndex, setOpenIndex] = useState(null);
-
-  const toggle = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
-
-  return (
-    <div className="container max-w-4xl mx-auto px-5 py-16">
-      <h2 className="text-3xl font-bold mb-10 text-center">
-        Frequently Asked Questions
-      </h2>
-      <div className="flex flex-col gap-4">
-        {faqs.map((faq, index) => {
-          const isOpen = openIndex === index;
-          return (
-            <div
-              key={index}
-              className="border border-gray-200 rounded-lg overflow-hidden shadow-sm bg-white"
-            >
-              <button
-                onClick={() => toggle(index)}
-                className="w-full flex justify-between items-center px-6 py-5 text-left cursor-pointer hover:bg-gray-50 transition-colors duration-200"
-              >
-                <span className="text-base font-semibold text-gray-800 pr-4">
-                  {index + 1}. {faq.question}
-                </span>
-                <span
-                  className="text-2xl font-light text-gray-500 flex-shrink-0 transition-transform duration-300"
-                  style={{
-                    transform: isOpen ? "rotate(45deg)" : "rotate(0deg)",
-                  }}
-                >
-                  +
-                </span>
-              </button>
-
-              <div
-                className="overflow-hidden transition-all duration-300 ease-in-out"
-                style={{
-                  maxHeight: isOpen ? "200px" : "0px",
-                  opacity: isOpen ? 1 : 0,
-                }}
-              >
-                <p className="px-6 pb-5 text-gray-600 leading-relaxed">
-                  {faq.answer}
-                </p>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-    </div>
-  );
-}
 
 export default function SearchEngineOptimization() {
   return (
@@ -229,7 +181,12 @@ export default function SearchEngineOptimization() {
       </div>
 
       {/* Accordion FAQ Section */}
-      <FAQSection />
+      <FAQSection
+        faqs={faqs}
+        className="container max-w-4xl mx-auto px-5 py-16"
+        headingClassName="text-3xl font-bold mb-10 text-center"
+        heading="Frequently Asked Questions"
+      />
 
       <CTA2 />
       <WhyChooseUs />

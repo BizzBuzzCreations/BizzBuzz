@@ -1,7 +1,4 @@
-"use client";
-
-import { useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { FAQSection } from "@/components/ui/faq-accordion";
 
 const faqs = [
   {
@@ -31,42 +28,13 @@ const faqs = [
 ];
 
 export default function AboutFAQ() {
-  const [openIndex, setOpenIndex] = useState(0);
-
   return (
-    <div className="mb-20 max-w-5xl p-4 mx-auto container">
-      <h2 className="md:text-4xl text-3xl font-bold text-center mb-12 text-black">
-        FAQs
-      </h2>
-
-      <div className="w-full max-w-4xl mx-auto">
-        {faqs.map((faq, index) => {
-          const isOpen = openIndex === index;
-          return (
-            <div key={faq.question} className="border-b border-black/20">
-              <button
-                type="button"
-                onClick={() => setOpenIndex(isOpen ? -1 : index)}
-                aria-expanded={isOpen}
-                className="flex items-center justify-between w-full py-5 font-medium text-black gap-3 text-left"
-              >
-                <span>{faq.question}</span>
-                <ChevronDown
-                  className={`shrink-0 transition-transform ${
-                    isOpen ? "rotate-180" : ""
-                  }`}
-                  size={20}
-                />
-              </button>
-              {isOpen && (
-                <div className="pb-5 text-black/80">
-                  <p>{faq.answer}</p>
-                </div>
-              )}
-            </div>
-          );
-        })}
-      </div>
-    </div>
+    <FAQSection
+      faqs={faqs}
+      defaultValue="item-0"
+      className="mb-20 max-w-5xl p-4 mx-auto container"
+      headingClassName="md:text-4xl text-3xl font-bold text-center mb-12 text-black"
+      heading="FAQs"
+    />
   );
 }

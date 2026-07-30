@@ -2,6 +2,7 @@ import { getLatestThreeBlogs } from "@/actions/serverActions";
 import { getFeaturedImage } from "@/lib/getFeaturedImage";
 import Link from "next/link";
 import he from "he";
+import { ImageOff } from "lucide-react";
 
 export default async function LatestBlogs() {
   const res = await getLatestThreeBlogs();
@@ -38,12 +39,19 @@ export default async function LatestBlogs() {
                   href={`/blog/${e?.slug}`}
                   className="block overflow-hidden group rounded-xl shadow-lg shadow-gray-300 aspect-[1.91/1] bg-gray-100"
                 >
-                  {featuredImage && (
+                  {featuredImage ? (
                     <img
                       src={featuredImage}
                       className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-105"
                       alt={e?.title?.rendered}
                     />
+                  ) : (
+                    <div className="w-full h-full flex flex-col items-center justify-center gap-2 bg-gradient-to-br from-gray-50 to-gray-200 text-gray-400">
+                      <ImageOff size={28} />
+                      <span className="text-xs font-medium">
+                        Image unavailable
+                      </span>
+                    </div>
                   )}
                 </Link>
                 <div className="relative mt-5">

@@ -1,7 +1,5 @@
-"use client";
-
 import ServicesHero from "@/components/sections/servicesHero";
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import ServiceCard from "@/components/sections/serviceCard";
 import {
@@ -16,6 +14,17 @@ import CTA2 from "@/components/sections/CTA-2";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import Counter from "@/components/sections/counter";
 import CTA from "@/components/sections/CTA";
+import { FAQSection } from "@/components/ui/faq-accordion";
+
+export const metadata = {
+  title:
+    "Website Development Company in India | Custom Web Design | BizzBuzz Creations",
+  description:
+    "Get fast, secure & high-converting websites. Custom web development, WordPress & eCommerce solutions by BizzBuzz Creations in Prayagraj & India.",
+  alternates: {
+    canonical: "https://bizzbuzzcreations.com/web-development",
+  },
+};
 
 const faqs = [
   {
@@ -43,62 +52,6 @@ const faqs = [
       "Yes, we provide ongoing maintenance, updates, and security support.",
   },
 ];
-
-function FAQSection() {
-  const [openIndex, setOpenIndex] = useState(null);
-
-  const toggle = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
-
-  return (
-    <div className="container max-w-4xl mx-auto px-5 py-16">
-      <h2 className="text-3xl font-bold mb-10 text-center">
-        Frequently Asked Questions
-      </h2>
-      <div className="flex flex-col gap-4">
-        {faqs.map((faq, index) => {
-          const isOpen = openIndex === index;
-          return (
-            <div
-              key={index}
-              className="border border-gray-200 rounded-lg overflow-hidden shadow-sm bg-white"
-            >
-              <button
-                onClick={() => toggle(index)}
-                className="w-full flex justify-between items-center px-6 py-5 text-left cursor-pointer hover:bg-gray-50 transition-colors duration-200"
-              >
-                <span className="text-base font-semibold text-gray-800 pr-4">
-                  {index + 1}. {faq.question}
-                </span>
-                <span
-                  className="text-2xl font-light text-gray-500 flex-shrink-0 transition-transform duration-300"
-                  style={{
-                    transform: isOpen ? "rotate(45deg)" : "rotate(0deg)",
-                  }}
-                >
-                  +
-                </span>
-              </button>
-
-              <div
-                className="overflow-hidden transition-all duration-300 ease-in-out"
-                style={{
-                  maxHeight: isOpen ? "200px" : "0px",
-                  opacity: isOpen ? 1 : 0,
-                }}
-              >
-                <p className="px-6 pb-5 text-gray-600 leading-relaxed">
-                  {faq.answer}
-                </p>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-    </div>
-  );
-}
 
 export default function WebDevelopment() {
   return (
@@ -180,7 +133,7 @@ export default function WebDevelopment() {
       <div className="flex lg:flex-row flex-col lg:gap-20 justify-center items-center mb-5 md:mb-20 px-5 py-20 bg-[#e8e8e8]">
         <div className="max-w-xl text-center lg:text-left">
           <h2 className="text-3xl font-bold mb-3">
-            Why Choose BizzBuzz Creations?
+            Why Choose BizzBuzz Creations?   
           </h2>
           <p>
             We follow a results-driven approach, not just building websites that look good but ones that sell. 
@@ -206,7 +159,12 @@ export default function WebDevelopment() {
       </div>
 
       {/* Accordion FAQ Section */}
-      <FAQSection />
+      <FAQSection
+        faqs={faqs}
+        className="container max-w-4xl mx-auto px-5 py-16"
+        headingClassName="text-3xl font-bold mb-10 text-center"
+        heading="Frequently Asked Questions"
+      />
 
       <CTA2 />
       <WhyChooseUs />
