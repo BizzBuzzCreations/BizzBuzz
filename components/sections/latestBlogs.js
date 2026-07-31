@@ -1,18 +1,18 @@
-import { getLatestThreeBlogs } from "@/actions/serverActions";
+import { getLatestThreeBlogsMongo } from "@/actions/blogActions";
 import { getFeaturedImage } from "@/lib/getFeaturedImage";
 import Link from "next/link";
 import he from "he";
 import { ImageOff } from "lucide-react";
 
 export default async function LatestBlogs() {
-  const res = await getLatestThreeBlogs();
-  const blogs = res.data;
+  const res = await getLatestThreeBlogsMongo();
+  const blogs = res.data || [];
 
   function truncateHTML(html, limit = 120) {
         if (!html) return "";
-    
+
         const text = he.decode(html.replace(/<[^>]*>/g, "")); // remove HTML tags
-    
+
         return text.length > limit ? text.slice(0, limit) + "..." : text;
       }
 
@@ -43,7 +43,7 @@ export default async function LatestBlogs() {
                     <img
                       src={featuredImage}
                       className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-105"
-                      alt={e?.title?.rendered}
+                      alt={e?.title}
                     />
                   ) : (
                     <div className="w-full h-full flex flex-col items-center justify-center gap-2 bg-gradient-to-br from-gray-50 to-gray-200 text-gray-400">
@@ -56,32 +56,29 @@ export default async function LatestBlogs() {
                 </Link>
                 <div className="relative mt-5">
                   <p className="uppercase font-semibold text-xs mb-2.5 text-slate-700">
-                    {new Date(e?.date).toLocaleDateString("en-US", {
+                    {new Date(e?.publishedAt).toLocaleDateString("en-US", {
                       month: "short",
                       day: "numeric",
                       year: "numeric",
                     })}
-                    &nbsp;&nbsp; by {e?._embedded?.author?.[0]?.name}
+                    &nbsp;&nbsp; by {e?.author}
                   </p>
                   <Link
                     href={`/blog/${e?.slug}`}
                     className="block mb-3 hover:underline"
                   >
-                    <h3
-                      className="text-xl lg:text-2xl leading-tight font-semibold leading-5 text-black  transition-colors duration-200 hover:text-slate-700"
-                      dangerouslySetInnerHTML={{
-                        __html: e?.title?.rendered,
-                      }}
-                    />
+                    <h3 className="text-xl lg:text-2xl leading-tight font-semibold leading-5 text-black  transition-colors duration-200 hover:text-slate-700">
+                      {e?.title}
+                    </h3>
                   </Link>
                   <p className="text-gray-700">
-                    {truncateHTML(e?.excerpt?.rendered, 150)}
+                    {truncateHTML(e?.excerpt, 150)}
                   </p>
 
                   <Link
                     href={`/blog/${e?.slug}`}
                     className="font-medium underline text-slate-700 hover:text-slate-900"
-                    aria-label={`Read more about ${e?.title?.rendered}`}
+                    aria-label={`Read more about ${e?.title}`}
                   >
                     Read More
                   </Link>

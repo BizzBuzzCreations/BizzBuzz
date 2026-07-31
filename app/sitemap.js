@@ -1,32 +1,15 @@
+import connectDB from "@/db/connect";
+import Blog from "@/models/blog";
+
 export default async function sitemap() {
-  const wpApi = "https://blog.bizzbuzzcreations.com/wp-json/wp/v2/posts";
+  await connectDB();
+  const posts = await Blog.find({ status: "published" })
+    .select("slug publishedAt updatedAt")
+    .lean();
 
-  let page = 1;
-  let allPosts = [];
-  let hasMore = true;
-
-  // Fetch all posts (handles pagination)
-  while (hasMore) {
-    const res = await fetch(
-      `${wpApi}?per_page=100&page=${page}&_fields=id,date,slug,link`,
-      { next: { revalidate: 3600 } },
-    );
-
-    if (!res.ok) break;
-
-    const posts = await res.json();
-
-    if (posts.length === 0) {
-      hasMore = false;
-    } else {
-      allPosts = [...allPosts, ...posts];
-      page++;
-    }
-  }
-
-  const blogPages = allPosts.map((post) => ({
+  const blogPages = posts.map((post) => ({
     url: `https://bizzbuzzcreations.com/blog/${post.slug}`,
-    lastModified: new Date(post.date),
+    lastModified: new Date(post.updatedAt || post.publishedAt),
     changeFrequency: "weekly",
     priority: 0.7,
   }));

@@ -10,7 +10,7 @@ export default function NotFound() {
       }}
       className="h-screen flex flex-col justify-center items-center"
     >
-      <Image src="/404.gif" width={500} height={500} />
+      <Image src="/404.gif" width={500} height={500} alt="Page not found" />
       <h2 className="text-3xl font-bold text-black mb-2">Page Not Found!</h2>
       <p className="mb-5">Don't worry, return to the home page.</p>
       <Link href="/" className="inline-block">

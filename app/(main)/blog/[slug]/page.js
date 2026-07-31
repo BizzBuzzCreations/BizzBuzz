@@ -1,7 +1,8 @@
-import { getBlogBySlug } from "@/actions/serverActions";
+import { getBlogBySlugMongo } from "@/actions/blogActions";
 import { getFeaturedImage } from "@/lib/getFeaturedImage";
 import { extractTableOfContents } from "@/lib/extractTableOfContents";
 import BlogContactForm from "@/components/sections/blogContactForm";
+import { FAQSection } from "@/components/ui/faq-accordion";
 import { User, ImageOff } from "lucide-react";
 import { notFound } from "next/navigation";
 
@@ -16,7 +17,7 @@ function sanitizeBlogContent(html) {
 export async function generateMetadata({ params }) {
   const { slug } = await params;
 
-  const res = await getBlogBySlug(slug);
+  const res = await getBlogBySlugMongo(slug);
 
   if (!res?.success) {
     return {
@@ -25,27 +26,20 @@ export async function generateMetadata({ params }) {
   }
 
   const post = res?.data;
-  const seo = post?.yoast_head_json;
-
-  if (!seo) {
-    return {
-      title: post.title?.rendered || "Blog",
-      description: post.excerpt?.rendered?.replace(/<[^>]+>/g, ""),
-    };
-  }
+  const title = post.metaTitle || post.title;
+  const description = post.metaDescription || post.excerpt;
+  const image = post.ogImage || post.featuredImage;
 
   return {
-    title: seo.title,
-    description: seo.description,
+    title,
+    description,
     alternates: {
       canonical: `https://bizzbuzzcreations.com/blog/${slug}`,
     },
     openGraph: {
-      title: seo.og_title,
-      description: seo.og_description,
-      images: seo.og_image?.map((img) => ({
-        url: img.url,
-      })),
+      title,
+      description,
+      images: image ? [{ url: image }] : undefined,
     },
   };
 }
@@ -53,7 +47,7 @@ export async function generateMetadata({ params }) {
 export default async function SingleBlog({ params }) {
   const { slug } = await params;
 
-  const res = await getBlogBySlug(slug);
+  const res = await getBlogBySlugMongo(slug);
 
   if (!res?.success) {
     return notFound();
@@ -62,23 +56,63 @@ export default async function SingleBlog({ params }) {
 
   const featuredImage = getFeaturedImage(post);
 
-  const formattedDate = new Date(post?.date).toLocaleDateString("en-IN", {
+  const formattedDate = new Date(post?.publishedAt).toLocaleDateString("en-IN", {
     year: "numeric",
     month: "long",
     day: "numeric",
   });
 
-  const rawContent = sanitizeBlogContent(
-    post?.content.rendered.replaceAll(
-      "https://blog.bizzbuzzcreations.com",
-      "https://bizzbuzzcreations.com",
-    ),
-  );
-
+  const rawContent = sanitizeBlogContent(post?.content);
   const { html: filteredData, toc } = extractTableOfContents(rawContent);
+
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.metaDescription || post.excerpt,
+    ...(post.featuredImage ? { image: post.featuredImage } : {}),
+    author: { "@type": "Person", name: post.author },
+    publisher: {
+      "@type": "Organization",
+      name: "BizzBuzz Creations",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://bizzbuzzcreations.com/favicon.png",
+      },
+    },
+    datePublished: post.publishedAt,
+    dateModified: post.updatedAt || post.publishedAt,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://bizzbuzzcreations.com/blog/${slug}`,
+    },
+  };
+
+  const faqSchema = post.faqs?.length
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: post.faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: { "@type": "Answer", text: faq.answer },
+        })),
+      }
+    : null;
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-40 lg:flex lg:items-start gap-8">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
+
       {/* Table of Contents */}
       {toc.length > 0 && (
         <aside className="hidden lg:block w-56 shrink-0 sticky top-28 self-start">
@@ -111,19 +145,18 @@ export default async function SingleBlog({ params }) {
       <div className="max-w-3xl mx-auto lg:mx-0 flex-1 min-w-0">
         {/* Header */}
         <div className="py-8">
-          <h1
-            className="md:text-3xl xl:text-4xl text-2xl font-bold mb-4 font-bold mb-2"
-            dangerouslySetInnerHTML={{ __html: post?.title?.rendered }}
-          />
+          <h1 className="md:text-3xl xl:text-4xl text-2xl font-bold mb-4 font-bold mb-2">
+            {post?.title}
+          </h1>
           <p className="text-gray-500 text-sm">
-            Published on <time dateTime={post?.date}>{formattedDate}</time>
+            Published on <time dateTime={post?.publishedAt}>{formattedDate}</time>
           </p>
         </div>
         {/* Featured Image */}
         {featuredImage ? (
           <img
             src={featuredImage}
-            alt={post?.title?.rendered}
+            alt={post?.title}
             className="w-full h-auto mb-8 rounded-lg"
           />
         ) : (
@@ -137,6 +170,18 @@ export default async function SingleBlog({ params }) {
           className="article"
           dangerouslySetInnerHTML={{ __html: filteredData }}
         />
+
+        {/* FAQs */}
+        {post.faqs?.length > 0 && (
+          <div className="my-12">
+            <FAQSection
+              faqs={post.faqs}
+              heading="Frequently Asked Questions"
+              headingClassName="text-2xl font-bold mb-6"
+            />
+          </div>
+        )}
+
         <div className="my-12 p-6 border border-gray-200 rounded-2xl bg-white shadow-md hover:shadow-lg transition duration-300">
           <div className="flex items-center gap-4 mb-4">
             {/* Avatar */}
@@ -148,14 +193,14 @@ export default async function SingleBlog({ params }) {
             <div>
               <p className="text-sm text-gray-500">Written by</p>
               <p className="text-lg font-semibold text-gray-900">
-                {post?._embedded?.author?.[0]?.name}
+                {post?.author}
               </p>
             </div>
           </div>
 
           {/* Author Bio */}
           <p className="text-gray-600 leading-relaxed text-sm">
-            {post?._embedded?.author?.[0]?.description}
+            {post?.authorBio}
           </p>
         </div>
       </div>
