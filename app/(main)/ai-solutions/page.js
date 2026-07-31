@@ -6,7 +6,7 @@ import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import Counter from "@/components/sections/counter";
 import CTA from "@/components/sections/CTA";
 import { Bot, Sparkles, Workflow, Radar } from "lucide-react";
-import AIServicesFAQ from "@/components/sections/aiServicesFAQ";
+import AISolutionsFAQ from "@/components/sections/aiSolutionsFAQ";
 
 const aiServices = [
   {
@@ -40,11 +40,11 @@ export const metadata = {
   description:
     "Get custom AI solutions, chatbots, automation & GEO services. Bizzbuzz Creations helps businesses in India & Prayagraj scale with AI.",
   alternates: {
-    canonical: "https://bizzbuzzcreations.com/ai-services",
+    canonical: "https://bizzbuzzcreations.com/ai-solutions",
   },
 };
 
-export default function SocialMediaMarketing() {
+export default function AISolutions() {
   return (
     <>
       <ServicesHero
@@ -131,7 +131,7 @@ export default function SocialMediaMarketing() {
         </div>
       </div>
 
-      <AIServicesFAQ />
+      <AISolutionsFAQ />
 
       <CTA2 />
       <WhyChooseUs />

@@ -29,7 +29,7 @@ const faqs = [
   },
 ];
 
-export default function DigitalMarketingFAQ() {
+export default function MarketingAutomationFAQ() {
   return (
     <FAQSection
       faqs={faqs}

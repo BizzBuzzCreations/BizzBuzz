@@ -86,7 +86,7 @@ export default function Navbar() {
                 </li>
                 <li>
                   <Link
-                    href="/ai-services"
+                    href="/ai-solutions"
                     className="inline-flex items-center w-full p-2 hover:bg-gray-400 hover:text-black rounded"
                   >
                     AI Solutions
@@ -94,7 +94,7 @@ export default function Navbar() {
                 </li>
                 <li>
                   <Link
-                    href="/digital-marketing"
+                    href="/marketing-automation"
                     className="inline-flex items-center w-full p-2 hover:bg-gray-400 hover:text-black rounded"
                   >
                     Marketing Automation
@@ -243,7 +243,7 @@ export default function Navbar() {
                   </li>
                   <li>
                     <Link
-                      href="/ai-services"
+                      href="/ai-solutions"
                       className="inline-flex items-center w-full p-2 hover:bg-gray-400 focus:text-black rounded"
                       onClick={() => {
                         setOpen(!open);
@@ -255,7 +255,7 @@ export default function Navbar() {
                   </li>
                   <li>
                     <Link
-                      href="/digital-marketing"
+                      href="/marketing-automation"
                       className="inline-flex items-center w-full p-2 hover:bg-gray-400 focus:text-black rounded"
                       onClick={() => {
                         setOpen(!open);

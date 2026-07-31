@@ -64,7 +64,7 @@ const services = [
     subheading: "Automate the Busywork, Scale Without Hiring",
     description:
       "Free your team from repetitive tasks. We build AI chatbots, lead qualification flows, and workflow automations that respond to customers instantly and route the right leads to your team, 24/7.",
-    href: "/ai-services",
+    href: "/ai-solutions",
     buttonText: "Automate With AI",
   },
   {
@@ -73,7 +73,7 @@ const services = [
     subheading: "Nurture Leads Automatically, Convert While You Sleep",
     description:
       "Stop letting leads go cold. We set up automated email and follow-up sequences that nurture prospects, qualify interest, and guide them through the buyer's journey without manual chasing.",
-    href: "/digital-marketing",
+    href: "/marketing-automation",
     buttonText: "Automate Your Marketing",
   },
   {

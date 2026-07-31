@@ -99,13 +99,13 @@ export default async function sitemap() {
       priority: 0.5,
     },
     {
-      url: "https://bizzbuzzcreations.com/ai-services",
+      url: "https://bizzbuzzcreations.com/ai-solutions",
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.5,
     },
     {
-      url: "https://bizzbuzzcreations.com/digital-marketing",
+      url: "https://bizzbuzzcreations.com/marketing-automation",
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.5,

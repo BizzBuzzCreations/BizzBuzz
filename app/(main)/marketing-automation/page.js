@@ -6,7 +6,7 @@ import CTA2 from "@/components/sections/CTA-2";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import Counter from "@/components/sections/counter";
 import CTA from "@/components/sections/CTA";
-import DigitalMarketingFAQ from "@/components/sections/digitalMarketingFAQ";
+import MarketingAutomationFAQ from "@/components/sections/marketingAutomationFAQ";
 import MarketingAutomationSystems from "@/components/sections/marketingAutomationSystems";
 
 export const metadata = {
@@ -14,11 +14,11 @@ export const metadata = {
   description:
     "Automate emails, CRM, and WhatsApp with marketing automation services. Get more leads and sales with smart workflows across India & Prayagraj.",
     alternates: {
-    canonical: "https://bizzbuzzcreations.com/digital-marketing",
+    canonical: "https://bizzbuzzcreations.com/marketing-automation",
   },
 };
 
-export default function digitalMarketing() {
+export default function MarketingAutomation() {
   return (
     <>
       <ServicesHero
@@ -82,7 +82,7 @@ export default function digitalMarketing() {
         </div>
       </div>
 
-      <DigitalMarketingFAQ />
+      <MarketingAutomationFAQ />
 
       <CTA2 />
       <WhyChooseUs />

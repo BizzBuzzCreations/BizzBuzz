@@ -157,7 +157,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/ai-services"
+                    href="/ai-solutions"
                     className="text-sm hover:text-gray-300 transition-colors"
                   >
                     AI Solutions
@@ -165,7 +165,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/digital-marketing"
+                    href="/marketing-automation"
                     className="text-sm hover:text-gray-300 transition-colors"
                   >
                     Marketing Automation

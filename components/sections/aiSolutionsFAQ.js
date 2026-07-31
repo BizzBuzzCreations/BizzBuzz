@@ -29,7 +29,7 @@ const faqs = [
   },
 ];
 
-export default function AIServicesFAQ() {
+export default function AISolutionsFAQ() {
   return (
     <FAQSection
       faqs={faqs}
