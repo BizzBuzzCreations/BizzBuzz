@@ -2,13 +2,9 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
 import { getAllBlogsAdmin, deleteBlog } from "@/actions/blogActions";
 
 export default function DashboardBlogs() {
-  const searchParams = useSearchParams();
-  const token = searchParams.get("token") || "";
-
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
@@ -62,7 +58,7 @@ export default function DashboardBlogs() {
             onChange={(e) => setSearchQuery(e.target.value)}
           />
           <Link
-            href={`/admin/dashboard/blogs/new?token=${encodeURIComponent(token)}`}
+            href="/admin/dashboard/blogs/new"
             className="whitespace-nowrap rounded-[10px] bg-linear-to-br from-indigo-500 to-violet-500 px-5 py-2.5 text-sm font-semibold text-white"
           >
             New Post
@@ -133,7 +129,7 @@ export default function DashboardBlogs() {
                   <td className="px-3 py-3">
                     <div className="flex items-center gap-2">
                       <Link
-                        href={`/admin/dashboard/blogs/${blog._id}?token=${encodeURIComponent(token)}`}
+                        href={`/admin/dashboard/blogs/${blog._id}`}
                         className="rounded-md bg-indigo-50 px-3 py-1 text-sm text-indigo-600"
                       >
                         Edit

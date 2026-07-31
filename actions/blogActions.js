@@ -3,6 +3,19 @@ import connectDB from "@/db/connect";
 import Blog from "@/models/blog";
 import cloudinary from "@/lib/cloudinary";
 import slugify from "slugify";
+import { getSession } from "@/actions/authActions";
+
+// Blog management (write side) is open to any logged-in role — admin and
+// user both write/publish posts. Only the public read functions further
+// down stay unauthenticated, since the live site and the cron endpoint
+// depend on them.
+async function requireSession() {
+  const session = await getSession();
+  if (!session) {
+    return { success: false, message: "Unauthorized." };
+  }
+  return null;
+}
 
 function toPlainBlog(doc) {
   return {
@@ -43,6 +56,9 @@ export async function publishDueScheduledPosts() {
 // ---- Admin: create / update / delete ----
 
 export async function createBlog(data) {
+  const unauthorized = await requireSession();
+  if (unauthorized) return unauthorized;
+
   await connectDB();
   try {
     if (!data?.title || !data?.content) {
@@ -86,6 +102,9 @@ export async function createBlog(data) {
 }
 
 export async function updateBlog(id, data) {
+  const unauthorized = await requireSession();
+  if (unauthorized) return unauthorized;
+
   await connectDB();
   try {
     const existingDoc = await Blog.findById(id);
@@ -141,6 +160,9 @@ export async function updateBlog(id, data) {
 }
 
 export async function deleteBlog(id) {
+  const unauthorized = await requireSession();
+  if (unauthorized) return unauthorized;
+
   await connectDB();
   try {
     await Blog.findByIdAndDelete(id);
@@ -154,6 +176,9 @@ export async function deleteBlog(id) {
 // ---- Admin: read ----
 
 export async function getAllBlogsAdmin() {
+  const unauthorized = await requireSession();
+  if (unauthorized) return unauthorized;
+
   await connectDB();
   try {
     await publishDueScheduledPosts();
@@ -166,6 +191,9 @@ export async function getAllBlogsAdmin() {
 }
 
 export async function getBlogById(id) {
+  const unauthorized = await requireSession();
+  if (unauthorized) return unauthorized;
+
   await connectDB();
   try {
     const blog = await Blog.findById(id).lean();
@@ -180,6 +208,9 @@ export async function getBlogById(id) {
 // ---- Image upload ----
 
 export async function uploadBlogImage(formData) {
+  const unauthorized = await requireSession();
+  if (unauthorized) return unauthorized;
+
   try {
     const file = formData.get("file");
     if (!file) return { success: false, message: "No file provided." };

@@ -9,9 +9,9 @@ import CTA from "@/components/sections/CTA";
 import { FAQSection } from "@/components/ui/faq-accordion";
 
 export const metadata = {
-  title: "SEO Services in India | AI SEO, GEO & Local SEO | BizzBuzz Creations",
+  title: "SEO Services India | AI & Local SEO | BizzBuzz Creations",
   description:
-    "Rank higher on Google & AI search with expert SEO services. AI SEO, GEO, AEO & local SEO by BizzBuzz Creations in Prayagraj & across India.",
+    "Get expert SEO services in India with AI SEO, GEO, AEO, and local SEO by BizzBuzz Creations to boost rankings, organic traffic, visibility, and quality leads.",
   alternates: {
     canonical: "https://bizzbuzzcreations.com/search-engine-optimization",
   },

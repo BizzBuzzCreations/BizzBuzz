@@ -4,9 +4,18 @@ import Job from "@/models/jobs";
 import Submission from "@/models/submissions";
 import Comment from "@/models/comments";
 import { Resend } from "resend";
+import { getSession } from "@/actions/authActions";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 const lastRequestMap = new Map();
+
+async function requireAdmin() {
+  const session = await getSession();
+  if (!session || session.role !== "admin") {
+    return { success: false, message: "Unauthorized." };
+  }
+  return null;
+}
 
 // Function to send email
 export async function sendMail({ name, email, subject, text, contact }) {
@@ -97,6 +106,9 @@ export async function publishJob({
   description,
   applyForm,
 }) {
+  const unauthorized = await requireAdmin();
+  if (unauthorized) return unauthorized;
+
   await connectDB();
 
   if (
@@ -164,6 +176,9 @@ export async function getAllJobs() {
 
 //Function to delete a job
 export async function deleteJob({ id }) {
+  const unauthorized = await requireAdmin();
+  if (unauthorized) return unauthorized;
+
   await connectDB();
   try {
     await Job.findByIdAndDelete(id);
@@ -182,6 +197,9 @@ export async function deleteJob({ id }) {
 
 // Function to get all submissions
 export async function getAllSubmissions() {
+  const unauthorized = await requireAdmin();
+  if (unauthorized) return unauthorized;
+
   await connectDB();
   try {
     const submissions = await Submission.find({}).lean();
@@ -242,6 +260,10 @@ export async function getAllComments(slug) {
   try {
     let comments = null;
     if (!slug) {
+      // Bulk "every comment on the site" view is admin-only; per-post
+      // comments (with a slug) stay public for the blog page's own use.
+      const unauthorized = await requireAdmin();
+      if (unauthorized) return unauthorized;
       comments = await Comment.find({}).lean();
     } else {
       comments = await Comment.find({ blog: slug }).lean();
@@ -269,6 +291,9 @@ export async function getAllComments(slug) {
 
 //Function to delete a comment
 export async function deleteComment({ id }) {
+  const unauthorized = await requireAdmin();
+  if (unauthorized) return unauthorized;
+
   await connectDB();
   try {
     await Comment.findByIdAndDelete(id);

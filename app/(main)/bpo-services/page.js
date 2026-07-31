@@ -18,10 +18,9 @@ import {
 } from "lucide-react";
 
   export const metadata = {
-    title:
-      "BPO Services in India | Call Center & Outsourcing | Bizzbuzz Creations",
+    title: "BPO Services India | Call Center | BizzBuzz Creations",
     description:
-      "Outsource call center, back office & customer support with AI-powered BPO services. Serving Prayagraj & businesses across India.",
+      "Outsource call center, back office, and customer support with AI-powered BPO services by BizzBuzz Creations, serving Prayagraj and businesses across India.",
       alternates: {
     canonical: "https://bizzbuzzcreations.com/bpo-services",
   },

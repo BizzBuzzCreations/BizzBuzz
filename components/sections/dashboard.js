@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import {
   publishJob,
   getAllJobs,
@@ -10,6 +10,7 @@ import {
   getAllSubmissions,
   deleteComment,
 } from "@/actions/serverActions";
+import { logout } from "@/actions/authActions";
 import DashboardBlogs from "@/components/sections/dashboardBlogs";
 
 const NAV_ITEMS = [
@@ -37,9 +38,11 @@ function timeAgo(dateString) {
   });
 }
 
-export default function Dashboard() {
+export default function Dashboard({ role = "user", name = "" }) {
+  const isAdmin = role === "admin";
+  const router = useRouter();
   const searchParams = useSearchParams();
-  const initialTab = searchParams.get("tab") || "overview";
+  const initialTab = isAdmin ? searchParams.get("tab") || "overview" : "blogs";
   const [activeTab, setActiveTab] = useState(initialTab);
   const [jobs, setJobs] = useState([]);
   const [comments, setComments] = useState([]);
@@ -47,7 +50,17 @@ export default function Dashboard() {
   const [searchQuery, setSearchQuery] = useState("");
   const [showAddJob, setShowAddJob] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(true);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(isAdmin);
+
+  const visibleNavItems = isAdmin
+    ? NAV_ITEMS
+    : NAV_ITEMS.filter((item) => item.id === "blogs");
+
+  const handleLogout = async () => {
+    await logout();
+    router.push("/admin/login");
+    router.refresh();
+  };
 
   const [newJob, setNewJob] = useState({
     title: "",
@@ -78,7 +91,8 @@ export default function Dashboard() {
   };
 
   useEffect(() => {
-    fetchAllData();
+    if (isAdmin) fetchAllData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const filteredJobs = useMemo(() => {
@@ -178,7 +192,7 @@ export default function Dashboard() {
         </div>
 
         <nav className="flex flex-col gap-0.5 px-3 pt-5">
-          {NAV_ITEMS.map((item) => {
+          {visibleNavItems.map((item) => {
             const Icon = item.icon;
             const active = activeTab === item.id;
 
@@ -214,21 +228,33 @@ export default function Dashboard() {
         <div className="mb-6 flex items-center justify-between">
           <div>
             <h1 className="text-2xl font-extrabold text-slate-900">
-              Admin Dashboard
+              {isAdmin ? "Admin Dashboard" : "Blog Dashboard"}
             </h1>
+            {name && <p className="text-sm text-slate-400">Logged in as {name}</p>}
           </div>
 
-          <button
-            className="rounded-[10px] bg-linear-to-br from-indigo-500 to-violet-500 px-5 py-2.5 text-sm font-semibold text-white"
-            onClick={() => {
-              setActiveTab("jobs");
-              setShowAddJob(true);
-            }}
-          >
-            Post New Job
-          </button>
+          <div className="flex items-center gap-2.5">
+            {isAdmin && (
+              <button
+                className="rounded-[10px] bg-linear-to-br from-indigo-500 to-violet-500 px-5 py-2.5 text-sm font-semibold text-white"
+                onClick={() => {
+                  setActiveTab("jobs");
+                  setShowAddJob(true);
+                }}
+              >
+                Post New Job
+              </button>
+            )}
+            <button
+              onClick={handleLogout}
+              className="rounded-[10px] border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-slate-600"
+            >
+              Log Out
+            </button>
+          </div>
         </div>
 
+        {isAdmin && (
         <div className="grid grid-cols-1 gap-[18px] md:grid-cols-2 xl:grid-cols-3">
           {stats.map((s) => {
             const Icon = s.icon;
@@ -258,6 +284,7 @@ export default function Dashboard() {
             );
           })}
         </div>
+        )}
 
         {activeTab === "blogs" && <DashboardBlogs />}
 

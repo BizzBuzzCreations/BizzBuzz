@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import slugify from "slugify";
 import { createBlog, updateBlog, uploadBlogImage } from "@/actions/blogActions";
 import RichTextEditor from "@/components/ui/richTextEditor";
@@ -37,8 +37,6 @@ const toDatetimeLocalValue = (iso) => {
 
 export default function BlogEditor({ initialData = null }) {
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const token = searchParams.get("token") || "";
   const isEditMode = Boolean(initialData?._id);
 
   const [form, setForm] = useState({
@@ -141,7 +139,7 @@ export default function BlogEditor({ initialData = null }) {
     setSaving(false);
 
     if (res?.success) {
-      router.push(`/admin/dashboard?token=${encodeURIComponent(token)}&tab=blogs`);
+      router.push("/admin/dashboard?tab=blogs");
       router.refresh();
     } else {
       setError(res?.message || "Something went wrong.");

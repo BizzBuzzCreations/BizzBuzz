@@ -70,7 +70,7 @@ export default function RichTextEditor({ content, onChange }) {
     }
   };
 
-  const setLink = () => {
+  const setLink = () => {  
     const url = window.prompt("Link URL");
     if (url) editor?.chain().focus().extendMarkRange("link").setLink({ href: url }).run();
   };

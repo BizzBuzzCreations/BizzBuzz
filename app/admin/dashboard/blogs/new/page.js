@@ -1,11 +1,12 @@
-import { notFound } from "next/navigation";
+import { redirect } from "next/navigation";
+import { getSession } from "@/actions/authActions";
 import BlogEditor from "@/components/sections/blogEditor";
 
-export default async function NewBlogPost({ searchParams }) {
-  const { token } = await searchParams;
+export default async function NewBlogPost() {
+  const session = await getSession();
 
-  if (!token || token !== process.env.ADMIN_PAGE_TOKEN) {
-    notFound();
+  if (!session) {
+    redirect("/admin/login");
   }
 
   return (

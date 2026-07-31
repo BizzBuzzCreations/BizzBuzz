@@ -17,10 +17,9 @@ import CTA from "@/components/sections/CTA";
 import { FAQSection } from "@/components/ui/faq-accordion";
 
 export const metadata = {
-  title:
-    "Website Development Company in India | Custom Web Design | BizzBuzz Creations",
+  title: "Website Development India | Design | BizzBuzz Creations",
   description:
-    "Get fast, secure & high-converting websites. Custom web development, WordPress & eCommerce solutions by BizzBuzz Creations in Prayagraj & India.",
+    "Get fast, secure, and high-converting websites with custom web development, WordPress, and eCommerce solutions by BizzBuzz Creations in India.",
   alternates: {
     canonical: "https://bizzbuzzcreations.com/web-development",
   },

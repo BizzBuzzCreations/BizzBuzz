@@ -9,10 +9,9 @@ import CTA from "@/components/sections/CTA";
 import SocialMediaFAQ from "@/components/sections/socialMediaFAQ";
 
 export const metadata = {
-  title:
-    "Social Media Marketing Services in India | SMM & Ads | BizzBuzz Creations",
+  title: "Social Media Marketing India | SMM Ads | BizzBuzz Creations",
   description:
-    "Grow your brand with social media marketing services. Instagram, Facebook ads & AI strategies by BizzBuzz Creations in Prayagraj & across India.",
+    "Get expert social media marketing in India. SMM ads, Instagram & Facebook marketing by BizzBuzz Creations to boost traffic, leads & brand growth.",
     alternates: {
     canonical: "https://bizzbuzzcreations.com/social-media-marketing",
   },

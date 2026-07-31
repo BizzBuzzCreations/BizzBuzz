@@ -10,10 +10,9 @@ import CTA from "@/components/sections/CTA";
 import BusinessConsultancyFAQ from "@/components/sections/businessConsultancyFAQ";
 
 export const metadata = {
-  title:
-    "Business Consulting Services in India | Strategy & Growth | Bizzbuzz Creations",
+  title: "Business Consulting India | Strategy | BizzBuzz Creations",
   description:
-    "Expert business consulting services for startups & companies in India. Get strategy, growth, and operations support in Prayagraj & across India.",
+    "Expert business consulting services in India for startups and companies. Get strategy, growth, and operations support by BizzBuzz Creations across India.",
     alternates: {
     canonical: "https://bizzbuzzcreations.com/business-consultancy",
   },
