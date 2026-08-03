@@ -1,18 +1,11 @@
 import { getBlogBySlugMongo } from "@/actions/blogActions";
 import { getFeaturedImage } from "@/lib/getFeaturedImage";
 import { extractTableOfContents } from "@/lib/extractTableOfContents";
+import { sanitizeBlogContent } from "@/lib/sanitizeBlogContent";
 import BlogContactForm from "@/components/sections/blogContactForm";
 import { FAQSection } from "@/components/ui/faq-accordion";
 import { User, ImageOff } from "lucide-react";
 import { notFound } from "next/navigation";
-
-function sanitizeBlogContent(html) {
-  if (!html) return html;
-  return html
-    .replace(/<style[\s\S]*?<\/style>/gi, "")
-    .replace(/<script[\s\S]*?<\/script>/gi, "")
-    .replace(/<link[^>]*>/gi, "");
-}
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;

@@ -5,6 +5,7 @@ import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import ImageExtension from "@tiptap/extension-image";
 import { uploadBlogImage } from "@/actions/blogActions";
+import { sanitizeBlogContent } from "@/lib/sanitizeBlogContent";
 import {
   Bold,
   Italic,
@@ -181,24 +182,39 @@ export default function RichTextEditor({ content, onChange }) {
       </div>
 
       {mode === "html" ? (
-        <div className="grid grid-cols-1 md:grid-cols-2">
-          <textarea
-            value={content || ""}
-            onChange={(e) => onChange(e.target.value)}
-            placeholder="Paste your HTML here..."
-            spellCheck={false}
-            className="min-h-[320px] resize-none border-r border-slate-200 p-4 font-mono text-xs text-slate-700 outline-none"
-          />
-          <div className="min-h-[320px] overflow-auto">
-            <p className="border-b border-slate-100 bg-slate-50 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-wide text-slate-400">
-              Preview
-            </p>
-            <div
-              className="article px-4 py-3"
-              dangerouslySetInnerHTML={{ __html: content || "" }}
-            />
+        <>
+          <p className="border-b border-amber-100 bg-amber-50 px-4 py-2 text-xs text-amber-700">
+            This preview is exactly what will show on the published post —
+            unscoped &lt;style&gt;/&lt;script&gt; tags are stripped here too
+            (they could otherwise break the rest of the site's design), so
+            nothing will look different after you publish.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 md:divide-x md:divide-slate-200">
+            <div className="flex flex-col">
+              <p className="border-b border-slate-100 bg-slate-50 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-wide text-slate-400">
+                HTML source
+              </p>
+              <textarea
+                value={content || ""}
+                onChange={(e) => onChange(e.target.value)}
+                placeholder="Paste your HTML here..."
+                spellCheck={false}
+                className="h-[600px] resize-none overflow-y-auto p-4 font-mono text-xs text-slate-700 outline-none"
+              />
+            </div>
+            <div className="flex flex-col">
+              <p className="border-b border-slate-100 bg-slate-50 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-wide text-slate-400">
+                Preview (exactly as it will publish)
+              </p>
+              <div
+                className="article h-[600px] overflow-y-auto px-4 py-3"
+                dangerouslySetInnerHTML={{
+                  __html: sanitizeBlogContent(content || ""),
+                }}
+              />
+            </div>
           </div>
-        </div>
+        </>
       ) : (
         <EditorContent editor={editor} />
       )}
