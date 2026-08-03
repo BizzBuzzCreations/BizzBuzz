@@ -52,6 +52,8 @@ export default function LoginForm() {
 
         <div className="flex flex-col gap-4">
           <input
+            id="username"
+            name="username"
             className="rounded-lg border border-slate-200 px-4 py-2.5 text-sm outline-none"
             placeholder="Username"
             value={username}
@@ -59,6 +61,8 @@ export default function LoginForm() {
             autoComplete="username"
           />
           <input
+            id="password"
+            name="password"
             type="password"
             className="rounded-lg border border-slate-200 px-4 py-2.5 text-sm outline-none"
             placeholder="Password"
