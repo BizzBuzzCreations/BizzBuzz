@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import ImageExtension from "@tiptap/extension-image";
@@ -15,6 +16,7 @@ import {
   Image as ImageIcon,
   Undo,
   Redo,
+  Code2,
 } from "lucide-react";
 
 function ToolbarButton({ active, onClick, children, title }) {
@@ -33,6 +35,12 @@ function ToolbarButton({ active, onClick, children, title }) {
 }
 
 export default function RichTextEditor({ content, onChange }) {
+  // "visual" = normal WYSIWYG toolbar editor. "html" = paste/edit raw HTML
+  // directly, with a live preview rendered in the exact same "article" CSS
+  // used on the real published post — no lossy round-trip through TipTap's
+  // (deliberately restricted) schema.
+  const [mode, setMode] = useState("visual");
+
   const editor = useEditor({
     // Prevents a client/server markup mismatch — TipTap only renders its
     // content after mount, matching how this component is client-only anyway.
@@ -70,9 +78,22 @@ export default function RichTextEditor({ content, onChange }) {
     }
   };
 
-  const setLink = () => {  
+  const setLink = () => {
     const url = window.prompt("Link URL");
     if (url) editor?.chain().focus().extendMarkRange("link").setLink({ href: url }).run();
+  };
+
+  const toggleMode = () => {
+    if (mode === "html") {
+      // Load whatever raw HTML was typed/pasted back into the visual editor.
+      // Tags TipTap's schema doesn't support (custom divs, inline styles,
+      // etc.) get simplified — that's an inherent WYSIWYG-editor tradeoff,
+      // not a bug. Staying in HTML mode avoids that entirely.
+      editor?.commands.setContent(content || "");
+      setMode("visual");
+    } else {
+      setMode("html");
+    }
   };
 
   if (!editor) return null;
@@ -147,8 +168,40 @@ export default function RichTextEditor({ content, onChange }) {
         <ToolbarButton title="Redo" onClick={() => editor.chain().focus().redo().run()}>
           <Redo size={16} />
         </ToolbarButton>
+
+        <div className="ml-auto">
+          <ToolbarButton
+            title={mode === "html" ? "Back to visual editor" : "Paste / edit raw HTML"}
+            active={mode === "html"}
+            onClick={toggleMode}
+          >
+            <Code2 size={16} />
+          </ToolbarButton>
+        </div>
       </div>
-      <EditorContent editor={editor} />
+
+      {mode === "html" ? (
+        <div className="grid grid-cols-1 md:grid-cols-2">
+          <textarea
+            value={content || ""}
+            onChange={(e) => onChange(e.target.value)}
+            placeholder="Paste your HTML here..."
+            spellCheck={false}
+            className="min-h-[320px] resize-none border-r border-slate-200 p-4 font-mono text-xs text-slate-700 outline-none"
+          />
+          <div className="min-h-[320px] overflow-auto">
+            <p className="border-b border-slate-100 bg-slate-50 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-wide text-slate-400">
+              Preview
+            </p>
+            <div
+              className="article px-4 py-3"
+              dangerouslySetInnerHTML={{ __html: content || "" }}
+            />
+          </div>
+        </div>
+      ) : (
+        <EditorContent editor={editor} />
+      )}
     </div>
   );
 }
