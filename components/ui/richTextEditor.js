@@ -184,10 +184,9 @@ export default function RichTextEditor({ content, onChange }) {
       {mode === "html" ? (
         <>
           <p className="border-b border-amber-100 bg-amber-50 px-4 py-2 text-xs text-amber-700">
-            This preview is exactly what will show on the published post —
-            unscoped &lt;style&gt;/&lt;script&gt; tags are stripped here too
-            (they could otherwise break the rest of the site's design), so
-            nothing will look different after you publish.
+            This preview is exactly what will show on the published post,
+            including any custom &lt;style&gt; in your HTML. Only
+            &lt;script&gt;/&lt;link&gt; tags are removed (real security risk).
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 md:divide-x md:divide-slate-200">
             <div className="flex flex-col">

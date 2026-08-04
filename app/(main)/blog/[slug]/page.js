@@ -7,6 +7,12 @@ import { FAQSection } from "@/components/ui/faq-accordion";
 import { User, ImageOff } from "lucide-react";
 import { notFound } from "next/navigation";
 
+// Blog content is edited live through the dashboard (and auto-publishes on
+// schedule) — this page must always read the current DB state, never a
+// build-time or ISR-cached snapshot, or edits/scheduled posts wouldn't
+// appear on the live site without a redeploy.
+export const dynamic = "force-dynamic";
+
 export async function generateMetadata({ params }) {
   const { slug } = await params;
 
