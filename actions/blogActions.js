@@ -182,7 +182,10 @@ export async function getAllBlogsAdmin() {
   await connectDB();
   try {
     await publishDueScheduledPosts();
-    const blogs = await Blog.find({}).sort({ createdAt: -1 }).lean();
+    // Order by actual publish date (falls back to createdAt for drafts,
+    // which have no publishedAt yet) — not by when the DB row was inserted,
+    // which for migrated posts is just the one-time migration run date.
+    const blogs = await Blog.find({}).sort({ publishedAt: -1, createdAt: -1 }).lean();
     return { success: true, data: blogs.map(toPlainBlog) };
   } catch (error) {
     console.error("Get all blogs failed:", error);

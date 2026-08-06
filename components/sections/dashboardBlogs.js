@@ -120,7 +120,11 @@ export default function DashboardBlogs() {
                           hour: "numeric",
                           minute: "2-digit",
                         })
-                      : new Date(blog.createdAt).toLocaleDateString("en-IN", {
+                      : new Date(
+                          blog.status === "published" && blog.publishedAt
+                            ? blog.publishedAt
+                            : blog.createdAt,
+                        ).toLocaleDateString("en-IN", {
                           day: "numeric",
                           month: "short",
                           year: "numeric",
