@@ -91,6 +91,9 @@ export default function BlogEditor({ initialData = null }) {
       } else {
         alert(res?.message || "Image upload failed.");
       }
+    } catch (err) {
+      console.error("Featured image upload failed:", err);
+      alert("Image upload failed. The file may be too large.");
     } finally {
       setUploadingImage(false);
     }
