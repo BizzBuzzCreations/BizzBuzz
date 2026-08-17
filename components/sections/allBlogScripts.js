@@ -416,6 +416,96 @@ export default function AllBlogScripts({ slug }) {
           }}
         />
       )}
+      {/* NEW BLOG SCRIPT */}
+      {slug === "seo-cost-in-india-2026-pricing-packages" && (
+        <>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: `{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://bizzbuzzcreations.com/seo-cost-in-india-2026-pricing-packages"
+  },
+  "headline": "How Much Does SEO Cost in India in 2026? Pricing, Packages & What You Actually Get",
+  "description": "Real 2026 SEO pricing in India — cost breakdowns, comparison tables, and what's actually included at each budget. See what you should pay.",
+  "image": "https://bizzbuzzcreations.com/images/seo-cost-india-2026-featured-image.png",
+  "author": {
+    "@type": "Organization",
+    "name": "Bizzbuzz Creations",
+    "url": "https://bizzbuzzcreations.com/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Bizzbuzz Creations",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://bizzbuzzcreations.com/images/logo.png"
+    }
+  },
+  "datePublished": "2026-08-17",
+  "dateModified": "2026-08-17",
+  "articleSection": "SEO",
+  "keywords": "SEO cost in India 2026, SEO pricing India, SEO packages India, SEO charges India, local SEO cost India"
+}`,
+            }}
+          />
+
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: `{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the average cost of SEO services in India in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most businesses pay between ₹15,000 and ₹85,000 per month, depending on business size, industry competition, and whether the goal is local visibility or national ranking. Enterprise and ecommerce SEO can go well beyond ₹1,00,000 per month."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is cheap SEO (under ₹10,000/month) worth it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Rarely. At that price point, agencies typically can't afford quality content writers, technical audits, or credible link building. It often leads to thin, generic work — or worse, black-hat tactics that risk a Google penalty."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does SEO take to show results in India?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Local SEO can show early signs of movement in 4–6 weeks. Competitive national keywords usually need 4–8 months for meaningful ranking improvements, with stronger ROI compounding after 9–12 months."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I hire a freelancer or an SEO agency?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Freelancers work for very small budgets and simple websites. Agencies suit businesses that want a full team — technical, content, and outreach specialists — working together for scalable, long-term growth."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What should be included in a good SEO package?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "At minimum: a technical SEO audit, intent-based keyword research, on-page optimization, a content plan, ethical link building, and monthly reporting tied to traffic and leads — not just keyword rank positions."
+      }
+    }
+  ]
+}`,
+            }}
+          />
+        </>
+      )}
     </>
   );
 }
