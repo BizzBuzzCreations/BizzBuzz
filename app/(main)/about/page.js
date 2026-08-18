@@ -1,5 +1,4 @@
 import AboutHero from "@/components/sections/aboutHero";
-import LogoSlider from "@/components/sections/logoSlider";
 import Counter from "@/components/sections/counter";
 import CTA from "@/components/sections/CTA";
 import CTA2 from "@/components/sections/CTA-2";
@@ -274,9 +273,6 @@ export default function About() {
 
       <WhyChooseUs />
       <CTA2 />
-      <div className="mb-5">
-        <LogoSlider />
-      </div>
       <Reviews />
       <Counter />
       <CTA />

@@ -10,7 +10,7 @@ export default function ServicesHero({ heading, description, img }) {
         background:
           "radial-gradient(circle, rgba(86, 167, 229, 1) 0%, rgba(4, 99, 219, 1) 70%)",
       }}
-      className="min-h-[90vh] md:pt-50 pt-30 lg:text-left text-center text-white gap-10 flex 2xl:px-15 px-10 lg:flex-row flex-col justify-center items-center pb-30 mb-10"
+      className="min-h-[90vh] pt-44 md:pt-[272px] -mt-14 md:-mt-[72px] lg:text-left text-center text-white gap-10 flex 2xl:px-15 px-10 lg:flex-row flex-col justify-center items-center pb-30"
     >
       <div>
         <h1 className="sm:text-5xl md:max-w-2xl lg:text-left text-center text-3xl mb-6">

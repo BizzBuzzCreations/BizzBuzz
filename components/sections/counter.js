@@ -1,4 +1,4 @@
-import { Star } from "lucide-react";
+import { Rocket, Users, Star, Clock } from "lucide-react";
 
 export default function Counter() {
   return (
@@ -9,14 +9,17 @@ export default function Counter() {
       }}
     >
       <div className="flex flex-col justify-center items-center pb-8 pr-4 border-b border-r border-white/30 sm:border-0 sm:p-0">
+        <Rocket size={28} className="mb-2 opacity-90" />
         <p className="text-4xl font-bold mb-2">50+</p>
         <p className="text-xl font-bold">Projects Delivered</p>
       </div>
       <div className="flex flex-col justify-center items-center pb-8 pl-4 border-b border-white/30 sm:border-0 sm:p-0">
+        <Users size={28} className="mb-2 opacity-90" />
         <p className="text-4xl font-bold mb-2">10000+</p>
         <p className="text-xl font-bold">Leads Generated</p>
       </div>
       <div className="flex flex-col justify-center items-center pt-8 pr-4 border-r border-white/30 sm:border-0 sm:p-0">
+        <Star size={28} className="mb-2 opacity-90" />
         <p className="text-4xl font-bold mb-2 flex items-center gap-1">
           4.9
           <Star size={30} />
@@ -24,6 +27,7 @@ export default function Counter() {
         <p className="text-xl font-bold">Google Rating</p>
       </div>
       <div className="flex flex-col justify-center items-center pt-8 pl-4 sm:p-0">
+        <Clock size={28} className="mb-2 opacity-90" />
         <p className="text-4xl font-bold mb-2">3+</p>
         <p className="text-xl font-bold">Years Experience</p>
       </div>

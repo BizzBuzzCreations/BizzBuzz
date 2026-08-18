@@ -1,124 +1,295 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { ChevronDown } from "lucide-react";
+import {
+  ChevronDown,
+  Phone,
+  Stethoscope,
+  Watch,
+  Dumbbell,
+  LayoutGrid,
+  ShoppingCart,
+  HardHat,
+  Landmark,
+  PiggyBank,
+  Film,
+  GraduationCap,
+  CalendarDays,
+  Factory,
+  Zap,
+  Tv,
+  UtensilsCrossed,
+  Plane,
+  Home as HomeIcon,
+  Newspaper,
+  ThumbsUp,
+  PlaneTakeoff,
+  HeartHandshake,
+} from "lucide-react";
+
+const ABOUT_LINKS = [
+  { label: "About Us", href: "/about" },
+  { label: "Our Core Team", href: "/our-team" },
+  { label: "How We Work and Function", href: "/how-we-work" },
+  { label: "Client Portfolio", href: "/portfolio" },
+  { label: "Client Testimonials", href: "/testimonials" },
+  { label: "Start Your Career with Us", href: "/career" },
+  { label: "Awards", href: "/awards" },
+  { label: "FAQ", href: "/faq" },
+];
+
+const SERVICE_LINKS = [
+  { label: "BPO Service", href: "/bpo-services" },
+  { label: "Website Development", href: "/web-development" },
+  {
+    label: "Search Engine Optimization (SEO)",
+    href: "/search-engine-optimization",
+  },
+  { label: "Social Media Marketing (SMM)", href: "/social-media-marketing" },
+  { label: "Google Ads & Paid Marketing", href: "/paid-marketing" },
+  { label: "AI Solutions", href: "/ai-solutions" },
+  { label: "Marketing Automation", href: "/marketing-automation" },
+  { label: "Business Consultancy", href: "/business-consultancy" },
+];
+
+const INDUSTRY_COLUMNS = [
+  [
+    { label: "Healthcare", href: "/industries/healthcare", icon: Stethoscope },
+    { label: "Wearables", href: "/industries/wearables", icon: Watch },
+    { label: "Fitness", href: "/industries/fitness", icon: Dumbbell },
+    { label: "On-Demand", href: "/industries/on-demand", icon: LayoutGrid },
+    { label: "ECommerce", href: "/industries/ecommerce", icon: ShoppingCart },
+    { label: "Construction", href: "/industries/construction", icon: HardHat },
+    { label: "Politics", href: "/industries/politics", icon: Landmark },
+  ],
+  [
+    { label: "Finance", href: "/industries/finance", icon: PiggyBank },
+    { label: "Entertainment", href: "/industries/entertainment", icon: Film },
+    { label: "Education", href: "/industries/education", icon: GraduationCap },
+    { label: "Events", href: "/industries/events", icon: CalendarDays },
+    {
+      label: "Manufacturing",
+      href: "/industries/manufacturing",
+      icon: Factory,
+    },
+    { label: "Energy", href: "/industries/energy", icon: Zap },
+    { label: "OTT", href: "/industries/ott", icon: Tv },
+  ],
+  [
+    {
+      label: "Restaurant",
+      href: "/industries/restaurant",
+      icon: UtensilsCrossed,
+    },
+    { label: "Travel", href: "/industries/travel", icon: Plane },
+    { label: "Real Estate", href: "/industries/real-estate", icon: HomeIcon },
+    {
+      label: "Magazine & Newspaper",
+      href: "/industries/magazine-newspaper",
+      icon: Newspaper,
+    },
+    { label: "Social Media", href: "/industries/social-media", icon: ThumbsUp },
+    { label: "Aviation", href: "/industries/aviation", icon: PlaneTakeoff },
+    { label: "CSR", href: "/industries/csr", icon: HeartHandshake },
+  ],
+];
+
+const RESOURCE_LINKS = [
+  { label: "Blogs", href: "/blog" },
+  { label: "Guides", href: "/guides" },
+  { label: "Press Release", href: "/press-release" },
+];
+
+function DesktopDropdown({ label, items, width = "w-72" }) {
+  return (
+    <div className="group relative">
+      <div className="text-white flex justify-center items-center gap-1 cursor-pointer hover:text-[#40A2D8] transition">
+        {label}
+        <ChevronDown
+          size={18}
+          className="transition-transform duration-300 group-hover:rotate-180"
+        />
+      </div>
+      <div
+        className={`z-10 absolute left-1/2 -translate-x-1/2 top-8 hidden group-hover:block bg-gray-900 border border-white/10 rounded-xl shadow-lg ${width}`}
+      >
+        <ul className="p-2 text-sm text-white font-medium">
+          {items.map((item) => (
+            <li key={item.href}>
+              <Link
+                href={item.href}
+                className="inline-flex items-center w-full p-2 hover:bg-white/10 rounded"
+              >
+                {item.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+}
+
+function IndustriesMegaMenu() {
+  return (
+    <div className="group relative">
+      <div className="text-white flex justify-center items-center gap-1 cursor-pointer hover:text-[#40A2D8] transition">
+        Industries
+        <ChevronDown
+          size={18}
+          className="transition-transform duration-300 group-hover:rotate-180"
+        />
+      </div>
+      <div className="z-10 absolute left-1/2 -translate-x-1/2 top-8 hidden group-hover:block bg-gray-900 border border-white/10 rounded-xl shadow-lg w-[820px] max-w-[90vw] p-6">
+        <div className="grid grid-cols-3 gap-x-8">
+          {INDUSTRY_COLUMNS.map((column, i) => (
+            <ul key={i} className="space-y-1 text-sm text-white font-medium">
+              {column.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      className="flex items-center gap-3 w-full p-2 hover:bg-white/10 rounded"
+                    >
+                      <Icon size={18} className="text-[#40A2D8] shrink-0" />
+                      {item.label}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function MobileAccordion({
+  id,
+  label,
+  items,
+  open,
+  onToggle,
+  onNavigate,
+  columns = 1,
+}) {
+  return (
+    <div>
+      <div
+        onClick={() => onToggle(id)}
+        className="text-white flex items-center justify-between cursor-pointer transition py-1"
+      >
+        {label}
+        <ChevronDown
+          size={20}
+          className={`transition-transform duration-300 ${open ? "rotate-180" : ""}`}
+        />
+      </div>
+      {open && (
+        <ul
+          className={`mt-2 mb-2 bg-white/5 border border-white/10 rounded-lg p-2 text-sm text-white font-medium ${
+            columns === 2 ? "grid grid-cols-2 gap-1" : "space-y-1"
+          }`}
+        >
+          {items.map((item) => {
+            const Icon = item.icon;
+            return (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  onClick={onNavigate}
+                  className="inline-flex items-center gap-2 w-full p-2 hover:bg-white/10 rounded"
+                >
+                  {Icon && (
+                    <Icon size={16} className="text-[#40A2D8] shrink-0" />
+                  )}
+                  {item.label}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      )}
+    </div>
+  );
+}
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const [openService, setOpenService] = useState(false);
+  const [openSection, setOpenSection] = useState(null);
+  const [hidden, setHidden] = useState(false);
+  const lastScrollY = useRef(0);
+
+  const toggleSection = (name) =>
+    setOpenSection((prev) => (prev === name ? null : name));
+
+  const closeAll = () => {
+    setOpen(false);
+    setOpenSection(null);
+  };
+
+  const industriesFlat = INDUSTRY_COLUMNS.flat();
+
+  // Hide the bar on scroll-down, bring it back on scroll-up. Skipped while
+  // the mobile menu is open so it can't disappear mid-interaction.
+  useEffect(() => {
+    lastScrollY.current = window.scrollY;
+
+    const handleScroll = () => {
+      if (open) return;
+      const currentY = window.scrollY;
+      const scrolledDown = currentY > lastScrollY.current;
+      setHidden(scrolledDown && currentY > 80);
+      lastScrollY.current = currentY;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [open]);
 
   return (
-    <header className="nav sm:max-w-8xl max-w-[300] w-[90%] md:max-h-[90px] max-h-[70px] md:top-8 top-2 left-1/2 -translate-x-1/2 fixed rounded-full z-50">
-      <div className="relative max-w-7xl mx-auto px-8 md:py-6 py-4 flex justify-between items-center">
+    <header
+      className={`nav sticky top-0 z-50 w-full border-b border-white/10 transition-transform duration-300 ${
+        hidden ? "-translate-y-[150%]" : "translate-y-0"
+      }`}
+    >
+      <div className="px-6 md:px-10 md:h-[72px] h-14 flex justify-between items-center max-w-7xl mx-auto">
         {/* Logo */}
-        <Link href="/" className="text-2xl font-semibold text-black">
+        <Link href="/" className="text-2xl font-semibold text-white shrink-0">
           <Image
-            src="/BBC Dark Logo.png"
-            alt="logo"
-            className="md:w-full w-[90px]"
-            width={100}
-            height={90}
+            src="/bbc-new-logo.png"
+            alt="BizzBuzz Creations logo"
+            className="h-8 md:h-10 w-auto"
+            width={198}
+            height={60}
           />
         </Link>
 
         {/* Desktop Menu */}
-        <nav className="hidden md:flex space-x-8 font-medium">
-          <Link href="/about" className="text-black hover:text-grey transition">
-            About
-          </Link>
-          <div className="group relative">
-            <div className="text-black flex justify-center items-center cursor-pointer hover:text-grey transition">
-              Services{" "}
-              <ChevronDown
-                size={20}
-                className="transition-transform duration-300 group-hover:rotate-180"
-              />
-            </div>
-            {/*Service Dropdown menu  */}
-            <div
-              id="dropdown"
-              className="z-10 absolute right-0 top-6 hidden group-hover:block bg-gray-800 border border border-black rounded-base shadow-lg w-65 "
-            >
-              <ul
-                className="p-2 text-sm text-white font-medium"
-                aria-labelledby="dropdownDefaultButton"
-              >
-                <li>
-                  <Link
-                    href="/bpo-services"
-                    className="inline-flex items-center w-full p-2 hover:bg-gray-400 hover:text-black rounded"
-                  >
-                    BPO Service
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/web-development"
-                    className="inline-flex items-center w-full p-2 hover:bg-gray-400 hover:text-black rounded"
-                  >
-                    Website Development
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/search-engine-optimization"
-                    className="inline-flex items-center w-full p-2 hover:bg-gray-400 hover:text-black rounded"
-                  >
-                    Search Engine Optimization (SEO)
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/social-media-marketing"
-                    className="inline-flex items-center w-full p-2 hover:bg-gray-400 hover:text-black rounded"
-                  >
-                    Social Media Marketing (SMM)
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/paid-marketing"
-                    className="inline-flex items-center w-full p-2 hover:bg-gray-400 hover:text-black rounded"
-                  >
-                    Google Ads & Paid Marketing
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/ai-solutions"
-                    className="inline-flex items-center w-full p-2 hover:bg-gray-400 hover:text-black rounded"
-                  >
-                    AI Solutions
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/marketing-automation"
-                    className="inline-flex items-center w-full p-2 hover:bg-gray-400 hover:text-black rounded"
-                  >
-                    Marketing Automation
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/business-consultancy"
-                    className="inline-flex items-center w-full p-2 hover:bg-gray-400 hover:text-black rounded"
-                  >
-                    Business Consultancy
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <Link href="/blog" className="text-black hover:text-grey transition">
-            Blog
-          </Link>
+        <nav className="hidden md:flex items-center space-x-8 font-medium">
+          <DesktopDropdown label="About" items={ABOUT_LINKS} width="w-72" />
+          <DesktopDropdown
+            label="Services"
+            items={SERVICE_LINKS}
+            width="w-72"
+          />
+          <IndustriesMegaMenu />
+          <DesktopDropdown
+            label="Resources"
+            items={RESOURCE_LINKS}
+            width="w-56"
+          />
+
+          {/* CTA button */}
           <Link
             href="/contact"
-            className="text-black hover:text-grey transition"
+            className="flex items-center gap-2 bg-[#0B60B0] hover:bg-[#0B60B0]/90 text-white text-sm font-semibold rounded-full pl-4 pr-5 py-2.5 transition"
           >
-            Contact
+            <Phone size={16} />
+            Contact Us
           </Link>
         </nav>
 
@@ -129,17 +300,17 @@ export default function Navbar() {
           onClick={() => setOpen(!open)}
         >
           <span
-            className={`h-[3px] w-6 bg-gray-800 rounded transition-transform duration-300 ${
+            className={`h-[3px] w-6 bg-white rounded transition-transform duration-300 ${
               open ? "rotate-45 translate-y-[9px]" : ""
             }`}
           ></span>
           <span
-            className={`h-[3px] w-6 bg-gray-800 rounded transition-opacity duration-300 ${
+            className={`h-[3px] w-6 bg-white rounded transition-opacity duration-300 ${
               open ? "opacity-0" : "opacity-100"
             }`}
           ></span>
           <span
-            className={`h-[3px] w-6 bg-gray-800 rounded transition-transform duration-300 ${
+            className={`h-[3px] w-6 bg-white rounded transition-transform duration-300 ${
               open ? "-rotate-45 -translate-y-[7px]" : ""
             }`}
           ></span>
@@ -148,151 +319,48 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {open && (
-        <nav className="absolute md:hidden bg-gray-400 shadow-md border-t animate-slideDown rounded-3xl w-[90%] left-[50%] -translate-x-1/2">
-          <ul className="flex flex-col space-y-4 p-5 font-medium text-black">
+        <nav className="md:hidden absolute top-full mt-2 left-1/2 -translate-x-1/2 w-full bg-black/95 backdrop-blur-md border border-white/10 rounded-3xl shadow-lg animate-slideDown max-h-[70vh] overflow-y-auto z-40">
+          <ul className="flex flex-col space-y-3 p-5 font-medium text-white">
+            <MobileAccordion
+              id="about"
+              label="About"
+              items={ABOUT_LINKS}
+              open={openSection === "about"}
+              onToggle={toggleSection}
+              onNavigate={closeAll}
+            />
+            <MobileAccordion
+              id="services"
+              label="Services"
+              items={SERVICE_LINKS}
+              open={openSection === "services"}
+              onToggle={toggleSection}
+              onNavigate={closeAll}
+            />
+            <MobileAccordion
+              id="industries"
+              label="Industries"
+              items={industriesFlat}
+              open={openSection === "industries"}
+              onToggle={toggleSection}
+              onNavigate={closeAll}
+              columns={2}
+            />
+            <MobileAccordion
+              id="resources"
+              label="Resources"
+              items={RESOURCE_LINKS}
+              open={openSection === "resources"}
+              onToggle={toggleSection}
+              onNavigate={closeAll}
+            />
             <Link
-              onClick={() => setOpen(false)}
-              href="/about"
-              className="hover:text-grey transition"
-            >
-              About
-            </Link>
-            <div className="">
-              <div
-                onClick={() => setOpenService(!openService)}
-                className="text-black flex items-center cursor-pointer focus:text-grey transition"
-              >
-                Services{" "}
-                <ChevronDown
-                  size={20}
-                  className={`transition-transform duration-300 ${
-                    openService ? "rotate-180" : ""
-                  }`}
-                />
-              </div>
-              {/*Service Dropdown menu  */}
-              <div
-                id="dropdown"
-                className={`z-10 absolute left-4 top-22  ${
-                  openService ? "block" : "hidden"
-                } bg-gray-800 border border border-black rounded-base shadow-lg w-65 `}
-              >
-                <ul
-                  className="p-2 text-sm text-white font-medium"
-                  aria-labelledby="dropdownDefaultButton"
-                >
-                  <li>
-                    <Link
-                      href="/bpo-services"
-                      className="inline-flex items-center w-full p-2 hover:bg-gray-400 focus:text-black rounded"
-                      onClick={() => {
-                        setOpen(!open);
-                        setOpenService(!openService);
-                      }}
-                    >
-                      BPO Service
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/web-development"
-                      className="inline-flex items-center w-full p-2 hover:bg-gray-400 focus:text-black rounded"
-                      onClick={() => {
-                        setOpen(!open);
-                        setOpenService(!openService);
-                      }}
-                    >
-                      Website Development
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/search-engine-optimization"
-                      className="inline-flex items-center w-full p-2 hover:bg-gray-400 focus:text-black rounded"
-                      onClick={() => {
-                        setOpen(!open);
-                        setOpenService(!openService);
-                      }}
-                    >
-                      Search Engine Optimization (SEO)
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/social-media-marketing"
-                      className="inline-flex items-center w-full p-2 hover:bg-gray-400 focus:text-black rounded"
-                      onClick={() => {
-                        setOpen(!open);
-                        setOpenService(!openService);
-                      }}
-                    >
-                      Social Media Marketing (SMM)
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/paid-marketing"
-                      className="inline-flex items-center w-full p-2 hover:bg-gray-400 focus:text-black rounded"
-                      onClick={() => {
-                        setOpen(!open);
-                        setOpenService(!openService);
-                      }}
-                    >
-                      Google Ads & Paid Marketing
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/ai-solutions"
-                      className="inline-flex items-center w-full p-2 hover:bg-gray-400 focus:text-black rounded"
-                      onClick={() => {
-                        setOpen(!open);
-                        setOpenService(!openService);
-                      }}
-                    >
-                      AI Solutions
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/marketing-automation"
-                      className="inline-flex items-center w-full p-2 hover:bg-gray-400 focus:text-black rounded"
-                      onClick={() => {
-                        setOpen(!open);
-                        setOpenService(!openService);
-                      }}
-                    >
-                      Marketing Automation
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/business-consultancy"
-                      className="inline-flex items-center w-full p-2 hover:bg-gray-400 focus:text-black rounded"
-                      onClick={() => {
-                        setOpen(!open);
-                        setOpenService(!openService);
-                      }}
-                    >
-                      Business Consultancy
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <Link
-              onClick={() => setOpen(false)}
-              href="/blog"
-              className="hover:text-grey transition"
-            >
-              Blog
-            </Link>
-            <Link
-              onClick={() => setOpen(false)}
+              onClick={closeAll}
               href="/contact"
-              className="hover:text-grey transition"
+              className="flex items-center justify-center gap-2 bg-[#0B60B0] text-white text-sm font-semibold rounded-full py-2.5"
             >
-              Contact
+              <Phone size={16} />
+              Contact Us
             </Link>
           </ul>
         </nav>

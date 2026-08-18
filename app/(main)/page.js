@@ -1,16 +1,19 @@
 import Counter from "@/components/sections/counter";
 import CTA from "@/components/sections/CTA";
-import CTA2 from "@/components/sections/CTA-2";
 import FAQ from "@/components/sections/FAQ";
 import HomeAbout from "@/components/sections/homeAbout";
 import HomeHero from "@/components/sections/homeHero";
 import OurServices from "@/components/sections/ourServices";
+import CaseStudies from "@/components/sections/caseStudies";
+import StatsShowcase from "@/components/sections/statsShowcase";
+import WavyDivider from "@/components/ui/wavy-divider";
+import AiShowcase from "@/components/sections/aiShowcase";
 import Reviews from "@/components/sections/reviews";
 import WhatMAkesUs from "@/components/sections/whatMakesUs";
-import RecentWork from "@/components/sections/recentWork";
+import Recognitions from "@/components/sections/recognitions";
+import IndustriesShowcase from "@/components/sections/industriesShowcase";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import ConsultationPopup from "@/components/sections/popupForm";
-import LogoSlider from "@/components/sections/logoSlider";
 import LatestBlogs from "@/components/sections/latestBlogs";
 
 export const metadata = {
@@ -56,8 +59,21 @@ export default function Home() {
       {/* Our Services */}
       <OurServices />
 
-      {/* CTA-2 Section */}
-      <CTA2 />
+      {/* Case Studies — client work carousel */}
+      <CaseStudies />
+
+      {/* Wavy divider — visually splits the two back-to-back dark sections.
+          Padding on both sides keeps it floating in the middle of the gap
+          instead of sitting flush against the section below it. */}
+      <div className="bg-black pt-3 pb-8 md:pt-4 md:pb-10">
+        <WavyDivider />
+      </div>
+
+      {/* Stats showcase — auto-scrolling numbers/logos/services carousel */}
+      <StatsShowcase />
+
+      {/* AI showcase — video + AI services split section */}
+      <AiShowcase />
 
       {/* What Makes Us Different section */}
       <WhatMAkesUs />
@@ -65,11 +81,11 @@ export default function Home() {
       {/* Why choose us */}
       <WhyChooseUs />
 
-      {/* Why Choose Us Section */}
-      <RecentWork />
+      {/* Proven Expertise — real certifications & partnerships */}
+      <Recognitions />
 
-      {/* <ClientLogo /> */}
-      <LogoSlider />
+      {/* Industries we work with — same list as the navbar's mega-menu */}
+      <IndustriesShowcase />
 
       <div className="pt-10">
         {/* Reviews section */}

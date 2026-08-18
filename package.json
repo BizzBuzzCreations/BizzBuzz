@@ -19,6 +19,7 @@
     "bcryptjs": "^3.0.3",
     "cloudinary": "^2.10.0",
     "clsx": "^2.1.1",
+    "d3-geo": "^3.1.1",
     "flowbite": "^4.0.1",
     "framer-motion": "^12.42.2",
     "gsap": "^3.15.0",
@@ -28,13 +29,15 @@
     "lucide-react": "^0.560.0",
     "mongoose": "^9.1.6",
     "next": "16.2.11",
+    "ogl": "^1.0.11",
     "react": "19.2.1",
     "react-dom": "19.2.1",
     "react-floating-whatsapp": "^5.0.8",
     "react-toastify": "^11.0.5",
     "resend": "^6.9.4",
     "slugify": "^1.6.9",
-    "tailwind-merge": "^3.6.0"
+    "tailwind-merge": "^3.6.0",
+    "three": "^0.185.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

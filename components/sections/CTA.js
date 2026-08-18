@@ -54,13 +54,13 @@ export default function CTA() {
   return (
     <div className="px-5 scroll-mt-34" id="CTA">
       <div
-        className="rounded-3xl shadow-lg shadow-black md:max-w-3xl lg:max-w-5xl xl:max-w-6xl mx-auto container"
+        className="rounded-3xl border-2 border-[#0B60B0] shadow-lg shadow-black md:max-w-3xl lg:max-w-5xl xl:max-w-6xl mx-auto container"
         style={{
           background:
             "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(120, 180, 255, 0.25), transparent 70%), #000000",
         }}
       >
-        <div className="py-5 px-10 z-10 text-white mb-10">
+        <div className="py-8 md:py-10 px-10 z-10 text-white">
           <h2 className="md:text-3xl text-2xl font-bold mb-5">
             Get Free Consultancy Now!
           </h2>

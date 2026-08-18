@@ -2,7 +2,7 @@ import { getLatestThreeBlogsMongo } from "@/actions/blogActions";
 import { getFeaturedImage } from "@/lib/getFeaturedImage";
 import Link from "next/link";
 import he from "he";
-import { ImageOff } from "lucide-react";
+import { ImageOff, ArrowUpRight, CalendarDays } from "lucide-react";
 
 export default async function LatestBlogs() {
   const res = await getLatestThreeBlogsMongo();
@@ -17,27 +17,34 @@ export default async function LatestBlogs() {
       }
 
   return (
-    <section className="bg-white">
-      <div className="text-center">
-        <h2 className="md:text-4xl text-3xl font-bold text-black">
+    <section className="bg-white py-16 md:py-20">
+      <div className="text-center px-6">
+        <p className="text-xs font-bold uppercase tracking-widest text-[#0B60B0] mb-3">
+          From the Blog
+        </p>
+        <h2 className="md:text-4xl text-3xl font-bold text-black mb-3">
           Our Latest Blogs
         </h2>
-        <p className="text-lg text-gray-600">
-          Explore, discover, and find inspiration through these exciting Blogs.
+        <p className="text-gray-600 max-w-xl mx-auto">
+          Explore, discover, and find inspiration through these exciting
+          blogs.
         </p>
       </div>
 
       {/* Latest blogs */}
-      <div className="px-8 pt-10 mx-auto lg:max-w-screen-xl sm:max-w-xl md:max-w-full sm:px-12 md:px-16 sm:pt-15 mb-5">
-        <div className="grid gap-x-8 gap-y-12 sm:gap-y-16 md:grid-cols-2 lg:grid-cols-3 mb-15">
+      <div className="px-8 pt-12 mx-auto lg:max-w-screen-xl sm:max-w-xl md:max-w-full sm:px-12 md:px-16">
+        <div className="grid gap-x-8 gap-y-12 sm:gap-y-16 md:grid-cols-2 lg:grid-cols-3 mb-14">
           {blogs.length > 0 &&
             blogs.map((e, index) => {
               const featuredImage = getFeaturedImage(e);
               return (
-              <div className="relative" key={index}>
+              <div
+                className="group rounded-2xl border border-gray-200 bg-white shadow-sm overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:border-[#0B60B0]/30 hover:shadow-xl"
+                key={index}
+              >
                 <Link
                   href={`/blog/${e?.slug}`}
-                  className="block overflow-hidden group rounded-xl shadow-lg shadow-gray-300 aspect-[1.91/1] bg-gray-100"
+                  className="block overflow-hidden aspect-[1.91/1] bg-gray-100"
                 >
                   {featuredImage ? (
                     <img
@@ -54,33 +61,34 @@ export default async function LatestBlogs() {
                     </div>
                   )}
                 </Link>
-                <div className="relative mt-5">
-                  <p className="uppercase font-semibold text-xs mb-2.5 text-slate-700">
+                <div className="p-5 sm:p-6">
+                  <p className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-[#0B60B0] mb-3">
+                    <CalendarDays size={13} />
                     {new Date(e?.publishedAt).toLocaleDateString("en-US", {
                       month: "short",
                       day: "numeric",
                       year: "numeric",
                     })}
-                    &nbsp;&nbsp; by {e?.author}
+                    <span className="text-gray-300 font-normal normal-case">
+                      · by {e?.author}
+                    </span>
                   </p>
-                  <Link
-                    href={`/blog/${e?.slug}`}
-                    className="block mb-3 hover:underline"
-                  >
-                    <h3 className="text-xl lg:text-2xl leading-tight font-semibold leading-5 text-black  transition-colors duration-200 hover:text-slate-700">
+                  <Link href={`/blog/${e?.slug}`} className="block mb-3">
+                    <h3 className="text-lg font-bold leading-snug text-black transition-colors duration-200 group-hover:text-[#0B60B0]">
                       {e?.title}
                     </h3>
                   </Link>
-                  <p className="text-gray-700">
-                    {truncateHTML(e?.excerpt, 150)}
+                  <p className="text-sm text-gray-600 leading-relaxed mb-4">
+                    {truncateHTML(e?.excerpt, 130)}
                   </p>
 
                   <Link
                     href={`/blog/${e?.slug}`}
-                    className="font-medium underline text-slate-700 hover:text-slate-900"
+                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#0B60B0] hover:underline"
                     aria-label={`Read more about ${e?.title}`}
                   >
                     Read More
+                    <ArrowUpRight size={14} />
                   </Link>
                 </div>
               </div>

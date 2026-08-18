@@ -9,10 +9,13 @@ import he from "he";
 
 export default function AllBLogs() {
   const [blogs, setBlogs] = useState([]);
-  const [showAll, setShowAll] = useState(false);
+  // Both start "on" now — the All Blogs grid (with its category filter and
+  // pagination) shows immediately below the latest-blogs section instead
+  // of waiting behind a "View all blogs" click.
+  const [showAll, setShowAll] = useState(true);
   const [totalPages, setTotalPages] = useState(null);
   const [currPage, setCurrPage] = useState(1);
-  const [posts, setPosts] = useState(0);
+  const [posts, setPosts] = useState(9);
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
   const [categories, setCategories] = useState([]);
@@ -98,6 +101,10 @@ export default function AllBLogs() {
   };
 
   function decodeHTML(html) {
+    // The category dropdown (and the HTML-entity-decoded names it shows)
+    // now renders on the very first paint — including the server render —
+    // since showAll defaults to true. `document` doesn't exist there.
+    if (typeof document === "undefined") return html;
     const txt = document.createElement("textarea");
     txt.innerHTML = html;
     return txt.value;

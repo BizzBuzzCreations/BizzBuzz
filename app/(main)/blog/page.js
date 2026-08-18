@@ -1,6 +1,7 @@
 import { getLatestThreeBlogsMongo } from "@/actions/blogActions";
 import { getFeaturedImage } from "@/lib/getFeaturedImage";
 import AllBLogs from "@/components/sections/allBLogs";
+import CTA from "@/components/sections/CTA";
 import Link from "next/link";
 import he from "he";
 import { ImageOff } from "lucide-react";
@@ -31,8 +32,30 @@ export default async function Blogs() {
   }
 
   return (
-    <section className="bg-white md:py-40 py-25">
-      <div className="text-center">
+    <section
+      className="relative overflow-hidden md:py-16 py-10"
+      style={{
+        backgroundImage:
+          "radial-gradient(rgba(11,96,176,0.08) 1px, transparent 1px), linear-gradient(180deg, #f4f9fd 0%, #eaf4fb 45%, #ffffff 100%)",
+        backgroundSize: "22px 22px, 100% 100%",
+      }}
+    >
+      {/* Soft brand-blue glows — decorative only, sit behind everything. */}
+      <div
+        className="absolute -top-24 -left-20 w-96 h-96 rounded-full blur-3xl opacity-30 pointer-events-none"
+        style={{ background: "radial-gradient(circle, #40A2D8, transparent 70%)" }}
+        aria-hidden="true"
+      />
+      <div
+        className="absolute top-40 -right-24 w-96 h-96 rounded-full blur-3xl opacity-25 pointer-events-none"
+        style={{ background: "radial-gradient(circle, #0B60B0, transparent 70%)" }}
+        aria-hidden="true"
+      />
+
+      <div className="relative text-center">
+        <p className="text-xs font-bold uppercase tracking-widest text-[#0B60B0] mb-3">
+          The BizzBuzz Blog
+        </p>
         <h1 className="md:text-4xl text-3xl font-bold text-black">
           Our Latest Blogs
         </h1>
@@ -104,6 +127,10 @@ export default async function Blogs() {
       </div>
 
       <AllBLogs />
+
+      <div className="relative pt-16 md:pt-20">
+        <CTA />
+      </div>
     </section>
   );
 }

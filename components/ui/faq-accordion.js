@@ -73,6 +73,7 @@ export function FAQSection({
   defaultValue,
   className,
   headingClassName,
+  triggerClassName,
 }) {
   return (
     <div className={className}>
@@ -87,7 +88,9 @@ export function FAQSection({
       >
         {faqs.map((faq, index) => (
           <CustomAccordionItem key={index} value={`item-${index}`}>
-            <CustomAccordionTrigger>{faq.question}</CustomAccordionTrigger>
+            <CustomAccordionTrigger className={triggerClassName}>
+              {faq.question}
+            </CustomAccordionTrigger>
             <CustomAccordionContent>{faq.answer}</CustomAccordionContent>
           </CustomAccordionItem>
         ))}
