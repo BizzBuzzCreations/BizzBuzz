@@ -1,5 +1,4 @@
 import AboutHero from "@/components/sections/aboutHero";
-import Counter from "@/components/sections/counter";
 import CTA from "@/components/sections/CTA";
 import CTA2 from "@/components/sections/CTA-2";
 import Reviews from "@/components/sections/reviews";
@@ -274,7 +273,6 @@ export default function About() {
       <WhyChooseUs />
       <CTA2 />
       <Reviews />
-      <Counter />
       <CTA />
     </>
   );

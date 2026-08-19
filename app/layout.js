@@ -44,6 +44,7 @@ export default function RootLayout({ children }) {
       </head>
       <body
         className={`${firaSans.variable} ${ibmPlexSans.variable} antialiased`}
+        suppressHydrationWarning
       >
         <Whatsapp />
         <FlowbiteInit />

@@ -5,7 +5,6 @@ import Link from "next/link";
 import ServiceCard from "@/components/sections/serviceCard";
 import CTA2 from "@/components/sections/CTA-2";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
-import Counter from "@/components/sections/counter";
 import CTA from "@/components/sections/CTA";
 import BusinessConsultancyFAQ from "@/components/sections/businessConsultancyFAQ";
 
@@ -155,7 +154,6 @@ export default function BusinessConsultancy() {
 
       <CTA2 />
       <WhyChooseUs />
-      <Counter />
       <CTA />
     </>
   );

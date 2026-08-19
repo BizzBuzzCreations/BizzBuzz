@@ -3,7 +3,6 @@ import React from "react";
 import Image from "next/image";
 import CTA2 from "@/components/sections/CTA-2";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
-import Counter from "@/components/sections/counter";
 import CTA from "@/components/sections/CTA";
 import { Bot, Sparkles, Workflow, Radar } from "lucide-react";
 import AISolutionsFAQ from "@/components/sections/aiSolutionsFAQ";
@@ -135,7 +134,6 @@ export default function AISolutions() {
 
       <CTA2 />
       <WhyChooseUs />
-      <Counter />
       <CTA />
     </>
   );

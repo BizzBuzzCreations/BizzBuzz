@@ -3,8 +3,7 @@ import React from "react";
 import Image from "next/image";
 import ServiceCard from "@/components/sections/serviceCard";
 import BpoRadialDiagram from "@/components/sections/bpoRadialDiagram";
-import BpoWhyChooseFlow from "@/components/sections/bpoWhyChooseFlow";
-import Counter from "@/components/sections/counter";
+import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import CTA from "@/components/sections/CTA";
 import BPOServicesFAQ from "@/components/sections/bpoServicesFAQ";
 import {
@@ -174,8 +173,7 @@ export default function BPO() {
 
       <BPOServicesFAQ />
 
-      <BpoWhyChooseFlow />
-      <Counter />
+      <WhyChooseUs />
       <CTA />
     </>
   );

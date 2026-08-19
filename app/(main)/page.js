@@ -1,4 +1,3 @@
-import Counter from "@/components/sections/counter";
 import CTA from "@/components/sections/CTA";
 import FAQ from "@/components/sections/FAQ";
 import HomeAbout from "@/components/sections/homeAbout";
@@ -91,9 +90,6 @@ export default function Home() {
         {/* Reviews section */}
         <Reviews />
       </div>
-
-      {/* Growth counter  */}
-      <Counter />
 
       <LatestBlogs />
 

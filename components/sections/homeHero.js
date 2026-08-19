@@ -1,12 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Splide, SplideSlide } from "@splidejs/react-splide";
-import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
-import "@splidejs/react-splide/css";
 import { SpiralAnimation } from "@/components/ui/spiral-animation";
 
 const reveal = { duration: 0.8, ease: [0.16, 1, 0.3, 1] };
@@ -16,16 +12,6 @@ const reveal = { duration: 0.8, ease: [0.16, 1, 0.3, 1] };
 // on every real navigation/reload — exactly the "once per site visit" rule
 // we want, since sessionStorage/localStorage would survive a reload too.
 let introHasPlayed = false;
-
-// A handful of real Bizzbuzz clients (same roster used in the LogoSlider
-// section further down the page) for the corner trust-carousel.
-const featuredClients = [
-  { img: "/avondale-1.png", text: "Avondale Finance" },
-  { img: "/fibernet.png", text: "Fibernet" },
-  { img: "/WILLIAM.png", text: "William" },
-  { img: "/PARIVARTAN1.png", text: "Parivartan" },
-  { img: "/GRAND WEDDINZ1.png", text: "Grand WeddinZ" },
-];
 
 export default function HomeHero() {
   const [introDone, setIntroDone] = useState(introHasPlayed);
@@ -128,53 +114,6 @@ export default function HomeHero() {
             </Link>
           </motion.div>
         </div>
-
-        {/* Bottom-right corner trust carousel — real Bizzbuzz clients */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={introDone ? { opacity: 1, y: 0 } : {}}
-          transition={{ ...reveal, delay: 0.6 }}
-          className="absolute z-10 hidden md:block bottom-28 right-10 w-fit max-w-[280px]"
-        >
-          <p className="text-xs uppercase tracking-wider text-white/60 mb-2 pl-1">
-            Trusted By
-          </p>
-          <Splide
-            options={{
-              type: "loop",
-              perPage: 1,
-              autoWidth: true,
-              gap: "1rem",
-              arrows: false,
-              pagination: false,
-              drag: false,
-              autoScroll: {
-                speed: 0.6,
-                pauseOnHover: true,
-                pauseOnFocus: false,
-                rewind: false,
-              },
-            }}
-            extensions={{ AutoScroll }}
-          >
-            {featuredClients.map((client) => (
-              <SplideSlide key={client.text}>
-                <div className="inline-flex items-center gap-3 bg-black/60 backdrop-blur border border-white/10 rounded-xl px-4 py-3">
-                  <Image
-                    src={client.img}
-                    alt={client.text}
-                    width={36}
-                    height={36}
-                    className="object-contain shrink-0"
-                  />
-                  <span className="text-sm font-medium text-white whitespace-nowrap">
-                    {client.text}
-                  </span>
-                </div>
-              </SplideSlide>
-            ))}
-          </Splide>
-        </motion.div>
       </div>
     </>
   );

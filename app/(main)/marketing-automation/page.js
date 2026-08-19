@@ -4,7 +4,6 @@ import Image from "next/image";
 import ServiceCard from "@/components/sections/serviceCard";
 import CTA2 from "@/components/sections/CTA-2";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
-import Counter from "@/components/sections/counter";
 import CTA from "@/components/sections/CTA";
 import MarketingAutomationFAQ from "@/components/sections/marketingAutomationFAQ";
 import MarketingAutomationSystems from "@/components/sections/marketingAutomationSystems";
@@ -86,7 +85,6 @@ export default function MarketingAutomation() {
 
       <CTA2 />
       <WhyChooseUs />
-      <Counter />
       <CTA />
     </>
   );

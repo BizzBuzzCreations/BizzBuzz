@@ -12,8 +12,8 @@ const CATEGORY_LINKS = [
   { label: "About Us", href: "/about" },
   { label: "Our Core Team", href: "/our-team" },
   { label: "How We Work and Function", href: "/how-we-work" },
-  { label: "Client Portfolio", href: "/portfolio" },
-  { label: "Client Testimonials", href: "/testimonials" },
+  { label: "Start Your Career with Us", href: "/career" },
+  { label: "FAQ", href: "/faq" },
 ];
 
 const SERVICE_LINKS = [

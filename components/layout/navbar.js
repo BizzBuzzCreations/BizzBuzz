@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import {
   ChevronDown,
+  Plus,
   Phone,
   Stethoscope,
   Watch,
@@ -32,10 +33,7 @@ const ABOUT_LINKS = [
   { label: "About Us", href: "/about" },
   { label: "Our Core Team", href: "/our-team" },
   { label: "How We Work and Function", href: "/how-we-work" },
-  { label: "Client Portfolio", href: "/portfolio" },
-  { label: "Client Testimonials", href: "/testimonials" },
   { label: "Start Your Career with Us", href: "/career" },
-  { label: "Awards", href: "/awards" },
   { label: "FAQ", href: "/faq" },
 ];
 
@@ -48,8 +46,31 @@ const SERVICE_LINKS = [
   },
   { label: "Social Media Marketing (SMM)", href: "/social-media-marketing" },
   { label: "Google Ads & Paid Marketing", href: "/paid-marketing" },
-  { label: "AI Solutions", href: "/ai-solutions" },
-  { label: "Marketing Automation", href: "/marketing-automation" },
+  {
+    label: "AI Solutions",
+    href: "/ai-solutions",
+    // No dedicated sub-pages exist yet for these individually — all four
+    // route to the main AI Solutions page until/unless standalone pages
+    // are built for each.
+    subItems: [
+      { label: "Custom AI Agents & Chatbots", href: "/ai-solutions" },
+      { label: "AI Content & Generative Engines", href: "/ai-solutions" },
+      { label: "Workflow & Process Automation", href: "/ai-solutions" },
+      { label: "GEO (Generative Engine Optimization)", href: "/ai-solutions" },
+    ],
+  },
+  {
+    label: "Marketing Automation",
+    href: "/marketing-automation",
+    // Same as above — all four route to the main Marketing Automation
+    // page for now.
+    subItems: [
+      { label: "CRM Marketing Automation", href: "/marketing-automation" },
+      { label: "Email Marketing Automation", href: "/marketing-automation" },
+      { label: "WhatsApp Marketing Automation", href: "/marketing-automation" },
+      { label: "Lead Nurturing Automation", href: "/marketing-automation" },
+    ],
+  },
   { label: "Business Consultancy", href: "/business-consultancy" },
 ];
 
@@ -121,16 +142,43 @@ function DesktopDropdown({ label, items, width = "w-72" }) {
         className={`z-10 absolute left-1/2 -translate-x-1/2 top-full hidden group-hover:block bg-white border border-gray-200 rounded-xl shadow-lg ${width}`}
       >
         <ul className="p-2 text-sm text-black font-medium">
-          {items.map((item) => (
-            <li key={item.href}>
-              <Link
-                href={item.href}
-                className="inline-flex items-center w-full p-2.5 rounded transition-colors duration-150 hover:bg-[#0B60B0] hover:text-white"
-              >
-                {item.label}
-              </Link>
-            </li>
-          ))}
+          {items.map((item) =>
+            item.subItems ? (
+              <li key={item.href} className="group/sub relative">
+                <div className="flex items-center justify-between w-full p-2.5 rounded transition-colors duration-150 hover:bg-[#0B60B0] hover:text-white cursor-default">
+                  <Link href={item.href} className="flex-1">
+                    {item.label}
+                  </Link>
+                  <Plus size={14} className="shrink-0 ml-2" />
+                </div>
+                {/* Flyout — bridged with -ml-1/pl-1 so the cursor doesn't
+                    fall through the gap between the row and the panel. */}
+                <div className="hidden group-hover/sub:block absolute left-full top-0 -ml-1 pl-1 z-20">
+                  <ul className="w-64 bg-white border border-gray-200 rounded-xl shadow-lg p-2 text-sm text-black font-medium">
+                    {item.subItems.map((sub) => (
+                      <li key={sub.label}>
+                        <Link
+                          href={sub.href}
+                          className="block w-full p-2.5 rounded transition-colors duration-150 hover:bg-[#0B60B0] hover:text-white"
+                        >
+                          {sub.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </li>
+            ) : (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  className="inline-flex items-center w-full p-2.5 rounded transition-colors duration-150 hover:bg-[#0B60B0] hover:text-white"
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ),
+          )}
         </ul>
       </div>
     </div>
@@ -185,6 +233,8 @@ function MobileAccordion({
   onNavigate,
   columns = 1,
 }) {
+  const [subOpen, setSubOpen] = useState(null);
+
   return (
     <div>
       <div
@@ -205,6 +255,40 @@ function MobileAccordion({
         >
           {items.map((item) => {
             const Icon = item.icon;
+
+            if (item.subItems) {
+              const isSubOpen = subOpen === item.label;
+              return (
+                <li key={item.href}>
+                  <div
+                    onClick={() => setSubOpen(isSubOpen ? null : item.label)}
+                    className="flex items-center justify-between w-full p-2 hover:bg-white/10 rounded cursor-pointer"
+                  >
+                    {item.label}
+                    <ChevronDown
+                      size={14}
+                      className={`shrink-0 transition-transform duration-300 ${isSubOpen ? "rotate-180" : ""}`}
+                    />
+                  </div>
+                  {isSubOpen && (
+                    <ul className="ml-3 mt-1 mb-1 space-y-1 border-l border-white/15 pl-3">
+                      {item.subItems.map((sub) => (
+                        <li key={sub.label}>
+                          <Link
+                            href={sub.href}
+                            onClick={onNavigate}
+                            className="block p-2 text-xs text-white/75 hover:bg-white/10 hover:text-white rounded"
+                          >
+                            {sub.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+              );
+            }
+
             return (
               <li key={item.href}>
                 <Link
