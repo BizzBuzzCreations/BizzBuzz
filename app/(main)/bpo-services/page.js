@@ -1,9 +1,9 @@
-import ServicesHero from "@/components/sections/servicesHero";
+import BpoHero from "@/components/sections/bpoHero";
 import React from "react";
 import Image from "next/image";
 import ServiceCard from "@/components/sections/serviceCard";
-import CTA2 from "@/components/sections/CTA-2";
-import WhyChooseUs from "@/components/sections/WhyChooseUs";
+import BpoRadialDiagram from "@/components/sections/bpoRadialDiagram";
+import BpoWhyChooseFlow from "@/components/sections/bpoWhyChooseFlow";
 import Counter from "@/components/sections/counter";
 import CTA from "@/components/sections/CTA";
 import BPOServicesFAQ from "@/components/sections/bpoServicesFAQ";
@@ -29,20 +29,39 @@ import {
 export default function BPO() {
   return (
     <>
-      <ServicesHero
+      <BpoHero
         heading="Outsourcing That Feels Like Your Own Team, Just Not On Your Payroll."
         description="Bizzbuzz Creations runs call center outsourcing, AI-powered support, and back-office operations from Prayagraj for businesses across India-no jargon, no black-box vendor, just a team that delivers"
         img="/bpo.jpg"
       />
 
-      <div className="flex lg:flex-row flex-col px-5 lg:gap-20 justify-center items-center mb-10 mt-10">
-        <div className="">
+      <div className="flex lg:flex-row flex-col px-5 lg:gap-20 gap-10 justify-center items-center mb-20 mt-20 max-w-6xl mx-auto">
+        <div className="relative w-full lg:w-[440px] aspect-[4/5] shrink-0 rounded-3xl overflow-hidden shadow-xl">
           <Image
-            className="rounded-lg"
-            width={500}
-            height={500}
-            src="/jjj-2.png"
-            alt="image"
+            src="/bpo.jpg"
+            alt="BizzBuzz Creations support agent handling client work"
+            fill
+            sizes="(max-width: 1024px) 100vw, 440px"
+            className="object-cover"
+          />
+          {/* Dotted texture overlay — matches the hero treatment */}
+          <div
+            className="absolute inset-0 opacity-30"
+            style={{
+              backgroundImage:
+                "radial-gradient(rgba(255,255,255,0.5) 1px, transparent 1px)",
+              backgroundSize: "18px 18px",
+            }}
+            aria-hidden="true"
+          />
+          {/* Gradient fade — matches the hero treatment */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(200deg, rgba(5,11,22,0.75) 0%, rgba(11,96,176,0.3) 45%, transparent 75%)",
+            }}
+            aria-hidden="true"
           />
         </div>
         <div className="max-w-xl text-center lg:text-left">
@@ -50,23 +69,30 @@ export default function BPO() {
             More Than Outsourcing A Team That Thinks Like You Do
           </h2>
           <p>
-            Outsourcing often feels like handing your business to a stranger. You lose visibility into what's said to customers, 
-            how data is handled, and whether anyone actually cares about the outcome the way you do. Bizzbuzz Creations was built in Prayagraj to fix exactly that gap. 
-            We started as a small BPO services provider with one rule: every account should run like an extension of the client's own team, 
+            Outsourcing often feels like handing your business to a stranger. You lose visibility into what's said to customers,
+            how data is handled, and whether anyone actually cares about the outcome the way you do. Bizzbuzz Creations was built in Prayagraj to fix exactly that gap.
+            We started as a small BPO services provider with one rule: every account should run like an extension of the client's own team,
             not a distant vendor relationship.
           </p>
           <p>
-            Today, we work with startups taking their first step into outsourcing services, small businesses in Allahabad needing reliable support, 
-            and growing companies across India that need a full-scale BPO company for inbound and outbound calling, data entry, and 24/7 customer support outsourcing. 
-            Whatever the size of your business, the approach stays the same:  we learn your process first, then build a team around it, 
+            Today, we work with startups taking their first step into outsourcing services, small businesses in Allahabad needing reliable support,
+            and growing companies across India that need a full-scale BPO company for inbound and outbound calling, data entry, and 24/7 customer support outsourcing.
+            Whatever the size of your business, the approach stays the same:  we learn your process first, then build a team around it,
             instead of forcing your business into a generic template.
           </p>
         </div>
       </div>
 
-      <div className="container max-w-6xl mx-auto">
+      <div className="container max-w-6xl mx-auto px-5">
         <h2 className="text-3xl font-bold mb-10 text-center">What We Handle</h2>
-        <div className="flex flex-wrap justify-center items-center mb-20 gap-10">
+
+        {/* Desktop: hub-and-spoke radial diagram */}
+        <div className="hidden lg:block mb-20">
+          <BpoRadialDiagram />
+        </div>
+
+        {/* Mobile / tablet: stacked cards */}
+        <div className="flex lg:hidden flex-wrap justify-center items-center mb-20 gap-10">
           <ServiceCard
             heading="AI-Powered BPO & Call Center Solutions"
             description="We layer AI call center solutions on top of real agents' smart call routing, live transcription, and chatbot customer support services that pick up repetitive questions instantly. Your team only steps in for calls that truly need a human touch, so nothing slips through and nothing feels robotic."
@@ -100,36 +126,55 @@ export default function BPO() {
         </div>
       </div>
 
-      <div className="flex lg:flex-row flex-col px-5 gap-10 lg:gap-20 justify-center items-center mb-20 py-20 bg-[#e8e8e8]">
-        <div className="max-w-xl text-center lg:text-left">
+      <section className="relative overflow-hidden mb-20 min-h-[520px] flex items-center py-20 px-6 md:px-12 lg:px-24">
+        <Image
+          src="/bpo-img.png"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+
+        {/* Dotted texture overlay — same treatment as the hero */}
+        <div
+          className="absolute inset-0 opacity-30"
+          style={{
+            backgroundImage:
+              "radial-gradient(rgba(255,255,255,0.5) 1px, transparent 1px)",
+            backgroundSize: "18px 18px",
+          }}
+          aria-hidden="true"
+        />
+
+        {/* Gradient — legible on the left, photo visible on the right */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(100deg, rgba(232,232,232,0.97) 0%, rgba(232,232,232,0.9) 42%, rgba(232,232,232,0.35) 70%, transparent 100%)",
+          }}
+          aria-hidden="true"
+        />
+
+        <div className="relative max-w-xl">
           <h2 className="text-3xl font-bold mb-3">
             Why Choose Bizzbuzz Creations
           </h2>
           <p className="mb-5">
-            Most BPO companies sell you seats and shifts. We sell you outcomes and stay accountable for them. 
+            Most BPO companies sell you seats and shifts. We sell you outcomes and stay accountable for them.
             Every account starts with a real process audit, not a sales pitch, so the team we build solves your actual problem.
           </p>
           <p>
-            You get weekly reporting, call recordings on request, and a direct point of contact — never a support ticket lost in a queue. 
-            We scale with your business, not ahead of it, and use AI only where it genuinely helps, while trained agents handle everything that needs real judgment. 
+            You get weekly reporting, call recordings on request, and a direct point of contact — never a support ticket lost in a queue.
+            We scale with your business, not ahead of it, and use AI only where it genuinely helps, while trained agents handle everything that needs real judgment.
             Your data stays protected under strict, compliant practices, always.
           </p>
         </div>
-        <div className="">
-          <Image
-            className="rounded-lg"
-            width={500}
-            height={500}
-            src="/bpo-img.png"
-            alt="image"
-          />
-        </div>
-      </div>
+      </section>
 
       <BPOServicesFAQ />
 
-      <CTA2 />
-      <WhyChooseUs />
+      <BpoWhyChooseFlow />
       <Counter />
       <CTA />
     </>

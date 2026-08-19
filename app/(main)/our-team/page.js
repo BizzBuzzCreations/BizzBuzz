@@ -1,16 +1,7 @@
 import Image from "next/image";
 import TeamHero from "@/components/sections/teamHero";
+import TeamGrids from "@/components/sections/teamGrids";
 import ContactSection from "@/components/sections/contactSection";
-import {
-  Crown,
-  Search,
-  Palette,
-  Megaphone,
-  Code2,
-  Headset,
-  Bot,
-  Users,
-} from "lucide-react";
 
 export const metadata = {
   title: "Our Core Team | BizzBuzz Creations",
@@ -21,70 +12,14 @@ export const metadata = {
   },
 };
 
-// Role-based structure rather than invented individual profiles with
-// stock photos — the real people behind each role can be swapped in
-// as the roster is finalized, without restructuring the page or
-// presenting placeholder faces as if they were real employees.
-const TEAM = [
-  { icon: Crown, role: "Founder & CEO", dept: "Leadership" },
-  { icon: Search, role: "Head of SEO & Growth", dept: "SEO" },
-  { icon: Megaphone, role: "Paid Media Lead", dept: "Paid Ads" },
-  { icon: Palette, role: "Creative & Brand Director", dept: "Creative" },
-  { icon: Code2, role: "Web Development Lead", dept: "Engineering" },
-  { icon: Bot, role: "AI & Automation Lead", dept: "AI & Automation" },
-  { icon: Headset, role: "Client Success & BPO Lead", dept: "Support" },
-  { icon: Users, role: "Business Consultancy Lead", dept: "Consultancy" },
-];
-
 export default function OurTeamPage() {
   return (
     <>
       <TeamHero />
 
-      {/* Team grid */}
-      <section className="bg-white py-20 px-6 md:px-12 lg:px-24 border-t border-gray-100">
-        <div className="max-w-6xl mx-auto grid lg:grid-cols-[280px_1fr] gap-12">
-          <div>
-            <h2 className="text-2xl md:text-3xl font-bold text-black mb-4">
-              Meet Our Team
-            </h2>
-            <p className="text-gray-600 leading-relaxed">
-              A hands-on group covering every part of the work — no
-              gatekeeping between departments, and no ticket queue between
-              you and the people actually doing the work.
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {TEAM.map(({ icon: Icon, role, dept }) => (
-              <div
-                key={role}
-                className="group rounded-2xl border border-gray-200 bg-white overflow-hidden shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-[#0B60B0]/40 hover:shadow-xl"
-              >
-                <div
-                  className="aspect-square flex items-center justify-center"
-                  style={{
-                    background:
-                      "linear-gradient(150deg, #eaf4fb 0%, #cfe9fb 100%)",
-                  }}
-                >
-                  <div className="flex items-center justify-center w-16 h-16 rounded-full bg-white shadow-sm text-[#0B60B0] transition-transform duration-300 group-hover:scale-110">
-                    <Icon size={28} />
-                  </div>
-                </div>
-                <div className="p-4">
-                  <p className="text-xs font-bold uppercase tracking-wide text-[#0B60B0] mb-1">
-                    {dept}
-                  </p>
-                  <h3 className="font-bold text-gray-900 text-sm leading-snug">
-                    {role}
-                  </h3>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Founders, Our Leaders, and the BPO/R&D team photos — all with a
+          staggered one-by-one reveal as they scroll into view. */}
+      <TeamGrids />
 
       {/* Measurable impact — real numbers and certifications only */}
       <section className="bg-black text-white py-20 px-6 md:px-12 lg:px-24">
@@ -150,6 +85,11 @@ export default function OurTeamPage() {
 
       {/* Contact — same working form as the Contact page */}
       <ContactSection />
+
+      {/* Straight divider — the contact form and the footer are both
+          black, so without a visible line they just blend into one
+          section. Full width, edge to edge. */}
+      <div className="bg-black border-t border-white" />
     </>
   );
 }

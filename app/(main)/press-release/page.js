@@ -137,3 +137,9 @@ export default function PressReleasePage() {
     </>
   );
 }
+
+// LatestBlogs fetches from MongoDB — force-dynamic so this page renders at
+// request time instead of during `next build`, where the build sandbox
+// can't reliably resolve the Atlas mongodb+srv:// DNS record. Same pattern
+// already used on /career and /blog.
+export const dynamic = "force-dynamic";

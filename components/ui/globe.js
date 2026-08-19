@@ -243,6 +243,7 @@ export default function Globe({
     canvas.style.display = "block";
     canvas.style.opacity = "0";
     canvas.style.visibility = "hidden";
+    canvas.style.transition = "opacity 0.5s ease";
     container.appendChild(canvas);
 
     const resolvedOceanColor = resolveTokenColor(oceanColor);

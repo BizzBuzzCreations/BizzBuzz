@@ -1,5 +1,7 @@
 import { getAllJobs } from "@/actions/serverActions";
-import PageHero from "@/components/sections/pageHero";
+import CareerHero from "@/components/sections/careerHero";
+import { CareerWhyUs, CareerJoinTeam } from "@/components/sections/careerShowcase";
+import CareerNewsletter from "@/components/sections/careerNewsletter";
 import { ArrowUpRight, Briefcase, MapPin, Clock } from "lucide-react";
 
 export const metadata = {
@@ -24,14 +26,12 @@ export default async function Career() {
 
   return (
     <>
-      <PageHero
-        label="We're Hiring"
-        title="Be Part of Our Mission"
-        subtitle="We're looking for passionate people to join us. We value flat hierarchies, clear communication, and full ownership and responsibility."
-      />
+      <CareerHero />
+
+      <CareerWhyUs />
 
       {/* Open roles */}
-      <section className="bg-gray-50 py-16 px-6 md:px-12 lg:px-24">
+      <section id="open-positions" className="bg-gray-50 py-16 px-6 md:px-12 lg:px-24 scroll-mt-20">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-center text-black mb-3">
             Open Positions
@@ -110,6 +110,10 @@ export default async function Career() {
           )}
         </div>
       </section>
+
+      <CareerJoinTeam />
+
+      <CareerNewsletter />
     </>
   );
 }

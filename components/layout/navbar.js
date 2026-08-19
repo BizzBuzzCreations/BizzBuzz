@@ -104,7 +104,13 @@ const RESOURCE_LINKS = [
 function DesktopDropdown({ label, items, width = "w-72" }) {
   return (
     <div className="group relative">
-      <div className="text-white flex justify-center items-center gap-1 cursor-pointer hover:text-[#40A2D8] transition">
+      {/* py-4 -my-4 turns the trigger's own hit-area into the bridge down
+          to the panel — no gap in between for the cursor to fall through
+          on its way from the label to the menu (that gap was the bug:
+          top-8 left a dead zone with no hoverable element under it, so
+          group-hover switched off before the pointer ever reached the
+          panel, closing it instantly). */}
+      <div className="text-white flex justify-center items-center gap-1 cursor-pointer hover:text-[#40A2D8] transition py-4 -my-4">
         {label}
         <ChevronDown
           size={18}
@@ -112,14 +118,14 @@ function DesktopDropdown({ label, items, width = "w-72" }) {
         />
       </div>
       <div
-        className={`z-10 absolute left-1/2 -translate-x-1/2 top-8 hidden group-hover:block bg-gray-900 border border-white/10 rounded-xl shadow-lg ${width}`}
+        className={`z-10 absolute left-1/2 -translate-x-1/2 top-full hidden group-hover:block bg-white border border-gray-200 rounded-xl shadow-lg ${width}`}
       >
-        <ul className="p-2 text-sm text-white font-medium">
+        <ul className="p-2 text-sm text-black font-medium">
           {items.map((item) => (
             <li key={item.href}>
               <Link
                 href={item.href}
-                className="inline-flex items-center w-full p-2 hover:bg-white/10 rounded"
+                className="inline-flex items-center w-full p-2.5 rounded transition-colors duration-150 hover:bg-[#0B60B0] hover:text-white"
               >
                 {item.label}
               </Link>
@@ -134,26 +140,29 @@ function DesktopDropdown({ label, items, width = "w-72" }) {
 function IndustriesMegaMenu() {
   return (
     <div className="group relative">
-      <div className="text-white flex justify-center items-center gap-1 cursor-pointer hover:text-[#40A2D8] transition">
+      <div className="text-white flex justify-center items-center gap-1 cursor-pointer hover:text-[#40A2D8] transition py-4 -my-4">
         Industries
         <ChevronDown
           size={18}
           className="transition-transform duration-300 group-hover:rotate-180"
         />
       </div>
-      <div className="z-10 absolute left-1/2 -translate-x-1/2 top-8 hidden group-hover:block bg-gray-900 border border-white/10 rounded-xl shadow-lg w-[820px] max-w-[90vw] p-6">
+      <div className="z-10 absolute left-1/2 -translate-x-1/2 top-full hidden group-hover:block bg-white border border-gray-200 rounded-xl shadow-lg w-[820px] max-w-[90vw] p-6">
         <div className="grid grid-cols-3 gap-x-8">
           {INDUSTRY_COLUMNS.map((column, i) => (
-            <ul key={i} className="space-y-1 text-sm text-white font-medium">
+            <ul key={i} className="space-y-1 text-sm text-black font-medium">
               {column.map((item) => {
                 const Icon = item.icon;
                 return (
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      className="flex items-center gap-3 w-full p-2 hover:bg-white/10 rounded"
+                      className="group/item flex items-center gap-3 w-full p-2.5 rounded transition-colors duration-150 hover:bg-[#0B60B0] hover:text-white"
                     >
-                      <Icon size={18} className="text-[#40A2D8] shrink-0" />
+                      <Icon
+                        size={18}
+                        className="text-[#40A2D8] shrink-0 group-hover/item:text-white"
+                      />
                       {item.label}
                     </Link>
                   </li>

@@ -109,3 +109,10 @@ export default function Home() {
     </>
   );
 }
+
+// LatestBlogs fetches from MongoDB — force-dynamic so this page renders at
+// request time instead of during `next build`, where the build sandbox
+// can't reliably resolve the Atlas mongodb+srv:// DNS record (this was
+// causing the Netlify build to fail outright). Same pattern already used
+// on /career and /blog.
+export const dynamic = "force-dynamic";
