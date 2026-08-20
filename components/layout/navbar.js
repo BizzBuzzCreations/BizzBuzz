@@ -35,7 +35,7 @@ const ABOUT_LINKS = [
   { label: "How We Work and Function", href: "/how-we-work" },
   { label: "Start Your Career with Us", href: "/career" },
   { label: "FAQ", href: "/faq" },
-];
+];   
 
 const SERVICE_LINKS = [
   { label: "BPO Service", href: "/bpo-services" },
@@ -43,15 +43,13 @@ const SERVICE_LINKS = [
   {
     label: "Search Engine Optimization (SEO)",
     href: "/search-engine-optimization",
-  },
+  },  
   { label: "Social Media Marketing (SMM)", href: "/social-media-marketing" },
   { label: "Google Ads & Paid Marketing", href: "/paid-marketing" },
   {
     label: "AI Solutions",
     href: "/ai-solutions",
-    // No dedicated sub-pages exist yet for these individually — all four
-    // route to the main AI Solutions page until/unless standalone pages
-    // are built for each.
+    
     subItems: [
       { label: "Custom AI Agents & Chatbots", href: "/ai-solutions" },
       { label: "AI Content & Generative Engines", href: "/ai-solutions" },

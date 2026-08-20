@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, MapPin } from "lucide-react";
+import { ArrowUpRight, MapPin, Phone, Mail, Clock } from "lucide-react";
 
 // Same data as the navbar's dropdowns — duplicated here (rather than
 // imported from navbar.js, which is a client component with its own
@@ -202,40 +202,70 @@ export default function Footer() {
           </div>
 
           {/* Real certifications/partnerships — same verified badges used
-              in the homepage's Recognitions section, not invented ones. */}
-          <div className="flex items-center gap-4 shrink-0">
-            <div className="flex items-center gap-2 bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3">
-              <Image
-                src="/clutch.png"
-                alt="Clutch — Verified Partner"
-                width={32}
-                height={32}
-                className="object-contain shrink-0"
-              />
-              <div className="leading-tight">
-                <p className="text-xs font-semibold text-white">Clutch</p>
-                <p className="text-[11px] text-gray-400">Verified Partner</p>
+              in the homepage's Recognitions section, not invented ones. —
+              Get In Touch sits below, left-aligned to stay parallel with
+              these badges rather than off to the side. */}
+          <div className="flex flex-col gap-4 shrink-0">
+            <div className="flex items-center gap-4">
+              <div className="flex items-center gap-2 bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3">
+                <Image
+                  src="/clutch.png"
+                  alt="Clutch — Verified Partner"
+                  width={32}
+                  height={32}
+                  className="object-contain shrink-0"
+                />
+                <div className="leading-tight">
+                  <p className="text-xs font-semibold text-white">Clutch</p>
+                  <p className="text-[11px] text-gray-400">Verified Partner</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3">
+                <Image
+                  src="/CDL.png"
+                  alt="Certified Google Ads & Marketing Partner"
+                  width={32}
+                  height={32}
+                  className="object-contain shrink-0"
+                />
+                <div className="leading-tight">
+                  <p className="text-xs font-semibold text-white">Google Partner</p>
+                  <p className="text-[11px] text-gray-400">Certified</p>
+                </div>
               </div>
             </div>
-            <div className="flex items-center gap-2 bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3">
-              <Image
-                src="/CDL.png"
-                alt="Certified Google Ads & Marketing Partner"
-                width={32}
-                height={32}
-                className="object-contain shrink-0"
-              />
-              <div className="leading-tight">
-                <p className="text-xs font-semibold text-white">Google Partner</p>
-                <p className="text-[11px] text-gray-400">Certified</p>
+
+            {/* Quick contact — number, mail, timings only (no address,
+                the office card below already covers that). */}
+            <div>
+              <h4 className="text-xs font-semibold uppercase tracking-wide text-white/50 mb-4 mt-2">
+                Get In Touch
+              </h4>
+              <div className="flex flex-col gap-4 text-sm">
+                <a
+                  href="tel:+918115585285"
+                  className="flex items-center gap-2 text-gray-300 hover:text-[#40A2D8] transition-colors"
+                >
+                  <Phone size={15} className="text-[#40A2D8] shrink-0" />
+                  +91 8115585285
+                </a>
+                <a
+                  href="mailto:info@bizzbuzzcreations.com"
+                  className="flex items-center gap-2 text-gray-300 hover:text-[#40A2D8] transition-colors"
+                >
+                  <Mail size={15} className="text-[#40A2D8] shrink-0" />
+                  info@bizzbuzzcreations.com
+                </a>
+                <div className="flex items-center gap-2 text-gray-300">
+                  <Clock size={15} className="text-[#40A2D8] shrink-0" />
+                  Mon - Sat: 12:00 PM - 8:00 PM
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Office address cards — only 2 offices, so sized generously
-            (rather than cramped like a 6-card grid would be) to still
-            read as a deliberate, presentable layout. */}
+        {/* Office address cards */}
         <div className="grid sm:grid-cols-2 max-w-3xl gap-6 mb-12">
           {OFFICES.map(({ Flag, country, address }) => (
             <div

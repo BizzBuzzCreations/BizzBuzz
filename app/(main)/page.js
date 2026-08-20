@@ -86,14 +86,12 @@ export default function Home() {
       {/* Industries we work with — same list as the navbar's mega-menu */}
       <IndustriesShowcase />
 
-      <div className="pt-10">
-        {/* Reviews section */}
-        <Reviews />
-      </div>
+      {/* Reviews section */}
+      <Reviews />
 
-      <LatestBlogs />
+      <LatestBlogs dark />
 
-      <div className="py-10">
+      <div className="bg-black py-10">
         {/* FAQ section */}
         <FAQ />
 

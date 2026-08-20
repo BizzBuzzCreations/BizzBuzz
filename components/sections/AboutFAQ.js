@@ -1,4 +1,4 @@
-import { FAQSection } from "@/components/ui/faq-accordion";
+import DarkFAQSection from "@/components/sections/darkFAQSection";
 
 const faqs = [
   {
@@ -28,13 +28,5 @@ const faqs = [
 ];
 
 export default function AboutFAQ() {
-  return (
-    <FAQSection
-      faqs={faqs}
-      defaultValue="item-0"
-      className="mb-20 max-w-5xl p-4 mx-auto container"
-      headingClassName="md:text-4xl text-3xl font-bold text-center mb-12 text-black"
-      heading="FAQs"
-    />
-  );
+  return <DarkFAQSection faqs={faqs} heading="FAQs" />;
 }
