@@ -215,10 +215,7 @@ export default function HowWeWorkPage() {
       </section>
 
       {/* Our principles */}
-      <section
-        className="py-20 px-6 md:px-12 lg:px-24 text-white"
-        style={{ background: "linear-gradient(160deg, #08152b 0%, #0B60B0 60%, #1a4fa0 100%)" }}
-      >
+      <section className="bg-black py-20 px-6 md:px-12 lg:px-24 text-white">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold mb-4 max-w-2xl">
             The Principles That Power Every Client Partnership
@@ -313,12 +310,12 @@ export default function HowWeWorkPage() {
       </section>
 
       {/* How we onboard new clients */}
-      <section className="bg-white py-20 px-6 md:px-12 lg:px-24">
+      <section className="bg-black py-20 px-6 md:px-12 lg:px-24 border-t border-white/10">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-black mb-3 max-w-2xl">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-3 max-w-2xl">
             Building Trust from Day One: How We Onboard New Clients
           </h2>
-          <p className="text-gray-600 max-w-2xl mb-14 leading-relaxed">
+          <p className="text-white/60 max-w-2xl mb-14 leading-relaxed">
             Every great partnership starts with alignment. That&rsquo;s why
             onboarding focuses on clarity and trust from the very
             beginning.
@@ -329,20 +326,17 @@ export default function HowWeWorkPage() {
       </section>
 
       {/* Engagement roadmap (existing component) */}
-      <section className="bg-gray-50 py-20 px-6 md:px-12 lg:px-24">
+      <section className="bg-black py-20 px-6 md:px-12 lg:px-24 border-t border-white/10">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-center text-black mb-16">
+          <h2 className="text-2xl md:text-3xl font-bold text-center text-white mb-16">
             Our 5-Step Engagement Roadmap
           </h2>
-          <RoadmapTimeline steps={roadmapSteps} />
+          <RoadmapTimeline steps={roadmapSteps} dark />
         </div>
       </section>
 
       {/* Consulting-first approach */}
-      <section
-        className="py-20 px-6 md:px-12 lg:px-24 text-white"
-        style={{ background: "linear-gradient(180deg, #050b16 0%, #0B60B0 100%)" }}
-      >
+      <section className="bg-black py-20 px-6 md:px-12 lg:px-24 text-white border-t border-white/10">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-start">
           <div>
             <h2 className="text-2xl md:text-3xl font-bold mb-5">
@@ -381,7 +375,7 @@ export default function HowWeWorkPage() {
       </section>
 
       {/* Categories we work across */}
-      <section className="bg-black text-white py-20 px-6 md:px-12 lg:px-24">
+      <section className="bg-black text-white py-20 px-6 md:px-12 lg:px-24 border-t border-white/10">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold mb-4 max-w-2xl">
             Categories We Work Across
@@ -396,12 +390,12 @@ export default function HowWeWorkPage() {
       </section>
 
       {/* Data security & privacy — real practices, no unverified certification claims */}
-      <section className="bg-white py-20 px-6 md:px-12 lg:px-24">
+      <section className="bg-black py-20 px-6 md:px-12 lg:px-24 border-t border-white/10">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-black mb-4 max-w-2xl">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 max-w-2xl">
             Data Security &amp; Privacy
           </h2>
-          <p className="text-gray-600 max-w-2xl mb-12 leading-relaxed">
+          <p className="text-white/60 max-w-2xl mb-12 leading-relaxed">
             When trust is on the line, shortcuts aren&rsquo;t an option —
             here&rsquo;s exactly how account access and data are handled.
           </p>
@@ -410,12 +404,12 @@ export default function HowWeWorkPage() {
             {SECURITY_PRACTICES.map(({ icon: Icon, text }, i) => (
               <div
                 key={i}
-                className="group flex items-start gap-3 rounded-2xl border border-gray-200 bg-gray-50 p-5 transition-all duration-300 hover:-translate-y-1 hover:bg-[#0B60B0] hover:border-[#0B60B0] hover:shadow-xl hover:shadow-[#0B60B0]/20"
+                className="group flex items-start gap-3 rounded-2xl border border-white/10 bg-white/5 p-5 transition-all duration-300 hover:-translate-y-1 hover:bg-[#0B60B0] hover:border-[#0B60B0] hover:shadow-xl hover:shadow-[#0B60B0]/20"
               >
-                <span className="shrink-0 flex items-center justify-center w-9 h-9 rounded-full bg-[#eaf4fb] text-[#0B60B0] transition-colors duration-300 group-hover:bg-white">
+                <span className="shrink-0 flex items-center justify-center w-9 h-9 rounded-full bg-white/10 text-[#40A2D8] transition-colors duration-300 group-hover:bg-white">
                   <Icon size={16} />
                 </span>
-                <p className="text-sm text-gray-700 leading-relaxed transition-colors duration-300 group-hover:text-white">
+                <p className="text-sm text-white/70 leading-relaxed transition-colors duration-300 group-hover:text-white">
                   {text}
                 </p>
               </div>
@@ -425,10 +419,7 @@ export default function HowWeWorkPage() {
       </section>
 
       {/* Flexible engagement models */}
-      <section
-        className="py-20 px-6 md:px-12 lg:px-24 text-white"
-        style={{ background: "linear-gradient(160deg, #08152b 0%, #0B60B0 100%)" }}
-      >
+      <section className="bg-black py-20 px-6 md:px-12 lg:px-24 text-white border-t border-white/10">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold mb-4 max-w-2xl">
             Flexible Engagement Models Built Around Your Needs
@@ -459,21 +450,30 @@ export default function HowWeWorkPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <div className="bg-gray-50 pt-4 pb-20">
-        <CTA />
-      </div>
-
       {/* FAQ */}
-      <section className="bg-gray-50 pb-20 px-6 md:px-12 lg:px-24">
+      <section className="bg-black pt-20 pb-20 px-6 md:px-12 lg:px-24 border-t border-white/10">
         <FAQSection
           faqs={FAQS}
           defaultValue="item-0"
           className="max-w-4xl mx-auto"
-          headingClassName="text-2xl md:text-3xl font-bold text-center mb-12 text-black"
+          headingClassName="text-2xl md:text-3xl font-bold text-center mb-12 text-white"
           heading="Frequently Asked Questions"
+          triggerClassName="bg-white/5 border-[#0B60B0]/50 hover:border-[#0B60B0] text-white hover:bg-white/10 hover:shadow-none"
+          iconClassName="text-[#40A2D8]"
+          questionTextClassName="text-white"
+          chevronWrapClassName="bg-white/10"
+          chevronClassName="text-white"
+          answerClassName="bg-white/5 border border-[#0B60B0]/30 shadow-none"
+          answerTextClassName="text-white/70"
+          answerIconWrapClassName="bg-white/10"
+          answerIconClassName="text-[#40A2D8]"
         />
       </section>
+
+      {/* CTA — just above the footer */}
+      <div className="bg-black pt-4 pb-16">
+        <CTA />
+      </div>
     </>
   );
 }

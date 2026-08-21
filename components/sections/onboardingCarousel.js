@@ -65,17 +65,17 @@ export default function OnboardingCarousel() {
     >
       {ONBOARDING_STEPS.map(({ step, icon: Icon, title, desc }) => (
         <SplideSlide key={step} className="h-auto py-2">
-          <div className="group h-full flex flex-col rounded-2xl border border-gray-200 bg-gray-50 p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-[#0B60B0]/40 hover:shadow-xl hover:bg-white">
-            <span className="inline-block self-start text-xs font-bold text-[#0B60B0] bg-[#eaf4fb] rounded-full px-3 py-1 mb-4">
+          <div className="group h-full flex flex-col rounded-2xl border border-white/10 bg-white/5 p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-[#40A2D8]/50 hover:shadow-xl hover:shadow-black/40">
+            <span className="inline-block self-start text-xs font-bold text-[#40A2D8] bg-white/10 rounded-full px-3 py-1 mb-4">
               {step}
             </span>
             <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-[#0B60B0] text-white">
               <Icon size={19} />
             </div>
-            <h3 className="font-bold text-gray-900 mb-2 transition-colors duration-300 group-hover:text-[#0B60B0]">
+            <h3 className="font-bold text-white mb-2 transition-colors duration-300 group-hover:text-[#40A2D8]">
               {title}
             </h3>
-            <p className="text-sm text-gray-600 leading-relaxed">{desc}</p>
+            <p className="text-sm text-white/60 leading-relaxed">{desc}</p>
           </div>
         </SplideSlide>
       ))}

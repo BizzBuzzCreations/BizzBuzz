@@ -2,6 +2,7 @@ import Image from "next/image";
 import TeamHero from "@/components/sections/teamHero";
 import TeamGrids from "@/components/sections/teamGrids";
 import ContactSection from "@/components/sections/contactSection";
+import CTA from "@/components/sections/CTA";
 
 export const metadata = {
   title: "Our Core Team | BizzBuzz Creations",
@@ -86,10 +87,10 @@ export default function OurTeamPage() {
       {/* Contact — same working form as the Contact page */}
       <ContactSection />
 
-      {/* Straight divider — the contact form and the footer are both
-          black, so without a visible line they just blend into one
-          section. Full width, edge to edge. */}
-      <div className="bg-black border-t border-white" />
+      {/* CTA — just above the footer */}
+      <div className="bg-black pt-4 pb-16">
+        <CTA />
+      </div>
     </>
   );
 }

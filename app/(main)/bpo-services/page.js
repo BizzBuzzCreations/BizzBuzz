@@ -149,7 +149,7 @@ export default function BPO() {
       <BpoHero
         heading="Outsourcing That Feels Like Your Own Team, Just Not On Your Payroll."
         description="Bizzbuzz Creations runs call center outsourcing, AI-powered support, and back-office operations from Prayagraj for businesses across India-no jargon, no black-box vendor, just a team that delivers"
-        img="/bpo.jpg"
+        img="/BPO service.png"
       />
 
       {/* "More Than Outsourcing" — dark section, glow accents behind the
@@ -255,10 +255,6 @@ export default function BPO() {
       <div className="bg-black py-10">
         <CTA />
       </div>
-
-      {/* Full-width divider so the CTA and footer — both black — don't
-          just blend into one section. */}
-      <div className="bg-black border-t border-white" />
     </>
   );
 }

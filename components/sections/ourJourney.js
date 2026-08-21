@@ -47,7 +47,7 @@ const YEARS = [
   },
 ];
 
-const SLIDE_DURATION = 5000;
+const SLIDE_DURATION = 2800;
 
 export default function OurJourney() {
   const [active, setActive] = useState(0);
@@ -69,7 +69,7 @@ export default function OurJourney() {
         </h2>
 
         {/* Year showcase */}
-        <div className="flex flex-col sm:flex-row items-center sm:items-start gap-8 sm:gap-12 min-h-[400px] sm:min-h-[380px]">
+        <div className="flex flex-col sm:flex-row items-center sm:items-start gap-8 sm:gap-12 min-h-[260px] sm:min-h-[240px]">
           {/* Rotated photo — bigger */}
           <div className="relative shrink-0 w-[260px] sm:w-[320px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl -rotate-6">
             <Image
@@ -91,7 +91,7 @@ export default function OurJourney() {
             >
               {current.year}
             </span>
-            <div className="max-w-md mt-20 mx-auto sm:mx-0 sm:ml-auto text-center sm:text-left">
+            <div className="max-w-md mt-8 mx-auto sm:mx-0 sm:ml-auto text-center sm:text-left">
               <h3 className="text-white font-bold text-xl mb-3">{current.title}</h3>
               <p className="text-base text-white/60 leading-relaxed">
                 {current.body}
@@ -101,7 +101,7 @@ export default function OurJourney() {
         </div>
 
         {/* Timeline */}
-        <div className="relative mt-16">
+        <div className="relative mt-8">
           <div className="absolute left-0 right-0 top-3 h-px bg-white/15" aria-hidden="true" />
           <div className="relative flex justify-between">
             {YEARS.map((y, i) => (

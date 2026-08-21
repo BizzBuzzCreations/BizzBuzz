@@ -29,10 +29,10 @@ const CustomAccordionTrigger = React.forwardRef(
       <AccordionPrimitive.Trigger
         ref={ref}
         className={cn(
-          "group flex flex-1 items-center justify-between gap-4 rounded-2xl border border-gray-100 p-4 text-left",
-          "bg-white transition-all hover:bg-gray-50/70 hover:shadow-md",
+          "group flex flex-1 items-center justify-between gap-4 rounded-2xl border border-[#0B60B0]/25 p-4 text-left",
+          "bg-white transition-all hover:bg-gray-50/70 hover:border-[#0B60B0]/50 hover:shadow-md",
           "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-900/20",
-          "data-[state=open]:shadow-md",
+          "data-[state=open]:border-[#0B60B0]/60 data-[state=open]:shadow-md",
           className,
         )}
         {...props}

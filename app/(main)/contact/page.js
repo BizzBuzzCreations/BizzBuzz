@@ -4,6 +4,7 @@ import MarketingCTA from "@/components/sections/marketingCTA";
 import JoinTeamCTA from "@/components/sections/joinTeamCTA";
 import ContactFAQ from "@/components/sections/contactFAQ";
 import WavyDivider from "@/components/ui/wavy-divider";
+import Particles from "@/components/ui/Particles";
 import React from "react";
 
 export const metadata = {
@@ -34,9 +35,23 @@ export default function Contact() {
           5 questions specific to reaching out/working with us.
           overflow-hidden keeps ContactFAQ's own bottom margin contained
           inside this box instead of collapsing through it and exposing a
-          gap before JoinTeamCTA. */}
-      <div className="bg-black pt-16 overflow-hidden">
-        <ContactFAQ />
+          gap before JoinTeamCTA. Same particle backdrop as the rest of
+          the page, continuing the effect through this section too. */}
+      <div className="relative bg-black pt-16 overflow-hidden">
+        <div className="absolute inset-0 z-0 pointer-events-none" aria-hidden="true">
+          <Particles
+            particleColors={["#40A2D8", "#0B60B0", "#8fd0f2", "#ffffff"]}
+            particleCount={180}
+            particleSpread={14}
+            speed={0.08}
+            particleBaseSize={110}
+            alphaParticles={false}
+            disableRotation={false}
+          />
+        </div>
+        <div className="relative z-10">
+          <ContactFAQ />
+        </div>
       </div>
 
       <JoinTeamCTA />

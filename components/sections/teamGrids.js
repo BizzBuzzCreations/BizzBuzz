@@ -60,14 +60,13 @@ function RoleCard({ icon: Icon, role, dept, index, size = "normal" }) {
   return (
     <motion.div
       {...fadeUp(index)}
-      className="group rounded-2xl border border-gray-200 bg-white overflow-hidden shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-[#0B60B0]/40 hover:shadow-xl"
+      className="group rounded-2xl border border-white/10 bg-white/5 overflow-hidden shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-[#40A2D8]/50 hover:shadow-xl hover:shadow-black/40"
     >
       <div
-        className={`${size === "large" ? "aspect-[4/3]" : "aspect-square"} flex items-center justify-center`}
-        style={{ background: "linear-gradient(150deg, #eaf4fb 0%, #cfe9fb 100%)" }}
+        className={`${size === "large" ? "aspect-[4/3]" : "aspect-square"} flex items-center justify-center bg-white/5`}
       >
         <div
-          className={`flex items-center justify-center rounded-full bg-white shadow-sm text-[#0B60B0] transition-transform duration-300 group-hover:scale-110 ${
+          className={`flex items-center justify-center rounded-full bg-white/10 text-[#40A2D8] transition-all duration-300 group-hover:scale-110 group-hover:bg-[#0B60B0] group-hover:text-white ${
             size === "large" ? "w-20 h-20" : "w-16 h-16"
           }`}
         >
@@ -75,10 +74,10 @@ function RoleCard({ icon: Icon, role, dept, index, size = "normal" }) {
         </div>
       </div>
       <div className="p-4">
-        <p className="text-xs font-bold uppercase tracking-wide text-[#0B60B0] mb-1">
+        <p className="text-xs font-bold uppercase tracking-wide text-[#40A2D8] mb-1">
           {dept}
         </p>
-        <h3 className="font-bold text-gray-900 text-sm leading-snug">
+        <h3 className="font-bold text-white text-sm leading-snug">
           {role}
         </h3>
       </div>
@@ -90,13 +89,13 @@ export default function TeamGrids() {
   return (
     <>
       {/* Founders */}
-      <section className="bg-white py-20 px-6 md:px-12 lg:px-24 border-t border-gray-100">
+      <section className="bg-black py-20 px-6 md:px-12 lg:px-24 border-t border-white/10">
         <div className="max-w-6xl mx-auto text-center">
           <motion.div {...fadeUp(0)} className="mb-10">
-            <h2 className="text-2xl md:text-3xl font-bold text-black mb-3">
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
               Founders
             </h2>
-            <p className="text-gray-600 max-w-xl mx-auto leading-relaxed">
+            <p className="text-white/60 max-w-xl mx-auto leading-relaxed">
               The two people who started BizzBuzz Creations and still set
               the direction every project follows.
             </p>
@@ -111,13 +110,13 @@ export default function TeamGrids() {
       </section>
 
       {/* Our Leaders */}
-      <section className="bg-gray-50 py-20 px-6 md:px-12 lg:px-24">
+      <section className="bg-black py-20 px-6 md:px-12 lg:px-24 border-t border-white/10">
         <div className="max-w-6xl mx-auto">
           <motion.div {...fadeUp(0)} className="mb-10">
-            <h2 className="text-2xl md:text-3xl font-bold text-black mb-3">
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
               Our Leaders
             </h2>
-            <p className="text-gray-600 max-w-xl leading-relaxed">
+            <p className="text-white/60 max-w-xl leading-relaxed">
               A hands-on group covering every part of the work — no
               gatekeeping between departments, and no ticket queue between
               you and the people actually doing the work.
@@ -133,11 +132,11 @@ export default function TeamGrids() {
       </section>
 
       {/* Meet Our Team — BPO & R&D, alternating photo side */}
-      <section className="bg-white py-20 px-6 md:px-12 lg:px-24">
+      <section className="bg-black py-20 px-6 md:px-12 lg:px-24 border-t border-white/10">
         <div className="max-w-6xl mx-auto">
           <motion.h2
             {...fadeUp(0)}
-            className="text-2xl md:text-3xl font-bold text-black mb-14 text-center"
+            className="text-2xl md:text-3xl font-bold text-white mb-14 text-center"
           >
             Meet Our Team
           </motion.h2>
@@ -154,10 +153,10 @@ export default function TeamGrids() {
                     {...fadeUp(i)}
                     className={imageFirst ? "md:order-2" : ""}
                   >
-                    <h3 className="text-xl md:text-2xl font-bold text-black mb-4">
+                    <h3 className="text-xl md:text-2xl font-bold text-white mb-4">
                       {group.title}
                     </h3>
-                    <p className="text-gray-600 leading-relaxed">
+                    <p className="text-white/60 leading-relaxed">
                       {group.desc}
                     </p>
                   </motion.div>

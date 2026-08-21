@@ -32,8 +32,10 @@ const ROWS = [
 
 function TextPanel({ title, body }) {
   return (
-    <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
-      <h3 className="text-xl font-bold text-white mb-4">{title}</h3>
+    <div className="group rounded-2xl border border-white/10 bg-white/5 p-8 transition-all duration-300 hover:-translate-y-1.5 hover:border-[#40A2D8]/50 hover:bg-[#0B60B0]/10 hover:shadow-xl hover:shadow-black/40">
+      <h3 className="text-xl font-bold text-white mb-4 transition-colors duration-300 group-hover:text-[#40A2D8]">
+        {title}
+      </h3>
       <p className="text-white/70 leading-relaxed">{body}</p>
     </div>
   );

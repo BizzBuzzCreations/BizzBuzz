@@ -242,8 +242,6 @@ export default function MarketingAutomation() {
       <div className="bg-black py-10">
         <CTA />
       </div>
-
-      <div className="bg-black border-t border-white" />
     </>
   );
 }

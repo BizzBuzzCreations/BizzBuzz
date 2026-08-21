@@ -126,13 +126,13 @@ export default function GuidesPage() {
         </div>
       </section>
 
-      {/* CTA — between the guides list and latest blogs */}
+      {/* Latest blogs — real, live content from the blog */}
+      <LatestBlogs dark />
+
+      {/* CTA — just above the footer */}
       <div className="bg-black pt-4 pb-16">
         <CTA />
       </div>
-
-      {/* Latest blogs — real, live content from the blog */}
-      <LatestBlogs />
     </>
   );
 }

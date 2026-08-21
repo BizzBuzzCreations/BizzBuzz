@@ -122,11 +122,9 @@ export default function About() {
           <h3 className="text-2xl font-bold mt-15 mb-10 text-center text-white">
             Our Core Values
           </h3>
-          <div className="relative">
-            <div className="hidden lg:block absolute left-[10%] right-[10%] top-[60px] h-0.5 bg-linear-to-r from-white/5 via-[#40A2D8]/40 to-white/5" />
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 relative">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
               <div className="group relative flex flex-col items-center rounded-2xl border border-white/10 bg-white/5 p-6 pt-8 w-full text-center shadow-md transition-all duration-300 hover:-translate-y-1.5 hover:border-[#40A2D8]/50 hover:shadow-xl hover:shadow-black/40">
-                <div className="relative z-10 mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-white/10 text-[#40A2D8] ring-4 ring-black transition-all duration-300 group-hover:scale-110 group-hover:bg-[#0B60B0] group-hover:text-white">
+                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-white/10 text-[#40A2D8] transition-all duration-300 group-hover:scale-110 group-hover:bg-[#0B60B0] group-hover:text-white">
                   <BarChart3 size={26} />
                 </div>
                 <h4 className="text-lg font-semibold mb-2 text-center text-white">
@@ -138,7 +136,8 @@ export default function About() {
                 </p>
               </div>
               <div className="group relative flex flex-col items-center rounded-2xl border border-white/10 bg-white/5 p-6 pt-8 w-full text-center shadow-md transition-all duration-300 hover:-translate-y-1.5 hover:border-[#40A2D8]/50 hover:shadow-xl hover:shadow-black/40">
-                <div className="relative z-10 mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-white/10 text-[#40A2D8] ring-4 ring-black transition-all duration-300 group-hover:scale-110 group-hover:bg-[#0B60B0] group-hover:text-white">
+                <span className="hidden lg:block absolute -left-6 top-[60px] w-6 h-0.5 bg-[#40A2D8]/30" aria-hidden="true" />
+                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-white/10 text-[#40A2D8] transition-all duration-300 group-hover:scale-110 group-hover:bg-[#0B60B0] group-hover:text-white">
                   <Eye size={26} />
                 </div>
                 <h4 className="text-lg font-semibold mb-2 text-center text-white">
@@ -150,7 +149,8 @@ export default function About() {
                 </p>
               </div>
               <div className="group relative flex flex-col items-center rounded-2xl border border-white/10 bg-white/5 p-6 pt-8 w-full text-center shadow-md transition-all duration-300 hover:-translate-y-1.5 hover:border-[#40A2D8]/50 hover:shadow-xl hover:shadow-black/40">
-                <div className="relative z-10 mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-white/10 text-[#40A2D8] ring-4 ring-black transition-all duration-300 group-hover:scale-110 group-hover:bg-[#0B60B0] group-hover:text-white">
+                <span className="hidden lg:block absolute -left-6 top-[60px] w-6 h-0.5 bg-[#40A2D8]/30" aria-hidden="true" />
+                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-white/10 text-[#40A2D8] transition-all duration-300 group-hover:scale-110 group-hover:bg-[#0B60B0] group-hover:text-white">
                   <Lightbulb size={26} />
                 </div>
                 <h4 className="text-lg font-semibold mb-2 text-center text-white">
@@ -162,7 +162,8 @@ export default function About() {
                 </p>
               </div>
               <div className="group relative flex flex-col items-center rounded-2xl border border-white/10 bg-white/5 p-6 pt-8 w-full text-center shadow-md transition-all duration-300 hover:-translate-y-1.5 hover:border-[#40A2D8]/50 hover:shadow-xl hover:shadow-black/40">
-                <div className="relative z-10 mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-white/10 text-[#40A2D8] ring-4 ring-black transition-all duration-300 group-hover:scale-110 group-hover:bg-[#0B60B0] group-hover:text-white">
+                <span className="hidden lg:block absolute -left-6 top-[60px] w-6 h-0.5 bg-[#40A2D8]/30" aria-hidden="true" />
+                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-white/10 text-[#40A2D8] transition-all duration-300 group-hover:scale-110 group-hover:bg-[#0B60B0] group-hover:text-white">
                   <Users size={26} />
                 </div>
                 <h4 className="text-lg font-semibold mb-2 text-center text-white">
@@ -174,7 +175,8 @@ export default function About() {
                 </p>
               </div>
               <div className="group relative flex flex-col items-center rounded-2xl border border-white/10 bg-white/5 p-6 pt-8 w-full text-center shadow-md transition-all duration-300 hover:-translate-y-1.5 hover:border-[#40A2D8]/50 hover:shadow-xl hover:shadow-black/40">
-                <div className="relative z-10 mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-white/10 text-[#40A2D8] ring-4 ring-black transition-all duration-300 group-hover:scale-110 group-hover:bg-[#0B60B0] group-hover:text-white">
+                <span className="hidden lg:block absolute -left-6 top-[60px] w-6 h-0.5 bg-[#40A2D8]/30" aria-hidden="true" />
+                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-white/10 text-[#40A2D8] transition-all duration-300 group-hover:scale-110 group-hover:bg-[#0B60B0] group-hover:text-white">
                   <ShieldCheck size={26} />
                 </div>
                 <h4 className="text-lg font-semibold mb-2 text-center text-white">
@@ -186,7 +188,6 @@ export default function About() {
                 </p>
               </div>
             </div>
-          </div>
         </div>
         </div>
       </div>

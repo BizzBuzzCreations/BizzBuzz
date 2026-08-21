@@ -7,19 +7,19 @@ import Image from "next/image";
 // the Open Positions section.
 export function CareerWhyUs() {
   return (
-    <section className="bg-white py-20 px-6 md:px-12 lg:px-24">
+    <section className="bg-black py-20 px-6 md:px-12 lg:px-24">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 md:gap-16 items-center">
         <div>
-          <h2 className="text-3xl md:text-4xl font-bold text-black mb-6 leading-tight">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
             Why Work with BizzBuzz Creations?
           </h2>
-          <p className="text-gray-600 leading-relaxed mb-5">
+          <p className="text-white/60 leading-relaxed mb-5">
             BizzBuzz Creations runs on flat hierarchies, clear
             communication, and real ownership — you&rsquo;re not waiting on
             five layers of sign-off to actually do your job. Good ideas win
             regardless of title.
           </p>
-          <p className="text-gray-600 leading-relaxed">
+          <p className="text-white/60 leading-relaxed">
             We&rsquo;re a growing agency working out of Prayagraj, India
             and London, UK, and we&rsquo;re always looking for people who
             want to level up their own skills, not just tick boxes on
@@ -43,13 +43,13 @@ export function CareerWhyUs() {
 
 export function CareerJoinTeam() {
   return (
-    <section className="bg-gray-50 py-20 px-6 md:px-12 lg:px-24">
+    <section className="bg-black py-20 px-6 md:px-12 lg:px-24 border-t border-white/10">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 md:gap-16 items-center">
         <div>
-          <h2 className="text-3xl md:text-4xl font-bold text-black mb-6 leading-tight">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
             Join the BizzBuzz Creations Team!
           </h2>
-          <p className="text-gray-600 leading-relaxed mb-8">
+          <p className="text-white/60 leading-relaxed mb-8">
             Work on real client campaigns from day one, learn from a
             hands-on team, and take on as much responsibility as
             you&rsquo;re ready for.

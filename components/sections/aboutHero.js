@@ -22,7 +22,7 @@ const GRID_IMAGES = [
 export default function AboutHero() {
   return (
     <div
-      className="min-h-[90vh] pt-44 md:pt-[272px] -mt-14 md:-mt-[72px] lg:text-left text-center text-white gap-10 flex 2xl:px-15 px-5 lg:flex-row flex-col justify-center items-center bg-gray-100 pb-30"
+      className="min-h-[90vh] pt-28 md:pt-32 -mt-14 md:-mt-[72px] lg:text-left text-center text-white gap-10 flex 2xl:px-15 px-5 lg:flex-row flex-col justify-center items-center bg-gray-100 pb-20"
       style={{
         background: "radial-gradient(circle at top, #1c1c1c, #000000)",
       }}

@@ -1,7 +1,7 @@
 import { getAllJobs } from "@/actions/serverActions";
 import CareerHero from "@/components/sections/careerHero";
 import { CareerWhyUs, CareerJoinTeam } from "@/components/sections/careerShowcase";
-import CareerNewsletter from "@/components/sections/careerNewsletter";
+import CTA from "@/components/sections/CTA";
 import { ArrowUpRight, Briefcase, MapPin, Clock } from "lucide-react";
 
 export const metadata = {
@@ -31,26 +31,26 @@ export default async function Career() {
       <CareerWhyUs />
 
       {/* Open roles */}
-      <section id="open-positions" className="bg-gray-50 py-16 px-6 md:px-12 lg:px-24 scroll-mt-20">
+      <section id="open-positions" className="bg-black py-16 px-6 md:px-12 lg:px-24 scroll-mt-20 border-t border-white/10">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-center text-black mb-3">
+          <h2 className="text-2xl md:text-3xl font-bold text-center text-white mb-3">
             Open Positions
           </h2>
-          <p className="text-center text-gray-600 mb-12">
+          <p className="text-center text-white/60 mb-12">
             {jobsData.length > 0
               ? `${jobsData.length} role${jobsData.length === 1 ? "" : "s"} currently open`
               : "No open roles right now — check back soon"}
           </p>
 
           {jobsData.length === 0 ? (
-            <div className="rounded-2xl border border-gray-200 bg-white p-10 text-center shadow-sm">
-              <Briefcase className="mx-auto mb-4 text-gray-300" size={36} />
-              <p className="text-gray-600 mb-1">
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-10 text-center shadow-sm">
+              <Briefcase className="mx-auto mb-4 text-white/30" size={36} />
+              <p className="text-white/60 mb-1">
                 We don&rsquo;t have any open positions posted at the moment.
               </p>
-              <p className="text-sm text-gray-500">
+              <p className="text-sm text-white/40">
                 Check back soon, or reach out through our{" "}
-                <a href="/contact" className="text-[#0B60B0] hover:underline">
+                <a href="/contact" className="text-[#40A2D8] hover:underline">
                   contact page
                 </a>
                 .
@@ -63,14 +63,14 @@ export default async function Career() {
                 return (
                   <div
                     key={i}
-                    className="rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#0B60B0]/40 hover:shadow-xl"
+                    className="rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#40A2D8]/50 hover:shadow-xl hover:shadow-black/40"
                   >
                     <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between mb-4">
                       <div>
-                        <h3 className="text-lg font-bold text-gray-900 mb-1">
+                        <h3 className="text-lg font-bold text-white mb-1">
                           {job.title}
                         </h3>
-                        <span className="text-xs text-gray-400">
+                        <span className="text-xs text-white/40">
                           Posted {days === 0 ? "today" : `${days} day${days === 1 ? "" : "s"} ago`}
                         </span>
                       </div>
@@ -85,20 +85,20 @@ export default async function Career() {
                       </a>
                     </div>
 
-                    <p className="text-sm text-gray-600 leading-relaxed whitespace-pre-line mb-5">
+                    <p className="text-sm text-white/60 leading-relaxed whitespace-pre-line mb-5">
                       {job.description}
                     </p>
 
                     <div className="flex flex-wrap gap-2">
-                      <span className="inline-flex items-center gap-1.5 rounded-full bg-[#eaf4fb] text-[#0B60B0] px-3 py-1.5 text-xs font-semibold">
+                      <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 text-[#40A2D8] px-3 py-1.5 text-xs font-semibold">
                         <Briefcase size={13} />
                         {job.department}
                       </span>
-                      <span className="inline-flex items-center gap-1.5 rounded-full bg-[#eaf4fb] text-[#0B60B0] px-3 py-1.5 text-xs font-semibold">
+                      <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 text-[#40A2D8] px-3 py-1.5 text-xs font-semibold">
                         <MapPin size={13} />
                         {job.location}
                       </span>
-                      <span className="inline-flex items-center gap-1.5 rounded-full bg-[#eaf4fb] text-[#0B60B0] px-3 py-1.5 text-xs font-semibold">
+                      <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 text-[#40A2D8] px-3 py-1.5 text-xs font-semibold">
                         <Clock size={13} />
                         {job.experience}
                       </span>
@@ -113,7 +113,10 @@ export default async function Career() {
 
       <CareerJoinTeam />
 
-      <CareerNewsletter />
+      {/* CTA — just above the footer */}
+      <div className="bg-black pt-4 pb-16">
+        <CTA />
+      </div>
     </>
   );
 }

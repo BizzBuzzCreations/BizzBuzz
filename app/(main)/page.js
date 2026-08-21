@@ -78,7 +78,7 @@ export default function Home() {
       <WhatMAkesUs />
 
       {/* Why choose us */}
-      <WhyChooseUs />
+      <WhyChooseUs dark />
 
       {/* Proven Expertise — real certifications & partnerships */}
       <Recognitions />

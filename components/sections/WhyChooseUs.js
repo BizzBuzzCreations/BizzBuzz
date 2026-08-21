@@ -18,51 +18,51 @@ export default function WhyChooseUs({ dark = false }) {
         </h2>
         <div className="flex flex-wrap justify-content items-center max-w-2xl gap-3">
           <div
-            className={`max-w-xs p-5 rounded-lg mx-auto border shadow-md ${
+            className={`group max-w-xs p-5 rounded-lg mx-auto border shadow-md transition-all duration-300 hover:-translate-y-1 ${
               dark
-                ? "bg-white/5 border-white/10 shadow-black/40"
-                : "bg-gray-200 border-gray-300 shadow-gray-400"
+                ? "bg-white/5 border-white/10 shadow-black/40 hover:bg-[#0B60B0] hover:border-[#0B60B0]"
+                : "bg-gray-200 border-gray-300 shadow-gray-400 hover:bg-[#0B60B0] hover:border-[#0B60B0] hover:shadow-xl hover:shadow-[#0B60B0]/20"
             }`}
           >
-            <h3 className={`font-bold mb-2 ${dark ? "text-white" : ""}`}>Transparent Reporting</h3>
-            <p className={`text-sm ${dark ? "text-white/60" : ""}`}>
+            <h3 className={`font-bold mb-2 transition-colors duration-300 group-hover:text-white ${dark ? "text-white" : ""}`}>Transparent Reporting</h3>
+            <p className={`text-sm transition-colors duration-300 group-hover:text-white/80 ${dark ? "text-white/60" : ""}`}>
               Know exactly where your marketing budget is invested with detailed reports and actionable insights.
             </p>
           </div>
           <div
-            className={`max-w-xs p-5 rounded-lg mx-auto border shadow-md ${
+            className={`group max-w-xs p-5 rounded-lg mx-auto border shadow-md transition-all duration-300 hover:-translate-y-1 ${
               dark
-                ? "bg-white/5 border-white/10 shadow-black/40"
-                : "bg-gray-200 border-gray-300 shadow-gray-400"
+                ? "bg-white/5 border-white/10 shadow-black/40 hover:bg-[#0B60B0] hover:border-[#0B60B0]"
+                : "bg-gray-200 border-gray-300 shadow-gray-400 hover:bg-[#0B60B0] hover:border-[#0B60B0] hover:shadow-xl hover:shadow-[#0B60B0]/20"
             }`}
           >
-            <h3 className={`font-bold mb-2 ${dark ? "text-white" : ""}`}>Dedicated Marketing Experts</h3>
-            <p className={`text-sm ${dark ? "text-white/60" : ""}`}>
+            <h3 className={`font-bold mb-2 transition-colors duration-300 group-hover:text-white ${dark ? "text-white" : ""}`}>Dedicated Marketing Experts</h3>
+            <p className={`text-sm transition-colors duration-300 group-hover:text-white/80 ${dark ? "text-white/60" : ""}`}>
               Our team continuously monitors industry trends,
               and emerging technologies to keep your business ahead of competitors.
             </p>
           </div>
           <div
-            className={`max-w-xs p-5 rounded-lg mx-auto border shadow-md ${
+            className={`group max-w-xs p-5 rounded-lg mx-auto border shadow-md transition-all duration-300 hover:-translate-y-1 ${
               dark
-                ? "bg-white/5 border-white/10 shadow-black/40"
-                : "bg-gray-200 border-gray-300 shadow-gray-400"
+                ? "bg-white/5 border-white/10 shadow-black/40 hover:bg-[#0B60B0] hover:border-[#0B60B0]"
+                : "bg-gray-200 border-gray-300 shadow-gray-400 hover:bg-[#0B60B0] hover:border-[#0B60B0] hover:shadow-xl hover:shadow-[#0B60B0]/20"
             }`}
           >
-            <h3 className={`font-bold mb-2 ${dark ? "text-white" : ""}`}>Data-Driven Decision Making</h3>
-            <p className={`text-sm ${dark ? "text-white/60" : ""}`}>
+            <h3 className={`font-bold mb-2 transition-colors duration-300 group-hover:text-white ${dark ? "text-white" : ""}`}>Data-Driven Decision Making</h3>
+            <p className={`text-sm transition-colors duration-300 group-hover:text-white/80 ${dark ? "text-white/60" : ""}`}>
               Every recommendation we make is backed by analytics, performance data, and business objectives, not assumptions.
             </p>
           </div>
           <div
-            className={`max-w-xs p-5 rounded-lg mx-auto border shadow-md ${
+            className={`group max-w-xs p-5 rounded-lg mx-auto border shadow-md transition-all duration-300 hover:-translate-y-1 ${
               dark
-                ? "bg-white/5 border-white/10 shadow-black/40"
-                : "bg-gray-200 border-gray-300 shadow-gray-400"
+                ? "bg-white/5 border-white/10 shadow-black/40 hover:bg-[#0B60B0] hover:border-[#0B60B0]"
+                : "bg-gray-200 border-gray-300 shadow-gray-400 hover:bg-[#0B60B0] hover:border-[#0B60B0] hover:shadow-xl hover:shadow-[#0B60B0]/20"
             }`}
           >
-            <h3 className={`font-bold mb-2 ${dark ? "text-white" : ""}`}>Long-Term Partnership</h3>
-            <p className={`text-sm ${dark ? "text-white/60" : ""}`}>
+            <h3 className={`font-bold mb-2 transition-colors duration-300 group-hover:text-white ${dark ? "text-white" : ""}`}>Long-Term Partnership</h3>
+            <p className={`text-sm transition-colors duration-300 group-hover:text-white/80 ${dark ? "text-white/60" : ""}`}>
               We focus on building lasting relationships by delivering consistent value, continuous optimization, and measurable growth.
             </p>
           </div>

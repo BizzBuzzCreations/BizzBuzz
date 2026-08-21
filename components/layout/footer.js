@@ -156,7 +156,7 @@ function FooterColumn({ title, links, viewMoreHref }) {
 export default function Footer() {
   return (
     <footer
-      className="text-white pt-16 pb-8 px-6 md:px-8"
+      className="text-white pt-8 pb-8 px-6 md:px-8"
       style={{
         background: "linear-gradient(180deg, #000000 0%, #000000 70%, #0B60B0 130%)",
       }}

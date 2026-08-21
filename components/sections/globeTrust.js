@@ -1,4 +1,5 @@
 import Globe from "@/components/ui/globe";
+import Particles from "@/components/ui/Particles";
 
 // BizzBuzz's two real offices (same coordinates as the address cards on
 // /contact) — marked on the globe instead of a placeholder location.
@@ -9,11 +10,26 @@ const OFFICE_MARKERS = [
 
 export default function GlobeTrust() {
   return (
-    <section className="bg-black text-white pt-2 md:pt-3 pb-3 md:pb-4 px-6 md:px-12 lg:px-24 overflow-hidden">
+    <section className="relative bg-black text-white pt-2 md:pt-3 pb-3 md:pb-4 px-6 md:px-12 lg:px-24 overflow-hidden">
+      {/* Same animated particle backdrop as the contact form above —
+          continues the effect down the page instead of stopping dead
+          after the first section. */}
+      <div className="absolute inset-0 z-0 pointer-events-none" aria-hidden="true">
+        <Particles
+          particleColors={["#40A2D8", "#0B60B0", "#8fd0f2", "#ffffff"]}
+          particleCount={160}
+          particleSpread={14}
+          speed={0.08}
+          particleBaseSize={110}
+          alphaParticles={false}
+          disableRotation={false}
+        />
+      </div>
+
       {/* items-center (not items-end) so the text sits level with the
           globe's own visual center, instead of pinned to the bottom of a
           much taller box. */}
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+      <div className="relative z-10 max-w-6xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-6">
         {/* Text — vertically centered against the globe. */}
         <div className="max-w-xs sm:max-w-sm">
           <p className="text-lg sm:text-xl text-white/70 font-light mb-1">

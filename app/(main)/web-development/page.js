@@ -258,8 +258,6 @@ export default function WebDevelopment() {
       <div className="bg-black py-10">
         <CTA />
       </div>
-
-      <div className="bg-black border-t border-white" />
     </>
   );
 }
