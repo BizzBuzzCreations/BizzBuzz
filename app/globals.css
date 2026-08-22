@@ -25,26 +25,6 @@
   }
 }
 
-/* Slow-drifting blobs for the contact form's animated backdrop. */
-@keyframes blob-float-a {
-  0%,
-  100% {
-    transform: translate(0, 0) scale(1);
-  }
-  50% {
-    transform: translate(40px, -30px) scale(1.15);
-  }
-}
-@keyframes blob-float-b {
-  0%,
-  100% {
-    transform: translate(0, 0) scale(1);
-  }
-  50% {
-    transform: translate(-35px, 30px) scale(1.1);
-  }
-}
-
 /* globals.css */
 h1,
 h2,
@@ -59,19 +39,10 @@ body {
   font-family: var(--font-ibm), sans-serif;
 }
 
-/* Hide scrollbar (still scrollable) for horizontally-scrollable tab rows */
-.no-scrollbar {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-
 /* Navbar style */
 .nav {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-  background-color: #0a0a0ae6;
+  background-color: #a8b5c880;
   backdrop-filter: blur(16px);
 }
 

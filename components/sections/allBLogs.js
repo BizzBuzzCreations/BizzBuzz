@@ -9,13 +9,10 @@ import he from "he";
 
 export default function AllBLogs() {
   const [blogs, setBlogs] = useState([]);
-  // Both start "on" now — the All Blogs grid (with its category filter and
-  // pagination) shows immediately below the latest-blogs section instead
-  // of waiting behind a "View all blogs" click.
-  const [showAll, setShowAll] = useState(true);
+  const [showAll, setShowAll] = useState(false);
   const [totalPages, setTotalPages] = useState(null);
   const [currPage, setCurrPage] = useState(1);
-  const [posts, setPosts] = useState(9);
+  const [posts, setPosts] = useState(0);
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
   const [categories, setCategories] = useState([]);
@@ -101,10 +98,6 @@ export default function AllBLogs() {
   };
 
   function decodeHTML(html) {
-    // The category dropdown (and the HTML-entity-decoded names it shows)
-    // now renders on the very first paint — including the server render —
-    // since showAll defaults to true. `document` doesn't exist there.
-    if (typeof document === "undefined") return html;
     const txt = document.createElement("textarea");
     txt.innerHTML = html;
     return txt.value;
@@ -114,7 +107,7 @@ export default function AllBLogs() {
     <>
       <div className="lg:max-w-screen-xl sm:max-w-xl md:max-w-full sm:px-12 md:px-18 px-8 mx-auto">
         {showAll && (
-          <h2 className="md:text-4xl text-3xl font-bold md:py-15 md:mb-0 mb-10 text-center text-white">
+          <h2 className="md:text-4xl text-3xl font-bold md:py-15 md:mb-0 mb-10 text-center">
             All Blogs
           </h2>
         )}
@@ -125,13 +118,13 @@ export default function AllBLogs() {
               {/* Trigger */}
               <button
                 onClick={() => setOpen((o) => !o)}
-                className="w-full flex items-center justify-between px-4 py-2.5 bg-white/5 border border-white/15 rounded-xl shadow-sm hover:border-[#40A2D8]/50 transition-all duration-200"
+                className="w-full flex items-center justify-between px-4 py-2.5 bg-white border border-stone-200 rounded-xl shadow-sm hover:border-stone-400 transition-all duration-200"
               >
-                <span className="text-sm font-semibold text-white">
+                <span className="text-sm font-semibold text-stone-700">
                   {decodeHTML(selected.name)}
                 </span>
                 <svg
-                  className={`w-4 h-4 text-white/50 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+                  className={`w-4 h-4 text-stone-400 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="2.5"
@@ -147,7 +140,7 @@ export default function AllBLogs() {
 
               {/* Menu */}
               <div
-                className={`absolute z-50 mt-2 w-full bg-[#0a0a0a] border border-white/15 rounded-xl shadow-lg overflow-hidden transition-all duration-200 origin-top max-h-80 overflow-y-auto
+                className={`absolute z-50 mt-2 w-full bg-white border border-stone-200 rounded-xl shadow-lg overflow-hidden transition-all duration-200 origin-top max-h-80 overflow-y-auto
         ${open ? "opacity-100 scale-100 pointer-events-auto" : "opacity-0 scale-95 pointer-events-none"}`}
               >
                 <ul className="py-1.5 px-1.5 space-y-0.5">
@@ -158,8 +151,8 @@ export default function AllBLogs() {
                         className={`w-full flex items-center justify-between px-3 py-2 rounded-lg transition-colors duration-150
                   ${
                     cat.name === selected.name
-                      ? "bg-[#0B60B0] text-white"
-                      : "text-white/70 hover:bg-white/10 hover:text-white"
+                      ? "bg-stone-900 text-white"
+                      : "text-stone-600 hover:bg-stone-100 hover:text-stone-900"
                   }`}
                       >
                         <span className="text-sm font-medium text-start">
@@ -170,14 +163,14 @@ export default function AllBLogs() {
                   ${
                     cat.name === selected.name
                       ? "bg-white/20 text-white"
-                      : "bg-white/10 text-white/50"
+                      : "bg-stone-100 text-stone-500"
                   }`}
                         >
                           {cat.count}
                         </span>
                       </button>
                       {i < categories.length - 1 && (
-                        <div className="mx-2 border-b border-white/10" />
+                        <div className="mx-2 border-b border-stone-100" />
                       )}
                     </li>
                   ))}
@@ -192,11 +185,11 @@ export default function AllBLogs() {
                   setPosts(9);
                   setCurrPage((prev) => prev - 1);
                 }}
-                className={`${currPage === 1 ? "opacity-50 cursor-not-allowed " : "hover:text-white hover:bg-[#0B60B0] hover:border-[#0B60B0]"} p-1 cursor-pointer rounded border border-white/15 text-white bg-white/5 `}
+                className={`${currPage === 1 ? "opacity-50 cursor-not-allowed " : "hover:text-white hover:bg-black hover:border-black"} p-1 cursor-pointer rounded border text-black bg-white `}
               >
                 <ArrowLeft />
               </button>
-              <p className="text-white/50">
+              <p className="text-gray-500">
                 Page {currPage} of {totalPages}
               </p>
               <button
@@ -206,7 +199,7 @@ export default function AllBLogs() {
                   setPosts(9);
                   setCurrPage((prev) => prev + 1);
                 }}
-                className={`${currPage == totalPages ? "opacity-50 cursor-not-allowed " : "hover:text-white hover:bg-[#0B60B0] hover:border-[#0B60B0]"} p-1 cursor-pointer rounded border border-white/15 text-white bg-white/5 `}
+                className={`${currPage == totalPages ? "opacity-50 cursor-not-allowed " : "hover:text-white hover:bg-black hover:border-black"} p-1 cursor-pointer rounded border text-black bg-white `}
               >
                 <ArrowRight />
               </button>
@@ -217,17 +210,17 @@ export default function AllBLogs() {
       {loading ? (
         // <!-- Grid Skeleton -->
         <div className=" sm:px-12 md:px-16 px-8 mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 py-10 lg:py-20 sm:py-16 lg:max-w-screen-xl sm:max-w-xl md:max-w-full">
-          <div className="bg-white/5 border border-white/10 rounded-xl p-4 shadow-lg space-y-3">
+          <div className="bg-white rounded-xl p-4 shadow-lg space-y-3">
             <div className="w-full h-48 rounded animate-shimmer"></div>
             <div className="h-4 w-3/4 animate-shimmer rounded"></div>
             <div className="h-3 w-1/2 animate-shimmer rounded"></div>
           </div>
-          <div className="bg-white/5 border border-white/10 rounded-xl p-4 shadow-lg space-y-3">
+          <div className="bg-white rounded-xl p-4 shadow-lg space-y-3">
             <div className="w-full h-48 rounded animate-shimmer"></div>
             <div className="h-4 w-3/4 animate-shimmer rounded"></div>
             <div className="h-3 w-1/2 animate-shimmer rounded"></div>
           </div>
-          <div className="bg-white/5 border border-white/10 rounded-xl p-4 shadow-lg space-y-3">
+          <div className="bg-white rounded-xl p-4 shadow-lg space-y-3">
             <div className="w-full h-48 rounded animate-shimmer"></div>
             <div className="h-4 w-3/4 animate-shimmer rounded"></div>
             <div className="h-3 w-1/2 animate-shimmer rounded"></div>
@@ -242,13 +235,10 @@ export default function AllBLogs() {
               blogs.map((e, index) => {
                 const featuredImage = getFeaturedImage(e);
                 return (
-                <div
-                  key={index}
-                  className="group relative rounded-2xl border border-white/10 bg-white/5 p-4 transition-all duration-300 hover:-translate-y-1 hover:border-[#40A2D8] hover:shadow-xl hover:shadow-black/40"
-                >
+                <div className="relative" key={index}>
                   <Link
                     href={`/blog/${e?.slug}`}
-                    className="block overflow-hidden rounded-xl aspect-[1.91/1] bg-white/10"
+                    className="block overflow-hidden group rounded-xl shadow-lg shadow-gray-300 aspect-[1.91/1] bg-gray-100"
                   >
                     {featuredImage ? (
                       <img
@@ -257,7 +247,7 @@ export default function AllBLogs() {
                         alt={e?.title}
                       />
                     ) : (
-                      <div className="w-full h-full flex flex-col items-center justify-center gap-2 bg-white/5 text-white/30">
+                      <div className="w-full h-full flex flex-col items-center justify-center gap-2 bg-gradient-to-br from-gray-50 to-gray-200 text-gray-400">
                         <ImageOff size={28} />
                         <span className="text-xs font-medium">
                           Image unavailable
@@ -266,7 +256,7 @@ export default function AllBLogs() {
                     )}
                   </Link>
                   <div className="relative mt-5">
-                    <p className="uppercase font-semibold text-xs mb-2.5 text-white/50 transition-colors duration-300 group-hover:text-[#40A2D8]">
+                    <p className="uppercase font-semibold text-xs mb-2.5 text-slate-700">
                       {new Date(e?.publishedAt).toLocaleDateString("en-US", {
                         month: "short",
                         day: "numeric",
@@ -276,19 +266,19 @@ export default function AllBLogs() {
                     </p>
                     <Link
                       href={`/blog/${e?.slug}`}
-                      className="block mb-3"
+                      className="block mb-3 hover:underline"
                     >
-                      <h2 className="text-xl lg:text-2xl leading-tight font-semibold leading-5 text-white transition-colors duration-300 group-hover:text-[#40A2D8]">
+                      <h2 className="text-xl lg:text-2xl leading-tight font-semibold leading-5 text-black  transition-colors duration-200 hover:text-slate-700">
                         {e?.title}
                       </h2>
                     </Link>
-                    <p className="text-white/60 transition-colors duration-300 group-hover:text-[#40A2D8]">
+                    <p className="text-gray-700">
                       {truncateHTML(e?.excerpt, 150)}
                     </p>
 
                     <Link
                       href={`/blog/${e?.slug}`}
-                      className="font-medium underline text-white/70 transition-colors duration-300 group-hover:text-[#40A2D8]"
+                      className="font-medium underline text-slate-700 hover:text-slate-900"
                       aria-label={`Read more about ${e?.title}`}
                     >
                       Read More
@@ -305,9 +295,9 @@ export default function AllBLogs() {
                   setPosts(9);
                   setShowAll(true);
                 }}
-                className="relative mb-5 cursor-pointer border-2 border-white/30 text-white px-6 py-3 rounded-lg overflow-hidden group"
+                className="relative mb-5 cursor-pointer border-2 border-gray-900 text-gray-900 px-6 py-3 rounded-lg overflow-hidden group"
               >
-                <span className="absolute inset-0 bg-[#0B60B0] transform -translate-x-full group-hover:translate-x-0 transition duration-300"></span>
+                <span className="absolute inset-0 bg-gray-900 transform -translate-x-full group-hover:translate-x-0 transition duration-300"></span>
                 <span className="relative z-10 group-hover:text-white">
                   View all blogs
                 </span>
@@ -322,11 +312,11 @@ export default function AllBLogs() {
                     setPosts(9);
                     setCurrPage((prev) => prev - 1);
                   }}
-                  className={`${currPage === 1 ? "opacity-50 cursor-not-allowed " : "hover:text-white hover:bg-[#0B60B0] hover:border-[#0B60B0]"} p-1 cursor-pointer rounded border border-white/15 text-white bg-white/5 `}
+                  className={`${currPage === 1 ? "opacity-50 cursor-not-allowed " : "hover:text-white hover:bg-black hover:border-black"} p-1 cursor-pointer rounded border text-black bg-white `}
                 >
                   <ArrowLeft />
                 </button>
-                <p className="text-white/50">
+                <p className="text-gray-500">
                   Page {currPage} of {totalPages}
                 </p>
                 <button
@@ -336,7 +326,7 @@ export default function AllBLogs() {
                     setPosts(9);
                     setCurrPage((prev) => prev + 1);
                   }}
-                  className={`${currPage == totalPages ? "opacity-50 cursor-not-allowed " : "hover:text-white hover:bg-[#0B60B0] hover:border-[#0B60B0]"} p-1 cursor-pointer rounded border border-white/15 text-white bg-white/5 `}
+                  className={`${currPage == totalPages ? "opacity-50 cursor-not-allowed " : "hover:text-white hover:bg-black hover:border-black"} p-1 cursor-pointer rounded border text-black bg-white `}
                 >
                   <ArrowRight />
                 </button>

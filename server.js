@@ -14,4 +14,3 @@ app.prepare().then(() => {
     console.log(`> Next.js ready on port ${PORT}`);
   });
 });
-

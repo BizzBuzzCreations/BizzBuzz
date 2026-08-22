@@ -1,7 +1,6 @@
 import { getLatestThreeBlogsMongo } from "@/actions/blogActions";
 import { getFeaturedImage } from "@/lib/getFeaturedImage";
 import AllBLogs from "@/components/sections/allBLogs";
-import CTA from "@/components/sections/CTA";
 import Link from "next/link";
 import he from "he";
 import { ImageOff } from "lucide-react";
@@ -32,27 +31,12 @@ export default async function Blogs() {
   }
 
   return (
-    <section className="relative overflow-hidden bg-black md:py-16 py-10">
-      {/* Soft brand-blue glows — decorative only, sit behind everything. */}
-      <div
-        className="absolute -top-24 -left-20 w-96 h-96 rounded-full blur-3xl opacity-20 pointer-events-none"
-        style={{ background: "radial-gradient(circle, #40A2D8, transparent 70%)" }}
-        aria-hidden="true"
-      />
-      <div
-        className="absolute top-40 -right-24 w-96 h-96 rounded-full blur-3xl opacity-15 pointer-events-none"
-        style={{ background: "radial-gradient(circle, #0B60B0, transparent 70%)" }}
-        aria-hidden="true"
-      />
-
-      <div className="relative text-center">
-        <p className="text-xs font-bold uppercase tracking-widest text-[#40A2D8] mb-3">
-          The BizzBuzz Blog
-        </p>
-        <h1 className="md:text-4xl text-3xl font-bold text-white">
+    <section className="bg-white md:py-40 py-25">
+      <div className="text-center">
+        <h1 className="md:text-4xl text-3xl font-bold text-black">
           Our Latest Blogs
         </h1>
-        <p className="text-lg text-white/60">
+        <p className="text-lg text-gray-600">
           Explore, discover, and find inspiration through these exciting Blogs.
         </p>
       </div>
@@ -64,13 +48,10 @@ export default async function Blogs() {
             blogs.map((e, index) => {
               const featuredImage = getFeaturedImage(e);
               return (
-              <div
-                key={index}
-                className="group relative rounded-2xl border border-white/10 bg-white/5 p-4 transition-all duration-300 hover:-translate-y-1 hover:border-[#40A2D8] hover:shadow-xl hover:shadow-black/40"
-              >
+              <div className="relative" key={index}>
                 <Link
                   href={`/blog/${e?.slug}`}
-                  className="block overflow-hidden rounded-xl aspect-[1.91/1] bg-white/10"
+                  className="block overflow-hidden group rounded-xl shadow-lg shadow-gray-300 aspect-[1.91/1] bg-gray-100"
                 >
                   {featuredImage ? (
                     <img
@@ -79,7 +60,7 @@ export default async function Blogs() {
                       alt={e?.title}
                     />
                   ) : (
-                    <div className="w-full h-full flex flex-col items-center justify-center gap-2 bg-white/5 text-white/30">
+                    <div className="w-full h-full flex flex-col items-center justify-center gap-2 bg-gradient-to-br from-gray-50 to-gray-200 text-gray-400">
                       <ImageOff size={28} />
                       <span className="text-xs font-medium">
                         Image unavailable
@@ -88,7 +69,7 @@ export default async function Blogs() {
                   )}
                 </Link>
                 <div className="relative mt-5">
-                  <p className="uppercase font-semibold text-xs mb-2.5 text-white/50 transition-colors duration-300 group-hover:text-[#40A2D8]">
+                  <p className="uppercase font-semibold text-xs mb-2.5 text-slate-700">
                     {new Date(e?.publishedAt).toLocaleDateString("en-US", {
                       month: "short",
                       day: "numeric",
@@ -98,19 +79,19 @@ export default async function Blogs() {
                   </p>
                   <Link
                     href={`/blog/${e?.slug}`}
-                    className="block mb-3"
+                    className="block mb-3 hover:underline"
                   >
-                    <h2 className="text-xl lg:text-2xl leading-tight font-semibold leading-5 text-white transition-colors duration-300 group-hover:text-[#40A2D8]">
+                    <h2 className="text-xl lg:text-2xl leading-tight font-semibold leading-5 text-black  transition-colors duration-200 hover:text-slate-700">
                       {e?.title}
                     </h2>
                   </Link>
-                  <p className="text-white/60 transition-colors duration-300 group-hover:text-[#40A2D8]">
+                  <p className="text-gray-700">
                     {truncateHTML(e?.excerpt, 150)}
                   </p>
 
                   <Link
                     href={`/blog/${e?.slug}`}
-                    className="font-medium underline text-white/70 transition-colors duration-300 group-hover:text-[#40A2D8]"
+                    className="font-medium underline text-slate-700 hover:text-slate-900"
                     aria-label={`Read more about ${e?.title}`}
                   >
                     Read More
@@ -123,10 +104,6 @@ export default async function Blogs() {
       </div>
 
       <AllBLogs />
-
-      <div className="relative pt-16 md:pt-20">
-        <CTA />
-      </div>
     </section>
   );
 }

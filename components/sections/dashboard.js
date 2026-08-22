@@ -184,7 +184,7 @@ export default function Dashboard({ role = "user", name = "" }) {
         <div className="flex items-center gap-2.5 border-b border-slate-800 px-5 pb-7">
           <div className="flex h-[50px] w-[200px] shrink-0 items-center justify-center overflow-hidden rounded-[10px]">
             <img
-              src="/bbc-new-logo.png"
+              src="/bbc logo white.png"
               alt="BizzBuzz Creations Logo"
               className="h-full w-full object-contain"
             />

@@ -1,18 +1,16 @@
+import Counter from "@/components/sections/counter";
 import CTA from "@/components/sections/CTA";
+import CTA2 from "@/components/sections/CTA-2";
 import FAQ from "@/components/sections/FAQ";
 import HomeAbout from "@/components/sections/homeAbout";
 import HomeHero from "@/components/sections/homeHero";
 import OurServices from "@/components/sections/ourServices";
-import CaseStudies from "@/components/sections/caseStudies";
-import StatsShowcase from "@/components/sections/statsShowcase";
-import WavyDivider from "@/components/ui/wavy-divider";
-import AiShowcase from "@/components/sections/aiShowcase";
 import Reviews from "@/components/sections/reviews";
 import WhatMAkesUs from "@/components/sections/whatMakesUs";
-import Recognitions from "@/components/sections/recognitions";
-import IndustriesShowcase from "@/components/sections/industriesShowcase";
+import RecentWork from "@/components/sections/recentWork";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import ConsultationPopup from "@/components/sections/popupForm";
+import LogoSlider from "@/components/sections/logoSlider";
 import LatestBlogs from "@/components/sections/latestBlogs";
 
 export const metadata = {
@@ -58,40 +56,32 @@ export default function Home() {
       {/* Our Services */}
       <OurServices />
 
-      {/* Case Studies — client work carousel */}
-      <CaseStudies />
-
-      {/* Wavy divider — visually splits the two back-to-back dark sections.
-          Padding on both sides keeps it floating in the middle of the gap
-          instead of sitting flush against the section below it. */}
-      <div className="bg-black pt-3 pb-8 md:pt-4 md:pb-10">
-        <WavyDivider />
-      </div>
-
-      {/* Stats showcase — auto-scrolling numbers/logos/services carousel */}
-      <StatsShowcase />
-
-      {/* AI showcase — video + AI services split section */}
-      <AiShowcase />
+      {/* CTA-2 Section */}
+      <CTA2 />
 
       {/* What Makes Us Different section */}
       <WhatMAkesUs />
 
       {/* Why choose us */}
-      <WhyChooseUs dark />
+      <WhyChooseUs />
 
-      {/* Proven Expertise — real certifications & partnerships */}
-      <Recognitions />
+      {/* Why Choose Us Section */}
+      <RecentWork />
 
-      {/* Industries we work with — same list as the navbar's mega-menu */}
-      <IndustriesShowcase />
+      {/* <ClientLogo /> */}
+      <LogoSlider />
 
-      {/* Reviews section */}
-      <Reviews />
+      <div className="pt-10">
+        {/* Reviews section */}
+        <Reviews />
+      </div>
 
-      <LatestBlogs dark />
+      {/* Growth counter  */}
+      <Counter />
 
-      <div className="bg-black py-10">
+      <LatestBlogs />
+
+      <div className="py-10">
         {/* FAQ section */}
         <FAQ />
 
@@ -103,10 +93,3 @@ export default function Home() {
     </>
   );
 }
-
-// LatestBlogs fetches from MongoDB — force-dynamic so this page renders at
-// request time instead of during `next build`, where the build sandbox
-// can't reliably resolve the Atlas mongodb+srv:// DNS record (this was
-// causing the Netlify build to fail outright). Same pattern already used
-// on /career and /blog.
-export const dynamic = "force-dynamic";

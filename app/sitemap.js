@@ -1,31 +1,18 @@
 import connectDB from "@/db/connect";
 import Blog from "@/models/blog";
 
-// force-dynamic so this route hits the DB at request time, not during
-// `next build` — a build sandbox without reliable DNS SRV resolution for
-// the Atlas connection string would otherwise fail the whole build here.
-export const dynamic = "force-dynamic";
-
 export default async function sitemap() {
-  let blogPages = [];
+  await connectDB();
+  const posts = await Blog.find({ status: "published" })
+    .select("slug publishedAt updatedAt")
+    .lean();
 
-  try {
-    await connectDB();
-    const posts = await Blog.find({ status: "published" })
-      .select("slug publishedAt updatedAt")
-      .lean();
-
-    blogPages = posts.map((post) => ({
-      url: `https://bizzbuzzcreations.com/blog/${post.slug}`,
-      lastModified: new Date(post.updatedAt || post.publishedAt),
-      changeFrequency: "weekly",
-      priority: 0.7,
-    }));
-  } catch (err) {
-    // Don't let a DB hiccup take the whole sitemap down — fall back to the
-    // static pages below and skip individual blog post entries this time.
-    console.error("sitemap: failed to load blog posts", err);
-  }
+  const blogPages = posts.map((post) => ({
+    url: `https://bizzbuzzcreations.com/blog/${post.slug}`,
+    lastModified: new Date(post.updatedAt || post.publishedAt),
+    changeFrequency: "weekly",
+    priority: 0.7,
+  }));
 
   return [
     {
