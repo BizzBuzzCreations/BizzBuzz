@@ -9,15 +9,18 @@ import DarkFAQSection from "@/components/sections/darkFAQSection";
 import { getServicePageContent } from "@/lib/servicePageContent";
 import { mergeServiceContent } from "@/lib/serviceContentRegistry";
 import { getPageContent } from "@/actions/pageContentActions";
+import { buildPageMetadata } from "@/lib/pageMetadata";
 
-export const metadata = {
+export async function generateMetadata() {
+  return buildPageMetadata("service-web-development", {
   title: "Top Website Development Company | BizzBuzz Creations",
   description:
     "BizzBuzz Creations builds fast, secure, high-converting websites — custom, WordPress, Shopify — for businesses in Prayagraj, Allahabad, India and worldwide.",
   alternates: {
     canonical: "https://bizzbuzzcreations.com/web-development",
   },
-};
+});
+}
 
 const staticContent = getServicePageContent("web-development");
 

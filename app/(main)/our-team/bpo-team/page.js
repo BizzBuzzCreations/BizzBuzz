@@ -1,14 +1,17 @@
 import BpoTeamGrid from "@/components/sections/bpoTeamGrid";
 import { getPageContent } from "@/actions/pageContentActions";
+import { buildPageMetadata } from "@/lib/pageMetadata";
 
-export const metadata = {
+export async function generateMetadata() {
+  return buildPageMetadata("bpo-team", {
   title: "Meet Our BPO Team | BizzBuzz Creations",
   description:
     "Meet the BPO team at BizzBuzz Creations handling customer support, call handling, and back-office work for businesses in India and worldwide.",
   alternates: {
     canonical: "https://bizzbuzzcreations.com/our-team/bpo-team",
   },
-};
+});
+}
 
 export default async function BpoTeamPage() {
   const content = await getPageContent("bpo-team");

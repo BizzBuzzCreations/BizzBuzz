@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import {
   publishJob,
+  updateJob,
   getAllJobs,
   deleteJob,
   getAllComments,
@@ -30,14 +31,16 @@ const NAV_ITEMS = [
   { id: "subservices", label: "Sub-Service Pages", icon: SubServicesIcon },
 ];
 
-// Non-admin (regular) users only get editing access to these — everything
-// else (jobs, comments, submissions, overview stats) stays admin-only.
+// Non-admin (regular) users only get access to these — everything else
+// (jobs, comments, overview stats) stays admin-only. Submissions is
+// view-only for regular users (deleting one still requires admin).
 const USER_ACCESSIBLE_TABS = [
   "blogs",
   "content",
   "industries",
   "services",
   "subservices",
+  "submissions",
 ];
 
 function timeAgo(dateString) {
@@ -72,6 +75,10 @@ export default function Dashboard({ role = "user", name = "" }) {
   const [submissions, setSubmissions] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [showAddJob, setShowAddJob] = useState(false);
+  // null while adding a new job; set to the job's _id while editing an
+  // existing one, so the shared modal below knows which action to call
+  // and which button copy to show.
+  const [editingJobId, setEditingJobId] = useState(null);
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [loading, setLoading] = useState(isAdmin);
 
@@ -114,7 +121,17 @@ export default function Dashboard({ role = "user", name = "" }) {
   };
 
   useEffect(() => {
-    if (isAdmin) fetchAllData();
+    if (isAdmin) {
+      fetchAllData();
+    } else {
+      // Regular users don't get the full admin bundle (jobs/comments
+      // stay admin-only), but they now have view access to submissions
+      // specifically — fetched on its own so it doesn't block the
+      // blogs tab behind the admin-only loading screen below.
+      getAllSubmissions().then((res) => {
+        if (res?.success) setSubmissions(res.data || []);
+      });
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -129,23 +146,52 @@ export default function Dashboard({ role = "user", name = "" }) {
     );
   }, [jobs, searchQuery]);
 
-  const handleAddJob = async () => {
-    const response = await publishJob(newJob);
+  const resetJobForm = () => {
+    setNewJob({
+      title: "",
+      department: "",
+      experience: "",
+      location: "",
+      type: "Full-time",
+      description: "",
+      applyForm: "",
+    });
+    setEditingJobId(null);
+  };
+
+  const handleOpenAddJob = () => {
+    resetJobForm();
+    setShowAddJob(true);
+  };
+
+  const handleOpenEditJob = (job) => {
+    setNewJob({
+      title: job.title || "",
+      department: job.department || "",
+      experience: job.experience || "",
+      location: job.location || "",
+      type: job.type || "Full-time",
+      description: job.description || "",
+      applyForm: job.applyForm || "",
+    });
+    setEditingJobId(job._id);
+    setShowAddJob(true);
+  };
+
+  const handleSaveJob = async () => {
+    const response = editingJobId
+      ? await updateJob({ id: editingJobId, ...newJob })
+      : await publishJob(newJob);
 
     if (response?.success) {
-      setNewJob({
-        title: "",
-        department: "",
-        experience: "",
-        location: "",
-        type: "Full-time",
-        description: "",
-        applyForm: "",
-      });
+      resetJobForm();
       setShowAddJob(false);
       await fetchAllData();
     } else {
-      alert(response?.message || "Failed to publish job.");
+      alert(
+        response?.message ||
+          (editingJobId ? "Failed to update job." : "Failed to publish job."),
+      );
     }
   };
 
@@ -286,7 +332,7 @@ export default function Dashboard({ role = "user", name = "" }) {
                 className="rounded-[10px] bg-linear-to-br from-indigo-500 to-violet-500 px-5 py-2.5 text-sm font-semibold text-white"
                 onClick={() => {
                   setActiveTab("jobs");
-                  setShowAddJob(true);
+                  handleOpenAddJob();
                 }}
               >
                 Post New Job
@@ -392,12 +438,20 @@ export default function Dashboard({ role = "user", name = "" }) {
                         {job.type}
                       </td>
                       <td className="px-3 py-3">
-                        <button
-                          className="rounded-md bg-red-50 px-3 py-1 text-sm text-red-500"
-                          onClick={() => handleDeleteJob(job._id)}
-                        >
-                          Delete
-                        </button>
+                        <div className="flex items-center gap-2">
+                          <button
+                            className="rounded-md bg-indigo-50 px-3 py-1 text-sm text-indigo-600"
+                            onClick={() => handleOpenEditJob(job)}
+                          >
+                            Edit
+                          </button>
+                          <button
+                            className="rounded-md bg-red-50 px-3 py-1 text-sm text-red-500"
+                            onClick={() => handleDeleteJob(job._id)}
+                          >
+                            Delete
+                          </button>
+                        </div>
                       </td>
                     </tr>
                   ))}
@@ -425,7 +479,7 @@ export default function Dashboard({ role = "user", name = "" }) {
                         {comment.name}
                       </p>
                       <p className="text-xs text-slate-400">
-                        on "{comment.blog}"
+                        on &quot;{comment.blog}&quot;
                       </p>
                       <p className="mt-2 text-sm text-slate-600">
                         {comment.message}
@@ -510,14 +564,17 @@ export default function Dashboard({ role = "user", name = "" }) {
         {showAddJob && (
           <div
             className="fixed inset-0 z-100 flex items-center justify-center bg-slate-900/55 backdrop-blur-sm"
-            onClick={() => setShowAddJob(false)}
+            onClick={() => {
+              setShowAddJob(false);
+              resetJobForm();
+            }}
           >
             <div
               className="w-[560px] max-w-[90vw] rounded-[20px] bg-white p-8 shadow-[0_24px_60px_rgba(0,0,0,0.18)]"
               onClick={(e) => e.stopPropagation()}
             >
               <h2 className="mb-4 text-[20px] font-extrabold text-slate-900">
-                Post a New Job
+                {editingJobId ? "Edit Job" : "Post a New Job"}
               </h2>
 
               <div className="grid gap-4">
@@ -587,15 +644,18 @@ export default function Dashboard({ role = "user", name = "" }) {
               <div className="mt-6 flex justify-end gap-2.5">
                 <button
                   className="rounded-[10px] border border-slate-200 bg-white px-[18px] py-2.5 text-sm font-semibold text-slate-600"
-                  onClick={() => setShowAddJob(false)}
+                  onClick={() => {
+                    setShowAddJob(false);
+                    resetJobForm();
+                  }}
                 >
                   Cancel
                 </button>
                 <button
                   className="rounded-[10px] bg-linear-to-br from-indigo-500 to-violet-500 px-[18px] py-2.5 text-sm font-semibold text-white"
-                  onClick={handleAddJob}
+                  onClick={handleSaveJob}
                 >
-                  Post Job
+                  {editingJobId ? "Save Changes" : "Post Job"}
                 </button>
               </div>
             </div>

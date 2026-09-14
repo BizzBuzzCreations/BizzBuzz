@@ -17,6 +17,16 @@ async function requireAdmin() {
   return null;
 }
 
+// Any logged-in user (admin or regular) — used for actions non-admin
+// users are now allowed to do, like viewing form submissions.
+async function requireSession() {
+  const session = await getSession();
+  if (!session) {
+    return { success: false, message: "Unauthorized." };
+  }
+  return null;
+}
+
 // Function to send email
 export async function sendMail({ name, email, subject, text, contact }) {
   const now = Date.now();
@@ -149,6 +159,60 @@ export async function publishJob({
   }
 }
 
+// Function to update an existing job
+export async function updateJob({
+  id,
+  title,
+  department,
+  experience,
+  location,
+  type,
+  description,
+  applyForm,
+}) {
+  const unauthorized = await requireAdmin();
+  if (unauthorized) return unauthorized;
+
+  await connectDB();
+
+  if (
+    !id ||
+    !title ||
+    !department ||
+    !experience ||
+    !location ||
+    !type ||
+    !description ||
+    !applyForm
+  ) {
+    return {
+      success: false,
+      message: "All fields are required.",
+    };
+  }
+  try {
+    await Job.findByIdAndUpdate(id, {
+      title,
+      department,
+      experience,
+      location,
+      type,
+      description,
+      applyForm,
+    });
+    return {
+      success: true,
+      message: "Job updated successfully.",
+    };
+  } catch (error) {
+    console.error("Job update failed:", error);
+    return {
+      success: false,
+      message: "Failed to update job.",
+    };
+  }
+}
+
 // Function to get all jobs
 export async function getAllJobs() {
   await connectDB();
@@ -197,7 +261,9 @@ export async function deleteJob({ id }) {
 
 // Function to get all submissions
 export async function getAllSubmissions() {
-  const unauthorized = await requireAdmin();
+  // View access only — any logged-in user (not just admin) can see
+  // submissions now. Deleting one still requires admin (see below).
+  const unauthorized = await requireSession();
   if (unauthorized) return unauthorized;
 
   await connectDB();

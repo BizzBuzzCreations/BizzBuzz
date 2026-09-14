@@ -2,14 +2,17 @@ import ServiceDetailPage from "@/components/sections/serviceDetailPage";
 import { getSubServicePageContent } from "@/lib/subServicePageContent";
 import { mergeSubServiceContent } from "@/lib/subServiceContentRegistry";
 import { getPageContent } from "@/actions/pageContentActions";
+import { buildPageMetadata } from "@/lib/pageMetadata";
 
-export const metadata = {
+export async function generateMetadata() {
+  return buildPageMetadata("subservice-marketing-automation-whatsapp-marketing-automation", {
   title: "WhatsApp Marketing Automation | BizzBuzz Creations",
   description: "BizzBuzz Creations provides WhatsApp marketing automation that engages customers directly across India and worldwide.",
   alternates: {
     canonical: "https://bizzbuzzcreations.com/marketing-automation/whatsapp-marketing-automation"
   }
-};
+});
+}
 
 const staticContent = getSubServicePageContent("marketing-automation", "whatsapp-marketing-automation");
 

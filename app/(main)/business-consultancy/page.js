@@ -9,15 +9,18 @@ import DarkFAQSection from "@/components/sections/darkFAQSection";
 import { getServicePageContent } from "@/lib/servicePageContent";
 import { mergeServiceContent } from "@/lib/serviceContentRegistry";
 import { getPageContent } from "@/actions/pageContentActions";
+import { buildPageMetadata } from "@/lib/pageMetadata";
 
-export const metadata = {
+export async function generateMetadata() {
+  return buildPageMetadata("service-business-consultancy", {
   title: "Top Business Consulting Firm | BizzBuzz Creations",
   description:
     "BizzBuzz Creations is a business consulting firm advising on strategy, growth and operations for India and worldwide.",
   alternates: {
     canonical: "https://bizzbuzzcreations.com/business-consultancy",
   },
-};
+});
+}
 
 const staticContent = getServicePageContent("business-consultancy");
 

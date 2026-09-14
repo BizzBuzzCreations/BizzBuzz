@@ -15,8 +15,10 @@ import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import ConsultationPopup from "@/components/sections/popupForm";
 import LatestBlogs from "@/components/sections/latestBlogs";
 import { getPageContent } from "@/actions/pageContentActions";
+import { buildPageMetadata } from "@/lib/pageMetadata";
 
-export const metadata = {
+export async function generateMetadata() {
+  return buildPageMetadata("home", {
   title: "Digital Marketing Agency in India | BizzBuzz Creations",
   description:
     "Full-stack digital marketing agency in Prayagraj, India. SEO, Google Ads, social media & web development for clients across India and worldwide.",
@@ -44,7 +46,8 @@ export const metadata = {
       "Searching for the best SEO and SMM service company in Prayagraj? We help businesses rank higher, increase visibility, and get more leads with proven digital marketing strategies.",
     images: ["https://bizzbuzzcreations.com/Industry Authority (1).png"],
   },
-};
+});
+}
 
 export default async function Home() {
   const content = await getPageContent("home");

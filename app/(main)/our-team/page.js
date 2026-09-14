@@ -5,15 +5,18 @@ import RichText from "@/components/ui/richText";
 import TeamGrids from "@/components/sections/teamGrids";
 import ContactSection from "@/components/sections/contactSection";
 import { getPageContent } from "@/actions/pageContentActions";
+import { buildPageMetadata } from "@/lib/pageMetadata";
 
-export const metadata = {
+export async function generateMetadata() {
+  return buildPageMetadata("our-team", {
   title: "Our Team | BizzBuzz Creations Digital Marketing Agency",
   description:
     "Meet the team behind BizzBuzz Creations: SEO, ads, development, and AI specialists building digital growth for businesses across India and worldwide.",
   alternates: {
     canonical: "https://bizzbuzzcreations.com/our-team",
   },
-};
+});
+}
 
 export default async function OurTeamPage() {
   const content = await getPageContent("our-team");

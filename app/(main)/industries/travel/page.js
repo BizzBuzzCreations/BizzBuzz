@@ -3,18 +3,21 @@ import { getIndustryBySlug } from "@/lib/industriesData";
 import { getIndustryPageContent } from "@/lib/industryPageContent";
 import { mergeIndustryContent } from "@/lib/industryContentRegistry";
 import { getPageContent } from "@/actions/pageContentActions";
+import { buildPageMetadata } from "@/lib/pageMetadata";
 
 const industry = getIndustryBySlug("travel");
 const staticContent = getIndustryPageContent("travel");
 
-export const metadata = {
+export async function generateMetadata() {
+  return buildPageMetadata("industry-travel", {
   title: "Travel Digital Marketing Agency | BizzBuzz Creations",
   description:
     "BizzBuzz Creations is a travel digital marketing agency helping travel agencies, hotels and tour operators grow across India and worldwide.",
   alternates: {
     canonical: "https://bizzbuzzcreations.com/industries/travel",
   },
-};
+});
+}
 
 export default async function IndustryPage() {
   const overrides = await getPageContent("industry-travel");

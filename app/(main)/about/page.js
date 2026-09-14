@@ -22,6 +22,7 @@ import RichText from "@/components/ui/richText";
 import AboutCulture from "@/components/sections/aboutCulture";
 import OurJourney from "@/components/sections/ourJourney";
 import { getPageContent } from "@/actions/pageContentActions";
+import { buildPageMetadata } from "@/lib/pageMetadata";
 
 // icons stay code-driven (design), matched positionally to whichever core
 // value cards are saved.
@@ -43,14 +44,16 @@ const DEFAULT_ROADMAP_STEPS = [
   { title: "Report & Grow", desc: "Transparent reporting and regular strategy calls keep growth compounding long after launch day." },
 ];
 
-export const metadata = {
+export async function generateMetadata() {
+  return buildPageMetadata("about", {
   title: "About BizzBuzz Creations | Digital Marketing Agency in Prayagraj",
   description:
     "Meet BizzBuzz Creations, a digital marketing agency in Prayagraj helping businesses across India and worldwide grow through SEO, paid ads, social media, web and digital strategy.",
   alternates: {
     canonical: "https://bizzbuzzcreations.com/about",
   },
-};
+});
+}
 
 export default async function About() {
   const content = await getPageContent("about");

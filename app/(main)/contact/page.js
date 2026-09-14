@@ -7,15 +7,18 @@ import WavyDivider from "@/components/ui/wavy-divider";
 import Particles from "@/components/ui/Particles";
 import React from "react";
 import { getPageContent } from "@/actions/pageContentActions";
+import { buildPageMetadata } from "@/lib/pageMetadata";
 
-export const metadata = {
+export async function generateMetadata() {
+  return buildPageMetadata("contact", {
   title: "Contact BizzBuzz Creations | Free SEO & Marketing Consultation",
   description:
     "Need more leads and sales? Contact BizzBuzz Creations for SEO, social media, and website services in Prayagraj. Get a free consultation today.",
   alternates: {
     canonical: "https://bizzbuzzcreations.com/contact",
   },
-};
+});
+}
 
 export default async function Contact() {
   const content = await getPageContent("contact");

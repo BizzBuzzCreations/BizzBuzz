@@ -9,15 +9,18 @@ import DarkFAQSection from "@/components/sections/darkFAQSection";
 import { getServicePageContent } from "@/lib/servicePageContent";
 import { mergeServiceContent } from "@/lib/serviceContentRegistry";
 import { getPageContent } from "@/actions/pageContentActions";
+import { buildPageMetadata } from "@/lib/pageMetadata";
 
-export const metadata = {
+export async function generateMetadata() {
+  return buildPageMetadata("service-paid-marketing", {
   title: "Top Paid Marketing Agency | BizzBuzz Creations",
   description:
     "BizzBuzz Creations is a paid marketing agency running Google, Meta, and e-commerce ad campaigns for India and worldwide.",
   alternates: {
     canonical: "https://bizzbuzzcreations.com/paid-marketing",
   },
-};
+});
+}
 
 const staticContent = getServicePageContent("paid-marketing");
 

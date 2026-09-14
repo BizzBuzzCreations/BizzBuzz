@@ -9,15 +9,18 @@ import DarkFAQSection from "@/components/sections/darkFAQSection";
 import { getServicePageContent } from "@/lib/servicePageContent";
 import { mergeServiceContent } from "@/lib/serviceContentRegistry";
 import { getPageContent } from "@/actions/pageContentActions";
+import { buildPageMetadata } from "@/lib/pageMetadata";
 
-export const metadata = {
+export async function generateMetadata() {
+  return buildPageMetadata("service-social-media-marketing", {
   title: "Top Social Media Marketing Agency | BizzBuzz Creations",
   description:
     "BizzBuzz Creations is a social media marketing agency managing strategy, ads, and content for businesses in India and worldwide.",
   alternates: {
     canonical: "https://bizzbuzzcreations.com/social-media-marketing",
   },
-};
+});
+}
 
 const staticContent = getServicePageContent("social-media-marketing");
 

@@ -19,6 +19,7 @@ import DarkFAQSection from "@/components/sections/darkFAQSection";
 import HighlightCard from "@/components/ui/highlightCard";
 import { SERVICES } from "@/lib/industriesData";
 import { getPageContent } from "@/actions/pageContentActions";
+import { buildPageMetadata } from "@/lib/pageMetadata";
 
 // Real, short descriptions already used elsewhere on the site (the
 // homepage's Categories showcase) — reused here rather than invented,
@@ -130,14 +131,16 @@ const DEFAULT_SERVICE_SCENARIOS = [
   { question: "Need a Better Online Foundation?", detail: "Create a fast, responsive website that gives your brand a stronger digital presence and supports customer acquisition." },
 ];
 
-export const metadata = {
+export async function generateMetadata() {
+  return buildPageMetadata("services", {
   title: "Digital Marketing & Business Services | BizzBuzz Creations",
   description:
     "Explore SEO, social media, Google Ads, web development, BPO, AI, automation, and business consultancy services built for business growth.",
   alternates: {
     canonical: "https://bizzbuzzcreations.com/services",
   },
-};
+});
+}
 
 function ServiceCard({ service, description, buttonText }) {
   const Icon = service.icon;

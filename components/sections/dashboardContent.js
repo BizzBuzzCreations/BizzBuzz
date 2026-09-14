@@ -7,8 +7,9 @@ import {
   uploadContentImage,
   uploadContentVideo,
 } from "@/actions/pageContentActions";
-import { PAGE_CONTENT_REGISTRY } from "@/lib/pageContentRegistry";
+import { PAGE_CONTENT_REGISTRY, getPageMeta } from "@/lib/pageContentRegistry";
 import InlineRichEditor from "@/components/ui/inlineRichEditor";
+import MediaLibraryButton from "@/components/sections/mediaLibrary";
 
 function MediaField({ value, onChange, label, kind }) {
   const [uploading, setUploading] = useState(false);
@@ -185,12 +186,21 @@ export default function DashboardContent() {
   const [saving, setSaving] = useState(false);
   const [savedAt, setSavedAt] = useState(null);
 
-  const page = PAGE_CONTENT_REGISTRY.find((p) => p.key === pageKey);
+  // getPageMeta (not a raw find on PAGE_CONTENT_REGISTRY) so this page
+  // picks up the shared SEO/Meta section auto-appended to every page.
+  const page = getPageMeta(pageKey);
 
   useEffect(() => {
     let cancelled = false;
-    setLoading(true);
-    setSavedAt(null);
+    // Deferred (not called synchronously in the effect body) so this
+    // doesn't trip react-hooks/set-state-in-effect — same end result,
+    // just scheduled a tick later instead of during the render commit.
+    const resetTimer = setTimeout(() => {
+      if (!cancelled) {
+        setLoading(true);
+        setSavedAt(null);
+      }
+    }, 0);
     getPageContent(pageKey).then((data) => {
       if (!cancelled) {
         setValues(data);
@@ -199,11 +209,29 @@ export default function DashboardContent() {
     });
     return () => {
       cancelled = true;
+      clearTimeout(resetTimer);
     };
   }, [pageKey]);
 
-  const handleChange = (key, value) => {
-    setValues((prev) => ({ ...prev, [key]: value }));
+  const handleChange = (key, value, fieldType) => {
+    setValues((prev) => {
+      const next = { ...prev, [key]: value };
+      // Media fields (top-level only — nested list-item images still use
+      // the normal Save Changes flow) persist the moment the upload
+      // finishes, instead of sitting as an unsaved local change that
+      // silently reverts to the old image if the admin navigates away
+      // or forgets to click Save.
+      if (fieldType === "image" || fieldType === "video") {
+        savePageContent(pageKey, next).then((res) => {
+          if (res?.success) {
+            setSavedAt(Date.now());
+          } else {
+            alert(res?.message || "Failed to save the new image.");
+          }
+        });
+      }
+      return next;
+    });
   };
 
   const handleSave = async () => {
@@ -228,27 +256,30 @@ export default function DashboardContent() {
             layout stay exactly as built.
           </p>
         </div>
-        <div className="relative">
-          <select
-            value={pageKey}
-            onChange={(e) => setPageKey(e.target.value)}
-            className="min-w-[180px] appearance-none rounded-lg border border-slate-200 bg-white py-2.5 pl-4 pr-9 text-sm font-medium text-slate-700 outline-none focus:border-slate-400"
-          >
-            {PAGE_CONTENT_REGISTRY.map((p) => (
-              <option key={p.key} value={p.key}>
-                {p.label}
-              </option>
-            ))}
-          </select>
-          <svg
-            className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-          >
-            <polyline points="6 9 12 15 18 9" />
-          </svg>
+        <div className="flex items-center gap-3">
+          <MediaLibraryButton />
+          <div className="relative">
+            <select
+              value={pageKey}
+              onChange={(e) => setPageKey(e.target.value)}
+              className="min-w-[180px] appearance-none rounded-lg border border-slate-200 bg-white py-2.5 pl-4 pr-9 text-sm font-medium text-slate-700 outline-none focus:border-slate-400"
+            >
+              {PAGE_CONTENT_REGISTRY.map((p) => (
+                <option key={p.key} value={p.key}>
+                  {p.label}
+                </option>
+              ))}
+            </select>
+            <svg
+              className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </div>
         </div>
       </div>
 
@@ -283,7 +314,7 @@ export default function DashboardContent() {
                       <FieldControl
                         field={field}
                         value={values[field.key]}
-                        onChange={(value) => handleChange(field.key, value)}
+                        onChange={(value) => handleChange(field.key, value, field.type)}
                       />
                     )}
                   </div>

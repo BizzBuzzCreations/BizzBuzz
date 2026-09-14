@@ -9,15 +9,18 @@ import DarkFAQSection from "@/components/sections/darkFAQSection";
 import { getServicePageContent } from "@/lib/servicePageContent";
 import { mergeServiceContent } from "@/lib/serviceContentRegistry";
 import { getPageContent } from "@/actions/pageContentActions";
+import { buildPageMetadata } from "@/lib/pageMetadata";
 
-export const metadata = {
+export async function generateMetadata() {
+  return buildPageMetadata("service-marketing-automation", {
   title: "Top Marketing Automation Agency | BizzBuzz Creations",
   description:
     "BizzBuzz Creations is a marketing automation agency connecting email, CRM and WhatsApp for India and worldwide.",
   alternates: {
     canonical: "https://bizzbuzzcreations.com/marketing-automation",
   },
-};
+});
+}
 
 const staticContent = getServicePageContent("marketing-automation");
 

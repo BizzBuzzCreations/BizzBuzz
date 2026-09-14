@@ -216,14 +216,22 @@ export function RoleCard({
             </div>
           </div>
 
-          {/* Back — name + social links, flipped 180deg so it reads
-              correctly once the card itself rotates into view. Falls
-              back to the role when no name is set yet (e.g. leaders
-              whose roster hasn't been finalized with real names). */}
+          {/* Back — name + role + social links, flipped 180deg so it
+              reads correctly once the card itself rotates into view.
+              Falls back to just the role when no name is set yet (e.g.
+              leaders whose roster hasn't been finalized with real
+              names) — no point repeating the same text twice. */}
           <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] rounded-2xl border border-[#40A2D8]/40 bg-[#0B60B0]/10 flex flex-col items-center justify-center gap-5 p-6 text-center">
-            <h3 className="font-bold text-white text-xl leading-snug">
-              {name || role}
-            </h3>
+            <div>
+              <h3 className="font-bold text-white text-xl leading-snug">
+                {name || role}
+              </h3>
+              {name && role && (
+                <p className="text-[#40A2D8] text-sm font-semibold mt-1">
+                  {role}
+                </p>
+              )}
+            </div>
             {(showLinkedin || showInstagram) && (
               <div className="flex items-center gap-4">
                 {showLinkedin && (

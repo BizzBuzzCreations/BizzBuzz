@@ -2,14 +2,17 @@ import ServiceDetailPage from "@/components/sections/serviceDetailPage";
 import { getSubServicePageContent } from "@/lib/subServicePageContent";
 import { mergeSubServiceContent } from "@/lib/subServiceContentRegistry";
 import { getPageContent } from "@/actions/pageContentActions";
+import { buildPageMetadata } from "@/lib/pageMetadata";
 
-export const metadata = {
+export async function generateMetadata() {
+  return buildPageMetadata("subservice-business-consultancy-operations-process-consulting", {
   title: "Operations & Process Consulting Firm | BizzBuzz Creations",
   description: "BizzBuzz Creations is an operations consulting firm improving business processes for companies across India and worldwide.",
   alternates: {
     canonical: "https://bizzbuzzcreations.com/business-consultancy/operations-process-consulting"
   }
-};
+});
+}
 
 const staticContent = getSubServicePageContent("business-consultancy", "operations-process-consulting");
 

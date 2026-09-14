@@ -1,14 +1,17 @@
 import RndTeamGrid from "@/components/sections/rndTeamGrid";
 import { getPageContent } from "@/actions/pageContentActions";
+import { buildPageMetadata } from "@/lib/pageMetadata";
 
-export const metadata = {
+export async function generateMetadata() {
+  return buildPageMetadata("rnd-team", {
   title: "Meet Our R&D Team | BizzBuzz Creations",
   description:
     "Meet the R&D team at BizzBuzz Creations researching AI search, automation, and emerging digital technologies for businesses in India and worldwide.",
   alternates: {
     canonical: "https://bizzbuzzcreations.com/our-team/rnd-team",
   },
-};
+});
+}
 
 export default async function RndTeamPage() {
   const content = await getPageContent("rnd-team");

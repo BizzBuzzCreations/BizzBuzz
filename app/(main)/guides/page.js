@@ -19,15 +19,18 @@ import LatestBlogs from "@/components/sections/latestBlogs";
 import DarkFAQSection from "@/components/sections/darkFAQSection";
 import { getPageContent } from "@/actions/pageContentActions";
 import RichText from "@/components/ui/richText";
+import { buildPageMetadata } from "@/lib/pageMetadata";
 
-export const metadata = {
+export async function generateMetadata() {
+  return buildPageMetadata("guides", {
   title: "Digital Marketing Guides & Resources | BizzBuzz Creations",
   description:
     "Explore practical digital marketing guides on SEO, AI, social media, Google Ads, websites, content marketing, and more.",
   alternates: {
     canonical: "https://bizzbuzzcreations.com/guides",
   },
-};
+});
+}
 
 // Icons stay code-driven (design), matched positionally to whichever
 // guide categories are saved; the "01." style tag is auto-numbered.

@@ -9,15 +9,18 @@ import DarkFAQSection from "@/components/sections/darkFAQSection";
 import { getServicePageContent } from "@/lib/servicePageContent";
 import { mergeServiceContent } from "@/lib/serviceContentRegistry";
 import { getPageContent } from "@/actions/pageContentActions";
+import { buildPageMetadata } from "@/lib/pageMetadata";
 
-export const metadata = {
+export async function generateMetadata() {
+  return buildPageMetadata("service-bpo-services", {
   title: "Top BPO & Outsourcing Company | BizzBuzz Creations",
   description:
     "BizzBuzz Creations is a BPO and outsourcing company providing call center, automation, and support services worldwide.",
   alternates: {
     canonical: "https://bizzbuzzcreations.com/bpo-services",
   },
-};
+});
+}
 
 const staticContent = getServicePageContent("bpo-services");
 

@@ -51,7 +51,7 @@ export default async function IndustryPage({ params }) {
           </h2>
           <p className="text-center text-gray-600 max-w-xl mx-auto mb-14">
             Every industry has its own obstacles between visibility and
-            revenue — here's what we see most in {industry.label.toLowerCase()}.
+            revenue — here&apos;s what we see most in {industry.label.toLowerCase()}.
           </p>
 
           <div className="grid sm:grid-cols-3 gap-6">

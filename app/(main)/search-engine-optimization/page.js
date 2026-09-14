@@ -9,15 +9,18 @@ import DarkFAQSection from "@/components/sections/darkFAQSection";
 import { getServicePageContent } from "@/lib/servicePageContent";
 import { mergeServiceContent } from "@/lib/serviceContentRegistry";
 import { getPageContent } from "@/actions/pageContentActions";
+import { buildPageMetadata } from "@/lib/pageMetadata";
 
-export const metadata = {
+export async function generateMetadata() {
+  return buildPageMetadata("service-search-engine-optimization", {
   title: "Top SEO Services & Agency | BizzBuzz Creations",
   description:
     "BizzBuzz Creations is an SEO agency delivering search engine optimization services for businesses in India and worldwide.",
   alternates: {
     canonical: "https://bizzbuzzcreations.com/search-engine-optimization",
   },
-};
+});
+}
 
 const staticContent = getServicePageContent("search-engine-optimization");
 

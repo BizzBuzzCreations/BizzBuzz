@@ -23,6 +23,7 @@ import CaseStudies from "@/components/sections/caseStudies";
 import CertificationsCarousel from "@/components/sections/certificationsCarousel";
 import DarkFAQSection from "@/components/sections/darkFAQSection";
 import { getPageContent } from "@/actions/pageContentActions";
+import { buildPageMetadata } from "@/lib/pageMetadata";
 
 // Icons stay code-driven (design), matched positionally to whichever
 // industry cards are saved — same order as the default list below.
@@ -105,14 +106,16 @@ const INDUSTRIES_FAQS = [
   },
 ];
 
-export const metadata = {
+export async function generateMetadata() {
+  return buildPageMetadata("industries", {
   title: "Digital Marketing Services by Industry | BizzBuzz Creations",
   description:
     "Explore industry-specific digital marketing, SEO, social media, web development, and BPO solutions for businesses in India and worldwide.",
   alternates: {
     canonical: "https://bizzbuzzcreations.com/industries",
   },
-};
+});
+}
 
 export default async function IndustriesIndexPage() {
   const content = await getPageContent("industries");

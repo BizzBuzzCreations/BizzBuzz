@@ -21,14 +21,16 @@ export default function GuidesHero({ content } = {}) {
         className="absolute inset-0"
         style={{
           backgroundImage: `url('${heroImage}')`,
-          // "contain" (not "cover") — on a full min-h-screen section, a
-          // "cover" fit was scaling this wide, text-baked graphic up
-          // enough to crop its right edge clean off. "contain" always
-          // shows the whole image; on a section taller than the image's
-          // own ratio, that just leaves black/gradient above and below
-          // it instead of cutting anything off.
-          backgroundSize: "contain",
-          backgroundPosition: "center",
+          // "contain" left ugly black bars down the sides on most real
+          // viewports (this section's min-h-screen height rarely matches
+          // the image's own ratio exactly). Back to "cover" — edge to
+          // edge, no bars — but anchored to the right edge instead of
+          // centered: the graphic's subject (globe, "GUIDE" text, gear
+          // icons) all sit in the right two-thirds of the source photo,
+          // so pinning the crop to the right keeps all of that on screen
+          // and only ever trims the plain blurred bokeh on the left.
+          backgroundSize: "cover",
+          backgroundPosition: "right center",
           backgroundRepeat: "no-repeat",
         }}
       />

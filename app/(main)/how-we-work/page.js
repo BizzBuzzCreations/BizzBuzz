@@ -6,6 +6,7 @@ import CategoriesShowcase from "@/components/sections/categoriesShowcase";
 import { INDUSTRIES } from "@/lib/industriesData";
 import RichText from "@/components/ui/richText";
 import { getPageContent } from "@/actions/pageContentActions";
+import { buildPageMetadata } from "@/lib/pageMetadata";
 import {
   Eye,
   Users,
@@ -22,14 +23,16 @@ import {
   RefreshCw,
 } from "lucide-react";
 
-export const metadata = {
+export async function generateMetadata() {
+  return buildPageMetadata("how-we-work", {
   title: "How We Work | Our Process | BizzBuzz Creations",
   description:
     "No guesswork, just a structured process. See how BizzBuzz Creations plans, executes, and optimizes every campaign step by step.",
   alternates: {
     canonical: "https://bizzbuzzcreations.com/how-we-work",
   },
-};
+});
+}
 
 const PRINCIPLE_ICONS = [Eye, Users, Zap, Unlock, ShieldCheck, Lightbulb];
 const DEFAULT_PRINCIPLES = [

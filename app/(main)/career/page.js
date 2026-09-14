@@ -5,15 +5,18 @@ import CTA from "@/components/sections/CTA";
 import { Briefcase } from "lucide-react";
 import { getPageContent } from "@/actions/pageContentActions";
 import JobCard from "@/components/ui/jobCard";
+import { buildPageMetadata } from "@/lib/pageMetadata";
 
-export const metadata = {
+export async function generateMetadata() {
+  return buildPageMetadata("career", {
   title: "Careers at BizzBuzz Creations | Digital Marketing Jobs & Internships",
   description:
     "Join BizzBuzz Creations and build your career in SEO, Meta Ads, content marketing & branding. Explore digital marketing jobs and internship opportunities today.",
   alternates: {
     canonical: "https://bizzbuzzcreations.com/career",
   },
-};
+});
+}
 
 export default async function Career() {
   const getDaysSincePosted = (createdAt) => {

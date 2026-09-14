@@ -9,15 +9,18 @@ import DarkFAQSection from "@/components/sections/darkFAQSection";
 import { getServicePageContent } from "@/lib/servicePageContent";
 import { mergeServiceContent } from "@/lib/serviceContentRegistry";
 import { getPageContent } from "@/actions/pageContentActions";
+import { buildPageMetadata } from "@/lib/pageMetadata";
 
-export const metadata = {
+export async function generateMetadata() {
+  return buildPageMetadata("service-ai-solutions", {
   title: "Top AI Solutions Company | BizzBuzz Creations",
   description:
     "BizzBuzz Creations is an AI solutions company building agents, content, and automation for India and worldwide.",
   alternates: {
     canonical: "https://bizzbuzzcreations.com/ai-solutions",
   },
-};
+});
+}
 
 const staticContent = getServicePageContent("ai-solutions");
 

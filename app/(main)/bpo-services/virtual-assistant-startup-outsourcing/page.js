@@ -2,14 +2,17 @@ import ServiceDetailPage from "@/components/sections/serviceDetailPage";
 import { getSubServicePageContent } from "@/lib/subServicePageContent";
 import { mergeSubServiceContent } from "@/lib/subServiceContentRegistry";
 import { getPageContent } from "@/actions/pageContentActions";
+import { buildPageMetadata } from "@/lib/pageMetadata";
 
-export const metadata = {
+export async function generateMetadata() {
+  return buildPageMetadata("subservice-bpo-services-virtual-assistant-startup-outsourcing", {
   title: "Virtual Assistant Services | BizzBuzz Creations",
   description: "BizzBuzz Creations provides dedicated virtual assistant services for startups",
   alternates: {
     canonical: "https://bizzbuzzcreations.com/bpo-services/virtual-assistant-startup-outsourcing"
   }
-};
+});
+}
 
 const staticContent = getSubServicePageContent("bpo-services", "virtual-assistant-startup-outsourcing");
 
