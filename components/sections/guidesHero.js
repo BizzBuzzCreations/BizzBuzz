@@ -16,7 +16,7 @@ export default function GuidesHero({ content } = {}) {
   const heroImage = content?.guidesHeroImage || "/guides.png";
 
   return (
-    <section className="relative overflow-hidden min-h-[420px] sm:min-h-[480px] flex items-center py-24 md:py-28 px-6 md:px-12 lg:px-24 text-white bg-black">
+    <section className="relative overflow-hidden min-h-screen flex items-center py-24 md:py-28 px-6 md:px-12 lg:px-24 text-white bg-black">
       <div
         className="absolute inset-0"
         style={{

@@ -37,7 +37,7 @@ export default function CareerHero({ content } = {}) {
   }, [SLIDES.length]);
 
   return (
-    <section className="relative overflow-hidden min-h-[420px] sm:min-h-[480px] flex items-center pt-10 md:pt-20">
+    <section className="relative overflow-hidden min-h-screen flex items-center pt-10 md:pt-20">
       {SLIDES.map((src, i) => (
         <div
           // Index, not src — slides can (and now do, by request) repeat the

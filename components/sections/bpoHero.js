@@ -22,7 +22,7 @@ import Link from "next/link";
 // margin or forced height.
 export default function BpoHero({ heading, description, img, ctaText = "Start Now" }) {
   return (
-    <section className="relative md:min-h-[85vh] flex items-center overflow-hidden pt-10 md:-mt-[72px] md:pt-44 pb-12 md:pb-20 px-6 md:px-12 lg:px-24">
+    <section className="relative min-h-screen flex items-center overflow-hidden pt-10 md:-mt-[72px] md:pt-44 pb-12 md:pb-20 px-6 md:px-12 lg:px-24">
       <div className="hidden md:block">
         <Image
           src={img}

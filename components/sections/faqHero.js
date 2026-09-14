@@ -27,7 +27,7 @@ export default function FaqHero({ content } = {}) {
   const backgroundImage = content?.faqHeroBackgroundImage || "/FAQ.png";
 
   return (
-    <section className="relative overflow-hidden min-h-[420px] sm:min-h-[480px] md:min-h-[560px] flex items-center bg-black">
+    <section className="relative overflow-hidden min-h-screen flex items-center bg-black">
       {/* Background photo — desktop/tablet only */}
       <div
         className="hidden md:block absolute inset-0"

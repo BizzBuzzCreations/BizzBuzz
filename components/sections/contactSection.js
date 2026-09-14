@@ -103,7 +103,7 @@ export default function ContactSection({ content }) {
   };
 
   return (
-    <section id="contact-form" className="relative overflow-hidden px-4 md:px-12 lg:px-24 py-20 bg-black">
+    <section id="contact-form" className="relative overflow-hidden min-h-screen flex flex-col justify-center px-4 md:px-12 lg:px-24 py-20 bg-black">
       {/* Animated backdrop — sits behind the whole card, not inside it.
           Bigger than the card itself so it's visible around its edges
           (in the section's own padding), while the card sits fully

@@ -5,7 +5,7 @@
 export default function PageHero({ label, title, subtitle }) {
   return (
     <section
-      className="pt-10 md:pt-28 pb-12 md:pb-20 px-6 text-center text-white"
+      className="min-h-screen flex flex-col justify-center pt-10 md:pt-28 pb-12 md:pb-20 px-6 text-center text-white"
       style={{ background: "radial-gradient(circle at top, #1c1c1c, #000000)" }}
     >
       {label && (

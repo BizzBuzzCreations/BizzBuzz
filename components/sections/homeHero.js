@@ -18,7 +18,7 @@ export default function HomeHero({ content }) {
 
   return (
     <>
-      <div className="relative overflow-hidden min-h-[90vh] text-white flex flex-col justify-center pb-30 -mt-14 pt-14 md:-mt-[72px] md:pt-[72px] bg-black">
+      <div className="relative overflow-hidden min-h-screen text-white flex flex-col justify-center pb-30 -mt-14 pt-14 md:-mt-[72px] md:pt-[72px] bg-black">
         {/* Background video — desktop/tablet only. On mobile there's no
             room for a full-bleed video behind the text without it either
             looking cramped or getting cropped oddly, so mobile gets a

@@ -16,7 +16,7 @@ export default function TeamHero({ content } = {}) {
   const heroImage = content?.teamHeroImage || "/team-images/team-hero.png";
 
   return (
-    <section className="relative overflow-hidden pt-10 md:pt-32 pb-12 md:pb-20 px-6 md:px-12 lg:px-24 text-white">
+    <section className="relative overflow-hidden min-h-screen flex items-center pt-10 md:pt-32 pb-12 md:pb-20 px-6 md:px-12 lg:px-24 text-white">
       <Image
         src={heroImage}
         alt=""
