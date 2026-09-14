@@ -1,0 +1,84 @@
+
+> bbc@0.1.0 dev
+> next dev
+
+▲ Next.js 16.2.11 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.8.12:3000
+- Environments: .env.local
+✓ Ready in 11.9s
+(node:5948) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/Bizzbuzz-creations/BizzBuzz/lib/blogRedirects.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to D:\Bizzbuzz-creations\BizzBuzz\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+⚠ Slow filesystem detected. The benchmark took 432ms. If D:\Bizzbuzz-creations\BizzBuzz\.next/dev is a network drive, consider moving it to a local folder.
+See more: https://nextjs.org/docs/app/guides/local-development
+- Experiments (use with caution):
+  · serverActions
+
+○ Compiling /admin/dashboard ...
+ GET /admin/dashboard 200 in 2.0min (next.js: 51s, application-code: 72s)
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+ POST /admin/dashboard 200 in 4.3s (next.js: 478ms, application-code: 3.9s)
+  └─ ƒ getAllJobs() in 2602ms actions/serverActions.js
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+ POST /admin/dashboard 200 in 83ms (next.js: 14ms, application-code: 69ms)
+  └─ ƒ getAllComments() in 59ms actions/serverActions.js
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+ POST /admin/dashboard 200 in 135ms (next.js: 70ms, application-code: 65ms)
+  └─ ƒ getAllSubmissions() in 55ms actions/serverActions.js
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+ GET /our-team 200 in 5.5s (next.js: 2.7s, application-code: 2.8s)
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+ GET / 200 in 6.8s (next.js: 3.2s, application-code: 3.6s)
+○ Compiling /_not-found/page ...
+ GET /aiservice.webp 404 in 10.3s (next.js: 9.9s, application-code: 485ms)
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+ GET /Sequence%2001%201.mp4 404 in 80ms (next.js: 9ms, application-code: 71ms)
+ GET /our-team 200 in 341ms (next.js: 73ms, application-code: 268ms)
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+ GET / 200 in 302ms (next.js: 15ms, application-code: 287ms)
+ GET /aiservice.webp 404 in 92ms (next.js: 8ms, application-code: 84ms)
+✓ Finished filesystem cache database compaction in 6.5min
+✓ Finished writing to filesystem cache in 15.4s
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+ GET / 200 in 677ms (next.js: 179ms, application-code: 498ms)
+✓ Compiled in 257.1s
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+ GET /admin/dashboard 307 in 117s (next.js: 93s, application-code: 24.4s)
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+ GET /admin/login 200 in 2.0s (next.js: 1376ms, application-code: 638ms)
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+ GET / 200 in 12.4s (next.js: 9.9s, application-code: 2.4s)
+ GET / 200 in 12.4s (next.js: 9.3s, application-code: 3.0s)
+ GET / 200 in 2.3s (next.js: 37ms, application-code: 2.2s)
+ GET / 200 in 521ms (next.js: 63ms, application-code: 458ms)
+ GET / 200 in 557ms (next.js: 114ms, application-code: 442ms)
