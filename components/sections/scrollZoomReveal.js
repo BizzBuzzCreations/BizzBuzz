@@ -46,8 +46,6 @@ export default function ScrollZoomReveal() {
   // nothing left animating in that invisible layer for the rest of the
   // scroll, so the stats block renders clean and undisturbed.
   const scale = useTransform(scrollYProgress, [0, 0.2, 0.4], [1, 4, 10]);
-  const blur = useTransform(scrollYProgress, [0.2, 0.4], [0, 6]);
-  const filter = useTransform(blur, (v) => `blur(${v}px)`);
   // Hidden at the very top of the section, fades in as the user scrolls
   // (growing at the same time via `scale` above), then fades back out
   // early — by 40% of the scroll — so the remaining 60% of this (now
@@ -154,7 +152,7 @@ export default function ScrollZoomReveal() {
           </motion.p>
 
           <motion.div
-            style={{ scale, opacity: textOpacity, filter }}
+            style={{ scale, opacity: textOpacity }}
             className="relative will-change-transform pointer-events-none"
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white/80 leading-tight whitespace-nowrap">

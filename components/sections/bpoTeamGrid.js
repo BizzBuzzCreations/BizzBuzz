@@ -28,10 +28,9 @@ const ROLE_ICONS = {
 
 const BPO_TEAM = [
   { name: "Abhishek Awasthi", role: "Customer Support Executive", photo: "/person-image.jpg" },
-  { name: "Akanksha Pandey", role: "Senior Advisor", photo: "/team-images/akanksha.jpg" },
+  { name: "Akanksha Pandey", role: "Senior Advisor", photo: "/person-image.jpg" },
   { name: "Akash Singh", role: "Advisor", photo: "/team-images/akash.jpeg" },
   { name: "Anurag Singh Bisht", role: "Advisor", photo: "/person-image.jpg" },
-  { name: "Aryan Prakash Srivastava", role: "Senior Advisor", photo: "/team-images/aryan.jpeg" },
   { name: "Digvijay Singh", role: "Advisor", photo: "/person-image.jpg" },
   { name: "Harsh Singh", role: "Advisor", photo: "/team-images/harsh.jpeg" },
   { name: "Harshvardhan Tripathi", role: "Advisor", photo: "/team-images/harshvardhan.jpeg" },

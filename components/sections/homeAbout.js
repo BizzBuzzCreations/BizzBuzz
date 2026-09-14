@@ -14,9 +14,15 @@ export default function HomeAbout({ content }) {
 
   const button = (
     <Link href="/about" aria-label="Learn more about BizzBuzz Creations" className="inline-block">
-      <button className="relative cursor-pointer border-2 border-white text-white px-6 py-3 rounded-lg overflow-hidden group">
-        <span className="absolute inset-0 bg-white transform -translate-x-full group-hover:translate-x-0 transition duration-300"></span>
-        <span className="relative z-10 group-hover:text-black">{buttonText}</span>
+      <button className="animated-button animated-button-lg whitespace-nowrap">
+        <svg viewBox="0 0 24 24" className="arr-2" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+        </svg>
+        <span className="text">{buttonText}</span>
+        <span className="circle"></span>
+        <svg viewBox="0 0 24 24" className="arr-1" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+        </svg>
       </button>
     </Link>
   );

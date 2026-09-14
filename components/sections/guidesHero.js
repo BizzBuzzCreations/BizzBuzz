@@ -13,16 +13,23 @@ export default function GuidesHero({ content } = {}) {
     "Practical, no-fluff guides and insights on SEO, paid ads, social media, websites, content, AI, and digital growth.";
   const primaryCtaText = content?.guidesHeroPrimaryCtaText || "Explore Our Guides";
   const secondaryCtaText = content?.guidesHeroSecondaryCtaText || "Need Help With Marketing?";
-  const heroImage = content?.guidesHeroImage || "/guides.png";
+  const heroImage = content?.guidesHeroImage || "/guide.jpg";
 
   return (
-    <section className="relative overflow-hidden min-h-screen flex items-center py-24 md:py-28 px-6 md:px-12 lg:px-24 text-white bg-black">
+    <section className="relative overflow-hidden min-h-screen flex items-center py-24 md:py-28 px-5 md:px-10 lg:px-16 text-white bg-black">
       <div
         className="absolute inset-0"
         style={{
           backgroundImage: `url('${heroImage}')`,
-          backgroundSize: "cover",
+          // "contain" (not "cover") — on a full min-h-screen section, a
+          // "cover" fit was scaling this wide, text-baked graphic up
+          // enough to crop its right edge clean off. "contain" always
+          // shows the whole image; on a section taller than the image's
+          // own ratio, that just leaves black/gradient above and below
+          // it instead of cutting anything off.
+          backgroundSize: "contain",
           backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
         }}
       />
       <div

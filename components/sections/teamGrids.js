@@ -29,8 +29,8 @@ import {
 // positionally to whichever cards are saved.
 const FOUNDER_ICONS = [Crown, Users];
 const DEFAULT_FOUNDERS = [
-  { name: "Abheuday Mishra", role: "Founder & CEO", photo: "/team-images/abheuday.png", linkedin: "https://www.linkedin.com/in/abheuday-mishra?utm_source=share_via&utm_content=profile&utm_medium=member_android" },
-  { name: "Utkarsh Mishra", role: "Co-Founder & Director", photo: "/team-images/utkarsh.jpg", linkedin: "https://www.linkedin.com/in/utkarsh-mishra-293ba1209?utm_source=share_via&utm_content=profile&utm_medium=member_android" },
+  { name: "Abheuday Mishra", role: "Founder & CEO", photo: "/person-image.jpg", linkedin: "https://www.linkedin.com/in/abheuday-mishra?utm_source=share_via&utm_content=profile&utm_medium=member_android" },
+  { name: "Utkarsh Mishra", role: "Co-Founder & Director", photo: "/person-image.jpg", linkedin: "https://www.linkedin.com/in/utkarsh-mishra-293ba1209?utm_source=share_via&utm_content=profile&utm_medium=member_android" },
 ];
 
 const LEADER_ICONS = [Search, Megaphone, Palette, Code2, Bot, Briefcase, Users];
