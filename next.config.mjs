@@ -2,6 +2,20 @@ import generateBlogRedirects from "./lib/blogRedirects.js";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  images: {
+    // Dashboard-uploaded images/videos (hero images, media library, blog
+    // covers, etc.) are all hosted on Cloudinary — without this, any
+    // next/image using one of those URLs (e.g. services/sub-services hero
+    // images) throws "hostname not configured" and silently fails to
+    // render, even though the exact same upload works fine wherever the
+    // page uses a plain <img> or CSS background-image instead.
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+      },
+    ],
+  },
   experimental: {
     // Default Server Action body limit is 1MB — too small for featured
     // image uploads (blogEditor.js sends the file as base64 to the
