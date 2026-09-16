@@ -82,3 +82,23 @@ MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
  GET / 200 in 2.3s (next.js: 37ms, application-code: 2.2s)
  GET / 200 in 521ms (next.js: 63ms, application-code: 458ms)
  GET / 200 in 557ms (next.js: 114ms, application-code: 442ms)
+✓ Finished filesystem cache database compaction in 50s
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+ GET /guides 200 in 2.7s (next.js: 2.2s, application-code: 505ms)
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+ GET /bpo-services 200 in 1104ms (next.js: 868ms, application-code: 236ms)
+[browser] Image with src "/call center service 2.png" has "fill" and parent element with invalid "position". Provided "static" should be one of absolute,fixed,relative.
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+ GET /web-development 200 in 1351ms (next.js: 1172ms, application-code: 179ms)
+[browser] Image with src "/website development 1.png" has "fill" and parent element with invalid "position". Provided "static" should be one of absolute,fixed,relative.
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+ GET /web-development/custom-web-development 200 in 2.0s (next.js: 1600ms, application-code: 427ms)
+[browser] Image with src "/custom web development and design.png" has "fill" and parent element with invalid "position". Provided "static" should be one of absolute,fixed,relative.
+[browser] Image with src "/custom web development and design.png" has "fill" prop and "sizes" prop of "100vw", but image is not rendered at full viewport width. Please adjust "sizes" to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+⚠ Found a change in next.config.mjs. Restarting the server to apply the changes...

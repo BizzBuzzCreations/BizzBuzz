@@ -1,0 +1,91 @@
+
+> bbc@0.1.0 dev
+> next dev
+
+▲ Next.js 16.2.11 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.8.12:3000
+- Environments: .env.local
+✓ Ready in 7.9s
+(node:1796) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/Bizzbuzz-creations/BizzBuzz/lib/blogRedirects.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to D:\Bizzbuzz-creations\BizzBuzz\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+⚠ Slow filesystem detected. The benchmark took 362ms. If D:\Bizzbuzz-creations\BizzBuzz\.next/dev is a network drive, consider moving it to a local folder.
+See more: https://nextjs.org/docs/app/guides/local-development
+- Experiments (use with caution):
+  · serverActions
+
+○ Compiling /bpo-services/24-7-ecommerce-customer-support ...
+✓ Finished writing to filesystem cache in 17.6s
+MongoDB Connected: undefined
+MongoDB Connected: undefined
+MongoDB Connected: undefined
+✓ Finished writing to filesystem cache in 12.7s
+ GET /web-development/custom-web-development 200 in 7.6min (next.js: 7.6min, application-code: 4.2s)
+Get page content failed: MongooseError: Operation `pagecontents.findOne()` buffering timed out after 10000ms
+    at ignore-listed frames
+Get page content failed: MongooseError: Operation `pagecontents.findOne()` buffering timed out after 10000ms
+    at ignore-listed frames
+Get page content failed: MongooseError: Operation `pagecontents.findOne()` buffering timed out after 10000ms
+    at ignore-listed frames
+MongoDB Connected: undefined
+MongoDB Connected: undefined
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET /bpo-services/24-7-ecommerce-customer-support 200 in 10.8s (next.js: 5.1s, application-code: 5.6s)
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET /bpo-services/24-7-ecommerce-customer-support 200 in 1021ms (next.js: 399ms, application-code: 622ms)
+○ Compiling /bpo-services ...
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET /bpo-services 200 in 12.6s (next.js: 9.7s, application-code: 2.8s)
+○ Compiling /web-development ...
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET /web-development 200 in 16.8s (next.js: 16.2s, application-code: 576ms)
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET /web-development/custom-web-development 200 in 2.3s (next.js: 1318ms, application-code: 988ms)
+○ Compiling /social-media-marketing/instagram-marketing-agency ...
+✓ Finished filesystem cache database compaction in 10.0min
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+✓ Finished writing to filesystem cache in 10.7s
+ GET /social-media-marketing/instagram-marketing-agency 200 in 2.9min (next.js: 2.7min, application-code: 11.5s)
+MongoDB Connected: ac-ltny0ce-shard-00-01.bdmwoqb.mongodb.net
+✓ Finished filesystem cache database compaction in 68s
+⚠ Found a change in next.config.mjs. Restarting the server to apply the changes...
+▲ Next.js 16.2.11 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.8.12:3000
+- Environments: .env.local
+✓ Ready in 32.2s
+(node:12184) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/Bizzbuzz-creations/BizzBuzz/lib/blogRedirects.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to D:\Bizzbuzz-creations\BizzBuzz\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+⚠ Slow filesystem detected. The benchmark took 484ms. If D:\Bizzbuzz-creations\BizzBuzz\.next/dev is a network drive, consider moving it to a local folder.
+See more: https://nextjs.org/docs/app/guides/local-development
+- Experiments (use with caution):
+  · serverActions
+
+⚠ Found a change in next.config.mjs. Restarting the server to apply the changes...
+▲ Next.js 16.2.11 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.8.12:3000
+- Environments: .env.local
+✓ Ready in 35.8s
+(node:23036) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/Bizzbuzz-creations/BizzBuzz/lib/blogRedirects.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to D:\Bizzbuzz-creations\BizzBuzz\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+⚠ Slow filesystem detected. The benchmark took 319ms. If D:\Bizzbuzz-creations\BizzBuzz\.next/dev is a network drive, consider moving it to a local folder.
+See more: https://nextjs.org/docs/app/guides/local-development
+- Experiments (use with caution):
+  · serverActions
+
+✓ Finished writing to filesystem cache in 63s
