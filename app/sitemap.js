@@ -1,5 +1,40 @@
 import connectDB from "@/db/connect";
 import Blog from "@/models/blog";
+import { INDUSTRIES } from "@/lib/industriesData";
+import { SUB_SERVICE_CONTENT_REGISTRY } from "@/lib/subServiceContentRegistry";
+
+const BASE_URL = "https://bizzbuzzcreations.com";
+
+// Every static, hand-authored page on the site — everything that isn't
+// generated from a registry below (industries, sub-services, blog posts).
+const STATIC_PAGES = [
+  { path: "", changeFrequency: "yearly", priority: 1 },
+  { path: "/about", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/contact", changeFrequency: "weekly", priority: 0.5 },
+  { path: "/career", changeFrequency: "monthly", priority: 0.6 },
+  { path: "/faq", changeFrequency: "monthly", priority: 0.6 },
+  { path: "/guides", changeFrequency: "weekly", priority: 0.6 },
+  { path: "/how-we-work", changeFrequency: "monthly", priority: 0.6 },
+  { path: "/our-team", changeFrequency: "monthly", priority: 0.5 },
+  { path: "/our-team/bpo-team", changeFrequency: "monthly", priority: 0.4 },
+  { path: "/our-team/rnd-team", changeFrequency: "monthly", priority: 0.4 },
+  { path: "/services", changeFrequency: "weekly", priority: 0.8 },
+  { path: "/industries", changeFrequency: "weekly", priority: 0.7 },
+  { path: "/blog", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/privacy-policy", changeFrequency: "yearly", priority: 0.3 },
+  { path: "/cookie-policy", changeFrequency: "yearly", priority: 0.3 },
+  { path: "/disclaimer", changeFrequency: "yearly", priority: 0.3 },
+  { path: "/terms-and-conditions", changeFrequency: "yearly", priority: 0.3 },
+  // The 8 main service-category hub pages.
+  { path: "/web-development", changeFrequency: "weekly", priority: 0.7 },
+  { path: "/search-engine-optimization", changeFrequency: "weekly", priority: 0.7 },
+  { path: "/paid-marketing", changeFrequency: "weekly", priority: 0.7 },
+  { path: "/bpo-services", changeFrequency: "weekly", priority: 0.7 },
+  { path: "/business-consultancy", changeFrequency: "weekly", priority: 0.7 },
+  { path: "/social-media-marketing", changeFrequency: "weekly", priority: 0.7 },
+  { path: "/ai-solutions", changeFrequency: "weekly", priority: 0.7 },
+  { path: "/marketing-automation", changeFrequency: "weekly", priority: 0.7 },
+];
 
 export default async function sitemap() {
   await connectDB();
@@ -8,97 +43,43 @@ export default async function sitemap() {
     .lean();
 
   const blogPages = posts.map((post) => ({
-    url: `https://bizzbuzzcreations.com/blog/${post.slug}`,
+    url: `${BASE_URL}/blog/${post.slug}`,
     lastModified: new Date(post.updatedAt || post.publishedAt),
     changeFrequency: "weekly",
     priority: 0.7,
   }));
 
+  const staticPages = STATIC_PAGES.map((page) => ({
+    url: `${BASE_URL}${page.path}`,
+    lastModified: new Date(),
+    changeFrequency: page.changeFrequency,
+    priority: page.priority,
+  }));
+
+  // All 15 /industries/<slug> pages — pulled from the same INDUSTRIES data
+  // every industry page and nav menu already uses, so a new industry added
+  // there shows up here automatically.
+  const industryPages = INDUSTRIES.map((industry) => ({
+    url: `${BASE_URL}/industries/${industry.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.6,
+  }));
+
+  // All 44 /<hub>/<slug> sub-service pages — pulled from the same registry
+  // the dashboard's Sub-Service Pages editor uses, so a new sub-service
+  // added there shows up here automatically too.
+  const subServicePages = SUB_SERVICE_CONTENT_REGISTRY.map((entry) => ({
+    url: `${BASE_URL}/${entry.hub}/${entry.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.6,
+  }));
+
   return [
-    {
-      url: "https://bizzbuzzcreations.com",
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 1,
-    },
-    {
-      url: "https://bizzbuzzcreations.com/about",
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: "https://bizzbuzzcreations.com/blog",
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: "https://bizzbuzzcreations.com/career",
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: "https://bizzbuzzcreations.com/contact",
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.5,
-    },
-    {
-      url: "https://bizzbuzzcreations.com/web-development",
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.5,
-    },
-    {
-      url: "https://bizzbuzzcreations.com/search-engine-optimization",
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.5,
-    },
-    {
-      url: "https://bizzbuzzcreations.com/paid-marketing",
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.5,
-    },
-    {
-      url: "https://bizzbuzzcreations.com/bpo-services",
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.5,
-    },
-    {
-      url: "https://bizzbuzzcreations.com/business-consultancy",
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.5,
-    },
-    {
-      url: "https://bizzbuzzcreations.com/social-media-marketing",
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.5,
-    },
-    {
-      url: "https://bizzbuzzcreations.com/ai-solutions",
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.5,
-    },
-    {
-      url: "https://bizzbuzzcreations.com/marketing-automation",
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.5,
-    },
-    {
-      url: "https://bizzbuzzcreations.com/privacy-policy",
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.5,
-    },
+    ...staticPages,
+    ...industryPages,
+    ...subServicePages,
     ...blogPages,
   ];
 }

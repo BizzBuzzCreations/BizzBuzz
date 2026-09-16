@@ -143,7 +143,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8 mb-6">
           <div className="max-w-md">
             <Image
-              src="/bbc-logo.png"
+              src="/bbc logo white.png"
               alt="BizzBuzz Creations logo"
               width={836}
               height={189}
