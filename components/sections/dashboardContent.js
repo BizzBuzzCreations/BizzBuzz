@@ -106,11 +106,17 @@ function FieldControl({ field, value, onChange }) {
 function ListField({ field, items, onChange }) {
   const list = Array.isArray(items) ? items : [];
 
-  const updateItem = (index, itemKey, value) => {
+  // fieldType (when the changed item field is "image"/"video") bubbles up
+  // through onChange so the top-level handleChange can auto-save exactly
+  // like it already does for top-level media fields — previously a photo
+  // uploaded inside a list item (team photos, testimonial logos, journey
+  // images, etc.) only updated local state and silently reverted if the
+  // admin didn't remember to click "Save Changes" afterward.
+  const updateItem = (index, itemKey, value, fieldType) => {
     const next = list.map((item, i) =>
       i === index ? { ...item, [itemKey]: value } : item,
     );
-    onChange(next);
+    onChange(next, fieldType);
   };
 
   const addItem = () => {
@@ -150,13 +156,17 @@ function ListField({ field, items, onChange }) {
                   <ListField
                     field={itemField}
                     items={item[itemField.key]}
-                    onChange={(value) => updateItem(index, itemField.key, value)}
+                    onChange={(value, fieldType) =>
+                      updateItem(index, itemField.key, value, fieldType)
+                    }
                   />
                 ) : (
                   <FieldControl
                     field={itemField}
                     value={item[itemField.key]}
-                    onChange={(value) => updateItem(index, itemField.key, value)}
+                    onChange={(value) =>
+                      updateItem(index, itemField.key, value, itemField.type)
+                    }
                   />
                 )}
               </div>
@@ -308,7 +318,7 @@ export default function DashboardContent() {
                       <ListField
                         field={field}
                         items={values[field.key]}
-                        onChange={(next) => handleChange(field.key, next)}
+                        onChange={(next, fieldType) => handleChange(field.key, next, fieldType)}
                       />
                     ) : (
                       <FieldControl
