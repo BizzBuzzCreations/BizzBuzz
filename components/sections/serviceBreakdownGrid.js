@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { ChevronDown, ArrowLeft } from "lucide-react";
+import RichText from "@/components/ui/richText";
 
 // One self-contained flip card: measures its own front/back face heights
 // so the outer wrapper's height can animate to whichever face is current,
@@ -50,7 +51,7 @@ function FlipCard({ number, title, desc, ctaText, services }) {
               uneven. This gives every card's front face the same
               baseline height regardless of how much text it holds. */}
           <h3 className="font-bold text-lg text-white mb-3 min-h-[3.5rem]">{title}</h3>
-          <p className="text-sm leading-relaxed text-white/60 mb-5 min-h-[2.75rem]">{desc}</p>
+          <RichText as="p" text={desc} className="text-sm leading-relaxed text-white/60 mb-5 min-h-[2.75rem]" />
           <span
             aria-expanded={open}
             className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#40A2D8]"
@@ -140,9 +141,7 @@ export default function ServiceBreakdownGrid({ items, flip = false }) {
                 collapsed card the same footprint regardless of how much
                 its title/desc actually wraps. */}
             <h3 className="font-bold text-lg text-white mb-3 min-h-[3.5rem]">{title}</h3>
-            <p className="text-sm leading-relaxed text-white/60 mb-5 min-h-[2.75rem]">
-              {desc}
-            </p>
+            <RichText as="p" text={desc} className="text-sm leading-relaxed text-white/60 mb-5 min-h-[2.75rem]" />
             <button
               type="button"
               onClick={() => setOpenIndex(open ? null : i)}

@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import RichText from "@/components/ui/richText";
 
 // One card in the "Built for Every Corner of X" capabilities grid, used by
 // both industryDetailPage.js (all 15 industry pages) and serviceDetailPage.js
@@ -24,9 +25,11 @@ export default function CapabilityCard({ icon, title, desc, hoverReveal }) {
           {icon}
         </span>
         <h3 className="font-bold text-white mb-2">{title}</h3>
-        <p className="text-sm leading-relaxed text-white/60 transition-colors duration-300 group-hover:text-white/85">
-          {desc}
-        </p>
+        <RichText
+          as="p"
+          text={desc}
+          className="text-sm leading-relaxed text-white/60 transition-colors duration-300 group-hover:text-white/85"
+        />
       </div>
     );
   }
@@ -55,13 +58,16 @@ export default function CapabilityCard({ icon, title, desc, hoverReveal }) {
           open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
         }`}
       >
-        <p
+        {/* noLink — this card is a <button>; a nested <a> inside a
+            <button> is invalid HTML, so links are stripped here while
+            bold still works. */}
+        <RichText
+          text={desc}
+          noLink
           className={`overflow-hidden text-sm leading-relaxed pt-2 transition-colors duration-300 group-hover:text-white/85 ${
             open ? "text-white/85" : "text-white/60"
           }`}
-        >
-          {desc}
-        </p>
+        />
       </div>
     </button>
   );

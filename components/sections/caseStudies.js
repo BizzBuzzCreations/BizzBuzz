@@ -213,13 +213,11 @@ export default function CaseStudies({ content }) {
               </div>
 
               <h3 className="text-lg font-semibold mb-2">{client.name}</h3>
-              <p
-                className={`text-sm ${
-                  isActive ? "text-white/90" : "text-white/50"
-                }`}
-              >
-                {client.tagline}
-              </p>
+              <RichText
+                as="p"
+                text={client.tagline}
+                className={`text-sm ${isActive ? "text-white/90" : "text-white/50"}`}
+              />
             </motion.div>
           );
         })}

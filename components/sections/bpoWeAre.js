@@ -1,3 +1,5 @@
+import RichText from "@/components/ui/richText";
+
 // "We are:" numbered two-column list. Generic — pass title/description
 // and up to 6 points so every service page can reuse this structure with
 // its own real content (no invented stats — reuse facts already stated
@@ -8,9 +10,7 @@ export default function BpoWeAre({ title, description, points = [] }) {
       <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
         {title}
       </h2>
-      <p className="text-white/70 leading-relaxed max-w-3xl mb-8">
-        {description}
-      </p>
+      <RichText as="p" text={description} className="text-white/70 leading-relaxed max-w-3xl mb-8" />
       <p className="font-semibold text-white mb-8">We are:</p>
 
       <div className="grid sm:grid-cols-2 gap-x-12">
@@ -25,9 +25,7 @@ export default function BpoWeAre({ title, description, points = [] }) {
               {number}
             </span>
             <h3 className="font-bold text-white mt-2 mb-2">{pointTitle}</h3>
-            <p className="text-sm text-white/70 leading-relaxed">
-              {pointDescription}
-            </p>
+            <RichText as="p" text={pointDescription} className="text-sm text-white/70 leading-relaxed" />
           </div>
         ))}
       </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { Search, PenTool, Rocket, BarChart3, ArrowRight } from "lucide-react";
+import RichText from "@/components/ui/richText";
 
 // Same 4 steps, same copy — laid out as a plain horizontal stepper (each
 // step in its own grid column, connected by a static arrow between
@@ -98,9 +99,11 @@ export default function WhatMAkesUs({ content }) {
                 <h3 className="font-bold text-sm leading-snug text-white mb-2">
                   {step.title}
                 </h3>
-                <p className="text-xs text-white/50 leading-relaxed transition-colors duration-300 group-hover:text-white/85">
-                  {step.description}
-                </p>
+                <RichText
+                  as="p"
+                  text={step.description}
+                  className="text-xs text-white/50 leading-relaxed transition-colors duration-300 group-hover:text-white/85"
+                />
               </div>
 
               {!isLast && (
@@ -131,9 +134,11 @@ export default function WhatMAkesUs({ content }) {
                 <Icon size={20} />
               </div>
               <h3 className="font-semibold text-sm mb-2 text-white">{step.title}</h3>
-              <p className="text-xs text-white/50 transition-colors duration-300 group-hover:text-white/85">
-                {step.description}
-              </p>
+              <RichText
+                as="p"
+                text={step.description}
+                className="text-xs text-white/50 transition-colors duration-300 group-hover:text-white/85"
+              />
             </div>
           );
         })}

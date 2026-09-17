@@ -24,6 +24,7 @@ import CertificationsCarousel from "@/components/sections/certificationsCarousel
 import DarkFAQSection from "@/components/sections/darkFAQSection";
 import { getPageContent } from "@/actions/pageContentActions";
 import { buildPageMetadata } from "@/lib/pageMetadata";
+import RichText from "@/components/ui/richText";
 
 // Icons stay code-driven (design), matched positionally to whichever
 // industry cards are saved — same order as the default list below.
@@ -264,9 +265,16 @@ export default async function IndustriesIndexPage() {
                     </span>
                   </div>
                   <div className="p-5">
-                    <p className="text-sm text-white/60 leading-relaxed line-clamp-2">
-                      {card.description}
-                    </p>
+                    {/* noLink — the whole card is already a <Link>; a link
+                        inside the description would nest an <a> inside an
+                        <a>, which every browser breaks (force-closes the
+                        outer one), so the card would stop navigating. */}
+                    <RichText
+                      as="p"
+                      text={card.description}
+                      noLink
+                      className="text-sm text-white/60 leading-relaxed line-clamp-2"
+                    />
                     <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#40A2D8] mt-3 transition-colors duration-300 group-hover:text-white">
                       {card.linkText}
                       <ArrowUpRight size={14} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import RichText from "@/components/ui/richText";
 
 // Full-bleed photo hero — same layout language as reference agency sites
 // (large background photo, dark-to-transparent gradient so the headline
@@ -55,9 +56,7 @@ export default function BpoHero({ heading, description, img, ctaText = "Start No
         <h1 className="text-white text-3xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6">
           {heading}
         </h1>
-        <p className="text-white/80 leading-relaxed mb-9 max-w-xl">
-          {description}
-        </p>
+        <RichText as="p" text={description} className="text-white/80 leading-relaxed mb-9 max-w-xl" />
         <div className="md:hidden relative w-full aspect-[16/9] rounded-2xl overflow-hidden shadow-lg mb-9">
           <Image src={img} alt="" fill sizes="100vw" className="object-cover object-center" />
         </div>

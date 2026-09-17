@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { TestimonialsColumn } from "@/components/ui/testimonials-columns-1";
+import RichText from "@/components/ui/richText";
 
 const testimonials = [
   {
@@ -62,9 +63,7 @@ export default function Reviews({ content }) {
           <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold tracking-tighter mt-5 text-white">
             {heading}
           </h2>
-          <p className="text-center mt-5 text-white/60">
-            {subtext}
-          </p>
+          <RichText as="p" text={subtext} className="text-center mt-5 text-white/60" />
         </motion.div>
 
         <div className="flex justify-center gap-6 mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] max-h-[740px] overflow-hidden">

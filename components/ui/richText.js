@@ -11,8 +11,8 @@ export const RICH_TEXT_CLASS =
 // Same sanitize-and-wrap-in-a-dangerouslySetInnerHTML-prop step this
 // component does internally, exposed for exactly that framer-motion case
 // above: `<motion.p dangerouslySetInnerHTML={richTextHTML(text)} />`.
-export function richTextHTML(text) {
-  return { __html: sanitizeInlineRich(text) };
+export function richTextHTML(text, options) {
+  return { __html: sanitizeInlineRich(text, options) };
 }
 
 // Drop-in replacement for `{text}` wherever a dashboard-editable
@@ -23,8 +23,12 @@ export function richTextHTML(text) {
 // working link instead of literal "<b>" tags. `as` picks the wrapping
 // tag (defaults to a fragment-friendly span) so this can sit inside a
 // <p>, <h2>, etc. without producing invalid nested block elements.
-export default function RichText({ text, as: Tag = "span", className, ...rest }) {
-  const html = sanitizeInlineRich(text);
+// `noLink` — pass true when this renders inside something that's already
+// a <Link>/<a> itself (an entire card that navigates on click): keeps
+// bold support but drops any embedded link, since a real <a> nested
+// inside another <a> is invalid HTML that breaks the outer one.
+export default function RichText({ text, as: Tag = "span", className, noLink, ...rest }) {
+  const html = sanitizeInlineRich(text, { noLink });
   if (!html) return null;
 
   return (

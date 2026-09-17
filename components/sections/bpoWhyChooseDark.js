@@ -1,4 +1,5 @@
 import Image from "next/image";
+import RichText from "@/components/ui/richText";
 
 // Same content as the shared WhyChooseUs.js, restyled dark. Generic —
 // every dark-themed service page reuses this same company-wide "why
@@ -48,9 +49,11 @@ export default function BpoWhyChooseDark({ cards = DEFAULT_CARDS }) {
                 className="group max-w-xs rounded-2xl border border-white/10 bg-white/5 p-5 mx-auto transition-colors duration-300 hover:bg-[#0B60B0] hover:border-[#0B60B0]"
               >
                 <h3 className="font-bold mb-2 text-white">{title}</h3>
-                <p className="text-sm text-white/60 transition-colors duration-300 group-hover:text-white/90">
-                  {desc}
-                </p>
+                <RichText
+                  as="p"
+                  text={desc}
+                  className="text-sm text-white/60 transition-colors duration-300 group-hover:text-white/90"
+                />
               </div>
             ))}
           </div>

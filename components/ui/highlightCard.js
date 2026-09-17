@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import RichText from "@/components/ui/richText";
 
 // A card whose highlighted "hover" look (border/background color swap)
 // also toggles on tap — touch devices have no :hover, so on mobile these
@@ -30,13 +31,16 @@ export default function HighlightCard({ icon, title, desc }) {
         {icon}
       </span>
       <h3 className="font-bold text-white mb-2">{title}</h3>
-      <p
+      {/* noLink — this card is a <button>; a nested <a> inside a <button>
+          is invalid HTML (interactive content inside interactive
+          content), so links are stripped here while bold still works. */}
+      <RichText
+        text={desc}
+        noLink
         className={`text-sm leading-relaxed transition-colors duration-300 group-hover:text-white/85 ${
           active ? "text-white/85" : "text-white/60"
         }`}
-      >
-        {desc}
-      </p>
+      />
     </button>
   );
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import RichText from "@/components/ui/richText";
 
 const DEFAULT_FEATURES = [
   { title: "Transparent Reporting", description: "Know exactly where your marketing budget is invested with detailed reports and actionable insights." },
@@ -41,9 +42,11 @@ export default function WhyChooseUs({ dark = false, content }) {
           <h3 className={`font-bold mb-2 transition-colors duration-300 group-hover:text-white ${dark ? "text-white" : ""}`}>
             {feature.title}
           </h3>
-          <p className={`text-sm transition-colors duration-300 group-hover:text-white/80 ${dark ? "text-white/60" : ""}`}>
-            {feature.description}
-          </p>
+          <RichText
+            as="p"
+            text={feature.description}
+            className={`text-sm transition-colors duration-300 group-hover:text-white/80 ${dark ? "text-white/60" : ""}`}
+          />
         </div>
       ))}
     </div>

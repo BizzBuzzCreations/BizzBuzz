@@ -3,6 +3,7 @@
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
 import "@splidejs/react-splide/css";
+import RichText from "@/components/ui/richText";
 
 // Same auto-scrolling Splide setup as onboardingCarousel.js — cards drift
 // right-to-left, and it pauses on hover like every other auto-scroll
@@ -47,9 +48,11 @@ export default function RoadmapCarousel({ steps }) {
             <h3 className="font-bold text-white mb-2 transition-colors duration-300">
               {title}
             </h3>
-            <p className="text-sm text-white/60 leading-relaxed transition-colors duration-300 group-hover:text-white/85">
-              {desc}
-            </p>
+            <RichText
+              as="p"
+              text={desc}
+              className="text-sm text-white/60 leading-relaxed transition-colors duration-300 group-hover:text-white/85"
+            />
           </div>
         </SplideSlide>
       ))}

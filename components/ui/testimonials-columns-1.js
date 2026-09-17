@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import RichText from "@/components/ui/richText";
 
 export const TestimonialsColumn = (props) => {
   return (
@@ -38,9 +39,7 @@ export const TestimonialsColumn = (props) => {
                       </svg>
                     ))}
                   </div>
-                  <div className="text-gray-600 text-sm leading-relaxed">
-                    {text}
-                  </div>
+                  <RichText as="div" text={text} className="text-gray-600 text-sm leading-relaxed" />
                   <div className="flex items-center gap-2 mt-5">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

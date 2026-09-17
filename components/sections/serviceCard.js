@@ -1,4 +1,5 @@
 import React from "react";
+import RichText from "@/components/ui/richText";
 
 export default function ServiceCard({
   heading,
@@ -55,7 +56,7 @@ export default function ServiceCard({
           >
             {heading}
           </div>
-          <p className="text-xs text-gray-50/70 text-balance">{description}</p>
+          <RichText as="p" text={description} className="text-xs text-gray-50/70 text-balance" />
           {points && points.length > 0 && (
             <>
               <p className="text-xs font-bold text-gray-50 mt-2">
@@ -69,9 +70,7 @@ export default function ServiceCard({
             </>
           )}
           {footer && (
-            <p className="text-xs text-gray-50/70 text-balance mt-2">
-              {footer}
-            </p>
+            <RichText as="p" text={footer} className="text-xs text-gray-50/70 text-balance mt-2" />
           )}
         </div>
       </div>

@@ -1,3 +1,5 @@
+import RichText from "@/components/ui/richText";
+
 // Left: heading + intro copy. Right: an expandable steps list. Generic —
 // pass title/description/steps so every service page can reuse this exact
 // structure with its own real process.
@@ -8,9 +10,7 @@ export default function BpoProcess({ title, description, steps = [] }) {
         <h2 className="text-2xl sm:text-3xl font-bold text-white mb-5">
           {title}
         </h2>
-        <p className="text-white/70 leading-relaxed max-w-lg">
-          {description}
-        </p>
+        <RichText as="p" text={description} className="text-white/70 leading-relaxed max-w-lg" />
       </div>
 
       <div className="divide-y divide-white/10">
@@ -34,9 +34,7 @@ export default function BpoProcess({ title, description, steps = [] }) {
                 </svg>
               </span>
             </summary>
-            <p className="text-white/60 text-sm leading-relaxed mt-3">
-              {step.body}
-            </p>
+            <RichText as="p" text={step.body} className="text-white/60 text-sm leading-relaxed mt-3" />
           </details>
         ))}
       </div>

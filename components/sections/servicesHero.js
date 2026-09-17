@@ -2,6 +2,7 @@ import { Handshake, Rocket } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import RichText from "@/components/ui/richText";
 
 export default function ServicesHero({ heading, description, img }) {
   return (
@@ -16,9 +17,7 @@ export default function ServicesHero({ heading, description, img }) {
         <h1 className="sm:text-5xl md:max-w-2xl lg:text-left text-center text-3xl mb-6">
           {heading}
         </h1>
-        <p className="md:max-w-2xl lg:text-left text-center mb-8">
-          {description}
-        </p>
+        <RichText as="p" text={description} className="md:max-w-2xl lg:text-left text-center mb-8" />
         <Link href="/contact" className="inline-block">
           <button className="animated-button lg:mx-0 mx-auto mb-10">
             <svg

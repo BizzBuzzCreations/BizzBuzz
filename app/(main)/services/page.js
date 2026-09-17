@@ -20,6 +20,7 @@ import HighlightCard from "@/components/ui/highlightCard";
 import { SERVICES } from "@/lib/industriesData";
 import { getPageContent } from "@/actions/pageContentActions";
 import { buildPageMetadata } from "@/lib/pageMetadata";
+import RichText from "@/components/ui/richText";
 
 // Real, short descriptions already used elsewhere on the site (the
 // homepage's Categories showcase) — reused here rather than invented,
@@ -159,9 +160,16 @@ function ServiceCard({ service, description, buttonText }) {
         />
       </div>
       <h3 className="font-bold text-white mb-2">{service.label}</h3>
-      <p className="text-sm text-white/60 leading-relaxed line-clamp-3 mb-4 transition-colors duration-300 group-hover:text-white/85">
-        {description}
-      </p>
+      {/* noLink — this whole card is already a <Link>; a link inside the
+          description would nest an <a> inside an <a>, which every
+          browser's HTML parser breaks (force-closes the outer one),
+          making the card itself stop navigating. Bold still works. */}
+      <RichText
+        as="p"
+        text={description}
+        noLink
+        className="text-sm text-white/60 leading-relaxed line-clamp-3 mb-4 transition-colors duration-300 group-hover:text-white/85"
+      />
       {buttonText && (
         <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#40A2D8] transition-colors duration-300 group-hover:text-white">
           {buttonText}
@@ -444,9 +452,7 @@ export default async function ServicesIndexPage() {
           <h2 className="text-2xl md:text-3xl font-bold text-center text-white mb-3">
             {whyChooseHeading}
           </h2>
-          <p className="text-center text-white/60 max-w-xl mx-auto mb-14">
-            {whyChooseSubtext}
-          </p>
+          <RichText as="p" text={whyChooseSubtext} className="text-center text-white/60 max-w-xl mx-auto mb-14" />
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {whyChooseItems.map(({ icon: Icon, title, description }, i) => (
@@ -458,9 +464,11 @@ export default async function ServicesIndexPage() {
                   <Icon size={20} />
                 </span>
                 <h3 className="font-bold text-white mb-2">{title}</h3>
-                <p className="text-sm text-white/60 leading-relaxed transition-colors duration-300 group-hover:text-white/85">
-                  {description}
-                </p>
+                <RichText
+                  as="p"
+                  text={description}
+                  className="text-sm text-white/60 leading-relaxed transition-colors duration-300 group-hover:text-white/85"
+                />
               </div>
             ))}
           </div>

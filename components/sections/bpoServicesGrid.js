@@ -1,4 +1,5 @@
 import Link from "next/link";
+import RichText from "@/components/ui/richText";
 
 // Horizontal cards — icon left, content right, solid blue gradient card
 // with a small decorative outline icon in the top-right corner that moves
@@ -20,9 +21,7 @@ export default function BpoServicesGrid({
         {title}
       </h2>
       {subheading && (
-        <p className="text-white/60 text-center max-w-2xl mx-auto mt-3 mb-10">
-          {subheading}
-        </p>
+        <RichText as="p" text={subheading} className="text-white/60 text-center max-w-2xl mx-auto mt-3 mb-10" />
       )}
       {!subheading && <div className="mb-10" />}
       <div className="grid sm:grid-cols-2 gap-6">
@@ -51,9 +50,17 @@ export default function BpoServicesGrid({
               <h3 className="mb-2 font-bold text-white leading-snug">
                 {heading}
               </h3>
-              <p className="text-sm text-white/70 leading-relaxed">
-                {description}
-              </p>
+              {/* noLink when href is set — that makes the whole card a
+                  <Link>, so a link inside the description would nest an
+                  <a> inside an <a> (invalid HTML that breaks the outer
+                  one). Cards without an href aren't links themselves, so
+                  a description link there is completely safe. */}
+              <RichText
+                as="p"
+                text={description}
+                noLink={Boolean(href)}
+                className="text-sm text-white/70 leading-relaxed"
+              />
               {href && (
                 <span className="inline-block mt-3 text-sm font-semibold text-[#40A2D8] group-hover:text-white transition-colors duration-300">
                   Learn more →

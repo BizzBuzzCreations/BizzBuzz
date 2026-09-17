@@ -149,9 +149,7 @@ export default function ContactSection({ content }) {
                 >
                   <Icon size={18} className="text-[#40A2D8] mb-3" />
                   <h3 className="font-semibold text-sm mb-2">{title}</h3>
-                  <p className="text-xs text-white/60 leading-relaxed">
-                    {description}
-                  </p>
+                  <RichText as="p" text={description} className="text-xs text-white/60 leading-relaxed" />
                 </div>
               ))}
             </div>

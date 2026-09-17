@@ -14,6 +14,7 @@ import {
   Workflow,
   Handshake,
 } from "lucide-react";
+import RichText from "@/components/ui/richText";
 
 // What makes working with BizzBuzz Creations different — kept as 4 cards
 // so the existing marquee/visual layout below (photos, client logos,
@@ -305,9 +306,7 @@ export default function StatsShowcase({ content }) {
                 <h3 className="text-lg font-bold text-gray-900 mb-2 leading-snug">
                   {stat.value} {stat.label}
                 </h3>
-                <p className="text-sm text-gray-600 leading-relaxed mb-4">
-                  {stat.description}
-                </p>
+                <RichText as="p" text={stat.description} className="text-sm text-gray-600 leading-relaxed mb-4" />
                 <Link
                   href="/about"
                   className="inline-flex items-center gap-1.5 bg-gray-100 hover:bg-gray-200 text-gray-900 text-sm font-semibold px-4 py-2 rounded-full transition"
