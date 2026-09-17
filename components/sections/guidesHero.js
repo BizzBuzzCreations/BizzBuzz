@@ -17,8 +17,14 @@ export default function GuidesHero({ content } = {}) {
 
   return (
     <section className="relative overflow-hidden min-h-screen flex items-center py-24 md:py-28 px-5 md:px-10 lg:px-16 text-white bg-black">
+      {/* Full-bleed background — desktop/tablet only. On mobile this used
+          to cover the entire hero behind the heading/paragraph/buttons,
+          making the text hard to read against a busy photo; mobile now
+          gets a plain dark background instead, with its own boxed copy of
+          the same image placed between the paragraph and the buttons
+          (same treatment as the industries/services/BPO hero sections). */}
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 hidden md:block"
         style={{
           backgroundImage: `url('${heroImage}')`,
           // "contain" left ugly black bars down the sides on most real
@@ -35,11 +41,19 @@ export default function GuidesHero({ content } = {}) {
         }}
       />
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 hidden md:block"
         style={{
           background:
             "linear-gradient(90deg, #000000 0%, #000000 38%, rgba(0,0,0,0.82) 55%, rgba(0,0,0,0.3) 80%, rgba(0,0,0,0) 100%)",
         }}
+      />
+      {/* Mobile background — plain, no photo, so the section reads as a
+          simple dark hero rather than a busy image with nothing readable
+          behind the text once the full-bleed photo above is hidden. */}
+      <div
+        className="absolute inset-0 md:hidden"
+        style={{ background: "radial-gradient(circle at top, #1c1c1c, #000000)" }}
+        aria-hidden="true"
       />
 
       <div className="relative max-w-3xl">
@@ -47,6 +61,17 @@ export default function GuidesHero({ content } = {}) {
           {heading}
         </h1>
         <RichText as="p" text={paragraph} className="text-white/80 max-w-xl mb-8 leading-relaxed" />
+        <div className="md:hidden relative w-full aspect-[16/9] rounded-2xl overflow-hidden shadow-lg mb-8">
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `url('${heroImage}')`,
+              backgroundSize: "cover",
+              backgroundPosition: "right center",
+              backgroundRepeat: "no-repeat",
+            }}
+          />
+        </div>
         <div className="flex flex-wrap items-center gap-4">
           <Link href="#all-guides" className="inline-block">
             <button className="animated-button animated-button-lg whitespace-nowrap">
