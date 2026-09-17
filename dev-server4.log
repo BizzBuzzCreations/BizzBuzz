@@ -1,0 +1,131 @@
+
+> bbc@0.1.0 dev
+> next dev
+
+▲ Next.js 16.2.11 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.8.12:3000
+- Environments: .env.local
+✓ Ready in 4.0s
+(node:19696) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/Bizzbuzz-creations/BizzBuzz/lib/blogRedirects.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to D:\Bizzbuzz-creations\BizzBuzz\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+⚠ Slow filesystem detected. The benchmark took 909ms. If D:\Bizzbuzz-creations\BizzBuzz\.next/dev is a network drive, consider moving it to a local folder.
+See more: https://nextjs.org/docs/app/guides/local-development
+- Experiments (use with caution):
+  · serverActions
+
+○ Compiling / ...
+✓ Finished writing to filesystem cache in 25.0s
+MongoDB Connected: undefined
+MongoDB Connected: undefined
+MongoDB Connected: undefined
+MongoDB Connected: undefined
+MongoDB Connected: undefined
+ GET /services 200 in 4.4min (next.js: 4.2min, application-code: 12.8s)
+Get page content failed: MongooseError: Operation `pagecontents.findOne()` buffering timed out after 10000ms
+    at ignore-listed frames
+Get page content failed: MongooseError: Operation `pagecontents.findOne()` buffering timed out after 10000ms
+    at ignore-listed frames
+Get page content failed: MongooseError: Operation `pagecontents.findOne()` buffering timed out after 10000ms
+    at ignore-listed frames
+✓ Finished writing to filesystem cache in 22.7s
+Get page content failed: MongooseError: Operation `pagecontents.findOne()` buffering timed out after 10000ms
+    at ignore-listed frames
+Get page content failed: MongooseError: Operation `pagecontents.findOne()` buffering timed out after 10000ms
+    at ignore-listed frames
+○ Compiling /bpo-services ...
+MongoDB Connected: undefined
+MongoDB Connected: undefined
+MongoDB Connected: undefined
+MongoDB Connected: undefined
+MongoDB Connected: undefined
+MongoDB Connected: undefined
+Get page content failed: MongooseError: Operation `pagecontents.findOne()` buffering timed out after 10000ms
+    at ignore-listed frames
+Get page content failed: MongooseError: Operation `pagecontents.findOne()` buffering timed out after 10000ms
+    at ignore-listed frames
+MongoDB Connected: undefined
+MongoDB Connected: undefined
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+ GET /bpo-services 200 in 39.2s (next.js: 22.3s, application-code: 16.8s)
+ GET / 200 in 40s (next.js: 13.0s, application-code: 27.4s)
+○ Compiling /contact ...
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+ GET /contact 200 in 36.2s (next.js: 27.0s, application-code: 9.2s)
+○ Compiling /how-we-work ...
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+ GET /about 200 in 4.8s (next.js: 3.4s, application-code: 1400ms)
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+ GET /services 200 in 2.1s (next.js: 1784ms, application-code: 292ms)
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+ GET /how-we-work 200 in 56s (next.js: 52s, application-code: 3.2s)
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+ GET /contact 200 in 1553ms (next.js: 463ms, application-code: 1090ms)
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+ GET /how-we-work 200 in 1128ms (next.js: 244ms, application-code: 884ms)
+✓ Finished filesystem cache database compaction in 8.2min
+✓ Finished filesystem cache database compaction in 2.9min
+✓ Finished writing to filesystem cache in 33.1s
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+ GET /industries 200 in 5.9min (next.js: 5.0min, application-code: 55s)
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+✓ Finished filesystem cache database compaction in 2.6min
+✓ Finished writing to filesystem cache in 30.8s
+✓ Finished writing to filesystem cache in 80s
+✓ Finished writing to filesystem cache in 88s
+✓ Finished writing to filesystem cache in 5.4min
+✓ Finished writing to filesystem cache in 41s
+✓ Finished writing to filesystem cache in 10.3s
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+✓ Compiled in 1532.7s
+✓ Finished filesystem cache database compaction in 7.0min
+✓ Finished writing to filesystem cache in 35.2s
+MongoDB Connected: ac-ltny0ce-shard-00-01.bdmwoqb.mongodb.net
+✓ Finished filesystem cache database compaction in 51s
+MongoDB Connected: ac-ltny0ce-shard-00-01.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-01.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-01.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-01.bdmwoqb.mongodb.net
+ GET /guides 200 in 10.7s (next.js: 4.9s, application-code: 5.8s)
+○ Compiling /about ...
+✓ Finished writing to filesystem cache in 46s
+MongoDB Connected: ac-ltny0ce-shard-00-01.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-01.bdmwoqb.mongodb.net
+✓ Compiled in 124.2s
+✓ Finished writing to filesystem cache in 66s
+○ Compiling /en-uk/digital-marketing-services-in-uk ...
+✓ Finished filesystem cache database compaction in 5.8min
+✓ Finished filesystem cache database compaction in 106s
+✓ Finished writing to filesystem cache in 50s
+MongoDB Connected: ac-ltny0ce-shard-00-01.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-01.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-01.bdmwoqb.mongodb.net
+✓ Finished writing to filesystem cache in 67s
+MongoDB Connected: ac-ltny0ce-shard-00-01.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-01.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+ GET /en-uk/digital-marketing-services-in-uk 200 in 7.8min (next.js: 7.4min, application-code: 28.8s)
+✓ Finished filesystem cache database compaction in 68s
+✓ Finished writing to filesystem cache in 15.4s
+✓ Compiled in 178.1s
+✓ Finished writing to filesystem cache in 19.5s
+✓ Finished filesystem cache database compaction in 93s
+○ Compiling /_not-found/page ...
