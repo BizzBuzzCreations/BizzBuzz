@@ -4,6 +4,7 @@ import Blog from "@/models/blog";
 import cloudinary from "@/lib/cloudinary";
 import slugify from "slugify";
 import { getSession } from "@/actions/authActions";
+import { revalidatePath } from "next/cache";
 
 // Blog management (write side) is open to any logged-in role — admin and
 // user both write/publish posts. Only the public read functions further
@@ -94,6 +95,13 @@ export async function createBlog(data) {
     });
     await blog.save();
 
+    // The blog list, the home page's "latest posts" strip, and this
+    // post's own page are all plain async Server Components reading the
+    // DB directly — Next statically caches their rendered HTML, so
+    // without this a new/edited post would never appear live until the
+    // next full redeploy.
+    revalidatePath("/", "layout");
+
     return { success: true, data: toPlainBlog(blog.toObject()) };
   } catch (error) {
     console.error("Create blog failed:", error);
@@ -152,6 +160,8 @@ export async function updateBlog(id, data) {
 
     await existingDoc.save();
 
+    revalidatePath("/", "layout");
+
     return { success: true, data: toPlainBlog(existingDoc.toObject()) };
   } catch (error) {
     console.error("Update blog failed:", error);
@@ -166,6 +176,7 @@ export async function deleteBlog(id) {
   await connectDB();
   try {
     await Blog.findByIdAndDelete(id);
+    revalidatePath("/", "layout");
     return { success: true, message: "Blog post deleted." };
   } catch (error) {
     console.error("Delete blog failed:", error);

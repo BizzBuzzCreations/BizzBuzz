@@ -4,6 +4,7 @@ import PageContent from "@/models/pageContent";
 import cloudinary from "@/lib/cloudinary";
 import { getSession } from "@/actions/authActions";
 import { getPageDefaults } from "@/lib/pageContentRegistry";
+import { revalidatePath } from "next/cache";
 
 async function requireSession() {
   const session = await getSession();
@@ -39,6 +40,15 @@ export async function savePageContent(pageKey, fields) {
       { $set: { fields } },
       { upsert: true, new: true },
     );
+    // Every page reading this content (via getPageContent above) is a
+    // plain async Server Component with no dynamic API (cookies/headers)
+    // in the call chain, so Next statically caches its rendered HTML —
+    // without this, a saved edit updates the database but the live site
+    // keeps serving the old cached page until the next full redeploy.
+    // pageKey doesn't map cheaply to one exact URL (an industry/
+    // sub-service pageKey needs parsing to derive its route), so
+    // revalidate the whole site rather than trying to compute it.
+    revalidatePath("/", "layout");
     return { success: true };
   } catch (error) {
     console.error("Save page content failed:", error);

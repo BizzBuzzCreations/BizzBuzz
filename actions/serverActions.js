@@ -5,6 +5,7 @@ import Submission from "@/models/submissions";
 import Comment from "@/models/comments";
 import { Resend } from "resend";
 import { getSession } from "@/actions/authActions";
+import { revalidatePath } from "next/cache";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 const lastRequestMap = new Map();
@@ -146,6 +147,10 @@ export async function publishJob({
       applyForm,
     });
     await newJob.save();
+    // /career reads jobs server-side with no dynamic API, so Next
+    // statically caches it — without this a new job wouldn't show up
+    // live until the next full redeploy.
+    revalidatePath("/career");
     return {
       success: true,
       message: "Job published successfully.",
@@ -200,6 +205,7 @@ export async function updateJob({
       description,
       applyForm,
     });
+    revalidatePath("/career");
     return {
       success: true,
       message: "Job updated successfully.",
@@ -246,6 +252,7 @@ export async function deleteJob({ id }) {
   await connectDB();
   try {
     await Job.findByIdAndDelete(id);
+    revalidatePath("/career");
     return {
       success: true,
       message: "Job deleted successfully.",
