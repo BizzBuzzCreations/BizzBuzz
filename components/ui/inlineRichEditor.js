@@ -3,6 +3,7 @@
 import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import { Bold, Link as LinkIcon, Unlink } from "lucide-react";
+import TypedLinkInputRule from "@/components/ui/typedLinkInputRule";
 
 // A deliberately small sibling of components/ui/richTextEditor.js — that
 // one is for the blog post body (headings, lists, images, the works).
@@ -44,8 +45,18 @@ export default function InlineRichEditor({ value, onChange, rows = 3 }) {
         italic: false,
         strike: false,
         code: false,
-        link: { openOnClick: false, HTMLAttributes: { rel: null, target: null } },
+        // autolink off — it was auto-converting just the bare URL
+        // substring inside a typed `href="..."` as you typed it, before
+        // TypedLinkInputRule below got a chance to handle the whole tag,
+        // leaving a half-converted mess. Typing/pasting a real bare URL
+        // on its own still works fine via the toolbar's link button.
+        link: {
+          openOnClick: false,
+          autolink: false,
+          HTMLAttributes: { rel: null, target: null },
+        },
       }),
+      TypedLinkInputRule,
     ],
     content: value || "",
     onUpdate: ({ editor }) => {

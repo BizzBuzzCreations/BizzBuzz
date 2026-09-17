@@ -30,7 +30,8 @@ export async function generateMetadata() {
     description:
       "BizzBuzz Creations offers full digital marketing services for businesses in the UK — SEO, Google Ads, social media & web development.",
     alternates: {
-      canonical: "https://bizzbuzzcreations.com/en-uk/digital-marketing-services-in-uk",
+      canonical:
+        "https://bizzbuzzcreations.com/en-uk/digital-marketing-services-in-uk",
     },
     robots: {
       // Findable in search results, but never followed/crawled onward
