@@ -18,6 +18,7 @@ import DashboardContent from "@/components/sections/dashboardContent";
 import DashboardIndustries from "@/components/sections/dashboardIndustries";
 import DashboardServices from "@/components/sections/dashboardServices";
 import DashboardSubServices from "@/components/sections/dashboardSubServices";
+import DashboardOutsideLocation from "@/components/sections/dashboardOutsideLocation";
 
 const NAV_ITEMS = [
   { id: "overview", label: "Overview", icon: GridIcon },
@@ -29,6 +30,7 @@ const NAV_ITEMS = [
   { id: "industries", label: "Industries Pages", icon: IndustriesIcon },
   { id: "services", label: "Services Pages", icon: ServicesIcon },
   { id: "subservices", label: "Sub-Service Pages", icon: SubServicesIcon },
+  { id: "outsideLocation", label: "Outside Location Page", icon: OutsideLocationIcon },
 ];
 
 // Non-admin (regular) users only get access to these — everything else
@@ -40,6 +42,7 @@ const USER_ACCESSIBLE_TABS = [
   "industries",
   "services",
   "subservices",
+  "outsideLocation",
   "submissions",
 ];
 
@@ -561,6 +564,8 @@ export default function Dashboard({ role = "user", name = "" }) {
 
         {activeTab === "subservices" && <DashboardSubServices />}
 
+        {activeTab === "outsideLocation" && <DashboardOutsideLocation />}
+
         {showAddJob && (
           <div
             className="fixed inset-0 z-100 flex items-center justify-center bg-slate-900/55 backdrop-blur-sm"
@@ -814,6 +819,23 @@ function SubServicesIcon({ size = 18 }) {
       <circle cx="18" cy="12" r="2.5" />
       <path d="M8.2 7.1L15.8 10.9" />
       <path d="M8.2 16.9L15.8 13.1" />
+    </svg>
+  );
+}
+
+function OutsideLocationIcon({ size = 18 }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+    >
+      <circle cx="12" cy="12" r="10" />
+      <path d="M2 12h20" />
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z" />
     </svg>
   );
 }

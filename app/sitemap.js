@@ -34,6 +34,10 @@ const STATIC_PAGES = [
   { path: "/social-media-marketing", changeFrequency: "weekly", priority: 0.7 },
   { path: "/ai-solutions", changeFrequency: "weekly", priority: 0.7 },
   { path: "/marketing-automation", changeFrequency: "weekly", priority: 0.7 },
+  // Hidden landing page (dashboard: "Outside Location Page") — no
+  // internal link anywhere on the site, so it relies entirely on this
+  // sitemap entry for search engines to find and index it.
+  { path: "/en-uk/digital-marketing-services-in-uk", changeFrequency: "monthly", priority: 0.5 },
 ];
 
 export default async function sitemap() {
