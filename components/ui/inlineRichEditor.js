@@ -73,6 +73,26 @@ export default function InlineRichEditor({ value, onChange, rows = 3 }) {
       editor.chain().focus().extendMarkRange("link").unsetLink().run();
       return;
     }
+
+    // With no text selected, Tiptap's setLink just applies an invisible
+    // "stored mark" (it only affects the next character typed, same as
+    // clicking Bold with nothing selected) — nothing visibly changes, so
+    // clicking this button with the cursor just parked in the text felt
+    // completely broken. Insert the URL itself as real, visible link
+    // text at the cursor instead, so something always happens.
+    if (editor.state.selection.empty) {
+      editor
+        .chain()
+        .focus()
+        .insertContent({
+          type: "text",
+          text: url,
+          marks: [{ type: "link", attrs: { href: url } }],
+        })
+        .run();
+      return;
+    }
+
     editor.chain().focus().extendMarkRange("link").setLink({ href: url }).run();
   };
 

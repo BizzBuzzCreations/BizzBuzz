@@ -80,8 +80,29 @@ export default function RichTextEditor({ content, onChange }) {
   };
 
   const setLink = () => {
+    if (!editor) return;
     const url = window.prompt("Link URL");
-    if (url) editor?.chain().focus().extendMarkRange("link").setLink({ href: url }).run();
+    if (!url) return;
+
+    // With no text selected, setLink only applies an invisible "stored
+    // mark" (affects the next typed character, same as clicking Bold
+    // with nothing selected) — nothing visibly changes, so this looked
+    // completely broken when clicked with the cursor just parked in
+    // text. Insert the URL itself as real, visible link text instead.
+    if (editor.state.selection.empty) {
+      editor
+        .chain()
+        .focus()
+        .insertContent({
+          type: "text",
+          text: url,
+          marks: [{ type: "link", attrs: { href: url } }],
+        })
+        .run();
+      return;
+    }
+
+    editor.chain().focus().extendMarkRange("link").setLink({ href: url }).run();
   };
 
   const toggleMode = () => {
