@@ -129,3 +129,15 @@ MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
 ✓ Finished writing to filesystem cache in 19.5s
 ✓ Finished filesystem cache database compaction in 93s
 ○ Compiling /_not-found/page ...
+✓ Finished writing to filesystem cache in 58s
+ GET /api/_debug_field?pageKey=about&field=aboutHeroParagraph 404 in 119s (next.js: 109s, application-code: 10.0s)
+✓ Finished writing to filesystem cache in 44s
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+ GET /api/debugfield?pageKey=about&field=aboutHeroParagraph 200 in 2.1min (next.js: 2.1min, application-code: 705ms)
+○ Compiling /about ...
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+ GET /about 200 in 16.1s (next.js: 10.9s, application-code: 5.2s)
+✓ Finished writing to filesystem cache in 49s
+✓ Finished filesystem cache database compaction in 47s
+✓ Finished filesystem cache database compaction in 52s
