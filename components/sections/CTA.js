@@ -5,7 +5,10 @@ import React, { useState } from "react";
 import { toast, Bounce } from "react-toastify";
 import RichText from "@/components/ui/richText";
 
-export default function CTA({ content } = {}) {
+// `white` — light-background variant used only on individual blog post
+// pages (app/(main)/blog/[slug]/page.js); every other page keeps the
+// original dark version.
+export default function CTA({ content, white = false } = {}) {
   const heading = content?.ctaHeading || "Get Free Consultancy Now!";
   const paragraph =
     content?.ctaParagraph ||
@@ -59,19 +62,28 @@ export default function CTA({ content } = {}) {
   };
   return (
     <>
-      <div className="bg-black px-5 py-10 scroll-mt-34" id="CTA">
+      <div className={`${white ? "bg-white" : "bg-black"} px-5 py-10 scroll-mt-34`} id="CTA">
         <div
-          className="rounded-3xl border-2 border-[#0B60B0] shadow-lg shadow-black md:max-w-3xl lg:max-w-5xl xl:max-w-6xl mx-auto container"
-          style={{
-            background:
-              "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(120, 180, 255, 0.25), transparent 70%), #000000",
-          }}
+          className={`rounded-3xl border-2 md:max-w-3xl lg:max-w-5xl xl:max-w-6xl mx-auto container ${
+            white ? "border-[#0B60B0]/30 shadow-lg shadow-black/10" : "border-[#0B60B0] shadow-lg shadow-black"
+          }`}
+          style={
+            white
+              ? {
+                  background:
+                    "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(11, 96, 176, 0.06), transparent 70%), #ffffff",
+                }
+              : {
+                  background:
+                    "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(120, 180, 255, 0.25), transparent 70%), #000000",
+                }
+          }
         >
-          <div className="py-8 md:py-10 px-6 md:px-10 z-10 text-white">
+          <div className={`py-8 md:py-10 px-6 md:px-10 z-10 ${white ? "text-black" : "text-white"}`}>
             <h2 className="md:text-3xl text-2xl font-bold mb-5">
               {heading}
             </h2>
-            <RichText as="p" text={paragraph} className="max-w-3xl" />
+            <RichText as="p" text={paragraph} className={`max-w-3xl ${white ? "text-gray-600" : ""}`} />
             <form action={handleSubmit}>
               {/* Full width on mobile instead of a fixed 250px box (the
                   label was also text-black on this section's black
@@ -79,7 +91,7 @@ export default function CTA({ content } = {}) {
               <div className="max-w-full sm:max-w-[300px] relative">
                 <label
                   htmlFor="email"
-                  className="block text-lg font-medium text-white mb-2"
+                  className={`block text-lg font-medium mb-2 ${white ? "text-black" : "text-white"}`}
                 >
                   Email Address
                 </label>
@@ -111,11 +123,11 @@ export default function CTA({ content } = {}) {
         </div>
       </div>
 
-      {/* Full-width white divider between the CTA and whatever comes next
-          (the footer, on every page that ends with this CTA) so the two
-          don't just blend into one section. */}
-      <div className="w-full bg-black pt-8 md:pt-10">
-        <div className="w-full border-t border-white" />
+      {/* Divider between the CTA and whatever comes next (the footer, on
+          every page that ends with this CTA) so the two don't just blend
+          into one section. */}
+      <div className={`w-full ${white ? "bg-white" : "bg-black"} pt-8 md:pt-10`}>
+        <div className={`w-full border-t ${white ? "border-black/10" : "border-white"}`} />
       </div>
     </>
   );

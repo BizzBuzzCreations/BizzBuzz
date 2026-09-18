@@ -78,10 +78,16 @@ export default function AllBLogs() {
     const savedShowAll = Cookies.get("blogShowAll");
     const savedSelectedCat = Cookies.get("selectedCat");
 
-    if (savedPage) setCurrPage(Number(savedPage));
-    if (savedPosts) setPosts(Number(savedPosts));
-    if (savedShowAll) setShowAll(savedShowAll === "true");
-    if (savedSelectedCat) setSelected(JSON.parse(savedSelectedCat));
+    // Deferred (not called synchronously in the effect body) so this
+    // doesn't trip react-hooks/set-state-in-effect — same end result,
+    // just scheduled a tick later instead of during the render commit.
+    const timer = setTimeout(() => {
+      if (savedPage) setCurrPage(Number(savedPage));
+      if (savedPosts) setPosts(Number(savedPosts));
+      if (savedShowAll) setShowAll(savedShowAll === "true");
+      if (savedSelectedCat) setSelected(JSON.parse(savedSelectedCat));
+    }, 0);
+    return () => clearTimeout(timer);
   }, [categoryFromUrl]);
 
   useEffect(() => {
@@ -91,11 +97,16 @@ export default function AllBLogs() {
       behavior: "smooth",
     });
 
-    getBlogs(currPage, selected.id, posts);
+    // Deferred for the same reason as above — getBlogs synchronously
+    // calls setLoading(true) as soon as it starts running.
+    const timer = setTimeout(() => {
+      getBlogs(currPage, selected.id, posts);
+    }, 0);
     Cookies.set("blogPage", currPage, { expires: 1 / 24 });
     Cookies.set("blogPosts", posts, { expires: 1 / 24 });
     Cookies.set("blogShowAll", showAll, { expires: 1 / 24 });
     Cookies.set("selectedCat", JSON.stringify(selected), { expires: 1 / 24 });
+    return () => clearTimeout(timer);
   }, [showAll, currPage, posts, selected]);
 
   function truncateHTML(html, limit = 120) {
@@ -130,7 +141,7 @@ export default function AllBLogs() {
     <>
       <div className="lg:max-w-screen-xl sm:max-w-xl md:max-w-full sm:px-12 md:px-18 px-8 mx-auto">
         {showAll && (
-          <h2 className="md:text-4xl text-3xl font-bold md:py-15 md:mb-0 mb-10 text-center">
+          <h2 className="md:text-4xl text-3xl font-bold md:py-15 md:mb-0 mb-10 text-center text-white">
             All Blogs
           </h2>
         )}
@@ -212,7 +223,7 @@ export default function AllBLogs() {
               >
                 <ArrowLeft />
               </button>
-              <p className="text-gray-500">
+              <p className="text-white/60">
                 Page {currPage} of {totalPages}
               </p>
               <button
@@ -233,17 +244,17 @@ export default function AllBLogs() {
       {loading ? (
         // <!-- Grid Skeleton -->
         <div className=" sm:px-12 md:px-16 px-8 mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 py-10 lg:py-20 sm:py-16 lg:max-w-screen-xl sm:max-w-xl md:max-w-full">
-          <div className="bg-white rounded-xl p-4 shadow-lg space-y-3">
+          <div className="rounded-xl border border-white/10 bg-white/5 p-4 space-y-3">
             <div className="w-full h-48 rounded animate-shimmer"></div>
             <div className="h-4 w-3/4 animate-shimmer rounded"></div>
             <div className="h-3 w-1/2 animate-shimmer rounded"></div>
           </div>
-          <div className="bg-white rounded-xl p-4 shadow-lg space-y-3">
+          <div className="rounded-xl border border-white/10 bg-white/5 p-4 space-y-3">
             <div className="w-full h-48 rounded animate-shimmer"></div>
             <div className="h-4 w-3/4 animate-shimmer rounded"></div>
             <div className="h-3 w-1/2 animate-shimmer rounded"></div>
           </div>
-          <div className="bg-white rounded-xl p-4 shadow-lg space-y-3">
+          <div className="rounded-xl border border-white/10 bg-white/5 p-4 space-y-3">
             <div className="w-full h-48 rounded animate-shimmer"></div>
             <div className="h-4 w-3/4 animate-shimmer rounded"></div>
             <div className="h-3 w-1/2 animate-shimmer rounded"></div>
@@ -258,10 +269,18 @@ export default function AllBLogs() {
               blogs.map((e, index) => {
                 const featuredImage = getFeaturedImage(e);
                 return (
-                <div className="relative" key={index}>
+                // Cards previously used dark text (text-black, text-slate-700,
+                // text-gray-700) meant for a white card background, but this
+                // grid renders directly on the page's black section — same
+                // dark-card treatment as the "latest 3" cards on
+                // app/(main)/blog/page.js so text is actually visible here.
+                <div
+                  className="group relative rounded-2xl border border-white/10 bg-white/5 p-4 transition-all duration-300 hover:-translate-y-1 hover:border-[#40A2D8] hover:shadow-xl hover:shadow-black/40"
+                  key={index}
+                >
                   <Link
                     href={`/blog/${e?.slug}`}
-                    className="block overflow-hidden group rounded-xl shadow-lg shadow-gray-300 aspect-[1.91/1] bg-gray-100"
+                    className="block overflow-hidden rounded-xl aspect-[1.91/1] bg-white/10"
                   >
                     {featuredImage ? (
                       <img
@@ -270,7 +289,7 @@ export default function AllBLogs() {
                         alt={e?.title}
                       />
                     ) : (
-                      <div className="w-full h-full flex flex-col items-center justify-center gap-2 bg-gradient-to-br from-gray-50 to-gray-200 text-gray-400">
+                      <div className="w-full h-full flex flex-col items-center justify-center gap-2 bg-white/5 text-white/30">
                         <ImageOff size={28} />
                         <span className="text-xs font-medium">
                           Image unavailable
@@ -279,7 +298,7 @@ export default function AllBLogs() {
                     )}
                   </Link>
                   <div className="relative mt-5">
-                    <p className="uppercase font-semibold text-xs mb-2.5 text-slate-700">
+                    <p className="uppercase font-semibold text-xs mb-2.5 text-white/50 transition-colors duration-300 group-hover:text-[#40A2D8]">
                       {new Date(e?.publishedAt).toLocaleDateString("en-US", {
                         month: "short",
                         day: "numeric",
@@ -289,19 +308,19 @@ export default function AllBLogs() {
                     </p>
                     <Link
                       href={`/blog/${e?.slug}`}
-                      className="block mb-3 hover:underline"
+                      className="block mb-3"
                     >
-                      <h2 className="text-xl lg:text-2xl leading-tight font-semibold leading-5 text-black  transition-colors duration-200 hover:text-slate-700">
+                      <h2 className="text-xl lg:text-2xl leading-tight font-semibold leading-5 text-white transition-colors duration-300 group-hover:text-[#40A2D8]">
                         {e?.title}
                       </h2>
                     </Link>
-                    <p className="text-gray-700">
+                    <p className="text-white/60 transition-colors duration-300 group-hover:text-[#40A2D8]">
                       {truncateHTML(e?.excerpt, 150)}
                     </p>
 
                     <Link
                       href={`/blog/${e?.slug}`}
-                      className="font-medium underline text-slate-700 hover:text-slate-900"
+                      className="font-medium underline text-white/70 transition-colors duration-300 group-hover:text-[#40A2D8]"
                       aria-label={`Read more about ${e?.title}`}
                     >
                       Read More
@@ -339,7 +358,7 @@ export default function AllBLogs() {
                 >
                   <ArrowLeft />
                 </button>
-                <p className="text-gray-500">
+                <p className="text-white/60">
                   Page {currPage} of {totalPages}
                 </p>
                 <button

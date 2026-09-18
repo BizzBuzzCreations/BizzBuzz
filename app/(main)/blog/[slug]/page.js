@@ -103,7 +103,7 @@ export default async function SingleBlog({ params }) {
 
   return (
     <>
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-40 lg:flex lg:items-start gap-8">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 md:pt-28 pb-20 lg:flex lg:items-start gap-8">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
@@ -211,9 +211,10 @@ export default async function SingleBlog({ params }) {
       </aside>
     </div>
 
-      {/* CTA — just above the footer */}
-      <div className="bg-black pt-4">
-        <CTA />
+      {/* CTA — just above the footer. White background here only — every
+          other page keeps CTA's original dark version. */}
+      <div className="bg-white pt-4">
+        <CTA white />
       </div>
     </>
   );
