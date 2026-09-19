@@ -154,7 +154,10 @@ export default async function IndustriesIndexPage() {
           sticky nav that already occupies its own space in the flow was
           just leaving a large empty gap before the heading; md keeps its
           original spacing. */}
-      <section className="relative overflow-hidden md:min-h-[560px] flex items-center pt-10 md:pt-32 pb-12 md:pb-20 px-6 md:px-12 lg:px-24 text-white bg-black">
+      {/* md:min-h-screen — fills the full viewport on desktop/laptop (was
+          a fixed 560px, which left empty black / the next section showing
+          below the hero on the first screen). */}
+      <section className="relative overflow-hidden md:min-h-screen flex items-center pt-10 md:pt-32 pb-12 md:pb-20 px-6 md:px-12 lg:px-24 text-white bg-black">
         {/* Full-bleed version — desktop/tablet only. On mobile this sat
             dimmed behind the gradient with text stacked on top, hard to
             actually see; mobile instead gets its own boxed copy of the

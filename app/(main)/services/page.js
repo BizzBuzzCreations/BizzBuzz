@@ -249,13 +249,28 @@ export default async function ServicesIndexPage() {
           combo was forcing a tall, vertically-centered box on mobile too,
           leaving a large empty gap between the nav and the heading before
           any content appeared. */}
-      <section className="relative overflow-hidden md:min-h-[520px] flex items-center pt-10 md:pt-28 pb-12 md:pb-20 px-6 md:px-12 lg:px-24 text-white bg-black">
+      {/* md:min-h-screen — fills the full viewport on desktop/laptop (was
+          a fixed 520px, which left the next section peeking in on the
+          first screen). */}
+      <section className="relative overflow-hidden md:min-h-screen flex items-center pt-10 md:pt-28 pb-12 md:pb-20 px-6 md:px-12 lg:px-24 text-white bg-black">
+        {/* The icon-grid artwork is a very wide (~3.45:1) strip. Stretched
+            edge-to-edge with `cover` over a full-viewport-tall section it
+            would zoom ~2x on a 16:9 screen (icons blown up, right half of
+            the grid cropped off). Instead it sits at its natural scale as
+            a vertically-centered band — same size as before, aligned with
+            the text — and its top/bottom edges (which aren't pure black)
+            fade out into the section so there's no visible seam. */}
         <div
-          className="hidden md:block absolute inset-0"
+          className="hidden md:block absolute inset-x-0 top-1/2 -translate-y-1/2 aspect-[1897/550]"
           style={{
             backgroundImage: `url('${heroImage}')`,
             backgroundSize: "cover",
-            backgroundPosition: "center",
+            backgroundPosition: "right center",
+            backgroundRepeat: "no-repeat",
+            WebkitMaskImage:
+              "linear-gradient(to bottom, transparent 0%, #000 18%, #000 82%, transparent 100%)",
+            maskImage:
+              "linear-gradient(to bottom, transparent 0%, #000 18%, #000 82%, transparent 100%)",
           }}
         />
         <div

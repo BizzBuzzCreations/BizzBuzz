@@ -294,7 +294,11 @@ export default async function HowWeWorkPage() {
           in, laid down as a plain background with a matching black
           overlay, text sitting in the solid-black portion on the left.
           Replaces the previous two conic-gradient decorative blobs. */}
-      <section className="relative overflow-hidden min-h-[440px] sm:min-h-[500px] flex items-center pt-20 pb-16 px-6 md:px-12 lg:px-24 bg-black">
+      {/* md:min-h-screen — fills the full viewport on desktop/laptop (was
+          a fixed 500px, which left the next section peeking in at the
+          bottom of the first screen). Mobile keeps its own shorter
+          heights. */}
+      <section className="relative overflow-hidden min-h-[440px] sm:min-h-[500px] md:min-h-screen flex items-center pt-20 pb-16 px-6 md:px-12 lg:px-24 bg-black">
         <div
           className="absolute inset-0"
           style={{
