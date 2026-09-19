@@ -15,7 +15,7 @@ const DEFAULT_YEARS = [
     year: "2022",
     title: "Building the Foundation",
     body: "We began our journey with a focus on digital marketing, creative branding, and online business growth, helping brands establish a stronger and more meaningful digital presence.",
-    img: "/team-images/team-2.jpeg",
+    img: "/team-images/team-2.webp",
   },
   {
     year: "2023",
@@ -27,19 +27,19 @@ const DEFAULT_YEARS = [
     year: "2024",
     title: "Strengthening Our Approach",
     body: "Our focus evolved toward result-driven digital marketing strategies, combining SEO, content, social media, branding, and web solutions to help businesses build visibility and connect with their audiences.",
-    img: "/team-images/team-13.jpeg",
+    img: "/team-images/team-13.webp",
   },
   {
     year: "2025",
     title: "Growing Digital Possibilities",
     body: "We continued refining our digital marketing and SEO strategies, focusing on stronger brand visibility, engaging content, effective online campaigns, and sustainable digital growth across different business needs.",
-    img: "/image-6.jpg",
+    img: "/image-6.webp",
   },
   {
     year: "2026",
     title: "Where We Are Today",
     body: "Today, we continue building smarter digital marketing, SEO, branding, content, social media, and web strategies, helping businesses strengthen their online presence and grow with confidence.",
-    img: "/team-images/team-5.jpeg",
+    img: "/team-images/team-5.webp",
   },
 ];
 

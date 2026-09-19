@@ -143,7 +143,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8 mb-6">
           <div className="max-w-md">
             <Image
-              src="/bbc logo white.png"
+              src="/bbc logo white.webp"
               alt="BizzBuzz Creations logo"
               width={836}
               height={189}
@@ -186,7 +186,7 @@ export default function Footer() {
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-2 bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3">
                 <Image
-                  src="/clutch.png"
+                  src="/clutch.webp"
                   alt="Clutch — Verified Partner"
                   width={32}
                   height={32}
@@ -199,7 +199,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-2 bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3">
                 <Image
-                  src="/CDL.png"
+                  src="/CDL.webp"
                   alt="Certified Google Ads & Marketing Partner"
                   width={32}
                   height={32}

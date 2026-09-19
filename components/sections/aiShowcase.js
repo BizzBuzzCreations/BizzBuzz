@@ -38,7 +38,7 @@ export default function AiShowcase({ content }) {
   // /aiservice.webp doesn't exist in /public — was a broken poster
   // reference (silently masked before by the video always loading fast
   // enough to cover it up); using an existing, on-brand AI photo instead.
-  const posterImage = content?.aiPosterImage || "/AI solutions 2.png";
+  const posterImage = content?.aiPosterImage || "/AI solutions 2.webp";
   const videoSrc = content?.aiVideo || "/ai-vid.webm";
   const buttonText = content?.aiButtonText || "Explore AI Solutions";
 

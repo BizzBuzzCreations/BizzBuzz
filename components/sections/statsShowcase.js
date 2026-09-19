@@ -28,7 +28,7 @@ const STATS = [
       "Get SEO, Google Ads, social media marketing, web development, AI, automation, and BPO support from one connected digital team.",
     visual: {
       type: "image",
-      src: "/oneteam-multiplecapabilities.jpg",
+      src: "/oneteam-multiplecapabilities.webp",
       alt: "One team, multiple capabilities",
     },
   },
@@ -40,7 +40,7 @@ const STATS = [
       "We consider your industry, audience, market, and business needs to recommend digital solutions that fit your objectives.",
     visual: {
       type: "image",
-      src: "/solutionbuilt-aroundus.jpg",
+      src: "/solutionbuilt-aroundus.webp",
       alt: "Solutions built around you",
     },
   },
@@ -52,7 +52,7 @@ const STATS = [
       "Know what's included, what we're working on, and what to expect through straightforward communication and practical recommendations.",
     visual: {
       type: "image",
-      src: "/clearfrom-dayone.jpg",
+      src: "/clearfrom-dayone.webp",
       alt: "Clear from day one",
     },
   },
@@ -64,7 +64,7 @@ const STATS = [
       "Start with the services you need today and expand into SEO, advertising, technology, automation, or business support as your needs evolve.",
     visual: {
       type: "image",
-      src: "/builtto-adaptwithyou.jpg",
+      src: "/builtto-adaptwithyou.webp",
       alt: "Built to adapt with you",
     },
   },

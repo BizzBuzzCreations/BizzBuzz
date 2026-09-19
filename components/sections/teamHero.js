@@ -10,10 +10,10 @@ import RichText from "@/components/ui/richText";
 // pre-composed collage image that either got cropped or left empty
 // space depending on the viewport's height.
 const DEFAULT_SLIDES = [
-  "/team-images/team-5.jpeg",
-  "/team-images/team-6.jpeg",
-  "/team-images/team-2.jpeg",
-  "/team-images/team-13.jpeg",
+  "/team-images/team-5.webp",
+  "/team-images/team-6.webp",
+  "/team-images/team-2.webp",
+  "/team-images/team-13.webp",
 ];
 
 const SLIDE_DURATION = 4500;

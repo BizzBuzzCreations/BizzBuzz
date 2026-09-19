@@ -198,7 +198,7 @@ export default function ConsultationPopup({ content }) {
             <ul className="flex items-center  space-y-2 text-sm text-gray-700 font-bold">
               <li>
                 <Image
-                  src="/CDL.png"
+                  src="/CDL.webp"
                   width={80}
                   height={80}
                   alt="Google Partner"
@@ -207,7 +207,7 @@ export default function ConsultationPopup({ content }) {
               </li>
               <li>
                 <Image
-                  src="/clutch.png"
+                  src="/clutch.webp"
                   width={80}
                   height={80}
                   alt="clutch Partner"
@@ -216,7 +216,7 @@ export default function ConsultationPopup({ content }) {
               </li>
               <li>
                 <Image
-                  src="/iso.png"
+                  src="/iso.webp"
                   width={80}
                   height={80}
                   alt="ISO Partner"
@@ -225,7 +225,7 @@ export default function ConsultationPopup({ content }) {
               </li>
               <li>
                 <Image
-                  src="/GA.png"
+                  src="/GA.webp"
                   width={80}
                   height={80}
                   alt="Google Analytics Partner"

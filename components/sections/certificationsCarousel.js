@@ -8,10 +8,10 @@ import "@splidejs/react-splide/css";
 // Real certifications only (same badges used on /our-team, /how-we-work,
 // and in the footer) — auto-scrolling strip instead of a static row.
 const CERTIFICATIONS = [
-  { src: "/clutch.png", alt: "Clutch — Verified Partner", label: "Clutch", sub: "Verified Partner" },
-  { src: "/CDL.png", alt: "Certified Google Ads Partner", label: "Google Partner", sub: "Certified" },
-  { src: "/GA.png", alt: "Certified Google Analytics Partner", label: "Google Analytics", sub: "Certified" },
-  { src: "/iso.png", alt: "ISO Certified", label: "ISO", sub: "Certified" },
+  { src: "/clutch.webp", alt: "Clutch — Verified Partner", label: "Clutch", sub: "Verified Partner" },
+  { src: "/CDL.webp", alt: "Certified Google Ads Partner", label: "Google Partner", sub: "Certified" },
+  { src: "/GA.webp", alt: "Certified Google Analytics Partner", label: "Google Analytics", sub: "Certified" },
+  { src: "/iso.webp", alt: "ISO Certified", label: "ISO", sub: "Certified" },
 ];
 
 export default function CertificationsCarousel() {

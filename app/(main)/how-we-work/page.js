@@ -200,7 +200,7 @@ export default async function HowWeWorkPage() {
     content?.hwwHeroParagraph ||
     "No vague promises, no \"we'll figure it out as we go.\" Every project at BizzBuzz Creations follows the same structured process of audit, strategy, execution, and reporting — so you always know what's happening, why it's happening, and what results to expect.";
   const heroCtaText = content?.hwwHeroCtaText || "See How It Works";
-  const heroImage = content?.hwwHeroImage || "/how we work and function.png";
+  const heroImage = content?.hwwHeroImage || "/how we work and function.webp";
 
   const principlesHeading =
     content?.principlesHeading ||

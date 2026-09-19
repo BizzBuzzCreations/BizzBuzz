@@ -16,7 +16,7 @@ export default function WhyChooseUs({ dark = false, content }) {
   // Was "/why-choose-image.png", a file that doesn't exist in /public —
   // rendered as a permanently broken image icon. Swapped for a real,
   // already-used photo.
-  const image = content?.whyChooseImage || "/team-images/team-5.jpeg";
+  const image = content?.whyChooseImage || "/team-images/team-5.webp";
   const features =
     content?.whyChooseFeatures?.length > 0 ? content.whyChooseFeatures : DEFAULT_FEATURES;
 

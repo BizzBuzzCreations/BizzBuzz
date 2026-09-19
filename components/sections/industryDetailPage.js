@@ -15,10 +15,10 @@ import RichText from "@/components/ui/richText";
 // plugged in via lib/industryPageContent.js. Keeps 15 pages from drifting
 // out of sync with each other since they all render through one file.
 const CERTIFICATIONS = [
-  { src: "/clutch.png", alt: "Clutch — Verified Partner" },
-  { src: "/CDL.png", alt: "Certified Google Ads Partner" },
-  { src: "/GA.png", alt: "Certified Google Analytics Partner" },
-  { src: "/iso.png", alt: "ISO Certified" },
+  { src: "/clutch.webp", alt: "Clutch — Verified Partner" },
+  { src: "/CDL.webp", alt: "Certified Google Ads Partner" },
+  { src: "/GA.webp", alt: "Certified Google Analytics Partner" },
+  { src: "/iso.webp", alt: "ISO Certified" },
 ];
 
 export default function IndustryDetailPage({

@@ -10,7 +10,7 @@ export default function HomeAbout({ content }) {
     content?.aboutParagraph ||
     "BizzBuzz Creations is a digital marketing and business solutions agency helping businesses in Prayagraj (Allahabad), across India, and international markets build a stronger digital presence. We understand that every business has different goals, audiences, and challenges, so we focus on practical solutions rather than one-size-fits-all marketing. Our expertise covers SEO, local SEO, Google Ads, social media marketing, website development, content marketing, AI solutions, and marketing automation. From improving search visibility and generating qualified leads to building better websites and streamlining business processes, we bring multiple digital capabilities under one team. Our goal is simple: help businesses reach the right audience, create meaningful opportunities, and build a digital presence that supports long-term growth.";
   const buttonText = content?.aboutButtonText || "Learn More";
-  const backgroundImage = content?.aboutBackgroundImage || "/bbc-building.png";
+  const backgroundImage = content?.aboutBackgroundImage || "/bbc-building.webp";
 
   const button = (
     <Link href="/about" aria-label="Learn more about BizzBuzz Creations" className="inline-block">

@@ -56,21 +56,21 @@ const INDUSTRY_ICONS = [
 // don't even exist in /public, so a couple of cards always rendered a
 // broken image regardless of which industry landed on that slot.
 const DEFAULT_INDUSTRY_CARDS = [
-  { title: "Healthcare", description: "Build a stronger healthcare presence with digital marketing, SEO, and websites designed to connect with patients.", linkText: "Learn More", linkHref: "/industries/healthcare", image: "/Healthcare.png" },
-  { title: "Finance", description: "Strengthen your finance brand with digital strategies that build visibility, trust, engagement, and qualified customer opportunities.", linkText: "Learn More", linkHref: "/industries/finance", image: "/Finance.png" },
-  { title: "Restaurant", description: "Attract more diners with local SEO, social media, and digital marketing strategies built for restaurant growth.", linkText: "Learn More", linkHref: "/industries/restaurant", image: "/Restaurant.png" },
-  { title: "Wearables", description: "Grow your wearable technology brand with digital strategies that improve visibility, engagement, and online customer discovery.", linkText: "Learn More", linkHref: "/industries/wearables", image: "/wearables.png" },
-  { title: "Entertainment", description: "Reach wider audiences with creative digital marketing, social media, and content strategies built for entertainment brands.", linkText: "Learn More", linkHref: "/industries/entertainment", image: "/Entertainment.png" },
-  { title: "Travel", description: "Increase bookings and brand visibility with SEO, digital marketing, and engaging online experiences for travel businesses.", linkText: "Learn More", linkHref: "/industries/travel", image: "/Travel.png" },
-  { title: "Fitness", description: "Build a stronger fitness brand with digital marketing strategies that attract members, increase visibility, and drive growth.", linkText: "Learn More", linkHref: "/industries/fitness", image: "/fitness.png" },
-  { title: "Education", description: "Connect with students and learners through SEO, digital marketing, and websites designed for educational businesses.", linkText: "Learn More", linkHref: "/industries/education", image: "/Education.png" },
-  { title: "Real Estate", description: "Generate more property leads with SEO, digital marketing, and conversion-focused websites built for real estate businesses.", linkText: "Learn More", linkHref: "/industries/real-estate", image: "/Real estate.png" },
-  { title: "E-commerce", description: "Grow your online store with SEO, digital marketing, and conversion-focused strategies designed for e-commerce success.", linkText: "Learn More", linkHref: "/industries/ecommerce", image: "/ecommerce.png" },
-  { title: "Events", description: "Build event awareness and increase registrations with social media, digital marketing, and engaging online campaigns.", linkText: "Learn More", linkHref: "/industries/events", image: "/Events.png" },
-  { title: "Manufacturing", description: "Strengthen your manufacturing business with digital strategies that improve visibility, reach buyers, and generate qualified leads.", linkText: "Learn More", linkHref: "/industries/manufacturing", image: "/Manufacturing.png" },
-  { title: "Fashion & Apparel", description: "Build a stronger fashion brand with social media, digital marketing, and e-commerce strategies that turn attention into growth.", linkText: "Learn More", linkHref: "/industries/fashion-apparel", image: "/Fashion.png" },
-  { title: "Gaming", description: "Reach gaming audiences with engaging digital marketing, social media, and content strategies built around player communities.", linkText: "Learn More", linkHref: "/industries/gaming", image: "/Gaming.png" },
-  { title: "Construction", description: "Generate qualified leads and strengthen your online presence with SEO, digital marketing, and conversion-focused web solutions.", linkText: "Learn More", linkHref: "/industries/construction", image: "/Construction.png" },
+  { title: "Healthcare", description: "Build a stronger healthcare presence with digital marketing, SEO, and websites designed to connect with patients.", linkText: "Learn More", linkHref: "/industries/healthcare", image: "/Healthcare.webp" },
+  { title: "Finance", description: "Strengthen your finance brand with digital strategies that build visibility, trust, engagement, and qualified customer opportunities.", linkText: "Learn More", linkHref: "/industries/finance", image: "/Finance.webp" },
+  { title: "Restaurant", description: "Attract more diners with local SEO, social media, and digital marketing strategies built for restaurant growth.", linkText: "Learn More", linkHref: "/industries/restaurant", image: "/Restaurant.webp" },
+  { title: "Wearables", description: "Grow your wearable technology brand with digital strategies that improve visibility, engagement, and online customer discovery.", linkText: "Learn More", linkHref: "/industries/wearables", image: "/wearables.webp" },
+  { title: "Entertainment", description: "Reach wider audiences with creative digital marketing, social media, and content strategies built for entertainment brands.", linkText: "Learn More", linkHref: "/industries/entertainment", image: "/Entertainment.webp" },
+  { title: "Travel", description: "Increase bookings and brand visibility with SEO, digital marketing, and engaging online experiences for travel businesses.", linkText: "Learn More", linkHref: "/industries/travel", image: "/Travel.webp" },
+  { title: "Fitness", description: "Build a stronger fitness brand with digital marketing strategies that attract members, increase visibility, and drive growth.", linkText: "Learn More", linkHref: "/industries/fitness", image: "/fitness.webp" },
+  { title: "Education", description: "Connect with students and learners through SEO, digital marketing, and websites designed for educational businesses.", linkText: "Learn More", linkHref: "/industries/education", image: "/Education.webp" },
+  { title: "Real Estate", description: "Generate more property leads with SEO, digital marketing, and conversion-focused websites built for real estate businesses.", linkText: "Learn More", linkHref: "/industries/real-estate", image: "/Real estate.webp" },
+  { title: "E-commerce", description: "Grow your online store with SEO, digital marketing, and conversion-focused strategies designed for e-commerce success.", linkText: "Learn More", linkHref: "/industries/ecommerce", image: "/ecommerce.webp" },
+  { title: "Events", description: "Build event awareness and increase registrations with social media, digital marketing, and engaging online campaigns.", linkText: "Learn More", linkHref: "/industries/events", image: "/Events.webp" },
+  { title: "Manufacturing", description: "Strengthen your manufacturing business with digital strategies that improve visibility, reach buyers, and generate qualified leads.", linkText: "Learn More", linkHref: "/industries/manufacturing", image: "/Manufacturing.webp" },
+  { title: "Fashion & Apparel", description: "Build a stronger fashion brand with social media, digital marketing, and e-commerce strategies that turn attention into growth.", linkText: "Learn More", linkHref: "/industries/fashion-apparel", image: "/Fashion.webp" },
+  { title: "Gaming", description: "Reach gaming audiences with engaging digital marketing, social media, and content strategies built around player communities.", linkText: "Learn More", linkHref: "/industries/gaming", image: "/Gaming.webp" },
+  { title: "Construction", description: "Generate qualified leads and strengthen your online presence with SEO, digital marketing, and conversion-focused web solutions.", linkText: "Learn More", linkHref: "/industries/construction", image: "/Construction.webp" },
 ];
 
 // Industries page FAQs — questions specific to working across industries.
@@ -127,7 +127,7 @@ export default async function IndustriesIndexPage() {
     content?.industriesHeroParagraph ||
     "Every industry has different goals, audiences, and challenges. We create tailored digital marketing, BPO, and web solutions that fit the way your business works.";
   const heroButtonText = content?.industriesHeroButtonText || "Explore Our Solutions";
-  const heroImage = content?.industriesHeroImage || "/industries.png";
+  const heroImage = content?.industriesHeroImage || "/industries.webp";
 
   const gridEyebrow = content?.industriesGridEyebrow || "";
   const gridHeading = content?.industriesGridHeading || "Delivering Value Across Every Major Industry";
