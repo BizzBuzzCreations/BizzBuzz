@@ -71,12 +71,12 @@ const STATS = [
 ];
 
 const CLIENT_LOGOS = [
-  { src: "/avondale-1.png", alt: "Avondale Finance" },
-  { src: "/fibernet.png", alt: "Fibernet" },
-  { src: "/WILLIAM.png", alt: "William" },
-  { src: "/GRAND WEDDINZ1.png", alt: "Grand WeddinZ" },
-  { src: "/LA PRISTINE1.png", alt: "La Pristine" },
-  { src: "/PARIVARTAN1.png", alt: "Parivartan" },
+  { src: "/avondale-1.webp", alt: "Avondale Finance" },
+  { src: "/fibernet.webp", alt: "Fibernet" },
+  { src: "/WILLIAM.webp", alt: "William" },
+  { src: "/GRAND WEDDINZ1.webp", alt: "Grand WeddinZ" },
+  { src: "/LA PRISTINE1.webp", alt: "La Pristine" },
+  { src: "/PARIVARTAN1.webp", alt: "Parivartan" },
 ];
 
 const SERVICE_ICONS = [
