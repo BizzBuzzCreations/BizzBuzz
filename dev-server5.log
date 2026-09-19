@@ -1,0 +1,137 @@
+
+> bbc@0.1.0 dev
+> next dev
+
+▲ Next.js 16.2.11 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.8.12:3000
+- Environments: .env.local
+✓ Ready in 7.4s
+(node:21132) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/Bizzbuzz-creations/BizzBuzz/lib/blogRedirects.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to D:\Bizzbuzz-creations\BizzBuzz\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+⚠ Slow filesystem detected. The benchmark took 400ms. If D:\Bizzbuzz-creations\BizzBuzz\.next/dev is a network drive, consider moving it to a local folder.
+See more: https://nextjs.org/docs/app/guides/local-development
+- Experiments (use with caution):
+  · serverActions
+
+○ Compiling /how-we-work ...
+MongoDB Connected: undefined
+ GET /how-we-work 200 in 3.8min (next.js: 2.6min, application-code: 71s)
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+○ Compiling /services ...
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+ GET /services 200 in 15.9s (next.js: 9.8s, application-code: 6.1s)
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+ GET /industries 200 in 7.0s (next.js: 3.8s, application-code: 3.2s)
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+ GET /services 200 in 651ms (next.js: 166ms, application-code: 485ms)
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+ GET /how-we-work 200 in 4.6s (next.js: 1689ms, application-code: 2.9s)
+✓ Finished writing to filesystem cache in 96s
+✓ Finished writing to filesystem cache in 11.0s
+⚠ Found a change in next.config.mjs. Restarting the server to apply the changes...
+▲ Next.js 16.2.11 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.8.12:3000
+- Environments: .env.local
+✓ Ready in 4.1s
+(node:21488) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/Bizzbuzz-creations/BizzBuzz/lib/blogRedirects.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to D:\Bizzbuzz-creations\BizzBuzz\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+⚠ Slow filesystem detected. The benchmark took 306ms. If D:\Bizzbuzz-creations\BizzBuzz\.next/dev is a network drive, consider moving it to a local folder.
+See more: https://nextjs.org/docs/app/guides/local-development
+- Experiments (use with caution):
+  · serverActions
+
+○ Compiling /_not-found/page ...
+ GET /api/dbscanimg 404 in 45s (next.js: 42s, application-code: 2.9s)
+○ Compiling /api/dbscanimg ...
+✓ Finished writing to filesystem cache in 26.2s
+✓ Finished filesystem cache database compaction in 11.1min
+MongoDB Connected: undefined
+⨯ TypeError: Cannot read properties of undefined (reading 'listCollections')
+    at GET (app\api\dbscanimg\route.js:28:25)
+  26 |   await connectDB();
+  27 |   const db = mongoose.connection.db;
+> 28 |   const cols = await db.listCollections().toArray();
+     |                         ^
+  29 |   const result = {};
+  30 |   for (const c of cols) {
+  31 |     const docs = await db.collection(c.name).find({}).toArray();
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+ GET /api/dbscanimg 200 in 11.2min (next.js: 11.1min, application-code: 3.6s)
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+ GET / 200 in 14.2s (next.js: 2.4s, application-code: 11.8s)
+ HEAD /aiservice.webp 404 in 390ms (next.js: 156ms, application-code: 234ms)
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+ GET /about 200 in 1824ms (next.js: 799ms, application-code: 1025ms)
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+ GET /services 200 in 1328ms (next.js: 472ms, application-code: 856ms)
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+ GET /industries 200 in 1385ms (next.js: 563ms, application-code: 822ms)
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+ GET /how-we-work 200 in 1084ms (next.js: 508ms, application-code: 576ms)
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+ GET /bpo-services 200 in 1014ms (next.js: 447ms, application-code: 567ms)
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+ GET / 200 in 648ms (next.js: 97ms, application-code: 551ms)
+ GET /aiservice.webp 404 in 60ms (next.js: 6ms, application-code: 54ms)
+ GET /Sequence%2001%201.mp4 404 in 66ms (next.js: 8ms, application-code: 58ms)
+ GET /Sequence%2001%201.mp4 404 in 58ms (next.js: 5ms, application-code: 53ms)
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+ GET / 200 in 594ms (next.js: 5ms, application-code: 588ms)
+ GET /aiservice.webp 404 in 63ms (next.js: 8ms, application-code: 56ms)
+ GET /aiservice.webp 404 in 65ms (next.js: 8ms, application-code: 57ms)
+[browser] Image with src "/team-images/team-5.webp" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+ GET /about 200 in 302ms (next.js: 23ms, application-code: 279ms)
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+ GET /our-team 200 in 1514ms (next.js: 1362ms, application-code: 152ms)
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+ GET /our-team/bpo-team 200 in 1128ms (next.js: 974ms, application-code: 154ms)
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+ GET /our-team/rnd-team 200 in 885ms (next.js: 695ms, application-code: 190ms)
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+ GET /career 200 in 2.3s (next.js: 1836ms, application-code: 503ms)
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+ GET /faq 200 in 714ms (next.js: 572ms, application-code: 143ms)
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+ GET /industries/healthcare 200 in 1425ms (next.js: 1188ms, application-code: 238ms)
+[browser] Image with src "/Healthcare.webp" has "fill" and parent element with invalid "position". Provided "static" should be one of absolute,fixed,relative.
+[browser] Image with src "/Healthcare.webp" has "fill" prop and "sizes" prop of "100vw", but image is not rendered at full viewport width. Please adjust "sizes" to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+✓ Finished filesystem cache database compaction in 29.4s
+✓ Compiled in 18.7s
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+ GET / 200 in 6.9s (next.js: 3.5s, application-code: 3.4s)
