@@ -35,7 +35,7 @@ export default function LoginForm() {
       >
         <div className="mb-6 flex justify-center">
           <img
-            src="/BBC Dark Logo.webp"
+            src="/BBC Dark Logo.png"
             alt="BizzBuzz Creations"
             className="h-12 object-contain"
           />

@@ -17,10 +17,10 @@ import RichText from "@/components/ui/richText";
 // since they all render through one file with their own real content
 // plugged in via each page's own content constants.
 const CERTIFICATIONS = [
-  { src: "/clutch.webp", alt: "Clutch — Verified Partner" },
-  { src: "/CDL.webp", alt: "Certified Google Ads Partner" },
-  { src: "/GA.webp", alt: "Certified Google Analytics Partner" },
-  { src: "/iso.webp", alt: "ISO Certified" },
+  { src: "/clutch.png", alt: "Clutch — Verified Partner" },
+  { src: "/CDL.png", alt: "Certified Google Ads Partner" },
+  { src: "/GA.png", alt: "Certified Google Analytics Partner" },
+  { src: "/iso.png", alt: "ISO Certified" },
 ];
 
 export default function ServiceDetailPage({
@@ -338,7 +338,7 @@ export default function ServiceDetailPage({
           localityText is supplied. Left-aligned copy with a matching
           image on the right — defaults to the same heroImage each
           sub-service page already uses at the top of the page (instead of
-          the previous shared generic /image-2.webp every page showed
+          the previous shared generic /image-2.jpg every page showed
           regardless of topic), but localityImage lets specific pages use
           a different, more relevant shot here without changing their
           hero. */}

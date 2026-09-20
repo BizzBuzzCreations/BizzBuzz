@@ -29,8 +29,8 @@ import {
 // positionally to whichever cards are saved.
 const FOUNDER_ICONS = [Crown, Users];
 const DEFAULT_FOUNDERS = [
-  { name: "Abheuday Mishra", role: "Founder & CEO", photo: "/person-image.webp", linkedin: "https://www.linkedin.com/in/abheuday-mishra?utm_source=share_via&utm_content=profile&utm_medium=member_android" },
-  { name: "Utkarsh Mishra", role: "Co-Founder & Director", photo: "/person-image.webp", linkedin: "https://www.linkedin.com/in/utkarsh-mishra-293ba1209?utm_source=share_via&utm_content=profile&utm_medium=member_android" },
+  { name: "Abheuday Mishra", role: "Founder & CEO", photo: "/person-image.jpg", linkedin: "https://www.linkedin.com/in/abheuday-mishra?utm_source=share_via&utm_content=profile&utm_medium=member_android" },
+  { name: "Utkarsh Mishra", role: "Co-Founder & Director", photo: "/person-image.jpg", linkedin: "https://www.linkedin.com/in/utkarsh-mishra-293ba1209?utm_source=share_via&utm_content=profile&utm_medium=member_android" },
 ];
 
 const LEADER_ICONS = [Search, Megaphone, Palette, Code2, Bot, Briefcase, Users];
@@ -38,13 +38,13 @@ const LEADER_ICONS = [Search, Megaphone, Palette, Code2, Bot, Briefcase, Users];
 // to sit above the name has been dropped entirely (RoleCard only renders
 // it when `dept` is present), leaving just the name and role/position.
 const DEFAULT_LEADERS = [
-  { name: "Abhay Sharma", role: "Compliance Manager", photo: "/team-images/abhay.webp" },
-  { name: "Kautic Jaiswal", role: "Process Manager", photo: "/team-images/kautic.webp" },
-  { name: "Swapnil Singh", role: "Team Leader", photo: "/team-images/swapnil.webp" },
-  { name: "Shruti Singh", role: "Organizational Manager", photo: "/team-images/shruti.webp" },
-  { name: "Aley Saiyyadah Rizvi", role: "HR", photo: "/team-images/aley.webp" },
-  { name: "Md. Shameem", role: "IT Manager", photo: "/team-images/shameem.webp" },
-  { name: "Ankit Kumar Yadav", role: "Accounts and Management", photo: "/team-images/ankit.webp" },
+  { name: "Abhay Sharma", role: "Compliance Manager", photo: "/team-images/abhay.jpeg" },
+  { name: "Kautic Jaiswal", role: "Process Manager", photo: "/team-images/kautic.jpeg" },
+  { name: "Swapnil Singh", role: "Team Leader", photo: "/team-images/swapnil.jpeg" },
+  { name: "Shruti Singh", role: "Organizational Manager", photo: "/team-images/shruti.jpeg" },
+  { name: "Aley Saiyyadah Rizvi", role: "HR", photo: "/team-images/aley.jpeg" },
+  { name: "Md. Shameem", role: "IT Manager", photo: "/team-images/shameem.jpeg" },
+  { name: "Ankit Kumar Yadav", role: "Accounts and Management", photo: "/team-images/ankit.jpeg" },
 ];
 
 // Real BizzBuzz team photos — /teamPic.webp and /banner.png don't exist
@@ -55,13 +55,13 @@ const DEFAULT_TEAM_GROUPS = [
     title: "Meet Our BPO Team",
     tagline: "The People Keeping Every Customer Interaction Moving",
     desc: "Our BPO team handles customer support, lead follow-ups, communication, and day-to-day customer interactions, helping businesses stay responsive while creating smoother experiences for their customers.",
-    image: "/team-images/team-bpo.webp",
+    image: "/team-images/team-bpo.jpeg",
   },
   {
     title: "Meet Our R&D Team",
     tagline: "Exploring What’s Next in Digital",
     desc: "Our R&D team researches and tests emerging technologies across AI search, SEO, automation, digital tools, and evolving search behaviour. Their work helps us turn new developments into practical strategies and smarter solutions for the businesses we serve.",
-    image: "/team-images/team-rnd.webp",
+    image: "/team-images/team-rnd.jpeg",
   },
 ];
 

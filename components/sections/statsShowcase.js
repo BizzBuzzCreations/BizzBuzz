@@ -28,7 +28,7 @@ const STATS = [
       "Get SEO, Google Ads, social media marketing, web development, AI, automation, and BPO support from one connected digital team.",
     visual: {
       type: "image",
-      src: "/oneteam-multiplecapabilities.webp",
+      src: "/oneteam-multiplecapabilities.jpg",
       alt: "One team, multiple capabilities",
     },
   },
@@ -40,7 +40,7 @@ const STATS = [
       "We consider your industry, audience, market, and business needs to recommend digital solutions that fit your objectives.",
     visual: {
       type: "image",
-      src: "/solutionbuilt-aroundus.webp",
+      src: "/solutionbuilt-aroundus.jpg",
       alt: "Solutions built around you",
     },
   },
@@ -52,7 +52,7 @@ const STATS = [
       "Know what's included, what we're working on, and what to expect through straightforward communication and practical recommendations.",
     visual: {
       type: "image",
-      src: "/clearfrom-dayone.webp",
+      src: "/clearfrom-dayone.jpg",
       alt: "Clear from day one",
     },
   },
@@ -64,19 +64,19 @@ const STATS = [
       "Start with the services you need today and expand into SEO, advertising, technology, automation, or business support as your needs evolve.",
     visual: {
       type: "image",
-      src: "/builtto-adaptwithyou.webp",
+      src: "/builtto-adaptwithyou.jpg",
       alt: "Built to adapt with you",
     },
   },
 ];
 
 const CLIENT_LOGOS = [
-  { src: "/avondale-1.webp", alt: "Avondale Finance" },
-  { src: "/fibernet.webp", alt: "Fibernet" },
-  { src: "/WILLIAM.webp", alt: "William" },
-  { src: "/GRAND WEDDINZ1.webp", alt: "Grand WeddinZ" },
-  { src: "/LA PRISTINE1.webp", alt: "La Pristine" },
-  { src: "/PARIVARTAN1.webp", alt: "Parivartan" },
+  { src: "/avondale-1.png", alt: "Avondale Finance" },
+  { src: "/fibernet.png", alt: "Fibernet" },
+  { src: "/WILLIAM.png", alt: "William" },
+  { src: "/GRAND WEDDINZ1.png", alt: "Grand WeddinZ" },
+  { src: "/LA PRISTINE1.png", alt: "La Pristine" },
+  { src: "/PARIVARTAN1.png", alt: "Parivartan" },
 ];
 
 const SERVICE_ICONS = [

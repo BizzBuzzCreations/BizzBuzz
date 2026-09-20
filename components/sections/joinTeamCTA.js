@@ -9,7 +9,7 @@ export default function JoinTeamCTA({ content }) {
   const paragraph = content?.joinTeamParagraph || "Bring your ideas. Build your skills. Create work you're proud of.";
   const emailButtonText = content?.joinTeamEmailButtonText || "Drop An Email";
   const careersButtonText = content?.joinTeamCareersButtonText || "See All Careers";
-  const image = content?.joinTeamImage1 || "/team-images/team-5.webp";
+  const image = content?.joinTeamImage1 || "/team-images/team-5.jpeg";
 
   const emailLink = (
     <Link

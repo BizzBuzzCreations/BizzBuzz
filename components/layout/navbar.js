@@ -629,7 +629,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="text-2xl font-semibold text-white shrink-0">
           <Image
-            src="/bbc logo white.webp"
+            src="/bbc logo white.png"
             alt="BizzBuzz Creations logo"
             className="h-8 md:h-10 w-auto"
             width={836}

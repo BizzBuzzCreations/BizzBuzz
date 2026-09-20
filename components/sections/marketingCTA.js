@@ -47,7 +47,7 @@ export default function MarketingCTA({ content }) {
   const buttonText = content?.marketingCtaButtonText || "Get Free Consultation Now";
   const trustLinesRaw = content?.marketingCtaTrustLines?.length > 0 ? content.marketingCtaTrustLines : DEFAULT_TRUST_LINES;
   const trustLines = trustLinesRaw.map((t) => t.text);
-  const backgroundImage = content?.marketingCtaBackgroundImage || "/building.webp";
+  const backgroundImage = content?.marketingCtaBackgroundImage || "/building.jpg";
   const stagesEyebrow = content?.stagesEyebrow || "Wherever You Are, We Have a Path";
   const stagesRaw = content?.stages?.length > 0 ? content.stages : DEFAULT_STAGES;
   const STAGES = stagesRaw.map((s, i) => ({ ...s, ...STAGE_LAYOUT[i % STAGE_LAYOUT.length] }));

@@ -190,7 +190,7 @@ export default async function ServicesIndexPage() {
     "SEO, ads, web development and automation — one roof, one team, wherever your customers are.";
   const heroButtonText = content?.servicesHeroButtonText || "Explore Our Services";
   const heroSecondaryButtonText = content?.servicesHeroSecondaryButtonText || "Get a Free Consultation";
-  const heroImage = content?.servicesHeroImage || "/services.webp";
+  const heroImage = content?.servicesHeroImage || "/services.png";
 
   const gridHeading = content?.servicesGridHeading || "Explore Our Digital Growth Services";
   const gridSubtext = content?.servicesGridSubtext || "Choose the services that match your goals, or combine multiple solutions to support different areas of your business.";
@@ -296,16 +296,16 @@ export default async function ServicesIndexPage() {
           <p className="text-white/70 leading-relaxed mb-9 max-w-lg">
             {heroParagraph}
           </p>
-          {/* /services.webp is a very wide (3.45:1), mostly-empty-on-the-
+          {/* /services.png is a very wide (3.45:1), mostly-empty-on-the-
               left desktop background photo — the icon grid it actually
               shows sits only in its right ~35%. Cropping the box to that
               ratio (and object-cover to it) just squeezed the icons into
               a sliver or, matched 1:1, left a wall of dead black space.
-              /services-hero-mobile.webp is a pre-cropped copy showing only
+              /services-hero-mobile.png is a pre-cropped copy showing only
               the icon-grid portion — full icons, no dead space, no
               cutoff — sized to its own real 680x550 aspect ratio here. */}
           <div className="md:hidden relative w-full max-w-sm mx-auto aspect-[680/550] rounded-2xl overflow-hidden shadow-lg mb-9">
-            <Image src="/services-hero-mobile.webp" alt="" fill sizes="100vw" className="object-contain" />
+            <Image src="/services-hero-mobile.png" alt="" fill sizes="100vw" className="object-contain" />
           </div>
           <div className="flex flex-wrap items-center gap-4">
             <Link href="#services-grid" className="inline-block">

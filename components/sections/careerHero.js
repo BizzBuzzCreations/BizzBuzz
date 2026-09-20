@@ -9,10 +9,10 @@ import RichText from "@/components/ui/richText";
 // the site) auto-advancing behind the hero text, instead of one static
 // background image.
 const DEFAULT_SLIDES = [
-  "/team-images/team-5.webp",
-  "/team-images/team-13.webp",
-  "/team-images/team-8.webp",
-  "/team-images/team-2.webp",
+  "/team-images/team-5.jpeg",
+  "/team-images/team-13.jpeg",
+  "/team-images/team-8.jpeg",
+  "/team-images/team-2.jpeg",
 ];
 
 const SLIDE_DURATION = 4500;
@@ -42,7 +42,7 @@ export default function CareerHero({ content } = {}) {
         <div
           // Index, not src — slides can (and now do, by request) repeat the
           // same image, and a duplicate key across siblings is what React
-          // was warning about ("two children with the same key, /image-7.webp").
+          // was warning about ("two children with the same key, /image-7.jpg").
           key={i}
           className="absolute inset-0 transition-opacity duration-1000 ease-in-out"
           style={{ opacity: i === active ? 1 : 0 }}

@@ -11,13 +11,13 @@ import { RoleCard } from "@/components/sections/teamGrids";
 // grid and the Founders section (RoleCard) — was briefly a circular-ring
 // layout, reverted here per request, content unchanged either way.
 const RND_TEAM = [
-  { icon: BarChart3, name: "Paridhi Verma", role: "Data Analyst", photo: "/team-images/paridhi.webp", linkedin: "https://www.linkedin.com/in/paridhi-verma/" },
-  { icon: Search, name: "Md. Shaquib", role: "SEO Specialist", photo: "/team-images/Shaquib.webp", linkedin: "https://www.linkedin.com/in/shaquib-mohd/" },
-  { icon: PenTool, name: "Khushi Gupta", role: "Content Writer & SEO Executive", photo: "/team-images/khushi.webp", linkedin: "https://www.linkedin.com/in/khushi-gupta-8675a7339/" },
-  { icon: Palette, name: "Mudit Srivastava", role: "Graphic Designer & Video Editor", photo: "/team-images/mudit.webp", linkedin: "https://www.linkedin.com/in/mudit-srivastava-a4086320b/" },
-  { icon: Code2, name: "Kushmal Arora", role: "Full Stack Developer", photo: "/team-images/Kushmal.webp", linkedin: "https://www.linkedin.com/in/kushmalarora017/" },
-  { icon: Terminal, name: "Shashwat Upadhayay", role: "DevOps Engineer", photo: "/team-images/shashwat.webp", linkedin: "https://www.linkedin.com/in/shashwat-upadhyay-swtu/" },
-  { icon: Settings, name: "Tejash Yadav", role: "DevOps Engineer", photo: "/team-images/Tejash.webp", linkedin: "https://www.linkedin.com/in/tejashh/" },
+  { icon: BarChart3, name: "Paridhi Verma", role: "Data Analyst", photo: "/team-images/paridhi.png", linkedin: "https://www.linkedin.com/in/paridhi-verma/" },
+  { icon: Search, name: "Md. Shaquib", role: "SEO Specialist", photo: "/team-images/Shaquib.png", linkedin: "https://www.linkedin.com/in/shaquib-mohd/" },
+  { icon: PenTool, name: "Khushi Gupta", role: "Content Writer & SEO Executive", photo: "/team-images/khushi.jpeg", linkedin: "https://www.linkedin.com/in/khushi-gupta-8675a7339/" },
+  { icon: Palette, name: "Mudit Srivastava", role: "Graphic Designer & Video Editor", photo: "/team-images/mudit.png", linkedin: "https://www.linkedin.com/in/mudit-srivastava-a4086320b/" },
+  { icon: Code2, name: "Kushmal Arora", role: "Full Stack Developer", photo: "/team-images/Kushmal.jpg", linkedin: "https://www.linkedin.com/in/kushmalarora017/" },
+  { icon: Terminal, name: "Shashwat Upadhayay", role: "DevOps Engineer", photo: "/team-images/shashwat.png", linkedin: "https://www.linkedin.com/in/shashwat-upadhyay-swtu/" },
+  { icon: Settings, name: "Tejash Yadav", role: "DevOps Engineer", photo: "/team-images/Tejash.jpg", linkedin: "https://www.linkedin.com/in/tejashh/" },
 ];
 
 // Icon pool for the dashboard-editable roster — cycled positionally by

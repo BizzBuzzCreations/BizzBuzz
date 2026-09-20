@@ -12,7 +12,7 @@ export function CareerWhyUs({ content } = {}) {
   const paragraph =
     content?.careerWhyUsParagraph ||
     "We're a growing agency with roots in Prayagraj, India, and clients across the world. From day one, you'll work on real challenges across digital marketing, technology, design, and strategy — building practical skills instead of simply following a checklist. We value people who stay curious, take initiative, share ideas, and want to keep getting better. Your growth matters here, because when our people grow, BizzBuzz Creations grows too.";
-  const image = content?.careerWhyUsImage || "/team-images/team-5.webp";
+  const image = content?.careerWhyUsImage || "/team-images/team-5.jpeg";
 
   const photo = (
     <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-lg">
@@ -65,9 +65,9 @@ export function CareerJoinTeam({ content } = {}) {
   const points = pointsRaw.map((p, i) => ({ ...p, icon: JOIN_TEAM_ICONS[i % JOIN_TEAM_ICONS.length] }));
   const ctaText = content?.careerJoinCtaText || "Apply Now";
   const image1 = content?.careerJoinImage1 || "/image-5.webp";
-  const image2 = content?.careerJoinImage2 || "/team-images/team-14.webp";
-  const image3 = content?.careerJoinImage3 || "/team-images/team-5.webp";
-  const image4 = content?.careerJoinImage4 || "/team-images/team-11.webp";
+  const image2 = content?.careerJoinImage2 || "/team-images/team-14.jpeg";
+  const image3 = content?.careerJoinImage3 || "/team-images/team-5.jpeg";
+  const image4 = content?.careerJoinImage4 || "/team-images/team-11.jpeg";
 
   // The image grid is rendered twice on purpose: once inline for mobile
   // (between the tagline and the paragraph, matching the requested

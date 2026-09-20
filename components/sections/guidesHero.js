@@ -13,7 +13,7 @@ export default function GuidesHero({ content } = {}) {
     "Practical, no-fluff guides and insights on SEO, paid ads, social media, websites, content, AI, and digital growth.";
   const primaryCtaText = content?.guidesHeroPrimaryCtaText || "Explore Our Guides";
   const secondaryCtaText = content?.guidesHeroSecondaryCtaText || "Need Help With Marketing?";
-  const heroImage = content?.guidesHeroImage || "/guide.webp";
+  const heroImage = content?.guidesHeroImage || "/guide.jpg";
 
   return (
     <section className="relative overflow-hidden min-h-screen flex items-center py-24 md:py-28 px-5 md:px-10 lg:px-16 text-white bg-black">

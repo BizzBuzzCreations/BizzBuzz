@@ -24,7 +24,7 @@ export default function FaqHero({ content } = {}) {
     content?.faqHeroParagraph ||
     "Have questions about SEO, Google Ads, social media, web development, AI automation, or working with BizzBuzz Creations? Find clear answers below — and if you don't see what you're looking for, our team is one message away.";
   const ctaText = content?.faqHeroCtaText || "Ask Us Directly";
-  const backgroundImage = content?.faqHeroBackgroundImage || "/FAQ.webp";
+  const backgroundImage = content?.faqHeroBackgroundImage || "/FAQ.png";
 
   return (
     <section className="relative overflow-hidden min-h-screen flex items-center bg-black">
