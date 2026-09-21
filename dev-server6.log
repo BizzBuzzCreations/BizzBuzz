@@ -1,0 +1,526 @@
+
+> bbc@0.1.0 dev
+> next dev
+
+▲ Next.js 16.2.11 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.8.12:3000
+- Environments: .env.local
+✓ Ready in 8.1s
+(node:17120) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///D:/Bizzbuzz-creations/BizzBuzz/lib/blogRedirects.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to D:\Bizzbuzz-creations\BizzBuzz\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+⚠ Slow filesystem detected. The benchmark took 440ms. If D:\Bizzbuzz-creations\BizzBuzz\.next/dev is a network drive, consider moving it to a local folder.
+See more: https://nextjs.org/docs/app/guides/local-development
+- Experiments (use with caution):
+  · serverActions
+
+○ Compiling / ...
+MongoDB Connected: undefined
+✓ Finished writing to filesystem cache in 21.2s
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+ GET / 200 in 4.7min (next.js: 2.5min, application-code: 2.2min)
+  Reload env: .env.local
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+ GET / 200 in 13.4s (next.js: 6.9s, application-code: 6.6s)
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+ GET / 200 in 881ms (next.js: 230ms, application-code: 651ms)
+[browser] Image with src "/team-images/team-5.webp" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+✓ Compiled in 61.5s
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-00.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET / 200 in 2.0s (next.js: 135ms, application-code: 1893ms)
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET / 200 in 67s (next.js: 49s, application-code: 18.4s)
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET /industries/healthcare 200 in 5.1s (next.js: 4.0s, application-code: 1109ms)
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET / 200 in 955ms (next.js: 3ms, application-code: 952ms)
+✓ Finished filesystem cache database compaction in 58s
+○ Compiling /about ...
+✓ Finished writing to filesystem cache in 21.4s
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+✓ Compiled in 233.6s
+✓ Finished filesystem cache database compaction in 56s
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET /about 200 in 3.7min (next.js: 3.6min, application-code: 4.5s)
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET / 200 in 12.8s (next.js: 10.3s, application-code: 2.5s)
+ GET / 200 in 1413ms (next.js: 204ms, application-code: 1209ms)
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET / 200 in 1031ms (next.js: 211ms, application-code: 820ms)
+ GET / 200 in 1039ms (next.js: 95ms, application-code: 943ms)
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET / 200 in 1428ms (next.js: 162ms, application-code: 1266ms)
+ GET / 200 in 807ms (next.js: 3ms, application-code: 804ms)
+ GET / 200 in 485ms (next.js: 6ms, application-code: 479ms)
+ GET / 200 in 462ms (next.js: 5ms, application-code: 457ms)
+ GET / 200 in 363ms (next.js: 51ms, application-code: 311ms)
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET /faq 200 in 11.0s (next.js: 1032ms, application-code: 10.0s)
+[browser] Image with src "/FAQ.webp" has "fill" prop and "sizes" prop of "100vw", but image is not rendered at full viewport width. Please adjust "sizes" to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+○ Compiling /privacy-policy ...
+ GET /privacy-policy 200 in 2.7min (next.js: 2.5min, application-code: 10.0s)
+✓ Finished filesystem cache database compaction in 70s
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET /industries/healthcare 200 in 6.2s (next.js: 3.1s, application-code: 3.2s)
+[browser] Image with src "/Healthcare.webp" has "fill" and parent element with invalid "position". Provided "static" should be one of absolute,fixed,relative.
+[browser] Image with src "/Healthcare.webp" has "fill" prop and "sizes" prop of "100vw", but image is not rendered at full viewport width. Please adjust "sizes" to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+ GET /Sequence%2001%201.mp4 404 in 1286ms (next.js: 666ms, application-code: 620ms)
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET /industries/gaming 200 in 2.1s (next.js: 1601ms, application-code: 502ms)
+[browser] Image with src "/Gaming.webp" has "fill" and parent element with invalid "position". Provided "static" should be one of absolute,fixed,relative.
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET / 200 in 614ms (next.js: 44ms, application-code: 571ms)
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+✓ Compiled in 15.1s
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET /privacy-policy 200 in 16.6s (next.js: 9.2s, application-code: 7.4s)
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET / 200 in 11.4s (next.js: 7.6s, application-code: 3.8s)
+ GET / 200 in 2.7s (next.js: 347ms, application-code: 2.4s)
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET / 200 in 2.1s (next.js: 525ms, application-code: 1610ms)
+ GET / 200 in 2.1s (next.js: 380ms, application-code: 1759ms)
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET / 200 in 2.3s (next.js: 262ms, application-code: 2.0s)
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET / 200 in 2.6s (next.js: 799ms, application-code: 1764ms)
+ GET / 200 in 704ms (next.js: 69ms, application-code: 636ms)
+ GET / 200 in 514ms (next.js: 22ms, application-code: 493ms)
+ GET / 200 in 399ms (next.js: 29ms, application-code: 370ms)
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET / 200 in 4.0s (next.js: 2.2s, application-code: 1809ms)
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET / 200 in 1249ms (next.js: 228ms, application-code: 1021ms)
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET / 200 in 1184ms (next.js: 111ms, application-code: 1073ms)
+ GET / 200 in 1187ms (next.js: 7ms, application-code: 1181ms)
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET / 200 in 1251ms (next.js: 173ms, application-code: 1078ms)
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET / 200 in 1681ms (next.js: 259ms, application-code: 1422ms)
+ GET / 200 in 972ms (next.js: 5ms, application-code: 967ms)
+ GET / 200 in 771ms (next.js: 69ms, application-code: 702ms)
+ GET / 200 in 447ms (next.js: 42ms, application-code: 405ms)
+ GET / 200 in 510ms (next.js: 3ms, application-code: 507ms)
+ GET / 200 in 333ms (next.js: 50ms, application-code: 282ms)
+ GET /privacy-policy 200 in 3.0s (next.js: 169ms, application-code: 2.8s)
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET / 200 in 1868ms (next.js: 701ms, application-code: 1167ms)
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+✓ Compiled in 530ms
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET / 200 in 2.9s (next.js: 769ms, application-code: 2.2s)
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET / 200 in 1403ms (next.js: 286ms, application-code: 1118ms)
+ GET / 200 in 943ms (next.js: 71ms, application-code: 872ms)
+ GET / 200 in 945ms (next.js: 12ms, application-code: 933ms)
+ GET / 200 in 945ms (next.js: 134ms, application-code: 811ms)
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET / 200 in 1634ms (next.js: 195ms, application-code: 1439ms)
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET / 200 in 1029ms (next.js: 3ms, application-code: 1026ms)
+ GET / 200 in 950ms (next.js: 6ms, application-code: 944ms)
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET / 200 in 1075ms (next.js: 45ms, application-code: 1030ms)
+ GET / 200 in 1076ms (next.js: 102ms, application-code: 973ms)
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET / 200 in 1123ms (next.js: 212ms, application-code: 911ms)
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET / 200 in 1113ms (next.js: 3ms, application-code: 1110ms)
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET / 200 in 1088ms (next.js: 6ms, application-code: 1081ms)
+ GET / 200 in 869ms (next.js: 28ms, application-code: 841ms)
+ GET / 200 in 772ms (next.js: 3ms, application-code: 769ms)
+ GET / 200 in 773ms (next.js: 61ms, application-code: 712ms)
+ GET / 200 in 651ms (next.js: 38ms, application-code: 613ms)
+ GET / 200 in 265ms (next.js: 5ms, application-code: 261ms)
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET /privacy-policy 200 in 5.6s (next.js: 516ms, application-code: 5.0s)
+ GET / 200 in 2.8s (next.js: 29ms, application-code: 2.8s)
+✓ Finished filesystem cache database compaction in 25.3s
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET / 200 in 3.3s (next.js: 550ms, application-code: 2.7s)
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET /privacy-policy 200 in 4.1s (next.js: 329ms, application-code: 3.8s)
+ GET / 200 in 14.8s (next.js: 7.8s, application-code: 6.9s)
+ GET / 200 in 5.5s (next.js: 690ms, application-code: 4.8s)
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET / 200 in 4.9s (next.js: 773ms, application-code: 4.1s)
+ GET / 200 in 4.9s (next.js: 890ms, application-code: 4.0s)
+ GET / 200 in 4.9s (next.js: 636ms, application-code: 4.2s)
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET / 200 in 1859ms (next.js: 163ms, application-code: 1696ms)
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET / 200 in 1066ms (next.js: 98ms, application-code: 968ms)
+ GET / 200 in 1256ms (next.js: 158ms, application-code: 1098ms)
+ GET / 200 in 1701ms (next.js: 211ms, application-code: 1491ms)
+ GET / 200 in 1261ms (next.js: 30ms, application-code: 1231ms)
+ GET / 200 in 2.7s (next.js: 5ms, application-code: 2.7s)
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET / 200 in 1943ms (next.js: 317ms, application-code: 1626ms)
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET / 200 in 1310ms (next.js: 214ms, application-code: 1096ms)
+ GET / 200 in 934ms (next.js: 6ms, application-code: 928ms)
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET / 200 in 1003ms (next.js: 72ms, application-code: 931ms)
+ GET / 200 in 1003ms (next.js: 149ms, application-code: 854ms)
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET / 200 in 1185ms (next.js: 245ms, application-code: 940ms)
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET / 200 in 492ms (next.js: 3ms, application-code: 489ms)
+ GET / 200 in 399ms (next.js: 4ms, application-code: 395ms)
+ GET / 200 in 348ms (next.js: 32ms, application-code: 316ms)
+ GET /privacy-policy 200 in 1164ms (next.js: 309ms, application-code: 854ms)
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET / 200 in 6.5s (next.js: 160ms, application-code: 6.3s)
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET / 200 in 477ms (next.js: 3ms, application-code: 474ms)
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET / 200 in 605ms (next.js: 5ms, application-code: 601ms)
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET / 200 in 485ms (next.js: 3ms, application-code: 482ms)
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET / 200 in 457ms (next.js: 3ms, application-code: 453ms)
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET / 200 in 470ms (next.js: 18ms, application-code: 453ms)
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET / 200 in 573ms (next.js: 4ms, application-code: 569ms)
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET / 200 in 479ms (next.js: 3ms, application-code: 477ms)
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET / 200 in 459ms (next.js: 2ms, application-code: 457ms)
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET / 200 in 825ms (next.js: 5ms, application-code: 819ms)
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET / 200 in 681ms (next.js: 17ms, application-code: 664ms)
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET / 200 in 687ms (next.js: 12ms, application-code: 675ms)
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET / 200 in 516ms (next.js: 4ms, application-code: 512ms)
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET / 200 in 529ms (next.js: 4ms, application-code: 524ms)
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+MongoDB Connected: ac-ltny0ce-shard-00-02.bdmwoqb.mongodb.net
+ GET / 200 in 491ms (next.js: 3ms, application-code: 487ms)
+[browser] Image with src "/team-images/team-5.webp" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[?25h
+npm notice
+npm notice New major version of npm available! 10.9.7 -> 12.0.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.0.2
+npm notice To update run: npm install -g npm@12.0.2
+npm notice
