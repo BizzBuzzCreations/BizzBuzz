@@ -6,8 +6,8 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Search, Users, Briefcase, ArrowRight } from "lucide-react";
 import Particles from "@/components/ui/Particles";
 
-// Quick-link buttons for the left panel, and the "Who We Are" blurb for
-// the right panel — real destinations already on the site, not filler.
+// Quick-link buttons for the right panel, and the "Who We Are" blurb for
+// the left panel — real destinations already on the site, not filler.
 const QUICK_LINKS = [
   { icon: Briefcase, label: "Our Services", href: "/services" },
   { icon: Users, label: "Meet The Team", href: "/our-team" },
@@ -89,12 +89,12 @@ export default function ScrollZoomReveal() {
         <div className="absolute -top-16 -left-16 w-72 h-72 rounded-full bg-[#0B60B0]/25 blur-3xl pointer-events-none" aria-hidden="true" />
         <div className="absolute -bottom-16 -right-16 w-72 h-72 rounded-full bg-[#40A2D8]/20 blur-3xl pointer-events-none" aria-hidden="true" />
 
-        {/* Left panel — quick-link buttons, stacked. Hidden below lg since
+        {/* Right panel — quick-link buttons, stacked. Hidden below lg since
             there isn't room next to the centered heading on narrower
             screens without the two colliding. */}
         <motion.div
           style={{ opacity: contentOpacity }}
-          className="hidden lg:flex absolute left-10 xl:left-20 top-1/2 -translate-y-1/2 flex-col gap-3 w-56"
+          className="hidden lg:flex absolute right-10 xl:right-20 top-1/2 -translate-y-1/2 flex-col gap-3 w-56"
         >
           {QUICK_LINKS.map(({ icon: Icon, label, href }) => (
             <Link
@@ -111,11 +111,11 @@ export default function ScrollZoomReveal() {
           ))}
         </motion.div>
 
-        {/* Right panel — heading + short blurb. Same lg-and-up visibility
-            as the left panel. */}
+        {/* Left panel — heading + short blurb. Same lg-and-up visibility
+            as the right panel. */}
         <motion.div
           style={{ opacity: contentOpacity }}
-          className="hidden lg:block absolute right-10 xl:right-20 top-1/2 -translate-y-1/2 w-72 text-right"
+          className="hidden lg:block absolute left-10 xl:left-20 top-1/2 -translate-y-1/2 w-72 text-left"
         >
           <h3 className="text-lg font-bold text-white mb-3">Who We Are</h3>
           <p className="text-sm text-white/60 leading-relaxed mb-5">

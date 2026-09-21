@@ -9,8 +9,9 @@ import { INDUSTRIES } from "@/lib/industriesData";
 import RichText from "@/components/ui/richText";
 
 // Static three-column list of every industry — no scroll-jacking. Hover
-// (or focus) any name to swap the visual + description; no more scrolling
-// required to see every industry. Whole block sits centered inside a
+// (or focus) any name to swap the visual + description; clicking a name on
+// desktop/tablet opens that industry's page (mobile has no hover, so a tap
+// only previews it and the "Know More" button does the navigating). Whole block sits centered inside a
 // contained panel rather than sprawling edge-to-edge.
 const COL_SIZE = Math.ceil(INDUSTRIES.length / 3);
 const COLUMN_ONE = INDUSTRIES.slice(0, COL_SIZE);
@@ -56,22 +57,34 @@ export default function IndustriesShowcase({ content }) {
   const Icon = current.icon;
   const currentDescription = HOVER_DESCRIPTIONS[current.slug] || current.description;
 
-  const renderColumn = (items, offset) => (
+  const renderColumn = (items, offset, navigate = false) => (
     <ul className="space-y-2">
       {items.map((industry, i) => {
         const index = offset + i;
+        const itemClass = `block w-full text-left py-1.5 text-lg font-medium transition-colors cursor-pointer ${
+          index === active ? "text-[#40A2D8]" : "text-white/40 hover:text-white/70"
+        }`;
         return (
           <li key={industry.label}>
-            <button
-              onMouseEnter={() => setActive(index)}
-              onFocus={() => setActive(index)}
-              onClick={() => setActive(index)}
-              className={`block w-full text-left py-1.5 text-lg font-medium transition-colors cursor-pointer ${
-                index === active ? "text-[#40A2D8]" : "text-white/40 hover:text-white/70"
-              }`}
-            >
-              {industry.label}
-            </button>
+            {navigate ? (
+              <Link
+                href={`/industries/${industry.slug}`}
+                onMouseEnter={() => setActive(index)}
+                onFocus={() => setActive(index)}
+                className={itemClass}
+              >
+                {industry.label}
+              </Link>
+            ) : (
+              <button
+                onMouseEnter={() => setActive(index)}
+                onFocus={() => setActive(index)}
+                onClick={() => setActive(index)}
+                className={itemClass}
+              >
+                {industry.label}
+              </button>
+            )}
           </li>
         );
       })}
@@ -175,9 +188,9 @@ export default function IndustriesShowcase({ content }) {
           </div>
 
           {/* Three name columns, 5 each */}
-          {renderColumn(COLUMN_ONE, 0)}
-          {renderColumn(COLUMN_TWO, COL_SIZE)}
-          {renderColumn(COLUMN_THREE, COL_SIZE * 2)}
+          {renderColumn(COLUMN_ONE, 0, true)}
+          {renderColumn(COLUMN_TWO, COL_SIZE, true)}
+          {renderColumn(COLUMN_THREE, COL_SIZE * 2, true)}
 
           {/* Active industry description — back on the right, next to
               the industry columns. */}

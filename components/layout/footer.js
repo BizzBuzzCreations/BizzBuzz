@@ -133,7 +133,7 @@ export default function Footer() {
   return (
     <footer
       data-no-reveal
-      className="text-white pt-8 pb-8 px-6 md:px-8"
+      className="text-white pt-8 pb-0 px-6 md:px-8"
       style={{
         background: "linear-gradient(180deg, #000000 0%, #000000 70%, #0B60B0 130%)",
       }}
@@ -328,6 +328,54 @@ export default function Footer() {
               Reserved.
             </div>
           </div>
+        </div>
+
+        {/* Giant brand wordmark — the bottom ~25% of the letters is cut off
+            by the page edge, the top ~75% stays fully readable. It's a
+            plain in-flow block (no absolute positioning / negative margins
+            / z-index), so it can never overlap or sit on top of any other
+            footer content; the SVG's own viewBox does the cropping and
+            scales with the width, so the 75/25 split holds at every screen
+            size. Font metrics (Fira Sans Bold): cap height ≈ 0.69em, so at
+            font-size 100 with the baseline at y=80 the caps span y≈11–80;
+            a viewBox height of 63 cuts at 75% of that. */}
+        <div className="mt-10 select-none" aria-hidden="true">
+          <svg
+            viewBox="-16 0 1032 63"
+            className="block w-full h-auto"
+            preserveAspectRatio="xMidYMin meet"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              {/* Embossed / neumorphic lettering: the letters themselves
+                  are cut out of the graphic (composite "out" with the
+                  text's own alpha), so whatever the footer gradient is
+                  behind them shows straight through — the text is the
+                  exact same colour as the background. What makes it
+                  readable is only a soft shadow straight below each
+                  letter (no side/top shadow), like a raised block. */}
+              <filter id="footerWordmarkEmboss" x="-5%" y="-40%" width="110%" height="200%" colorInterpolationFilters="sRGB">
+                <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="blur" />
+                <feOffset in="blur" dx="0" dy="7" result="darkOffset" />
+                <feFlood floodColor="#000000" floodOpacity="0.55" />
+                <feComposite in2="darkOffset" operator="in" result="darkShadow" />
+                <feComposite in="darkShadow" in2="SourceAlpha" operator="out" />
+              </filter>
+            </defs>
+            <text
+              x="0"
+              y="80"
+              fontSize="100"
+              fontWeight="700"
+              textLength="1000"
+              lengthAdjust="spacingAndGlyphs"
+              fill="#000000"
+              filter="url(#footerWordmarkEmboss)"
+              style={{ fontFamily: "var(--font-fira), sans-serif" }}
+            >
+              BizzBuzz Creations
+            </text>
+          </svg>
         </div>
       </div>
     </footer>
