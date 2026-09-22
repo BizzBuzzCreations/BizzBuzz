@@ -186,6 +186,53 @@ body {
   height: 700px;
 }
 
+/* Same double-arrow / expanding-circle mechanic as the base button (used
+   on the home hero's CTA), recolored for buttons that sit on a light or
+   white background instead of a dark/colorful one — ring + text + arrows
+   start brand-blue, and the circle that sweeps in on hover is blue with
+   white text/arrows, instead of the base white-ring/white-fill version.
+   These rules are declared after `.animated-button`'s own so they win on
+   equal specificity when both classes are applied together. */
+.animated-button-blue {
+  color: #0b60b0;
+  box-shadow: 0 0 0 2px #0b60b0;
+}
+
+.animated-button-blue svg {
+  fill: #0b60b0;
+}
+
+.animated-button-blue .circle {
+  background-color: #0b60b0;
+}
+
+.animated-button-blue:hover {
+  color: white;
+}
+
+.animated-button-blue:hover svg {
+  fill: white;
+}
+
+.animated-button-blue:active {
+  box-shadow: 0 0 0 4px #0b60b0;
+}
+
+/* Compact size for the same effect inside a card/row instead of a
+   standalone hero CTA — smaller padding/type/icon, same animation. */
+.animated-button-sm {
+  padding: 10px 22px;
+  font-size: 13px;
+}
+
+.animated-button-sm svg {
+  width: 16px;
+}
+
+.animated-button-sm .arr-1 {
+  right: 10px;
+}
+
 /* Animated SVG Text */
 .animated-text text {
   text-transform: uppercase;

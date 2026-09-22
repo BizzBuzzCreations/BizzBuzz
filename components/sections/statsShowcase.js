@@ -2,9 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import {
-  ArrowRight,
   Headphones,
   Globe,
   Search,
@@ -15,6 +13,7 @@ import {
   Handshake,
 } from "lucide-react";
 import RichText from "@/components/ui/richText";
+import AnimatedButton from "@/components/ui/animatedButton";
 
 // What makes working with BizzBuzz Creations different — kept as 4 cards
 // so the existing marquee/visual layout below (photos, client logos,
@@ -307,13 +306,9 @@ export default function StatsShowcase({ content }) {
                   {stat.value} {stat.label}
                 </h3>
                 <RichText as="p" text={stat.description} className="text-sm text-gray-600 leading-relaxed mb-4" />
-                <Link
-                  href="/about"
-                  className="inline-flex items-center gap-1.5 bg-gray-100 hover:bg-gray-200 text-gray-900 text-sm font-semibold px-4 py-2 rounded-full transition"
-                >
+                <AnimatedButton href="/about" variant="blue" size="sm">
                   Learn More
-                  <ArrowRight size={15} />
-                </Link>
+                </AnimatedButton>
               </div>
             </div>
           ))}

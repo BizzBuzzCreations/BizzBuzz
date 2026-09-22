@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
-import { Bot, Workflow, Sparkles, Radar, ArrowUpRight } from "lucide-react";
+import { Bot, Workflow, Sparkles, Radar } from "lucide-react";
 import RichText from "@/components/ui/richText";
+import AnimatedButton from "@/components/ui/animatedButton";
 
 // Real categories from the /ai-solutions service page — kept consistent
 // with what BizzBuzz Creations actually offers instead of inventing claims.
@@ -63,8 +63,8 @@ export default function AiShowcase({ content }) {
   useEffect(() => {
     const el = videoWrapRef.current;
     if (!el || typeof IntersectionObserver === "undefined") {
-      setShouldLoadVideo(true);
-      return;
+      const t = setTimeout(() => setShouldLoadVideo(true), 0);
+      return () => clearTimeout(t);
     }
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -152,13 +152,9 @@ export default function AiShowcase({ content }) {
           </div>
 
           <div className="flex flex-wrap gap-3 mt-2">
-            <Link
-              href="/ai-solutions"
-              className="inline-flex items-center justify-center gap-1.5 bg-white text-black hover:bg-[#0B60B0] hover:text-white text-sm font-semibold px-6 py-3 rounded-full transition-colors duration-300"
-            >
+            <AnimatedButton href="/ai-solutions" size="sm">
               {buttonText}
-              <ArrowUpRight size={16} />
-            </Link>
+            </AnimatedButton>
           </div>
         </div>
       </div>

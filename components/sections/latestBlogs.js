@@ -3,6 +3,7 @@ import { getFeaturedImage } from "@/lib/getFeaturedImage";
 import Link from "next/link";
 import he from "he";
 import { ImageOff, ArrowUpRight, CalendarDays } from "lucide-react";
+import AnimatedButton from "@/components/ui/animatedButton";
 
 // `dark` is opt-in, passed by pages that want the all-black section run.
 export default async function LatestBlogs({ dark = false }) {
@@ -118,22 +119,12 @@ export default async function LatestBlogs({ dark = false }) {
             })}
         </div>
         <div className="text-center">
-          <Link href="/blog" className="inline-block">
-            <button
-              className={`relative cursor-pointer border-2 px-6 py-3 rounded-lg overflow-hidden group ${
-                dark ? "border-white text-white" : "border-gray-900 text-gray-900"
-              }`}
-            >
-              <span
-                className={`absolute inset-0 transform -translate-x-full group-hover:translate-x-0 transition duration-300 ${
-                  dark ? "bg-white" : "bg-gray-900"
-                }`}
-              ></span>
-              <span className={`relative z-10 ${dark ? "group-hover:text-black" : "group-hover:text-white"}`}>
-                View All Blogs
-              </span>
-            </button>
-          </Link>
+          {/* `dark` picks which background this section is rendered on —
+              same white-ring/blue-ring split as everywhere else the home
+              hero's button effect is reused. */}
+          <AnimatedButton href="/blog" variant={dark ? "white" : "blue"} size="sm">
+            View All Blogs
+          </AnimatedButton>
         </div>
       </div>
     </section>

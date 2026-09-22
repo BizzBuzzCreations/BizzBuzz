@@ -7,6 +7,7 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import Cookies from "js-cookie";
 import he from "he";
+import AnimatedButton from "@/components/ui/animatedButton";
 
 export default function AllBLogs() {
   const searchParams = useSearchParams();
@@ -332,18 +333,20 @@ export default function AllBLogs() {
           </div>
           <div className="w-full text-center">
             {!showAll && (
-              <button
-                onClick={() => {
-                  setPosts(9);
-                  setShowAll(true);
-                }}
-                className="relative mb-5 cursor-pointer border-2 border-white text-white px-6 py-3 rounded-lg overflow-hidden group"
-              >
-                <span className="absolute inset-0 bg-white transform -translate-x-full group-hover:translate-x-0 transition duration-300"></span>
-                <span className="relative z-10 group-hover:text-black">
+              // .animated-button is `display: flex`, which (unlike the
+              // plain inline-block <button> this replaced) doesn't get
+              // centered by the ancestor's `text-align: center` — center
+              // it directly with flex instead.
+              <div className="mb-5 flex justify-center">
+                <AnimatedButton
+                  onClick={() => {
+                    setPosts(9);
+                    setShowAll(true);
+                  }}
+                >
                   View all blogs
-                </span>
-              </button>
+                </AnimatedButton>
+              </div>
             )}
             {showAll && (
               <div className="flex items-center gap-3 justify-center items-center">

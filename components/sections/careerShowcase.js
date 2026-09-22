@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { GraduationCap, Target, TrendingUp } from "lucide-react";
 import RichText from "@/components/ui/richText";
+import AnimatedButton from "@/components/ui/animatedButton";
 
 // "Why Work With Us" + "Join The Team" — real BizzBuzz office/team photos
 // throughout (same assets already used in the homepage's shuffle grid and
@@ -147,12 +148,9 @@ export function CareerJoinTeam({ content } = {}) {
             ))}
           </div>
 
-          <a
-            href="#open-positions"
-            className="inline-flex items-center bg-[#0B60B0] hover:bg-white text-white hover:text-black text-sm font-semibold px-6 py-3 rounded-full transition-colors duration-300 w-fit"
-          >
+          <AnimatedButton href="#open-positions" size="sm">
             {ctaText}
-          </a>
+          </AnimatedButton>
         </div>
 
         <div className="hidden md:grid">{imageGrid}</div>

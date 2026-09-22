@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import Particles from "@/components/ui/Particles";
 import RichText from "@/components/ui/richText";
+import AnimatedButton from "@/components/ui/animatedButton";
 
 // Icons and hrefs stay code-driven (design/routing), matched positionally
 // to whichever cards are saved.
@@ -76,13 +77,9 @@ export default function MarketingCTA({ content }) {
               {heading}
             </h2>
             <RichText as="p" text={paragraph} className="text-white/70 mb-10 max-w-md leading-relaxed" />
-            <Link
-              href="#contact-form"
-              className="inline-flex items-center gap-2 bg-white hover:bg-black text-[#0B60B0] text-sm font-semibold px-6 py-3.5 rounded-full transition-colors duration-300 self-start w-fit shadow-lg mb-12"
-            >
-              {buttonText}
-              <ArrowUpRight size={16} />
-            </Link>
+            <div className="mb-12">
+              <AnimatedButton href="#contact-form">{buttonText}</AnimatedButton>
+            </div>
 
             <div className="flex flex-col gap-4 max-w-sm pt-8 border-t border-white/15">
               {trustLines.map((line, i) => (

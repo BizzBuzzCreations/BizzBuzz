@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowUpRight } from "lucide-react";
 import { SERVICES } from "@/lib/industriesData";
+import AnimatedButton from "@/components/ui/animatedButton";
 
 // Short, service-specific detail copy shown in the panel below the pills
 // when that category is selected. Keyed by the same keys as SERVICES in
@@ -84,13 +84,11 @@ export default function CategoriesShowcase() {
                 {activeDetail?.desc}
               </p>
             </div>
-            <a
-              href={activeService.href}
-              className="shrink-0 inline-flex items-center gap-1.5 self-start sm:self-center bg-white hover:bg-gray-100 text-black text-sm font-semibold px-5 py-2.5 rounded-full transition"
-            >
-              Learn More
-              <ArrowUpRight size={15} />
-            </a>
+            <div className="shrink-0 self-start sm:self-center">
+              <AnimatedButton href={activeService.href} size="sm">
+                Learn More
+              </AnimatedButton>
+            </div>
           </div>
         </div>
       )}

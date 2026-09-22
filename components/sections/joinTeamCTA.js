@@ -1,7 +1,6 @@
-import Link from "next/link";
 import Image from "next/image";
-import { ArrowUpRight, Mail } from "lucide-react";
 import RichText from "@/components/ui/richText";
+import AnimatedButton from "@/components/ui/animatedButton";
 
 export default function JoinTeamCTA({ content }) {
   const eyebrow = content?.joinTeamEyebrow || "We’re Always Looking for Great Talent";
@@ -11,23 +10,32 @@ export default function JoinTeamCTA({ content }) {
   const careersButtonText = content?.joinTeamCareersButtonText || "See All Careers";
   const image = content?.joinTeamImage1 || "/team-images/team-5.jpeg";
 
+  // This section's background runs light (white → light blue → brand
+  // blue) instead of dark, so both buttons use the "blue" variant of the
+  // hero's button effect (blue ring/fill instead of white). Rendered
+  // twice — once for the desktop row (auto width) and once for the
+  // mobile 2-up grid, where they need to stretch to fill each column —
+  // rather than sharing one JSX value, since a plain `w-full` on the
+  // desktop row would fight its `flex` sizing instead of the grid's.
   const emailLink = (
-    <Link
-      href="mailto:info@bizzbuzzcreations.com"
-      className="inline-flex items-center justify-center gap-1.5 border-2 border-[#0B60B0] text-[#0B60B0] hover:bg-[#0B60B0] hover:text-white text-xs sm:text-sm font-semibold px-4 sm:px-6 py-3 rounded-full transition"
-    >
-      <Mail size={16} />
+    <AnimatedButton href="mailto:info@bizzbuzzcreations.com" variant="blue" size="sm">
       {emailButtonText}
-    </Link>
+    </AnimatedButton>
   );
   const careersLink = (
-    <Link
-      href="/career"
-      className="inline-flex items-center justify-center gap-1.5 bg-[#0B60B0] hover:bg-black text-white text-xs sm:text-sm font-semibold px-4 sm:px-6 py-3 rounded-full transition-colors duration-300"
-    >
+    <AnimatedButton href="/career" variant="blue" size="sm">
       {careersButtonText}
-      <ArrowUpRight size={16} />
-    </Link>
+    </AnimatedButton>
+  );
+  const emailLinkFull = (
+    <AnimatedButton href="mailto:info@bizzbuzzcreations.com" variant="blue" size="sm" className="w-full">
+      {emailButtonText}
+    </AnimatedButton>
+  );
+  const careersLinkFull = (
+    <AnimatedButton href="/career" variant="blue" size="sm" className="w-full">
+      {careersButtonText}
+    </AnimatedButton>
   );
 
   return (
@@ -77,8 +85,8 @@ export default function JoinTeamCTA({ content }) {
             side by side underneath — a grid (not flex-wrap) so they stay
             on one row instead of stacking on narrow screens. */}
         <div className="grid grid-cols-2 gap-3 lg:hidden">
-          {emailLink}
-          {careersLink}
+          {emailLinkFull}
+          {careersLinkFull}
         </div>
       </div>
     </section>

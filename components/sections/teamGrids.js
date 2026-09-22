@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import RichText from "@/components/ui/richText";
+import AnimatedButton from "@/components/ui/animatedButton";
 import {
   Crown,
   Users,
@@ -19,7 +19,6 @@ import {
   FlaskConical,
   Linkedin,
   Instagram,
-  ArrowRight,
 } from "lucide-react";
 
 // Role-based structure rather than invented individual profiles with
@@ -418,15 +417,9 @@ export default function TeamGrids({ content } = {}) {
                       {group.tagline}
                     </h3>
                     <RichText as="p" text={group.desc} className="text-white/60 leading-relaxed mb-6" />
-                    <Link
-                      href={i === 0 ? "/our-team/bpo-team" : "/our-team/rnd-team"}
-                      className="group/btn inline-flex items-center gap-2.5 bg-[#0B60B0] hover:bg-white text-white hover:text-black text-sm font-semibold pl-6 pr-5 py-3.5 rounded-full shadow-lg shadow-[#0B60B0]/20 hover:shadow-xl hover:shadow-black/20 transition-all duration-300 w-fit"
-                    >
+                    <AnimatedButton href={i === 0 ? "/our-team/bpo-team" : "/our-team/rnd-team"} size="sm">
                       Our Team
-                      <span className="flex items-center justify-center w-6 h-6 rounded-full bg-white/15 group-hover/btn:bg-black/10 transition-all duration-300 group-hover/btn:translate-x-0.5">
-                        <ArrowRight size={13} />
-                      </span>
-                    </Link>
+                    </AnimatedButton>
                   </motion.div>
 
                   <motion.div

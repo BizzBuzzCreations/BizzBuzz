@@ -11,7 +11,6 @@ import {
   FileText,
   Compass,
   Rocket,
-  ArrowUpRight,
 } from "lucide-react";
 import GuidesHero from "@/components/sections/guidesHero";
 import CTA from "@/components/sections/CTA";
@@ -19,6 +18,7 @@ import LatestBlogs from "@/components/sections/latestBlogs";
 import DarkFAQSection from "@/components/sections/darkFAQSection";
 import { getPageContent } from "@/actions/pageContentActions";
 import RichText from "@/components/ui/richText";
+import AnimatedButton from "@/components/ui/animatedButton";
 import { buildPageMetadata } from "@/lib/pageMetadata";
 
 export async function generateMetadata() {
@@ -199,19 +199,12 @@ export default async function GuidesPage() {
               <RichText as="p" text={sidebarParagraph} className="relative z-10 text-sm text-white/80 leading-relaxed mb-7" />
 
               <div className="relative z-10 flex flex-col gap-3">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center justify-center gap-1.5 bg-white text-[#0B60B0] hover:bg-black hover:text-white font-semibold rounded-lg py-3 transition-colors duration-300"
-                >
+                <AnimatedButton href="/contact" size="sm" className="w-full">
                   {sidebarPrimaryText}
-                  <ArrowUpRight size={16} />
-                </Link>
-                <Link
-                  href="/services"
-                  className="block text-center border border-white/50 hover:border-black bg-transparent hover:bg-black text-white rounded-lg py-3 transition-colors duration-300"
-                >
+                </AnimatedButton>
+                <AnimatedButton href="/services" size="sm" className="w-full">
                   {sidebarSecondaryText}
-                </Link>
+                </AnimatedButton>
               </div>
             </div>
           </aside>

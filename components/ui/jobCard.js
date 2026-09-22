@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
-import { ArrowUpRight, Briefcase, MapPin, Clock, ChevronDown } from "lucide-react";
+import { Briefcase, MapPin, Clock, ChevronDown } from "lucide-react";
+import AnimatedButton from "@/components/ui/animatedButton";
 
 const PREVIEW_LENGTH = 180;
 
@@ -25,15 +26,11 @@ export default function JobCard({ job, days }) {
             Posted {days === 0 ? "today" : `${days} day${days === 1 ? "" : "s"} ago`}
           </span>
         </div>
-        <a
-          href={job.applyForm}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center justify-center gap-1.5 shrink-0 bg-[#0B60B0] hover:bg-white text-white hover:text-black text-sm font-semibold px-5 py-2.5 rounded-full transition-colors duration-300 w-full sm:w-fit"
-        >
-          Apply Now
-          <ArrowUpRight size={15} />
-        </a>
+        <div className="shrink-0 w-full sm:w-fit">
+          <AnimatedButton href={job.applyForm} external size="sm" className="w-full sm:w-fit">
+            Apply Now
+          </AnimatedButton>
+        </div>
       </div>
 
       <p className="text-sm text-white/60 leading-relaxed whitespace-pre-line mb-2">
