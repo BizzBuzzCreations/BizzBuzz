@@ -18,12 +18,15 @@ import { getPageContent } from "@/actions/pageContentActions";
 import { buildPageMetadata } from "@/lib/pageMetadata";
 
 // Hidden landing page — mostly the same sections as the real homepage,
-// except: the hero's big outlined "BizzBuzz Creations" wordmark is
-// dropped here only (HomeHero's `showWordmark={false}`); and the "Know
-// More About Us" scroll-zoom section (ScrollZoomReveal) is swapped for
-// WhoWeAreBox here only — same content (Who We Are blurb, stats,
-// quick-links), just a plain static card instead of the pinned 400vh
-// scroll-jacking animation. The real homepage keeps both unchanged.
+// except: the hero's background is an either/or Image-or-Video choice
+// here (HomeHero's `heroMediaChoice`), read from the dashboard's own
+// fields, instead of the real homepage's fixed local video file; the
+// hero's big outlined "BizzBuzz Creations" wordmark is dropped here only
+// (`showWordmark={false}`); and the "Know More About Us" scroll-zoom
+// section (ScrollZoomReveal) is swapped for WhoWeAreBox here only — same
+// content (Who We Are blurb, stats, quick-links), just a plain static
+// card instead of the pinned 400vh scroll-jacking animation. The real
+// homepage keeps all three unchanged.
 // Has its own editable content (dashboard: "Outside Location Page",
 // below Sub-Service Pages) and its own pageKey, so editing it never
 // touches the real homepage. Deliberately not linked from the navbar,
@@ -54,7 +57,7 @@ export default async function DigitalMarketingServicesInUk() {
 
   return (
     <>
-      <HomeHero content={content} showWordmark={false} />
+      <HomeHero content={content} showWordmark={false} heroMediaChoice />
       <HomeAbout content={content} />
       <OurServices content={content} />
       <CaseStudies content={content} />

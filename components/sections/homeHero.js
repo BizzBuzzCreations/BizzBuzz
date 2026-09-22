@@ -11,7 +11,17 @@ const reveal = { duration: 0.8, ease: [0.16, 1, 0.3, 1] };
 // the heading. Defaults on (the real homepage); the Outside Location page
 // (app/(main)/en-uk/digital-marketing-services-in-uk/page.js) passes
 // `false` to drop it there only.
-export default function HomeHero({ content, showWordmark = true }) {
+//
+// `heroMediaChoice` — off by default, which keeps the real homepage's
+// hero exactly as it's always been: a fixed local video file, with the
+// dashboard's Background Poster Image/Video fields not actually read
+// here at all. The Outside Location page passes `true`, which makes this
+// read those two fields for real, as an either/or choice instead of a
+// "poster shown before the video" pair: content.heroVideo wins if it's
+// set (a plain <video>, not the homepage's hardcoded file); otherwise
+// content.heroPosterImage shows as a plain background image; if neither
+// is set, it's just the section's own black background.
+export default function HomeHero({ content, showWordmark = true, heroMediaChoice = false }) {
   const heading = content?.heroHeading || "India’s Trusted Digital Marketing Agency";
   const subheading =
     content?.heroSubheading || "Turn Clicks Into Customers With Data-Driven Digital Marketing";
@@ -19,6 +29,8 @@ export default function HomeHero({ content, showWordmark = true }) {
     content?.heroSubtext ||
     "Looking for a trusted digital marketing agency in Prayagraj that helps your business generate more leads, increase website traffic, and grow revenue? Welcome to BizzBuzz Creations.";
   const ctaText = content?.heroCtaText || "Get Free Consultation";
+  const chosenVideo = heroMediaChoice ? content?.heroVideo : "";
+  const chosenImage = heroMediaChoice && !chosenVideo ? content?.heroPosterImage : "";
 
   return (
     <>
@@ -43,17 +55,42 @@ export default function HomeHero({ content, showWordmark = true }) {
             photo-then-video glitch. Dropping it leaves a plain black frame
             for that instant instead, which blends straight into the
             section's own dark scrim/background. */}
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          className="hidden md:block absolute inset-0 w-full h-full object-cover bg-black"
-        >
-          <source src="/hero-sec.webm" type="video/webm" />
-          <source src="/Sequence 01 1.mp4" type="video/mp4" />
-        </video>
+        {heroMediaChoice ? (
+          <>
+            {chosenVideo && (
+              <video
+                key={chosenVideo}
+                src={chosenVideo}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                className="hidden md:block absolute inset-0 w-full h-full object-cover bg-black"
+              />
+            )}
+            {chosenImage && (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={chosenImage}
+                alt=""
+                className="hidden md:block absolute inset-0 w-full h-full object-cover bg-black"
+              />
+            )}
+          </>
+        ) : (
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            className="hidden md:block absolute inset-0 w-full h-full object-cover bg-black"
+          >
+            <source src="/hero-sec.webm" type="video/webm" />
+            <source src="/Sequence 01 1.mp4" type="video/mp4" />
+          </video>
+        )}
 
         {/* Dark scrim so text stays readable over any video/image */}
         <div
@@ -109,24 +146,48 @@ export default function HomeHero({ content, showWordmark = true }) {
               bandwidth- and data-plan-constrained visitors, forcing this
               large file to fully buffer was the single biggest thing
               standing between "page interactive" and everything else. */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ ...reveal, delay: 0.38 }}
-            className="md:hidden relative w-full max-w-sm aspect-video rounded-2xl overflow-hidden shadow-xl mb-8"
-          >
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-              className="absolute inset-0 w-full h-full object-cover bg-black"
+          {(!heroMediaChoice || chosenVideo || chosenImage) && (
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ ...reveal, delay: 0.38 }}
+              className="md:hidden relative w-full max-w-sm aspect-video rounded-2xl overflow-hidden shadow-xl mb-8"
             >
-              <source src="/hero-sec.webm" type="video/webm" />
-              <source src="/Sequence 01 1.mp4" type="video/mp4" />
-            </video>
-          </motion.div>
+              {heroMediaChoice ? (
+                chosenVideo ? (
+                  <video
+                    key={chosenVideo}
+                    src={chosenVideo}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
+                    className="absolute inset-0 w-full h-full object-cover bg-black"
+                  />
+                ) : (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={chosenImage}
+                    alt=""
+                    className="absolute inset-0 w-full h-full object-cover bg-black"
+                  />
+                )
+              ) : (
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  className="absolute inset-0 w-full h-full object-cover bg-black"
+                >
+                  <source src="/hero-sec.webm" type="video/webm" />
+                  <source src="/Sequence 01 1.mp4" type="video/mp4" />
+                </video>
+              )}
+            </motion.div>
+          )}
 
           <motion.div
             initial={{ opacity: 0, y: 24 }}
