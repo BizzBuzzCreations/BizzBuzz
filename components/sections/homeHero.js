@@ -3,7 +3,7 @@
 import Link from "next/link";
 import React from "react";
 import { motion } from "framer-motion";
-import { RICH_TEXT_CLASS, richTextHTML } from "@/components/ui/richText";
+import { RICH_TEXT_CLASS, richTextHTML, richTextScopeClass } from "@/components/ui/richText";
 
 const reveal = { duration: 0.8, ease: [0.16, 1, 0.3, 1] };
 
@@ -92,7 +92,7 @@ export default function HomeHero({ content }) {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ ...reveal, delay: 0.3 }}
-            className={`max-w-xl mb-10 ${RICH_TEXT_CLASS}`}
+            className={`max-w-xl mb-10 ${RICH_TEXT_CLASS} ${richTextScopeClass(subtext)}`}
             dangerouslySetInnerHTML={richTextHTML(subtext)}
           />
 
