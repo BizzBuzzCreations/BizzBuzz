@@ -79,11 +79,17 @@ body {
   display: none;
 }
 
-/* Navbar style */
+/* Navbar style — fully opaque (not e.g. #0a0a0ae6) on purpose: at 90%
+   opacity, whatever sits directly behind the navbar on each page (a hero
+   photo's top edge, a lighter section background...) bled through just
+   enough to make the navbar look like a different shade of black from
+   page to page. Solid color means it's the exact same black everywhere,
+   regardless of what's underneath. backdrop-filter is dropped too — it
+   only ever mattered for that see-through blend, so it's dead weight
+   (a wasted per-frame blur) now that the color behind it is invisible. */
 .nav {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-  background-color: #0a0a0ae6;
-  backdrop-filter: blur(16px);
+  background-color: #0a0a0a;
 }
 
 /* Custom button */
