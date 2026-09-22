@@ -7,7 +7,11 @@ import { RICH_TEXT_CLASS, richTextHTML, richTextScopeClass } from "@/components/
 
 const reveal = { duration: 0.8, ease: [0.16, 1, 0.3, 1] };
 
-export default function HomeHero({ content }) {
+// `showWordmark` — the big outlined "BizzBuzz Creations" SVG text below
+// the heading. Defaults on (the real homepage); the Outside Location page
+// (app/(main)/en-uk/digital-marketing-services-in-uk/page.js) passes
+// `false` to drop it there only.
+export default function HomeHero({ content, showWordmark = true }) {
   const heading = content?.heroHeading || "India’s Trusted Digital Marketing Agency";
   const subheading =
     content?.heroSubheading || "Turn Clicks Into Customers With Data-Driven Digital Marketing";
@@ -69,17 +73,19 @@ export default function HomeHero({ content }) {
           >
             {heading}
           </motion.h1>
-          <motion.svg
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ ...reveal, delay: 0.15 }}
-            className="animated-text"
-            viewBox="0 0 1320 220"
-          >
-            <text x="0" y="50%" dy=".35em" textAnchor="start">
-              BizzBuzz Creations
-            </text>
-          </motion.svg>
+          {showWordmark && (
+            <motion.svg
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ ...reveal, delay: 0.15 }}
+              className="animated-text"
+              viewBox="0 0 1320 220"
+            >
+              <text x="0" y="50%" dy=".35em" textAnchor="start">
+                BizzBuzz Creations
+              </text>
+            </motion.svg>
+          )}
           <motion.h2
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}

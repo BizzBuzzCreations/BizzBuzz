@@ -4,8 +4,8 @@ import HomeAbout from "@/components/sections/homeAbout";
 import HomeHero from "@/components/sections/homeHero";
 import OurServices from "@/components/sections/ourServices";
 import CaseStudies from "@/components/sections/caseStudies";
-import ScrollZoomReveal from "@/components/sections/scrollZoomReveal";
 import StatsShowcase from "@/components/sections/statsShowcase";
+import WhoWeAreBox from "@/components/sections/whoWeAreBox";
 import AiShowcase from "@/components/sections/aiShowcase";
 import Reviews from "@/components/sections/reviews";
 import WhatMAkesUs from "@/components/sections/whatMakesUs";
@@ -17,13 +17,19 @@ import LatestBlogs from "@/components/sections/latestBlogs";
 import { getPageContent } from "@/actions/pageContentActions";
 import { buildPageMetadata } from "@/lib/pageMetadata";
 
-// Hidden landing page — same layout/sections as the real homepage, but
-// its own editable content (dashboard: "Outside Location Page", below
-// Sub-Service Pages) and its own pageKey, so editing it never touches
-// the real homepage. Deliberately not linked from the navbar, footer, or
-// anywhere else on the site — only reachable at this exact URL (search
-// engines / paid campaigns), which is why it's still listed in
-// sitemap.xml (so it can be indexed) despite having no internal links.
+// Hidden landing page — mostly the same sections as the real homepage,
+// except: the hero's big outlined "BizzBuzz Creations" wordmark is
+// dropped here only (HomeHero's `showWordmark={false}`); and the "Know
+// More About Us" scroll-zoom section (ScrollZoomReveal) is swapped for
+// WhoWeAreBox here only — same content (Who We Are blurb, stats,
+// quick-links), just a plain static card instead of the pinned 400vh
+// scroll-jacking animation. The real homepage keeps both unchanged.
+// Has its own editable content (dashboard: "Outside Location Page",
+// below Sub-Service Pages) and its own pageKey, so editing it never
+// touches the real homepage. Deliberately not linked from the navbar,
+// footer, or anywhere else on the site — only reachable at this exact
+// URL (search engines / paid campaigns), which is why it's still listed
+// in sitemap.xml (so it can be indexed) despite having no internal links.
 export async function generateMetadata() {
   return buildPageMetadata("outside-location-uk", {
     title: "Digital Marketing Services in UK | BizzBuzz Creations",
@@ -48,12 +54,12 @@ export default async function DigitalMarketingServicesInUk() {
 
   return (
     <>
-      <HomeHero content={content} />
+      <HomeHero content={content} showWordmark={false} />
       <HomeAbout content={content} />
       <OurServices content={content} />
       <CaseStudies content={content} />
       <StatsShowcase content={content} />
-      <ScrollZoomReveal />
+      <WhoWeAreBox />
       <AiShowcase content={content} />
       <WhatMAkesUs content={content} />
       <WhyChooseUs dark content={content} />

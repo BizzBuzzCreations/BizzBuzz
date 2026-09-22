@@ -4,6 +4,8 @@ import { useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { Award, Trophy } from "lucide-react";
+import RichText from "@/components/ui/richText";
+import AnimatedButton from "@/components/ui/animatedButton";
 
 // Real certifications/partnerships already vetted and used elsewhere on the
 // site (the popup consultation form) — no invented awards or fabricated
@@ -60,6 +62,11 @@ export default function Recognitions({ content }) {
   const eyebrow = content?.recognitionsEyebrow || "";
   const heading = content?.recognitionsHeading || DEFAULT_HEADING;
   const isDefaultHeading = heading === DEFAULT_HEADING;
+  // Both empty by default — this section shows no paragraph/button on the
+  // real homepage unless a page (e.g. the Outside Location page) sets its
+  // own override in the dashboard.
+  const paragraph = content?.recognitionsParagraph || "";
+  const buttonText = content?.recognitionsButtonText || "";
 
   return (
     <section className="relative bg-black text-white py-24 px-6 md:px-12 overflow-hidden">
@@ -83,6 +90,22 @@ export default function Recognitions({ content }) {
             </h2>
             <Award className="text-[#40A2D8] shrink-0 scale-x-[-1]" size={44} />
           </div>
+
+          {paragraph && (
+            <RichText
+              as="p"
+              text={paragraph}
+              className="text-white/60 text-center lg:text-left max-w-xl mx-auto lg:mx-0 mb-8"
+            />
+          )}
+
+          {buttonText && (
+            <div className="flex justify-center lg:justify-start mb-10">
+              <AnimatedButton href="/contact" size="sm">
+                {buttonText}
+              </AnimatedButton>
+            </div>
+          )}
 
           <ul className="space-y-3">
             {recognitions.map((item, i) => (
