@@ -72,11 +72,11 @@ export default function AllBlogScripts({ slug }) {
   "description": "Learn what Answer Engine Optimization (AEO) is, how to optimize for AI search, and how to appear in Google AI Overview in 2026.",
   "author": {
     "@type": "Organization",
-    "name": "BizzBuzz Creations"
+    "name": "Digital Marketing Agency"
   },
   "publisher": {
     "@type": "Organization",
-    "name": "BizzBuzz Creations",
+    "name": "Digital Marketing Agency",
     "logo": {
       "@type": "ImageObject",
       "url": "https://bizzbuzzcreations.com/favicon.png"
@@ -212,12 +212,12 @@ export default function AllBlogScripts({ slug }) {
     "jobTitle": "Senior Digital Marketing Strategist",
     "worksFor": {
       "@type": "Organization",
-      "name": "BizzBuzz Creations"
+      "name": "Digital Marketing Agency"
     }
   },
   "publisher": {
     "@type": "Organization",
-    "name": "BizzBuzz Creations",
+    "name": "Digital Marketing Agency",
     "url": "https://bizzbuzzcreations.com"
   },
   "datePublished": "2026-05-01",
@@ -333,12 +333,12 @@ export default function AllBlogScripts({ slug }) {
       "image": "https://bizzbuzzcreations.com/wp-content/uploads/wordpress-seo-guide.jpg",
       "author": {
         "@type": "Organization",
-        "name": "BizzBuzz Creations",
+        "name": "Digital Marketing Agency",
         "url": "https://bizzbuzzcreations.com/"
       },
       "publisher": {
         "@type": "Organization",
-        "name": "BizzBuzz Creations",
+        "name": "Digital Marketing Agency",
         "logo": {
           "@type": "ImageObject",
           "url": "https://bizzbuzzcreations.com/wp-content/uploads/logo.png"
@@ -399,7 +399,7 @@ export default function AllBlogScripts({ slug }) {
     {
       "@type": "Organization",
       "@id": "https://bizzbuzzcreations.com/#organization",
-      "name": "BizzBuzz Creations",
+      "name": "Digital Marketing Agency",
       "url": "https://bizzbuzzcreations.com/",
       "logo": {
         "@type": "ImageObject",

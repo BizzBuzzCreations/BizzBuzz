@@ -26,6 +26,12 @@ export const metadata = {
   title: "Best Digital Marketing Agency in India | Bizz Buzz Creations",
   description:
     "Grow your business with Bizz Buzz Creations – India’s top digital marketing and BPO company. We offer SEO, SMM, and lead generation services.",
+  // Site-wide default for the small "site name" Google shows next to the
+  // favicon in search results (og:site_name) — every page inherits this
+  // unless its own generateMetadata sets its own `openGraph.siteName`.
+  openGraph: {
+    siteName: "Digital Marketing Agency",
+  },
   icons: {
     icon: "/favicon.png",
   },

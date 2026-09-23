@@ -75,7 +75,7 @@ export default async function SingleBlog({ params }) {
     author: { "@type": "Person", name: post.author },
     publisher: {
       "@type": "Organization",
-      name: "BizzBuzz Creations",
+      name: "Digital Marketing Agency",
       logo: {
         "@type": "ImageObject",
         url: "https://bizzbuzzcreations.com/favicon.png",

@@ -34,7 +34,7 @@ export async function generateMetadata() {
       "Grow your business with BizzBuzz Creations, a trusted digital marketing agency in Prayagraj offering SEO, Google Ads, web development & social media.",
     url: "https://bizzbuzzcreations.com/",
     type: "website",
-    siteName: "BizzBuzz Creations",
+    siteName: "Digital Marketing Agency",
     locale: "en_US",
     images: ["https://bizzbuzzcreations.com/Industry Authority (1).png"],
   },

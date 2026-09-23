@@ -14,11 +14,11 @@ export default function AllScripts() {
         `}
       </Script>
 
-      <Script type="application/ld+json">
+      <Script id="local-business-schema" type="application/ld+json">
         {`{
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "name": "BizzBuzz Creations",
+  "name": "Digital Marketing Agency",
   "image": "https://bizzbuzzcreations.com/_next/image?url=%2FIndustry%20Authority%20(1).png&w=640&q=75",
   "@id": "https://bizzbuzzcreations.com/",
   "url": "https://bizzbuzzcreations.com/",
