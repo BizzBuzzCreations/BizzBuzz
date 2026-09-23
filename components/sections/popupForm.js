@@ -7,6 +7,15 @@ import { toast, Bounce } from "react-toastify";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 
+// The real homepage and the Outside Location page both render this
+// component (see their own page.js files) — was hardcoded to only ever
+// show on exactly "/", so it silently never appeared on the Outside
+// Location page at all, no matter how long you waited. Module-level (not
+// inside the component) so its reference stays stable across renders —
+// otherwise the effect below would need it in its dependency array and
+// re-run on every render.
+const POPUP_PAGES = ["/", "/en-uk/digital-marketing-services-in-uk"];
+
 export default function ConsultationPopup({ content }) {
   const headerTitle = content?.popupHeaderTitle || "Book Your Consultation Now";
   const title = content?.popupTitle || "BizzBuzz Creations";
@@ -30,7 +39,7 @@ export default function ConsultationPopup({ content }) {
   const POPUP_SHOWN_KEY = "bbc_consultation_popup_shown";
 
   useEffect(() => {
-    if (pathname !== "/") {
+    if (!POPUP_PAGES.includes(pathname)) {
       // Deferred (not called synchronously in the effect body) so this
       // doesn't trip react-hooks/set-state-in-effect — same end result,
       // just scheduled a tick later instead of during the render commit.
