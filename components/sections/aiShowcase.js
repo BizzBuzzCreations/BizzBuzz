@@ -98,10 +98,6 @@ export default function AiShowcase({ content }) {
               playsInline
               poster={posterImage}
               className="absolute inset-0 w-full h-full object-cover"
-              style={{
-                clipPath:
-                  "polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 55%, 8% 50%, 0 45%)",
-              }}
             >
               <source src={videoSrc} />
               <source src="/Sequence 01 1.mp4" type="video/mp4" />
@@ -115,10 +111,6 @@ export default function AiShowcase({ content }) {
               src={posterImage}
               alt=""
               className="absolute inset-0 w-full h-full object-cover"
-              style={{
-                clipPath:
-                  "polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 55%, 8% 50%, 0 45%)",
-              }}
             />
           )}
           <div className="absolute inset-0 bg-linear-to-r from-transparent via-transparent to-black/40 lg:to-black/10" />

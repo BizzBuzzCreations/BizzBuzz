@@ -55,6 +55,26 @@ function IndiaFlag() {
   );
 }
 
+function UKFlag() {
+  return (
+    <svg viewBox="0 0 60 40" className="w-full h-full" preserveAspectRatio="xMidYMid slice">
+      <rect width="60" height="40" fill="#00247d" />
+      <g stroke="#fff" strokeWidth="6">
+        <path d="M0,0 L60,40 M60,0 L0,40" />
+      </g>
+      <g stroke="#cf142b" strokeWidth="2">
+        <path d="M0,0 L60,40 M60,0 L0,40" />
+      </g>
+      <g stroke="#fff" strokeWidth="10">
+        <path d="M30,0 V40 M0,20 H60" />
+      </g>
+      <g stroke="#cf142b" strokeWidth="6">
+        <path d="M30,0 V40 M0,20 H60" />
+      </g>
+    </svg>
+  );
+}
+
 const OFFICES = [
   {
     Flag: IndiaFlag,
@@ -66,6 +86,19 @@ const OFFICES = [
         Agnipath Colony, Civil Lines,
         <br />
         Prayagraj, Uttar Pradesh 211001
+      </>
+    ),
+  },
+  {
+    Flag: UKFlag,
+    country: "United Kingdom",
+    address: (
+      <>
+        3 Thornham St,
+        <br />
+        London SE10 9SA,
+        <br />
+        United Kingdom
       </>
     ),
   },
@@ -250,8 +283,9 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Office address cards */}
-        <div className="grid max-w-sm gap-6 mb-6">
+        {/* Office address cards — India + UK, side by side from sm up
+            (stacked on mobile). */}
+        <div className="grid gap-6 mb-6 max-w-3xl sm:grid-cols-2">
           {OFFICES.map(({ Flag, country, address }) => (
             <div
               key={country}
