@@ -48,7 +48,12 @@ export default function MarketingCTA({ content }) {
   const buttonText = content?.marketingCtaButtonText || "Get Free Consultation Now";
   const trustLinesRaw = content?.marketingCtaTrustLines?.length > 0 ? content.marketingCtaTrustLines : DEFAULT_TRUST_LINES;
   const trustLines = trustLinesRaw.map((t) => t.text);
-  const backgroundImage = content?.marketingCtaBackgroundImage || "/building.jpg";
+  // "/building.jpg" was the old default — a dashboard save stores every
+  // field, defaults included, so a saved copy of it is treated as "never
+  // customised" and gets the new default photo instead.
+  const savedBackground = content?.marketingCtaBackgroundImage;
+  const backgroundImage =
+    !savedBackground || savedBackground === "/building.jpg" ? "/building.webp" : savedBackground;
   const stagesEyebrow = content?.stagesEyebrow || "Wherever You Are, We Have a Path";
   const stagesRaw = content?.stages?.length > 0 ? content.stages : DEFAULT_STAGES;
   const STAGES = stagesRaw.map((s, i) => ({ ...s, ...STAGE_LAYOUT[i % STAGE_LAYOUT.length] }));
@@ -60,7 +65,7 @@ export default function MarketingCTA({ content }) {
         <div
           className="relative p-10 sm:p-14 lg:p-20 text-white flex flex-col justify-center overflow-hidden"
           style={{
-            backgroundImage: `linear-gradient(150deg, rgba(5,13,28,0.94) 0%, rgba(11,96,176,0.9) 75%, rgba(64,162,216,0.85) 130%), url('${backgroundImage}')`,
+            backgroundImage: `linear-gradient(100deg, rgba(5,13,28,0.88) 0%, rgba(5,13,28,0.7) 45%, rgba(11,96,176,0.35) 100%), url('${backgroundImage}')`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
