@@ -65,7 +65,7 @@ export default function MarketingCTA({ content }) {
         <div
           className="relative p-10 sm:p-14 lg:p-20 text-white flex flex-col justify-center overflow-hidden"
           style={{
-            backgroundImage: `linear-gradient(100deg, rgba(5,13,28,0.88) 0%, rgba(5,13,28,0.7) 45%, rgba(11,96,176,0.35) 100%), url('${backgroundImage}')`,
+            backgroundImage: `linear-gradient(100deg, rgba(7,38,86,0.9) 0%, rgba(11,96,176,0.78) 50%, rgba(11,96,176,0.5) 100%), url('${backgroundImage}')`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
