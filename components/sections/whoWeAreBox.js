@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Search, Users, Briefcase, ArrowRight } from "lucide-react";
 import Particles from "@/components/ui/Particles";
 import AnimatedButton from "@/components/ui/animatedButton";
+import RichText from "@/components/ui/richText";
 
 // Same "Who We Are" blurb, stats, and quick-links as
 // components/sections/scrollZoomReveal.js (the homepage's pinned
@@ -10,19 +11,40 @@ import AnimatedButton from "@/components/ui/animatedButton";
 // (app/(main)/en-uk/digital-marketing-services-in-uk/page.js), sitting
 // right after StatsShowcase, same spot ScrollZoomReveal used to sit on
 // this page. The real homepage keeps the scroll-zoom version untouched.
-const QUICK_LINKS = [
-  { icon: Briefcase, label: "Our Services", href: "/services" },
-  { icon: Users, label: "Meet The Team", href: "/our-team" },
-  { icon: Search, label: "How We Work", href: "/how-we-work" },
-];
+//
+// Every piece of text below is editable in the dashboard (Outside
+// Location Page → "Who We Are Card"); these are the fallbacks used until
+// something is saved. Quick-link icons are picked by position (a saved
+// link list has only label + href), cycling if more links are added.
+const QUICK_LINK_ICONS = [Briefcase, Users, Search];
 
-const STATS = [
+const DEFAULT_STATS = [
   { value: "90+", label: "Projects Delivered" },
   { value: "50+", label: "Happy Clients" },
   { value: "20+", label: "Industries Served" },
 ];
 
-export default function WhoWeAreBox() {
+const DEFAULT_QUICK_LINKS = [
+  { label: "Our Services", href: "/services" },
+  { label: "Meet The Team", href: "/our-team" },
+  { label: "How We Work", href: "/how-we-work" },
+];
+
+const DEFAULT_PARAGRAPH =
+  "BizzBuzz Creations is a digital marketing and business solutions agency helping businesses in Prayagraj (Allahabad), across India, and international markets build a stronger digital presence. We understand that every business has different goals, audiences, and challenges, so we focus on practical solutions rather than one-size-fits-all marketing.";
+
+export default function WhoWeAreBox({ content }) {
+  const heading = content?.whoWeAreHeading || "Who We Are";
+  const paragraph = content?.whoWeAreParagraph || DEFAULT_PARAGRAPH;
+  const buttonText = content?.whoWeAreButtonText || "Learn Our Story";
+  const buttonLink = content?.whoWeAreButtonLink || "/about";
+  const tagline =
+    content?.whoWeAreTagline || "One team, every capability — built to help your business grow.";
+  const STATS = content?.whoWeAreStats?.length ? content.whoWeAreStats : DEFAULT_STATS;
+  const QUICK_LINKS = (
+    content?.whoWeAreLinks?.length ? content.whoWeAreLinks : DEFAULT_QUICK_LINKS
+  ).map((l, i) => ({ ...l, icon: QUICK_LINK_ICONS[i % QUICK_LINK_ICONS.length] }));
+
   return (
     <section className="bg-black py-16 px-6 md:px-12">
       {/* The entire block — text, stats, quick-links — sits inside this
@@ -54,18 +76,15 @@ export default function WhoWeAreBox() {
         <div className="relative grid gap-10 xl:grid-cols-[1fr_auto_1fr] xl:items-center">
           {/* Left — heading + blurb + CTA */}
           <div className="text-center xl:text-left">
-            <h3 className="text-lg font-bold text-white mb-3">Who We Are</h3>
-            <p className="text-sm text-white leading-relaxed mb-5 max-w-sm mx-auto xl:mx-0">
-              BizzBuzz Creations is a digital marketing and business
-              solutions agency helping businesses in Prayagraj (Allahabad),
-              across India, and international markets build a stronger
-              digital presence. We understand that every business has
-              different goals, audiences, and challenges, so we focus on
-              practical solutions rather than one-size-fits-all marketing.
-            </p>
+            <h3 className="text-lg font-bold text-white mb-3">{heading}</h3>
+            <RichText
+              as="p"
+              text={paragraph}
+              className="block text-sm text-white leading-relaxed mb-5 max-w-sm mx-auto xl:mx-0"
+            />
             <div className="flex justify-center xl:justify-start">
-              <AnimatedButton href="/about" size="sm">
-                Learn Our Story
+              <AnimatedButton href={buttonLink} size="sm">
+                {buttonText}
               </AnimatedButton>
             </div>
           </div>
@@ -73,8 +92,8 @@ export default function WhoWeAreBox() {
           {/* Center — stats + tagline */}
           <div className="flex flex-col items-center gap-6 sm:gap-8">
             <div className="flex items-center gap-8 sm:gap-14">
-              {STATS.map(({ value, label }) => (
-                <div key={label} className="text-center">
+              {STATS.map(({ value, label }, i) => (
+                <div key={`${label}-${i}`} className="text-center">
                   <p className="text-2xl sm:text-4xl font-bold text-[#40A2D8]">
                     {value}
                   </p>
@@ -84,16 +103,18 @@ export default function WhoWeAreBox() {
                 </div>
               ))}
             </div>
-            <p className="text-sm sm:text-base text-white max-w-md text-center px-4">
-              One team, every capability — built to help your business grow.
-            </p>
+            <RichText
+              as="p"
+              text={tagline}
+              className="block text-sm sm:text-base text-white max-w-md text-center px-4"
+            />
           </div>
 
           {/* Right — quick-link buttons, stacked */}
           <div className="flex flex-col gap-3 w-full max-w-xs mx-auto xl:mx-0 xl:ml-auto">
-            {QUICK_LINKS.map(({ icon: Icon, label, href }) => (
+            {QUICK_LINKS.map(({ icon: Icon, label, href }, i) => (
               <Link
-                key={label}
+                key={`${label}-${i}`}
                 href={href}
                 className="group flex items-center gap-3 rounded-full border border-white/15 bg-white/5 backdrop-blur-sm px-5 py-3 text-sm font-semibold text-white transition-all duration-300 hover:border-[#40A2D8]/50 hover:bg-[#0B60B0] hover:text-white"
               >

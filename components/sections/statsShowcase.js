@@ -311,8 +311,10 @@ export default function StatsShowcase({ content }) {
                   {stat.value} {stat.label}
                 </h3>
                 <RichText as="p" text={stat.description} className="text-sm text-gray-600 leading-relaxed mb-4" />
-                <AnimatedButton href="/about" variant="blue" size="sm">
-                  Learn More
+                {/* buttonText / buttonLink are only editable on the
+                    Outside Location page; elsewhere never saved. */}
+                <AnimatedButton href={stat.buttonLink || "/about"} variant="blue" size="sm">
+                  {stat.buttonText || "Learn More"}
                 </AnimatedButton>
               </div>
             </div>

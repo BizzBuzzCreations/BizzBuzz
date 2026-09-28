@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Particles from "@/components/ui/Particles";
 import RichText from "@/components/ui/richText";
+import { resolveIcon } from "@/lib/iconOptions";
 import {
   MoveRight,
   Rocket,
@@ -98,9 +99,19 @@ export default function OurServices({ content }) {
 
   // Icon + href stay fixed (structural); only the copy comes from the
   // saved override, matched by position to the real service list.
+  // `icon` / `buttonLink` are only editable on the Outside Location page
+  // (its registry adds those two fields); everywhere else they're never
+  // saved, so the built-in icon and link always win.
   const displayServices = services.map((service, i) => {
     const override = content?.serviceCards?.[i];
-    return override ? { ...service, ...override } : service;
+    if (!override) return service;
+    const { icon, buttonLink, ...text } = override;
+    return {
+      ...service,
+      ...text,
+      icon: resolveIcon(icon, service.icon),
+      href: buttonLink || service.href,
+    };
   });
 
   return (

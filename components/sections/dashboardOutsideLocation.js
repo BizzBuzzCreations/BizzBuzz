@@ -10,6 +10,7 @@ import { getPageMeta } from "@/lib/pageContentRegistry";
 import { uploadFileDirect } from "@/lib/directUpload";
 import InlineRichEditor from "@/components/ui/inlineRichEditor";
 import MediaLibraryButton from "@/components/sections/mediaLibrary";
+import { ICON_OPTIONS } from "@/lib/iconOptions";
 
 // Identical field controls to DashboardContent (components/sections/dashboardContent.js)
 // — kept as a separate copy rather than a shared import so this section
@@ -81,7 +82,35 @@ function MediaField({ value, onChange, label, kind }) {
   );
 }
 
+// Icon picker — stores just the icon's name; "" means "keep the
+// section's built-in icon". Shows a live preview of the chosen icon.
+function IconField({ value, onChange }) {
+  const Preview = value ? ICON_OPTIONS[value] : null;
+  return (
+    <div className="flex items-center gap-3">
+      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-600">
+        {Preview ? <Preview size={18} /> : <span className="text-[10px]">Auto</span>}
+      </span>
+      <select
+        value={value ?? ""}
+        onChange={(e) => onChange(e.target.value)}
+        className="w-full rounded-lg border border-slate-200 bg-white px-3.5 py-2.5 text-sm outline-none focus:border-slate-400"
+      >
+        <option value="">Default (built-in icon)</option>
+        {Object.keys(ICON_OPTIONS).map((name) => (
+          <option key={name} value={name}>
+            {name}
+          </option>
+        ))}
+      </select>
+    </div>
+  );
+}
+
 function FieldControl({ field, value, onChange }) {
+  if (field.type === "icon") {
+    return <IconField value={value} onChange={onChange} />;
+  }
   if (field.type === "textarea") {
     return <InlineRichEditor value={value} onChange={onChange} />;
   }

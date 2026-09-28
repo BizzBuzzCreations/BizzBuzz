@@ -3,7 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 import RichText from "@/components/ui/richText";
 
-export default function HomeAbout({ content }) {
+// `separated` — off by default (real homepage unchanged). The Outside
+// Location page passes it to fade the photo's top edge into black and
+// draw a thin divider line, so this section reads as clearly separate
+// from the hero photo directly above it.
+export default function HomeAbout({ content, separated = false }) {
   const eyebrow = content?.aboutEyebrow || "About Us";
   const heading = content?.aboutHeading || "We Are BizzBuzz Creations";
   const paragraph =
@@ -29,6 +33,12 @@ export default function HomeAbout({ content }) {
 
   return (
     <section className="relative overflow-hidden bg-black">
+      {separated && (
+        <div
+          className="absolute inset-x-0 top-0 h-px z-20 bg-gradient-to-r from-transparent via-[#40A2D8]/50 to-transparent"
+          aria-hidden="true"
+        />
+      )}
       {/* Desktop/tablet only. The gradient and the photo are drawn as
           plain siblings sized to the SAME container (not two independent
           CSS background layers — that's what broke the fade earlier: a
@@ -79,6 +89,16 @@ export default function HomeAbout({ content }) {
             }}
             aria-hidden="true"
           />
+          {separated && (
+            <div
+              className="absolute inset-x-0 top-0 h-32 md:h-44"
+              style={{
+                background:
+                  "linear-gradient(to bottom, #000000 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0) 100%)",
+              }}
+              aria-hidden="true"
+            />
+          )}
         </div>
       </div>
 

@@ -43,7 +43,9 @@ const RECOGNITIONS = [
 
 const DEFAULT_HEADING = "Proven Expertise. Real Recognition.";
 
-export default function Recognitions({ content }) {
+// `showIcons` — the medal icons flanking the heading; on by default, the
+// Outside Location page passes false to drop them there only.
+export default function Recognitions({ content, showIcons = true }) {
   const [active, setActive] = useState(0);
 
   const recognitions = RECOGNITIONS.map((item) => {
@@ -77,7 +79,7 @@ export default function Recognitions({ content }) {
             {eyebrow}
           </p>
           <div className="flex items-center justify-center lg:justify-start gap-4 mb-12">
-            <Award className="text-[#40A2D8] shrink-0" size={44} />
+            {showIcons && <Award className="text-[#40A2D8] shrink-0" size={44} />}
             <h2 className="text-4xl md:text-5xl font-bold text-center lg:text-left leading-tight">
               {isDefaultHeading ? (
                 <>
@@ -88,7 +90,7 @@ export default function Recognitions({ content }) {
                 heading
               )}
             </h2>
-            <Award className="text-[#40A2D8] shrink-0 scale-x-[-1]" size={44} />
+            {showIcons && <Award className="text-[#40A2D8] shrink-0 scale-x-[-1]" size={44} />}
           </div>
 
           {paragraph && (

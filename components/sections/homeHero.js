@@ -101,6 +101,21 @@ export default function HomeHero({ content, showWordmark = true, heroMediaChoice
           }}
         />
 
+        {/* Outside Location page only — fades the hero's photo/video out
+            into the section's own black at the bottom edge, so it doesn't
+            end in a hard line right against the next section's photo
+            (About Us) and read as one continuous image. */}
+        {heroMediaChoice && (chosenVideo || chosenImage) && (
+          <div
+            className="absolute inset-x-0 bottom-0 h-40 md:h-56 pointer-events-none"
+            style={{
+              background:
+                "linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6) 50%, #000000 100%)",
+            }}
+            aria-hidden="true"
+          />
+        )}
+
         <div className="relative z-10 2xl:px-20 px-5 md:pt-20 pt-6 max-w-3xl">
           <motion.h1
             initial={{ opacity: 0, y: 24 }}

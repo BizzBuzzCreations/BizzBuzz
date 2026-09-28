@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { Search, PenTool, Rocket, BarChart3, ArrowRight } from "lucide-react";
 import RichText from "@/components/ui/richText";
+import { resolveIcon } from "@/lib/iconOptions";
 
 // Same 4 steps, same copy — laid out as a plain horizontal stepper (each
 // step in its own grid column, connected by a static arrow between
@@ -50,7 +51,11 @@ export default function WhatMAkesUs({ content }) {
   // the saved override, matched by position.
   const displaySteps = steps.map((step, i) => {
     const override = content?.processSteps?.[i];
-    return override ? { ...step, ...override } : step;
+    if (!override) return step;
+    // `icon` is only editable on the Outside Location page (its registry
+    // adds the field); elsewhere it's never saved, so the built-in wins.
+    const { icon, ...text } = override;
+    return { ...step, ...text, icon: resolveIcon(icon, step.icon) };
   });
 
   return (
