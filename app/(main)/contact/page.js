@@ -11,13 +11,13 @@ import { buildPageMetadata } from "@/lib/pageMetadata";
 
 export async function generateMetadata() {
   return buildPageMetadata("contact", {
-  title: "Contact BizzBuzz Creations | Free SEO & Marketing Consultation",
-  description:
-    "Need more leads and sales? Contact BizzBuzz Creations for SEO, social media, and website services in Prayagraj. Get a free consultation today.",
-  alternates: {
-    canonical: "https://bizzbuzzcreations.com/contact",
-  },
-});
+    title: "Contact BizzBuzz Creations | Free SEO & Marketing Consultation",
+    description:
+      "Need more leads and sales? Contact BizzBuzz Creations for SEO, social media, and website services in Prayagraj. Get a free consultation today.",
+    alternates: {
+      canonical: "https://bizzbuzzcreations.com/contact",
+    },
+  });
 }
 
 export default async function Contact() {
