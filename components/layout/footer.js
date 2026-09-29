@@ -9,17 +9,20 @@ import { ArrowUpRight, MapPin, Phone, Mail, Clock } from "lucide-react";
 // Capped to 5 per column (full lists live on the navbar / respective
 // pages) — "View More" sends people to see the rest.
 const CATEGORY_LINKS = [
-  { label: "About Us", href: "/about" },
+  { label: "About Us", href: "/about" },  
   { label: "Our Core Team", href: "/our-team" },
   { label: "How We Work and Function", href: "/how-we-work" },
   { label: "Start Your Career with Us", href: "/career" },
   { label: "FAQ", href: "/faq" },
 ];
- 
+
 const SERVICE_LINKS = [
   { label: "BPO Service", href: "/bpo-services" },
   { label: "Website Development", href: "/web-development" },
-  { label: "Search Engine Optimization (SEO)", href: "/search-engine-optimization" },
+  {
+    label: "Search Engine Optimization (SEO)",
+    href: "/search-engine-optimization",
+  },
   { label: "Social Media Marketing (SMM)", href: "/social-media-marketing" },
   { label: "Google Ads & Paid Marketing", href: "/paid-marketing" },
 ];
@@ -45,11 +48,22 @@ const RESOURCE_LINKS = [
 // inline SVGs instead so the badge looks the same everywhere.
 function IndiaFlag() {
   return (
-    <svg viewBox="0 0 60 40" className="w-full h-full" preserveAspectRatio="xMidYMid slice">
+    <svg
+      viewBox="0 0 60 40"
+      className="w-full h-full"
+      preserveAspectRatio="xMidYMid slice"
+    >
       <rect width="60" height="13.3" fill="#FF9933" />
       <rect width="60" height="13.4" y="13.3" fill="#FFFFFF" />
       <rect width="60" height="13.3" y="26.7" fill="#138808" />
-      <circle cx="30" cy="20" r="5" fill="none" stroke="#000080" strokeWidth="1" />
+      <circle
+        cx="30"
+        cy="20"
+        r="5"
+        fill="none"
+        stroke="#000080"
+        strokeWidth="1"
+      />
       <circle cx="30" cy="20" r="1" fill="#000080" />
     </svg>
   );
@@ -57,7 +71,11 @@ function IndiaFlag() {
 
 function UKFlag() {
   return (
-    <svg viewBox="0 0 60 40" className="w-full h-full" preserveAspectRatio="xMidYMid slice">
+    <svg
+      viewBox="0 0 60 40"
+      className="w-full h-full"
+      preserveAspectRatio="xMidYMid slice"
+    >
       <rect width="60" height="40" fill="#00247d" />
       <g stroke="#fff" strokeWidth="6">
         <path d="M0,0 L60,40 M60,0 L0,40" />
@@ -170,7 +188,8 @@ export default function Footer() {
       data-no-reveal
       className="text-white pt-8 pb-0 px-6 md:px-8"
       style={{
-        background: "linear-gradient(180deg, #000000 0%, #000000 70%, #0B60B0 130%)",
+        background:
+          "linear-gradient(180deg, #000000 0%, #000000 70%, #0B60B0 130%)",
       }}
     >
       <div className="max-w-7xl mx-auto">
@@ -185,8 +204,8 @@ export default function Footer() {
               className="mb-4 h-10 w-auto"
             />
             <p className="text-sm text-white mb-5 leading-relaxed">
-              Digital marketing, branding, and BPO solutions built for
-              business growth.
+              A full-service digital marketing and BPO company. Delivering
+              measurable growth for businesses worldwide.
             </p>
             <div className="flex items-center gap-3">
               {SOCIALS.map((social) => (
@@ -194,7 +213,7 @@ export default function Footer() {
                   key={social.name}
                   href={social.href}
                   target="_blank"
-                  rel="noopener noreferrer"  
+                  rel="noopener noreferrer"
                   aria-label={social.name}
                   className="w-9 h-9 rounded-full border border-white/15 flex items-center justify-center hover:border-[#40A2D8] hover:bg-white/5 transition-colors"
                 >
@@ -241,7 +260,9 @@ export default function Footer() {
                   className="object-contain shrink-0"
                 />
                 <div className="leading-tight">
-                  <p className="text-xs font-semibold text-white">Google Partner</p>
+                  <p className="text-xs font-semibold text-white">
+                    Google Partner
+                  </p>
                   <p className="text-[11px] text-white">Certified</p>
                 </div>
               </div>
@@ -292,30 +313,35 @@ export default function Footer() {
             // Offices with an href (UK) link to their regional page.
             const Card = href ? Link : "div";
             return (
-            <Card
-              key={country}
-              {...(href ? { href } : {})}
-              className="block rounded-2xl border border-white/15 bg-white/[0.03] p-6 hover:border-[#40A2D8]/50 hover:bg-white/[0.05] transition-colors"
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <span className="w-9 h-9 rounded-full overflow-hidden shrink-0 ring-1 ring-white/20">
-                  <Flag />
-                </span>
-                <span className="font-semibold text-white text-base">
-                  {country}
-                  {tag && (
-                    <>
-                      <span className="mx-2 text-white/40">|</span>
-                      <span className="font-medium text-[#8fd0f2]">({tag})</span>
-                    </>
-                  )}
-                </span>
-              </div>
-              <p className="text-sm text-[#8fd0f2] leading-relaxed flex gap-2.5">
-                <MapPin size={16} className="shrink-0 mt-0.5 text-[#40A2D8]" />
-                <span>{address}</span>
-              </p>
-            </Card>
+              <Card
+                key={country}
+                {...(href ? { href } : {})}
+                className="block rounded-2xl border border-white/15 bg-white/[0.03] p-6 hover:border-[#40A2D8]/50 hover:bg-white/[0.05] transition-colors"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="w-9 h-9 rounded-full overflow-hidden shrink-0 ring-1 ring-white/20">
+                    <Flag />
+                  </span>
+                  <span className="font-semibold text-white text-base">
+                    {country}
+                    {tag && (
+                      <>
+                        <span className="mx-2 text-white/40">|</span>
+                        <span className="font-medium text-[#8fd0f2]">
+                          ({tag})
+                        </span>
+                      </>
+                    )}
+                  </span>
+                </div>
+                <p className="text-sm text-[#8fd0f2] leading-relaxed flex gap-2.5">
+                  <MapPin
+                    size={16}
+                    className="shrink-0 mt-0.5 text-[#40A2D8]"
+                  />
+                  <span>{address}</span>
+                </p>
+              </Card>
             );
           })}
         </div>
@@ -324,9 +350,21 @@ export default function Footer() {
 
         {/* Link columns + CTA */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-y-10 gap-x-8 items-start">
-          <FooterColumn title="Our Category" links={CATEGORY_LINKS} viewMoreHref="/about" />
-          <FooterColumn title="Services" links={SERVICE_LINKS} viewMoreHref="/services" />
-          <FooterColumn title="Industries" links={INDUSTRY_LINKS} viewMoreHref="/industries" />
+          <FooterColumn
+            title="Our Category"
+            links={CATEGORY_LINKS}
+            viewMoreHref="/about"
+          />
+          <FooterColumn
+            title="Services"
+            links={SERVICE_LINKS}
+            viewMoreHref="/services"
+          />
+          <FooterColumn
+            title="Industries"
+            links={INDUSTRY_LINKS}
+            viewMoreHref="/industries"
+          />
           <div>
             <FooterColumn title="Resources" links={RESOURCE_LINKS} />
             <Link
@@ -401,11 +439,26 @@ export default function Footer() {
                   exact same colour as the background. What makes it
                   readable is only a soft shadow straight below each
                   letter (no side/top shadow), like a raised block. */}
-              <filter id="footerWordmarkEmboss" x="-5%" y="-40%" width="110%" height="200%" colorInterpolationFilters="sRGB">
-                <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="blur" />
+              <filter
+                id="footerWordmarkEmboss"
+                x="-5%"
+                y="-40%"
+                width="110%"
+                height="200%"
+                colorInterpolationFilters="sRGB"
+              >
+                <feGaussianBlur
+                  in="SourceAlpha"
+                  stdDeviation="5"
+                  result="blur"
+                />
                 <feOffset in="blur" dx="0" dy="7" result="darkOffset" />
                 <feFlood floodColor="#000000" floodOpacity="0.55" />
-                <feComposite in2="darkOffset" operator="in" result="darkShadow" />
+                <feComposite
+                  in2="darkOffset"
+                  operator="in"
+                  result="darkShadow"
+                />
                 <feComposite in="darkShadow" in2="SourceAlpha" operator="out" />
               </filter>
             </defs>

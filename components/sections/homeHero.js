@@ -21,7 +21,16 @@ const reveal = { duration: 0.8, ease: [0.16, 1, 0.3, 1] };
 // set (a plain <video>, not the homepage's hardcoded file); otherwise
 // content.heroPosterImage shows as a plain background image; if neither
 // is set, it's just the section's own black background.
-export default function HomeHero({ content, showWordmark = true, heroMediaChoice = false }) {
+// `separated` — off by default. The real homepage now passes it too (see
+// app/(main)/page.js), same as the Outside Location page: fades the
+// hero's background out to black at the bottom edge instead of ending in
+// a hard line right against the next section's own photo (About Us).
+export default function HomeHero({
+  content,
+  showWordmark = true,
+  heroMediaChoice = false,
+  separated = false,
+}) {
   const heading = content?.heroHeading || "India’s Trusted Digital Marketing Agency";
   const subheading =
     content?.heroSubheading || "Turn Clicks Into Customers With Data-Driven Digital Marketing";
@@ -101,11 +110,14 @@ export default function HomeHero({ content, showWordmark = true, heroMediaChoice
           }}
         />
 
-        {/* Outside Location page only — fades the hero's photo/video out
-            into the section's own black at the bottom edge, so it doesn't
-            end in a hard line right against the next section's photo
-            (About Us) and read as one continuous image. */}
-        {heroMediaChoice && (chosenVideo || chosenImage) && (
+        {/* Fades the hero's photo/video out into the section's own black
+            at the bottom edge, so it doesn't end in a hard line right
+            against the next section's photo (About Us) and read as one
+            continuous image. The real homepage always has its fixed
+            background video (no heroMediaChoice gate needed there); the
+            Outside Location page only has one when a video/image is
+            actually chosen. */}
+        {separated && (heroMediaChoice ? chosenVideo || chosenImage : true) && (
           <div
             className="absolute inset-x-0 bottom-0 h-40 md:h-56 pointer-events-none"
             style={{

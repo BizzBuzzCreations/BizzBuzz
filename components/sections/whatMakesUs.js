@@ -10,15 +10,18 @@ import { resolveIcon } from "@/lib/iconOptions";
 // curved connector lines drift into and overlap the description text
 // below neighboring cards on real screen sizes. A grid can't do that —
 // every step's text stays fully inside its own column, arrows stay in
-// theirs. First and last steps keep the solid accent "bookend" treatment,
-// the two in between stay neutral.
+// theirs. All four number badges now share the same neutral styling as
+// steps 2 & 3 used to have — the first/last "accent" bookend treatment
+// was dropped by request, so `accent` stays false on every step, but the
+// flag (and the CSS branch reading it below) is left in place in case a
+// future step ever needs the highlighted badge back.
 const steps = [
   {
     icon: Search,
     title: "Free Consultation & Business Audit",
     description:
       "We study your business, competitors, and current online presence to spot quick wins and growth gaps.",
-    accent: true,
+    accent: false,
   },
   {
     icon: PenTool,
@@ -39,7 +42,7 @@ const steps = [
     title: "Reporting & Continuous Optimization",
     description:
       "You get clear monthly reports, and we refine every campaign using performance data to keep growth compounding.",
-    accent: true,
+    accent: false,
   },
 ];
 

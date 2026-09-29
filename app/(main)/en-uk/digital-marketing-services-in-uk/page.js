@@ -58,7 +58,7 @@ export default async function DigitalMarketingServicesInUk() {
 
   return (
     <>
-      <HomeHero content={content} showWordmark={false} heroMediaChoice />
+      <HomeHero content={content} showWordmark={false} heroMediaChoice separated />
       <HomeAbout content={content} separated />
       <OurServices content={content} />
       <CaseStudies content={content} plainLogos />

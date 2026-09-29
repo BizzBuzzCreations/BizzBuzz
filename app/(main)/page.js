@@ -55,10 +55,10 @@ export default async function Home() {
   return (
     <>
       {/* Home Hero Section */}
-      <HomeHero content={content} />
+      <HomeHero content={content} separated />
 
       {/* About section */}
-      <HomeAbout content={content} />
+      <HomeAbout content={content} separated />
 
       {/* Our Services */}
       <OurServices content={content} />
@@ -85,7 +85,7 @@ export default async function Home() {
       <WhyChooseUs dark content={content} />
 
       {/* Proven Expertise — real certifications & partnerships */}
-      <Recognitions content={content} />
+      <Recognitions content={content} showIcons={false} />
 
       {/* Industries we work with — same list as the navbar's mega-menu */}
       <IndustriesShowcase content={content} />
