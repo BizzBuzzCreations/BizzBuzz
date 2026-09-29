@@ -38,8 +38,8 @@ const LEADER_ICONS = [Search, Megaphone, Palette, Code2, Bot, Briefcase, Users];
 // it when `dept` is present), leaving just the name and role/position.
 const DEFAULT_LEADERS = [
   { name: "Abhay Sharma", role: "Compliance Manager", photo: "/team-images/abhay.jpeg" },
-  { name: "Kautic Jaiswal", role: "Process Manager", photo: "/team-images/kautic.jpeg" },
-  { name: "Swapnil Singh", role: "Team Leader", photo: "/team-images/swapnil.jpeg" },
+  { name: "Kautic Jaiswal", role: "Director of Sales", photo: "/team-images/kautic.jpeg" },
+  { name: "Swapnil Singh", role: "Operational Manager", photo: "/team-images/swapnil.jpeg" },
   { name: "Shruti Singh", role: "Organizational Manager", photo: "/team-images/shruti.jpeg" },
   { name: "Aley Saiyyadah Rizvi", role: "HR", photo: "/team-images/aley.jpeg" },
   { name: "Md. Shameem", role: "IT Manager", photo: "/team-images/shameem.jpeg" },
