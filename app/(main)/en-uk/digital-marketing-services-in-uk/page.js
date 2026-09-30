@@ -6,7 +6,6 @@ import OurServices from "@/components/sections/ourServices";
 import CaseStudies from "@/components/sections/caseStudies";
 import StatsShowcase from "@/components/sections/statsShowcase";
 import WhoWeAreBox from "@/components/sections/whoWeAreBox";
-import AiShowcase from "@/components/sections/aiShowcase";
 import ClioShowcase from "@/components/sections/clioShowcase";
 import PraxistenceShowcase from "@/components/sections/praxistenceShowcase";
 import Reviews from "@/components/sections/reviews";
@@ -67,7 +66,7 @@ export default async function DigitalMarketingServicesInUk() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(ukPageSchema).replace(/</g, "<"),
+          __html: JSON.stringify(ukPageSchema).replace(/</g, "\\u003c"),
         }}
       />
       <HomeHero content={content} showWordmark={false} heroMediaChoice separated />
@@ -75,10 +74,9 @@ export default async function DigitalMarketingServicesInUk() {
       <OurServices content={content} />
       <CaseStudies content={content} plainLogos />
       <StatsShowcase content={content} />
-      <WhoWeAreBox content={content} />
-      <AiShowcase content={content} />
-      <ClioShowcase content={content} />
       <PraxistenceShowcase content={content} />
+      <WhoWeAreBox content={content} />
+      <ClioShowcase content={content} />
       <WhatMAkesUs content={content} />
       <WhyChooseUs dark content={content} />
       <Recognitions content={content} showIcons={false} />
