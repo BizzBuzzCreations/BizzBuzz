@@ -45,24 +45,34 @@ export default function AnimatedButton({
     .filter(Boolean)
     .join(" ");
 
-  const button = (
-    <button type={href ? undefined : type} onClick={onClick} className={classes}>
+  const inner = (
+    <>
       <ArrowIcon className="arr-2" />
       <span className="text">{children}</span>
       <span className="circle" />
       <ArrowIcon className="arr-1" />
-    </button>
+    </>
   );
 
-  if (!href) return button;
+  if (!href) {
+    return (
+      <button type={type} onClick={onClick} className={classes}>
+        {inner}
+      </button>
+    );
+  }
 
+  // A real link styled as the button — a <button> nested inside a <Link> is
+  // invalid HTML and taps on the inner button don't reliably follow the link
+  // on mobile (Firefox never does), so the anchor itself is the button.
   return (
     <Link
       href={href}
-      className="inline-block"
+      onClick={onClick}
+      className={`${classes} no-underline`}
       {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
     >
-      {button}
+      {inner}
     </Link>
   );
 }

@@ -37,10 +37,12 @@ const LEADER_ICONS = [Search, Megaphone, Palette, Code2, Bot, Briefcase, Users];
 // to sit above the name has been dropped entirely (RoleCard only renders
 // it when `dept` is present), leaving just the name and role/position.
 const DEFAULT_LEADERS = [
-  { name: "Abhay Sharma", role: "Compliance Manager", photo: "/team-images/abhay.jpeg" },
+  { name: "Abhay Sharma", role: "Compliance Manager", photo: "/team-images/abhay-sharma.jpg" },
   { name: "Kautic Jaiswal", role: "Director of Sales", photo: "/team-images/kautic.jpeg" },
   { name: "Swapnil Singh", role: "Operational Manager", photo: "/team-images/swapnil.jpeg" },
   { name: "Shruti Singh", role: "Organizational Manager", photo: "/team-images/shruti.jpeg" },
+  { name: "Kushal Singh", role: "Sales Manager", photo: "/team-images/kushal.jpeg" },
+  { name: "Kartikae Ojha", role: "Strategy Manager", photo: "/team-images/kartikae.jpg" },
   { name: "Aley Saiyyadah Rizvi", role: "HR", photo: "/team-images/aley.jpeg" },
   { name: "Md. Shameem", role: "IT Manager", photo: "/team-images/shameem.jpeg" },
   { name: "Ankit Kumar Yadav", role: "Accounts and Management", photo: "/team-images/ankit.jpeg" },
@@ -368,22 +370,11 @@ export default function TeamGrids({ content } = {}) {
             <RichText as="p" text={leadersParagraph} className="text-white max-w-xl mx-auto leading-relaxed" />
           </motion.div>
 
-          {/* Two explicit rows (4 then 3) instead of one 3-column grid —
-              a single `lg:grid-cols-3` on 7 cards lands on 3+3+1, which
-              reads as broken; splitting into a fixed 4-across row and a
-              3-across row (width-matched to the same column track via
-              `lg:w-3/4 mx-auto`) keeps it a clean 4-then-3 every time. */}
-          <div className="flex flex-col gap-6">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {leaders.slice(0, 4).map((l, i) => (
-                <RoleCard key={i} {...l} index={i} size="xl" showLinkedin={false} showInstagram={false} flip />
-              ))}
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:w-3/4 lg:mx-auto">
-              {leaders.slice(4).map((l, i) => (
-                <RoleCard key={i + 4} {...l} index={i + 4} size="xl" showLinkedin={false} showInstagram={false} flip />
-              ))}
-            </div>
+          {/* 9 leaders laid out as a clean 3x3 grid. */}
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 max-w-[820px] mx-auto">
+            {leaders.map((l, i) => (
+              <RoleCard key={i} {...l} index={i} size="xl" showLinkedin={false} showInstagram={false} flip />
+            ))}
           </div>
         </div>
       </section>

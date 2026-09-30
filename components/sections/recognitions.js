@@ -113,7 +113,7 @@ export default function Recognitions({ content, showIcons = true }) {
             {recognitions.map((item, i) => (
               <li
                 key={item.org}
-                onMouseEnter={() => setActive(i)}
+                onPointerEnter={(e) => e.pointerType === "mouse" && setActive(i)}
                 onClick={() => setActive(i)}
                 // onClick (not just onMouseEnter) — the featured badge on
                 // the right is desktop-only now (see below); the item's

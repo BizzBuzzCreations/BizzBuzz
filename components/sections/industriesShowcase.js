@@ -69,7 +69,7 @@ export default function IndustriesShowcase({ content }) {
             {navigate ? (
               <Link
                 href={`/industries/${industry.slug}`}
-                onMouseEnter={() => setActive(index)}
+                onPointerEnter={(e) => e.pointerType === "mouse" && setActive(index)}
                 onFocus={() => setActive(index)}
                 className={itemClass}
               >
@@ -77,7 +77,7 @@ export default function IndustriesShowcase({ content }) {
               </Link>
             ) : (
               <button
-                onMouseEnter={() => setActive(index)}
+                onPointerEnter={(e) => e.pointerType === "mouse" && setActive(index)}
                 onFocus={() => setActive(index)}
                 onClick={() => setActive(index)}
                 className={itemClass}

@@ -1,6 +1,6 @@
 import AboutHero from "@/components/sections/aboutHero";
 import CTA from "@/components/sections/CTA";
-import Reviews from "@/components/sections/reviews";
+import Recognitions from "@/components/sections/recognitions";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -329,6 +329,9 @@ export default async function About() {
         />
       </div>
 
+      {/* Recognised for Excellence */}
+      <Recognitions content={content} showIcons={false} />
+
       {/* Why Businesses Across India Trust Us */}
       <div className="bg-black py-20 px-5">
         <h2 className="text-3xl font-bold mb-5 text-center text-white">
@@ -349,11 +352,10 @@ export default async function About() {
         />
       </div>
 
+      <WhyChooseUs dark content={content} />
+
       {/* FAQ's */}
       <AboutFAQ content={content} />
-
-      <WhyChooseUs dark />
-      <Reviews />
       <CTA content={content} />
     </>
   );

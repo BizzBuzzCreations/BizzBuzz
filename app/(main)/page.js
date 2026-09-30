@@ -7,9 +7,9 @@ import CaseStudies from "@/components/sections/caseStudies";
 import ScrollZoomReveal from "@/components/sections/scrollZoomReveal";
 import StatsShowcase from "@/components/sections/statsShowcase";
 import AiShowcase from "@/components/sections/aiShowcase";
+import PraxistenceShowcase from "@/components/sections/praxistenceShowcase";
 import Reviews from "@/components/sections/reviews";
 import WhatMAkesUs from "@/components/sections/whatMakesUs";
-import Recognitions from "@/components/sections/recognitions";
 import IndustriesShowcase from "@/components/sections/industriesShowcase";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import ConsultationPopup from "@/components/sections/popupForm";
@@ -70,6 +70,9 @@ export default async function Home() {
           now directly after Case Studies. */}
       <StatsShowcase content={content} />
 
+      {/* Praxistence — same video + feature-cards split as the Clio AI section */}
+      <PraxistenceShowcase content={content} />
+
       {/* Scroll-pinned "Know More About Us" zoom-text transition — releases
           straight into AiShowcase below with no divider/gap in between, so
           the pin lets go right as the next section is already there. */}
@@ -83,9 +86,6 @@ export default async function Home() {
 
       {/* Why choose us */}
       <WhyChooseUs dark content={content} />
-
-      {/* Proven Expertise — real certifications & partnerships */}
-      <Recognitions content={content} showIcons={false} />
 
       {/* Industries we work with — same list as the navbar's mega-menu */}
       <IndustriesShowcase content={content} />

@@ -1,6 +1,16 @@
+"use client";
+
 import Script from "next/script";
+import { usePathname } from "next/navigation";
 
 export default function AllScripts() {
+  const pathname = usePathname();
+  // The UK landing page ships its own schema (lib/ukPageSchema.js); this
+  // India LocalBusiness block would be a conflicting duplicate there.
+  const skipLocalBusiness = pathname?.startsWith(
+    "/en-uk/digital-marketing-services-in-uk",
+  );
+
   return (
     <>
       <Script src="https://www.googletagmanager.com/gtag/js?id=G-Z0B5EJDR4C" />
@@ -14,6 +24,7 @@ export default function AllScripts() {
         `}
       </Script>
 
+      {!skipLocalBusiness && (
       <Script id="local-business-schema" type="application/ld+json">
         {`{
   "@context": "https://schema.org",
@@ -97,6 +108,7 @@ export default function AllScripts() {
     }
         ]}`}
       </Script>
+      )}
     </>
   );
 }

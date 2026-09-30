@@ -7,6 +7,8 @@ import CaseStudies from "@/components/sections/caseStudies";
 import StatsShowcase from "@/components/sections/statsShowcase";
 import WhoWeAreBox from "@/components/sections/whoWeAreBox";
 import AiShowcase from "@/components/sections/aiShowcase";
+import ClioShowcase from "@/components/sections/clioShowcase";
+import PraxistenceShowcase from "@/components/sections/praxistenceShowcase";
 import Reviews from "@/components/sections/reviews";
 import VideoTestimonial from "@/components/sections/videoTestimonial";
 import WhatMAkesUs from "@/components/sections/whatMakesUs";
@@ -17,6 +19,7 @@ import ConsultationPopup from "@/components/sections/popupForm";
 import LatestBlogs from "@/components/sections/latestBlogs";
 import { getPageContent } from "@/actions/pageContentActions";
 import { buildPageMetadata } from "@/lib/pageMetadata";
+import { ukPageSchema } from "@/lib/ukPageSchema";
 
 // Hidden landing page — mostly the same sections as the real homepage,
 // except: the hero's background is an either/or Image-or-Video choice
@@ -58,6 +61,15 @@ export default async function DigitalMarketingServicesInUk() {
 
   return (
     <>
+      {/* Page-specific structured data. The site-wide India LocalBusiness
+          schema is skipped on this route (see allScripts.js); `<` is escaped
+          so no field can close the script tag early. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(ukPageSchema).replace(/</g, "<"),
+        }}
+      />
       <HomeHero content={content} showWordmark={false} heroMediaChoice separated />
       <HomeAbout content={content} separated />
       <OurServices content={content} />
@@ -65,6 +77,8 @@ export default async function DigitalMarketingServicesInUk() {
       <StatsShowcase content={content} />
       <WhoWeAreBox content={content} />
       <AiShowcase content={content} />
+      <ClioShowcase content={content} />
+      <PraxistenceShowcase content={content} />
       <WhatMAkesUs content={content} />
       <WhyChooseUs dark content={content} />
       <Recognitions content={content} showIcons={false} />

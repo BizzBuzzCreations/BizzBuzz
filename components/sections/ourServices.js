@@ -144,6 +144,19 @@ export default function OurServices({ content }) {
           />
         </div>
 
+        {/* Top + bottom fades — the diamond pattern and particles used to
+            stop at a hard edge against the plain-black sections above and
+            below; fading them out to solid black lets this section blend
+            into its neighbours instead of reading as a separate block. */}
+        <div
+          className="absolute inset-x-0 top-0 z-[1] h-40 bg-gradient-to-b from-black to-transparent pointer-events-none"
+          aria-hidden="true"
+        />
+        <div
+          className="absolute inset-x-0 bottom-0 z-[1] h-48 bg-gradient-to-t from-black to-transparent pointer-events-none"
+          aria-hidden="true"
+        />
+
         <h2 className="relative z-10 md:text-4xl text-3xl font-bold mb-10 text-center text-white">
           {heading}
         </h2>

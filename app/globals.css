@@ -148,6 +148,7 @@ body {
   transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
+@media (hover: hover) and (pointer: fine) {
 .animated-button:hover {
   box-shadow: 0 0 0 12px transparent;
   color: #212121;
@@ -169,12 +170,14 @@ body {
 .animated-button:hover svg {
   fill: #212121;
 }
+}
 
 .animated-button:active {
   scale: 0.95;
   box-shadow: 0 0 0 4px white;
 }
 
+@media (hover: hover) and (pointer: fine) {
 .animated-button:hover .circle {
   width: 220px;
   height: 220px;
@@ -184,6 +187,7 @@ body {
 .animated-button-lg:hover .circle {
   width: 700px;
   height: 700px;
+}
 }
 
 /* Same double-arrow / expanding-circle mechanic as the base button (used
@@ -206,12 +210,14 @@ body {
   background-color: #0b60b0;
 }
 
+@media (hover: hover) and (pointer: fine) {
 .animated-button-blue:hover {
   color: white;
 }
 
 .animated-button-blue:hover svg {
   fill: white;
+}
 }
 
 .animated-button-blue:active {
@@ -594,11 +600,13 @@ a[class*="rounded-full"] {
     border-color 0.25s ease;
 }
 
+@media (hover: hover) and (pointer: fine) {
 button:not(:disabled):hover,
 input[type="submit"]:not(:disabled):hover,
 input[type="button"]:not(:disabled):hover,
 a[class*="rounded-full"]:hover {
   filter: brightness(1.15);
+}
 }
 
 button:not(:disabled):active,
@@ -615,4 +623,24 @@ a[class*="rounded-full"]:active {
   a[class*="rounded-full"] {
     transition: none !important;
   }
+}
+
+/* Touch: no 300ms tap delay / double-tap-zoom on controls, and no grey tap
+   flash. Combined with the hover rules above being limited to devices that
+   can really hover, a single tap now always fires the click. */
+a,
+button,
+input[type="submit"],
+input[type="button"],
+summary,
+[role="button"] {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* AnimatedButton with an href renders as an <a> (not a <button> wrapped in
+   a link) — keep it shrink-wrapped like the old inline-block wrapper did. */
+a.animated-button {
+  display: inline-flex;
+  text-decoration: none;
 }

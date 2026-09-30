@@ -5,7 +5,8 @@ import { PhoneCall, CalendarCheck, UserRoundCheck, Gauge } from "lucide-react";
 import RichText from "@/components/ui/richText";
 import AnimatedButton from "@/components/ui/animatedButton";
 
-// Clio AI (our voice sales agent) — features taken from its product docs
+// Standalone copy of AiShowcase for pages (the UK landing page) whose own AI
+// section carries different, page-specific copy. Clio AI (our voice sales agent) — features taken from its product docs
 // (clio.praxistence.com/docs) rather than invented claims.
 const FEATURES = [
   {
@@ -34,23 +35,23 @@ const FEATURES = [
   },
 ];
 
-export default function AiShowcase({ content }) {
-  const heading = content?.aiHeadingMain || "Meet Clio AI, Your AI Voice Agent";
+export default function ClioShowcase({ content }) {
+  const heading = content?.clioHeadingMain || "Meet Clio AI, Your AI Voice Agent";
   const paragraph =
-    content?.aiParagraph ||
+    content?.clioParagraph ||
     "Clio AI is our intelligent voice agent that answers and makes sales calls for your business. It qualifies leads, books meetings, and hands over to your team when a human is needed, all in natural conversation.";
   // /aiservice.webp doesn't exist in /public — was a broken poster
   // reference (silently masked before by the video always loading fast
   // enough to cover it up); using an existing, on-brand AI photo instead.
-  const posterImage = content?.aiPosterImage || "/AI solutions 2.png";
-  const videoSrc = content?.aiVideo || "/ai-vid.webm";
-  const buttonLink = content?.aiButtonLink || "https://clio.praxistence.com/";
-  const buttonText = content?.aiButtonText || "Explore Clio AI";
+  const posterImage = content?.clioPosterImage || "/AI solutions 2.png";
+  const videoSrc = content?.clioVideo || "/ai-vid.webm";
+  const buttonLink = content?.clioButtonLink || "https://clio.praxistence.com/";
+  const buttonText = content?.clioButtonText || "Explore Clio AI";
 
   // Icon stays fixed (structural); title + description come from the
   // saved override, matched by position.
   const features = FEATURES.map((feature, i) => {
-    const override = content?.aiFeatures?.[i];
+    const override = content?.clioFeatures?.[i];
     return override ? { ...feature, ...override } : feature;
   });
 

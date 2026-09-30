@@ -1,56 +1,53 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { PhoneCall, CalendarCheck, UserRoundCheck, Gauge } from "lucide-react";
+import { LayoutDashboard, PhoneOutgoing, BellRing, Bot } from "lucide-react";
 import RichText from "@/components/ui/richText";
 import AnimatedButton from "@/components/ui/animatedButton";
 
-// Clio AI (our voice sales agent) — features taken from its product docs
-// (clio.praxistence.com/docs) rather than invented claims.
+// Praxistence — the CRM platform behind Clio AI. Copy is kept to what its
+// site states ("All-in-One CRM for Calling & Follow-Up Teams"); all of it is
+// editable from the dashboard.
 const FEATURES = [
   {
-    icon: PhoneCall,
-    title: "AI Voice Agents",
-    description:
-      "Handle inbound and outbound calls end to end, from greeting the caller to qualifying the lead.",
+    icon: LayoutDashboard,
+    title: "All-in-One CRM",
+    description: "Keep your leads, customers, and conversations together in a single platform instead of scattered tools.",
   },
   {
-    icon: CalendarCheck,
-    title: "Meetings Booked Automatically",
-    description:
-      "Book meetings straight into Google Calendar and send follow-up emails through Gmail.",
+    icon: PhoneOutgoing,
+    title: "Built for Calling Teams",
+    description: "A CRM designed around the way calling teams actually work, from the first call to the last follow-up.",
   },
   {
-    icon: UserRoundCheck,
-    title: "Smart Human Handoff",
-    description:
-      "Escalate to your team the moment a conversation needs a human touch.",
+    icon: BellRing,
+    title: "Never Miss a Follow-Up",
+    description: "Stay on top of every follow-up so no lead is forgotten and every conversation keeps moving.",
   },
   {
-    icon: Gauge,
-    title: "Live Cost & Team Control",
-    description:
-      "See what every call costs in real time and manage your team with role-based access.",
+    icon: Bot,
+    title: "Works with Clio AI",
+    description: "Pair Praxistence with Clio, our AI voice agent, to handle calls and follow-ups together.",
   },
 ];
 
-export default function AiShowcase({ content }) {
-  const heading = content?.aiHeadingMain || "Meet Clio AI, Your AI Voice Agent";
+export default function PraxistenceShowcase({ content }) {
+  const heading = content?.praxistenceHeading || "Praxistence: All-in-One CRM for Calling & Follow-Up Teams";
   const paragraph =
-    content?.aiParagraph ||
-    "Clio AI is our intelligent voice agent that answers and makes sales calls for your business. It qualifies leads, books meetings, and hands over to your team when a human is needed, all in natural conversation.";
+    content?.praxistenceParagraph ||
+    "Praxistence is a CRM platform built for calling and follow-up teams. Manage every lead and conversation in one place, stay on top of follow-ups, and pair it with Clio AI to handle calls automatically.";
   // /aiservice.webp doesn't exist in /public — was a broken poster
   // reference (silently masked before by the video always loading fast
   // enough to cover it up); using an existing, on-brand AI photo instead.
-  const posterImage = content?.aiPosterImage || "/AI solutions 2.png";
-  const videoSrc = content?.aiVideo || "/ai-vid.webm";
-  const buttonLink = content?.aiButtonLink || "https://clio.praxistence.com/";
-  const buttonText = content?.aiButtonText || "Explore Clio AI";
+  const posterImage = content?.praxistencePosterImage || "/AI solutions 2.png";
+  const videoSrc = content?.praxistenceVideo || "/ai-vid.webm";
+  const buttonLink = content?.praxistenceButtonLink || "https://praxistence.com/";
+  const buttonText = content?.praxistenceButtonText || "Explore Praxistence";
 
   // Icon stays fixed (structural); title + description come from the
   // saved override, matched by position.
   const features = FEATURES.map((feature, i) => {
-    const override = content?.aiFeatures?.[i];
+    const override = content?.praxistenceFeatures?.[i];
     return override ? { ...feature, ...override } : feature;
   });
 
