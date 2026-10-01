@@ -83,14 +83,23 @@ export default function PraxistenceShowcase({ content }) {
 
   return (
     <section className="bg-black overflow-hidden">
-      <div className="grid lg:grid-cols-2">
+      <div className="grid lg:grid-cols-2 lg:grid-rows-[1fr_auto_auto_1fr]">
+        {/* Mobile order is heading, then video, then the copy — so the heading
+            is its own grid cell instead of living inside the content column.
+            On lg the three cells go back to video-left, heading + copy-right. */}
+        <div className="order-1 lg:order-none lg:col-start-2 lg:row-start-2 px-8 sm:px-12 lg:px-16 pt-8 sm:pt-12 lg:pt-16 pb-6 text-white">
+          <h2 className="text-3xl md:text-4xl font-bold leading-tight">
+            {heading}
+          </h2>
+        </div>
+
         {/* Video side — order-1 (with lg:order-none to fall back to plain
             DOM order once the 2-column desktop layout kicks in) makes sure
             it renders above the text content on mobile explicitly, rather
             than relying only on JSX order. */}
         <div
           ref={videoWrapRef}
-          className="relative order-1 lg:order-none min-h-[420px] lg:min-h-[640px]"
+          className="relative order-2 lg:order-none lg:col-start-1 lg:row-start-1 lg:row-span-4 min-h-[420px] lg:min-h-[640px]"
         >
           {shouldLoadVideo ? (
             <video
@@ -119,11 +128,7 @@ export default function PraxistenceShowcase({ content }) {
         </div>
 
         {/* Content side */}
-        <div className="order-2 lg:order-none p-8 sm:p-12 lg:p-16 flex flex-col justify-center gap-6 text-white">
-          <h2 className="text-3xl md:text-4xl font-bold leading-tight">
-            {heading}
-          </h2>
-
+        <div className="order-3 lg:order-none lg:col-start-2 lg:row-start-3 px-8 sm:px-12 lg:px-16 pt-6 pb-8 sm:pb-12 lg:pt-0 lg:pb-16 flex flex-col gap-6 text-white">
           <RichText as="p" text={paragraph} className="text-white max-w-xl" />
 
           {/* 2x2 on every screen below lg (was sm:grid-cols-2, so phones

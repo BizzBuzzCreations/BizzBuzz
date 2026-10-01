@@ -30,6 +30,9 @@ export default function HomeHero({
   showWordmark = true,
   heroMediaChoice = false,
   separated = false,
+  // The soft light-blue glow at the top-left of the scrim — on by default
+  // (UK page keeps it); the real homepage passes false to drop it.
+  showGlow = true,
 }) {
   const heading = content?.heroHeading || "India’s Trusted Digital Marketing Agency";
   const subheading =
@@ -105,8 +108,11 @@ export default function HomeHero({
         <div
           className="absolute inset-0"
           style={{
-            background:
-              "radial-gradient(ellipse 80% 60% at 20% 10%, rgba(120, 180, 255, 0.25), transparent 70%), linear-gradient(to right, rgba(0,0,0,0.88) 35%, rgba(0,0,0,0.45) 100%)",
+            background: `${
+              showGlow
+                ? "radial-gradient(ellipse 80% 60% at 20% 10%, rgba(120, 180, 255, 0.25), transparent 70%), "
+                : ""
+            }linear-gradient(to right, rgba(0,0,0,0.88) 35%, rgba(0,0,0,0.45) 100%)`,
           }}
         />
 
@@ -221,7 +227,7 @@ export default function HomeHero({
             animate={{ opacity: 1, y: 0 }}
             transition={{ ...reveal, delay: 0.45 }}
           >
-            <Link href="/contact" className="inline-block">
+            <Link href="/contact" className="inline-block max-w-full">
               <button className="animated-button animated-button-lg whitespace-nowrap">
                 <svg
                   viewBox="0 0 24 24"

@@ -46,6 +46,8 @@ export default function ScrollZoomReveal() {
   // nothing left animating in that invisible layer for the rest of the
   // scroll, so the stats block renders clean and undisturbed.
   const scale = useTransform(scrollYProgress, [0, 0.2, 0.4], [1, 4, 10]);
+  // Same 1x -> 10x growth, expressed as a font-size multiplier (see headline below).
+  const zoomFontSize = useTransform(scale, (s) => `${s}em`);
   // Hidden at the very top of the section, fades in as the user scrolls
   // (growing at the same time via `scale` above), then fades back out
   // early — by 40% of the scroll — so the remaining 60% of this (now
@@ -143,7 +145,12 @@ export default function ScrollZoomReveal() {
         {/* Center — the zooming headline: hidden at scroll position zero,
             fading in and growing together as the user scrolls, then
             fading back out right as it finishes zooming past frame. */}
-        <div className="relative flex flex-col items-center text-center px-6">
+        {/* pointer-events-none on the whole centre column: the headline now zooms
+            by growing its real font-size (see below), which makes this box as wide
+            as the 10x text — it would otherwise sit on top of the side panels and
+            swallow every click meant for the buttons. Nothing in here is
+            interactive, so nothing is lost. */}
+          <div className="relative flex flex-col items-center text-center px-6 pointer-events-none">
           <motion.p
             style={{ opacity: contentOpacity }}
             className="text-xs font-bold uppercase tracking-widest text-[#40A2D8] mb-3 lg:hidden"
@@ -151,17 +158,26 @@ export default function ScrollZoomReveal() {
             Who We Are
           </motion.p>
 
-          <motion.div
-            style={{ scale, opacity: textOpacity }}
-            className="relative will-change-transform pointer-events-none"
-          >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight whitespace-nowrap">
-              Know More
-            </h2>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#40A2D8] leading-tight whitespace-nowrap">
-              About Us
-            </h2>
-          </motion.div>
+          {/* The zoom grows the real font size instead of CSS-scaling a
+              pre-rendered layer. A `transform: scale()` (esp. with
+              will-change) just enlarges the already-rasterised bitmap, so the
+              text went soft and pixelated as it grew; changing font-size makes
+              the browser re-draw the glyphs sharp at every size. The
+              responsive base size lives on this parent; the motion div
+              multiplies it by `scale` (in em) and the headings inherit. */}
+          <div className="text-2xl sm:text-3xl md:text-4xl pointer-events-none">
+            <motion.div
+              style={{ fontSize: zoomFontSize, opacity: textOpacity }}
+              className="relative"
+            >
+              <h2 className="text-[1em] font-bold text-white leading-tight whitespace-nowrap">
+                Know More
+              </h2>
+              <h2 className="text-[1.6em] font-bold text-[#40A2D8] leading-tight whitespace-nowrap">
+                About Us
+              </h2>
+            </motion.div>
+          </div>
 
           {/* A CSS `scale()` transform enlarges an element's actual
               hit-testing area along with its visual size, not just how it

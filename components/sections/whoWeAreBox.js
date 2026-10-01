@@ -73,9 +73,9 @@ export default function WhoWeAreBox({ content }) {
             content needs first, then splits whatever's left evenly
             between the other two — the middle column can never overflow
             its track since it defines the track's own width. */}
-        <div className="relative grid gap-10 xl:grid-cols-[1fr_auto_1fr] xl:items-center">
+        <div className="relative grid grid-cols-1 gap-10 xl:grid-cols-[1fr_auto_1fr] xl:items-center">
           {/* Left — heading + blurb + CTA */}
-          <div className="text-center xl:text-left">
+          <div className="min-w-0 text-center xl:text-left">
             <h3 className="text-lg font-bold text-white mb-3">{heading}</h3>
             <RichText
               as="p"
@@ -90,14 +90,14 @@ export default function WhoWeAreBox({ content }) {
           </div>
 
           {/* Center — stats + tagline */}
-          <div className="flex flex-col items-center gap-6 sm:gap-8">
-            <div className="flex items-center gap-8 sm:gap-14">
+          <div className="min-w-0 flex flex-col items-center gap-6 sm:gap-8">
+            <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-5 sm:gap-x-14">
               {STATS.map(({ value, label }, i) => (
                 <div key={`${label}-${i}`} className="text-center">
                   <p className="text-2xl sm:text-4xl font-bold text-[#40A2D8]">
                     {value}
                   </p>
-                  <p className="text-[10px] sm:text-xs uppercase tracking-widest text-white mt-1 whitespace-nowrap">
+                  <p className="text-[10px] sm:text-xs uppercase tracking-widest text-white mt-1 sm:whitespace-nowrap">
                     {label}
                   </p>
                 </div>

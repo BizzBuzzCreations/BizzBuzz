@@ -644,3 +644,16 @@ a.animated-button {
   display: inline-flex;
   text-decoration: none;
 }
+
+/* Phones: long button labels (e.g. "See How Our UK Marketing Team Works")
+   used to be forced onto one line by whitespace-nowrap and ran off the right
+   edge of the screen. Let them wrap and never exceed the viewport. */
+@media (max-width: 639px) {
+  .animated-button {
+    max-width: 100%;
+  }
+  .animated-button .text {
+    white-space: normal;
+    text-align: center;
+  }
+}

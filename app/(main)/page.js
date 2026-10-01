@@ -55,7 +55,7 @@ export default async function Home() {
   return (
     <>
       {/* Home Hero Section */}
-      <HomeHero content={content} separated />
+      <HomeHero content={content} separated showGlow={false} />
 
       {/* About section */}
       <HomeAbout content={content} separated />
@@ -73,6 +73,10 @@ export default async function Home() {
       {/* Praxistence — same video + feature-cards split as the Clio AI section */}
       <PraxistenceShowcase content={content} />
 
+      {/* Our Process — mobile only here, between Praxistence and Clio AI. On
+          desktop it keeps its usual spot below the AI section (copy below). */}
+      <WhatMAkesUs content={content} className="md:hidden" />
+
       {/* Scroll-pinned "Know More About Us" zoom-text transition — releases
           straight into AiShowcase below with no divider/gap in between, so
           the pin lets go right as the next section is already there. */}
@@ -82,7 +86,7 @@ export default async function Home() {
       <AiShowcase content={content} />
 
       {/* What Makes Us Different section */}
-      <WhatMAkesUs content={content} />
+      <WhatMAkesUs content={content} className="max-md:hidden" />
 
       {/* Why choose us */}
       <WhyChooseUs dark content={content} />

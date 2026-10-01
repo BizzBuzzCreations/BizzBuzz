@@ -46,7 +46,7 @@ const steps = [
   },
 ];
 
-export default function WhatMAkesUs({ content }) {
+export default function WhatMAkesUs({ content, className = "" }) {
   const heading = content?.processHeading || "Our Process";
   const subtext = content?.processSubtext || "A Proven Framework for Measurable Digital Growth.";
 
@@ -62,7 +62,7 @@ export default function WhatMAkesUs({ content }) {
   });
 
   return (
-    <div className="relative overflow-hidden bg-black container py-20 mx-auto p-4 flex flex-col justify-center gap-5 items-center max-w-none">
+    <div className={`relative overflow-hidden bg-black container py-20 mx-auto p-4 flex flex-col justify-center gap-5 items-center max-w-none ${className}`}>
 
 
 

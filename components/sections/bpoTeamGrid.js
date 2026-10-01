@@ -41,7 +41,7 @@ const BPO_TEAM = [
   { name: "Manasvi Gupta", role: "Advisor", photo: "/team-images/manasvi.jpeg" },
   { name: "Monika Sharma", role: "Advisor", photo: "/team-images/monika.jpeg" },
   { name: "Shreya Dubey", role: "Advisor", photo: "/team-images/shreya.jpeg" },
-  { name: "Ziauddin Khan", role: "Advisor", photo: "/person-image.jpg" },
+  { name: "Ziauddin Khan", role: "Advisor", photo: "/team-images/ziaa.jpg" },
 ].map((person) => ({ ...person, icon: ROLE_ICONS[person.role] }));
 
 export default function BpoTeamGrid({ content } = {}) {

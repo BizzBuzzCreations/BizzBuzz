@@ -371,7 +371,7 @@ export default function TeamGrids({ content } = {}) {
           </motion.div>
 
           {/* 9 leaders laid out as a clean 3x3 grid. */}
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 max-w-[820px] mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-[820px] mx-auto">
             {leaders.map((l, i) => (
               <RoleCard key={i} {...l} index={i} size="xl" showLinkedin={false} showInstagram={false} flip />
             ))}
