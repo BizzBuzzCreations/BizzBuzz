@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, MapPin, Phone, Mail, Clock } from "lucide-react";
+import IndiaOfficeCard from "./indiaOfficeCard";
 
 // Same data as the navbar's dropdowns — duplicated here (rather than
 // imported from navbar.js, which is a client component with its own
@@ -9,7 +10,7 @@ import { ArrowUpRight, MapPin, Phone, Mail, Clock } from "lucide-react";
 // Capped to 5 per column (full lists live on the navbar / respective
 // pages) — "View More" sends people to see the rest.
 const CATEGORY_LINKS = [
-  { label: "About Us", href: "/about" },  
+  { label: "About Us", href: "/about" },
   { label: "Our Core Team", href: "/our-team" },
   { label: "How We Work and Function", href: "/how-we-work" },
   { label: "Start Your Career with Us", href: "/career" },
@@ -43,32 +44,9 @@ const RESOURCE_LINKS = [
   { label: "Guides", href: "/guides" },
 ];
 
-// Emoji flags (🇮🇳/🇬🇧) render as plain two-letter codes on systems whose
-// font has no color-flag glyphs (common on Windows) — drawn as small
-// inline SVGs instead so the badge looks the same everywhere.
-function IndiaFlag() {
-  return (
-    <svg
-      viewBox="0 0 60 40"
-      className="w-full h-full"
-      preserveAspectRatio="xMidYMid slice"
-    >
-      <rect width="60" height="13.3" fill="#FF9933" />
-      <rect width="60" height="13.4" y="13.3" fill="#FFFFFF" />
-      <rect width="60" height="13.3" y="26.7" fill="#138808" />
-      <circle
-        cx="30"
-        cy="20"
-        r="5"
-        fill="none"
-        stroke="#000080"
-        strokeWidth="1"
-      />
-      <circle cx="30" cy="20" r="1" fill="#000080" />
-    </svg>
-  );
-}
-
+// Emoji flags render as plain two-letter codes on systems whose font has
+// no color-flag glyphs (common on Windows) — drawn as small inline SVGs
+// instead so the badge looks the same everywhere.
 function UKFlag() {
   return (
     <svg
@@ -93,21 +71,9 @@ function UKFlag() {
   );
 }
 
+// India's offices (Prayagraj HQ + Kanpur) live in <IndiaOfficeCard />,
+// a left/right switcher — only the UK card is listed here.
 const OFFICES = [
-  {
-    Flag: IndiaFlag,
-    country: "India",
-    tag: "Headquarters",
-    address: (
-      <>
-        43/33, Tej Bahdur Sapru Rd,
-        <br />
-        Agnipath Colony, Civil Lines,
-        <br />
-        Prayagraj, Uttar Pradesh 211001
-      </>
-    ),
-  },
   {
     Flag: UKFlag,
     country: "United Kingdom",
@@ -309,6 +275,7 @@ export default function Footer() {
         {/* Office address cards — India + UK, side by side from sm up
             (stacked on mobile). */}
         <div className="grid gap-6 mb-6 max-w-3xl sm:grid-cols-2">
+          <IndiaOfficeCard />
           {OFFICES.map(({ Flag, country, tag, address, href }) => {
             // Offices with an href (UK) link to their regional page.
             const Card = href ? Link : "div";
@@ -316,9 +283,9 @@ export default function Footer() {
               <Card
                 key={country}
                 {...(href ? { href } : {})}
-                className="block rounded-2xl border border-white/15 bg-white/[0.03] p-6 hover:border-[#40A2D8]/50 hover:bg-white/[0.05] transition-colors"
+                className="block rounded-2xl border border-white/15 bg-white/[0.03] p-5 hover:border-[#40A2D8]/50 hover:bg-white/[0.05] transition-colors"
               >
-                <div className="flex items-center gap-3 mb-4">
+                <div className="flex items-center gap-3 mb-3">
                   <span className="w-9 h-9 rounded-full overflow-hidden shrink-0 ring-1 ring-white/20">
                     <Flag />
                   </span>
