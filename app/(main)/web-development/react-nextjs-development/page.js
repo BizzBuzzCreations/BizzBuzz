@@ -3,6 +3,7 @@ import { getSubServicePageContent } from "@/lib/subServicePageContent";
 import { mergeSubServiceContent } from "@/lib/subServiceContentRegistry";
 import { getPageContent } from "@/actions/pageContentActions";
 import { buildPageMetadata } from "@/lib/pageMetadata";
+import PageSeoScripts from "@/components/sections/pageSeoScripts";
 
 export async function generateMetadata() {
   return buildPageMetadata("subservice-web-development-react-nextjs-development", {
@@ -20,10 +21,13 @@ export default async function ReactNextjsDevelopment() {
   const overrides = await getPageContent("subservice-web-development-react-nextjs-development");
   const content = mergeSubServiceContent(staticContent, overrides);
   return (
+    <>
+      <PageSeoScripts pageKey="subservice-web-development-react-nextjs-development" />
     <ServiceDetailPage
       {...content}
       showStats={false}
       showWhyChooseUs={false}
     />
+    </>
   );
 }

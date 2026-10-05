@@ -4,6 +4,7 @@ import { getIndustryPageContent } from "@/lib/industryPageContent";
 import { mergeIndustryContent } from "@/lib/industryContentRegistry";
 import { getPageContent } from "@/actions/pageContentActions";
 import { buildPageMetadata } from "@/lib/pageMetadata";
+import PageSeoScripts from "@/components/sections/pageSeoScripts";
 
 const industry = getIndustryBySlug("construction");
 const staticContent = getIndustryPageContent("construction");
@@ -23,6 +24,8 @@ export default async function IndustryPage() {
   const overrides = await getPageContent("industry-construction");
   const content = mergeIndustryContent(staticContent, overrides);
   return (
+    <>
+      <PageSeoScripts pageKey="industry-construction" />
     <IndustryDetailPage
       label={industry.label}
       icon={industry.icon}
@@ -31,5 +34,6 @@ export default async function IndustryPage() {
       serviceBreakdownFlip
       {...content}
     />
+    </>
   );
 }

@@ -3,6 +3,7 @@ import { getSubServicePageContent } from "@/lib/subServicePageContent";
 import { mergeSubServiceContent } from "@/lib/subServiceContentRegistry";
 import { getPageContent } from "@/actions/pageContentActions";
 import { buildPageMetadata } from "@/lib/pageMetadata";
+import PageSeoScripts from "@/components/sections/pageSeoScripts";
 
 export async function generateMetadata() {
   return buildPageMetadata("subservice-ai-solutions-workflow-process-automation", {
@@ -20,10 +21,13 @@ export default async function WorkflowProcessAutomation() {
   const overrides = await getPageContent("subservice-ai-solutions-workflow-process-automation");
   const content = mergeSubServiceContent(staticContent, overrides);
   return (
+    <>
+      <PageSeoScripts pageKey="subservice-ai-solutions-workflow-process-automation" />
     <ServiceDetailPage
       {...content}
       showStats={false}
       showWhyChooseUs={false}
     />
+    </>
   );
 }

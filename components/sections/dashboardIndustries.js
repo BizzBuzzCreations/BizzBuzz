@@ -10,6 +10,7 @@ import { getPageMeta } from "@/lib/pageContentRegistry";
 import { uploadFileDirect } from "@/lib/directUpload";
 import InlineRichEditor from "@/components/ui/inlineRichEditor";
 import MediaLibraryButton from "@/components/sections/mediaLibrary";
+import SeoPanel from "@/components/sections/dashboardSeo";
 
 // Identical field controls to DashboardContent (components/sections/dashboardContent.js)
 // — kept as a separate copy rather than a shared import so this section
@@ -327,6 +328,14 @@ export default function DashboardIndustries() {
               </div>
             </div>
           ))}
+
+          <SeoPanel
+            key={pageKey}
+            pageKey={pageKey}
+            page={page}
+            values={values}
+            onChange={(key, value) => handleChange(key, value)}
+          />
 
           <div className="flex items-center gap-3">
             <button

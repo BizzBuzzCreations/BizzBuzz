@@ -3,6 +3,7 @@ import { getSubServicePageContent } from "@/lib/subServicePageContent";
 import { mergeSubServiceContent } from "@/lib/subServiceContentRegistry";
 import { getPageContent } from "@/actions/pageContentActions";
 import { buildPageMetadata } from "@/lib/pageMetadata";
+import PageSeoScripts from "@/components/sections/pageSeoScripts";
 
 export async function generateMetadata() {
   return buildPageMetadata("subservice-ai-solutions-custom-ai-agents-chatbots", {
@@ -20,10 +21,13 @@ export default async function CustomAiAgentsChatbots() {
   const overrides = await getPageContent("subservice-ai-solutions-custom-ai-agents-chatbots");
   const content = mergeSubServiceContent(staticContent, overrides);
   return (
+    <>
+      <PageSeoScripts pageKey="subservice-ai-solutions-custom-ai-agents-chatbots" />
     <ServiceDetailPage
       {...content}
       showStats={false}
       showWhyChooseUs={false}
     />
+    </>
   );
 }

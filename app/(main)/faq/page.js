@@ -3,6 +3,7 @@ import FaqTopics from "@/components/sections/faqTopics";
 import CTA from "@/components/sections/CTA";
 import { getPageContent } from "@/actions/pageContentActions";
 import { buildPageMetadata } from "@/lib/pageMetadata";
+import PageSeoScripts from "@/components/sections/pageSeoScripts";
 
 export async function generateMetadata() {
   return buildPageMetadata("faq", {
@@ -20,6 +21,7 @@ export default async function FAQPage() {
 
   return (
     <>
+      <PageSeoScripts pageKey="faq" />
       <FaqHero content={content} />
       <FaqTopics content={content} />
       <div className="bg-black pt-4">

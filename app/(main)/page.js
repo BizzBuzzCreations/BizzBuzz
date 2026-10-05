@@ -16,6 +16,7 @@ import ConsultationPopup from "@/components/sections/popupForm";
 import LatestBlogs from "@/components/sections/latestBlogs";
 import { getPageContent } from "@/actions/pageContentActions";
 import { buildPageMetadata } from "@/lib/pageMetadata";
+import PageSeoScripts from "@/components/sections/pageSeoScripts";
 
 export async function generateMetadata() {
   return buildPageMetadata("home", {
@@ -54,6 +55,7 @@ export default async function Home() {
 
   return (
     <>
+      <PageSeoScripts pageKey="home" />
       {/* Home Hero Section */}
       <HomeHero content={content} separated showGlow={false} />
 

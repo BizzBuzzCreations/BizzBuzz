@@ -3,6 +3,7 @@ import { getSubServicePageContent } from "@/lib/subServicePageContent";
 import { mergeSubServiceContent } from "@/lib/subServiceContentRegistry";
 import { getPageContent } from "@/actions/pageContentActions";
 import { buildPageMetadata } from "@/lib/pageMetadata";
+import PageSeoScripts from "@/components/sections/pageSeoScripts";
 
 export async function generateMetadata() {
   return buildPageMetadata("subservice-business-consultancy-startup-new-business-consulting", {
@@ -20,10 +21,13 @@ export default async function StartupNewBusinessConsulting() {
   const overrides = await getPageContent("subservice-business-consultancy-startup-new-business-consulting");
   const content = mergeSubServiceContent(staticContent, overrides);
   return (
+    <>
+      <PageSeoScripts pageKey="subservice-business-consultancy-startup-new-business-consulting" />
     <ServiceDetailPage
       {...content}
       showStats={false}
       showWhyChooseUs={false}
     />
+    </>
   );
 }

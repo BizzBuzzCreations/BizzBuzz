@@ -24,6 +24,7 @@ import CertificationsCarousel from "@/components/sections/certificationsCarousel
 import DarkFAQSection from "@/components/sections/darkFAQSection";
 import { getPageContent } from "@/actions/pageContentActions";
 import { buildPageMetadata } from "@/lib/pageMetadata";
+import PageSeoScripts from "@/components/sections/pageSeoScripts";
 import RichText from "@/components/ui/richText";
 
 // Icons stay code-driven (design), matched positionally to whichever
@@ -144,6 +145,7 @@ export default async function IndustriesIndexPage() {
 
   return (
     <>
+      <PageSeoScripts pageKey="industries" />
       {/* Hero — full-bleed photo (same treatment as the FAQ hero): the
           image is already designed with a dark-to-photo gradient built
           in, laid down as a plain background with a matching black

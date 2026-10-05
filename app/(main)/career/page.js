@@ -6,6 +6,7 @@ import { Briefcase } from "lucide-react";
 import { getPageContent } from "@/actions/pageContentActions";
 import JobCard from "@/components/ui/jobCard";
 import { buildPageMetadata } from "@/lib/pageMetadata";
+import PageSeoScripts from "@/components/sections/pageSeoScripts";
 
 export async function generateMetadata() {
   return buildPageMetadata("career", {
@@ -34,6 +35,7 @@ export default async function Career() {
 
   return (
     <>
+      <PageSeoScripts pageKey="career" />
       <CareerHero content={content} />
 
       <CareerWhyUs content={content} />

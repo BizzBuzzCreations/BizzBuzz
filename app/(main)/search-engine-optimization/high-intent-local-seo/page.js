@@ -3,6 +3,7 @@ import { getSubServicePageContent } from "@/lib/subServicePageContent";
 import { mergeSubServiceContent } from "@/lib/subServiceContentRegistry";
 import { getPageContent } from "@/actions/pageContentActions";
 import { buildPageMetadata } from "@/lib/pageMetadata";
+import PageSeoScripts from "@/components/sections/pageSeoScripts";
 
 export async function generateMetadata() {
   return buildPageMetadata("subservice-search-engine-optimization-high-intent-local-seo", {
@@ -20,10 +21,13 @@ export default async function HighIntentLocalSeo() {
   const overrides = await getPageContent("subservice-search-engine-optimization-high-intent-local-seo");
   const content = mergeSubServiceContent(staticContent, overrides);
   return (
+    <>
+      <PageSeoScripts pageKey="subservice-search-engine-optimization-high-intent-local-seo" />
     <ServiceDetailPage
       {...content}
       showStats={false}
       showWhyChooseUs={false}
     />
+    </>
   );
 }

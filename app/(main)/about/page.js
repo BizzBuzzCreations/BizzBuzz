@@ -23,6 +23,7 @@ import AboutCulture from "@/components/sections/aboutCulture";
 import OurJourney from "@/components/sections/ourJourney";
 import { getPageContent } from "@/actions/pageContentActions";
 import { buildPageMetadata } from "@/lib/pageMetadata";
+import PageSeoScripts from "@/components/sections/pageSeoScripts";
 
 // icons stay code-driven (design), matched positionally to whichever core
 // value cards are saved.
@@ -118,6 +119,7 @@ export default async function About() {
 
   return (
     <>
+      <PageSeoScripts pageKey="about" />
       <AboutHero content={content} />
 
       {/* Who we are */}

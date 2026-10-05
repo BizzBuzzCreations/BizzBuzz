@@ -1,6 +1,7 @@
 import RndTeamGrid from "@/components/sections/rndTeamGrid";
 import { getPageContent } from "@/actions/pageContentActions";
 import { buildPageMetadata } from "@/lib/pageMetadata";
+import PageSeoScripts from "@/components/sections/pageSeoScripts";
 
 export async function generateMetadata() {
   return buildPageMetadata("rnd-team", {
@@ -17,6 +18,8 @@ export default async function RndTeamPage() {
   const content = await getPageContent("rnd-team");
 
   return (
+    <>
+      <PageSeoScripts pageKey="rnd-team" />
     <div className="bg-black min-h-screen pt-20 md:pt-24 pb-16">
       <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-24">
         <h1 className="text-3xl md:text-4xl font-bold text-white text-center mb-10">
@@ -31,5 +34,6 @@ export default async function RndTeamPage() {
           column. */}
       <div className="w-full border-t border-white mt-16" />
     </div>
+    </>
   );
 }

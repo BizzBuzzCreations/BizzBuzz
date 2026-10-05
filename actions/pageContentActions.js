@@ -5,6 +5,7 @@ import cloudinary from "@/lib/cloudinary";
 import { getSession } from "@/actions/authActions";
 import { getPageDefaults } from "@/lib/pageContentRegistry";
 import { revalidatePath } from "next/cache";
+import { validateSeoFields } from "@/lib/seoValidate";
 
 async function requireSession() {
   const session = await getSession();
@@ -57,9 +58,14 @@ export async function savePageContent(pageKey, fields) {
 
   try {
     await connectDB();
+    // The dashboard's SEO panel stores its values (slug, canonical,
+    // schema, indexing, social tags...) in this same fields map — check
+    // them before anything reaches the database.
+    const checked = await validateSeoFields(pageKey, fields);
+    if (checked.error) return { success: false, message: checked.error };
     await PageContent.findOneAndUpdate(
       { pageKey },
-      { $set: { fields } },
+      { $set: { fields: checked.fields } },
       { upsert: true, new: true },
     );
     // Every page reading this content (via getPageContent above) is a

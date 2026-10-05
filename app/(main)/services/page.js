@@ -20,6 +20,7 @@ import HighlightCard from "@/components/ui/highlightCard";
 import { SERVICES } from "@/lib/industriesData";
 import { getPageContent } from "@/actions/pageContentActions";
 import { buildPageMetadata } from "@/lib/pageMetadata";
+import PageSeoScripts from "@/components/sections/pageSeoScripts";
 import RichText from "@/components/ui/richText";
 
 // Real, short descriptions already used elsewhere on the site (the
@@ -230,6 +231,7 @@ export default async function ServicesIndexPage() {
 
   return (
     <>
+      <PageSeoScripts pageKey="services" />
       {/* Hero — full-bleed photo (same treatment as the FAQ hero): the
           image itself is already designed with a dark-to-photo gradient
           built in, so it's laid down as a plain background with a

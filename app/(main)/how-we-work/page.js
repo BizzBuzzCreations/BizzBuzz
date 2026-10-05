@@ -8,6 +8,7 @@ import RichText from "@/components/ui/richText";
 import CtaSideImage from "@/components/ui/ctaSideImage";
 import { getPageContent } from "@/actions/pageContentActions";
 import { buildPageMetadata } from "@/lib/pageMetadata";
+import PageSeoScripts from "@/components/sections/pageSeoScripts";
 import {
   Eye,
   Users,
@@ -290,6 +291,7 @@ export default async function HowWeWorkPage() {
 
   return (
     <>
+      <PageSeoScripts pageKey="how-we-work" />
       {/* Hero — full-bleed photo (same treatment as the FAQ hero): the
           image is already designed with a dark-to-photo gradient built
           in, laid down as a plain background with a matching black

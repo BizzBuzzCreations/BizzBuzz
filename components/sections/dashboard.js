@@ -19,6 +19,7 @@ import DashboardIndustries from "@/components/sections/dashboardIndustries";
 import DashboardServices from "@/components/sections/dashboardServices";
 import DashboardSubServices from "@/components/sections/dashboardSubServices";
 import DashboardOutsideLocation from "@/components/sections/dashboardOutsideLocation";
+import DashboardSeoTools from "@/components/sections/dashboardSeoTools";
 
 const NAV_ITEMS = [
   { id: "overview", label: "Overview", icon: GridIcon },
@@ -31,6 +32,7 @@ const NAV_ITEMS = [
   { id: "services", label: "Services Pages", icon: ServicesIcon },
   { id: "subservices", label: "Sub-Service Pages", icon: SubServicesIcon },
   { id: "outsideLocation", label: "Outside Location Page", icon: OutsideLocationIcon },
+  { id: "seoTools", label: "Sitemap & Robots", icon: SeoToolsIcon },
 ];
 
 // Non-admin (regular) users only get access to these — everything else
@@ -566,6 +568,8 @@ export default function Dashboard({ role = "user", name = "" }) {
 
         {activeTab === "outsideLocation" && <DashboardOutsideLocation />}
 
+        {isAdmin && activeTab === "seoTools" && <DashboardSeoTools />}
+
         {showAddJob && (
           <div
             className="fixed inset-0 z-100 flex items-center justify-center bg-slate-900/55 backdrop-blur-sm"
@@ -836,6 +840,24 @@ function OutsideLocationIcon({ size = 18 }) {
       <circle cx="12" cy="12" r="10" />
       <path d="M2 12h20" />
       <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z" />
+    </svg>
+  );
+}
+
+function SeoToolsIcon({ size = 18 }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+    >
+      <circle cx="11" cy="11" r="7" />
+      <path d="M21 21l-4.3-4.3" />
+      <path d="M8 11h6" />
+      <path d="M11 8v6" />
     </svg>
   );
 }

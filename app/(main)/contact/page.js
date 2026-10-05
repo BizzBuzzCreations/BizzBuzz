@@ -8,6 +8,7 @@ import Particles from "@/components/ui/Particles";
 import React from "react";
 import { getPageContent } from "@/actions/pageContentActions";
 import { buildPageMetadata } from "@/lib/pageMetadata";
+import PageSeoScripts from "@/components/sections/pageSeoScripts";
 
 export async function generateMetadata() {
   return buildPageMetadata("contact", {
@@ -25,6 +26,7 @@ export default async function Contact() {
 
   return (
     <>
+      <PageSeoScripts pageKey="contact" />
       <ContactSection content={content} />
 
       {/* Wavy divider — ContactSection and GlobeTrust are both black, so

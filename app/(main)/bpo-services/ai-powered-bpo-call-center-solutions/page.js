@@ -3,6 +3,7 @@ import { getSubServicePageContent } from "@/lib/subServicePageContent";
 import { mergeSubServiceContent } from "@/lib/subServiceContentRegistry";
 import { getPageContent } from "@/actions/pageContentActions";
 import { buildPageMetadata } from "@/lib/pageMetadata";
+import PageSeoScripts from "@/components/sections/pageSeoScripts";
 
 export async function generateMetadata() {
   return buildPageMetadata("subservice-bpo-services-ai-powered-bpo-call-center-solutions", {
@@ -20,10 +21,13 @@ export default async function AiPoweredBpoCallCenterSolutions() {
   const overrides = await getPageContent("subservice-bpo-services-ai-powered-bpo-call-center-solutions");
   const content = mergeSubServiceContent(staticContent, overrides);
   return (
+    <>
+      <PageSeoScripts pageKey="subservice-bpo-services-ai-powered-bpo-call-center-solutions" />
     <ServiceDetailPage
       {...content}
       showStats={false}
       showWhyChooseUs={false}
     />
+    </>
   );
 }

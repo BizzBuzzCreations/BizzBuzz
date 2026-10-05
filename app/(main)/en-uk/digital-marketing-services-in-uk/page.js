@@ -18,6 +18,7 @@ import ConsultationPopup from "@/components/sections/popupForm";
 import LatestBlogs from "@/components/sections/latestBlogs";
 import { getPageContent } from "@/actions/pageContentActions";
 import { buildPageMetadata } from "@/lib/pageMetadata";
+import PageSeoScripts from "@/components/sections/pageSeoScripts";
 import { ukPageSchema } from "@/lib/ukPageSchema";
 
 // Hidden landing page — mostly the same sections as the real homepage,
@@ -60,6 +61,7 @@ export default async function DigitalMarketingServicesInUk() {
 
   return (
     <>
+      <PageSeoScripts pageKey="outside-location-uk" />
       {/* Page-specific structured data. The site-wide India LocalBusiness
           schema is skipped on this route (see allScripts.js); `<` is escaped
           so no field can close the script tag early. */}

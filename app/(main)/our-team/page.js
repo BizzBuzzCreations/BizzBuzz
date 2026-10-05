@@ -7,6 +7,7 @@ import TeamGrids from "@/components/sections/teamGrids";
 import ContactSection from "@/components/sections/contactSection";
 import { getPageContent } from "@/actions/pageContentActions";
 import { buildPageMetadata } from "@/lib/pageMetadata";
+import PageSeoScripts from "@/components/sections/pageSeoScripts";
 
 export async function generateMetadata() {
   return buildPageMetadata("our-team", {
@@ -31,6 +32,7 @@ export default async function OurTeamPage() {
 
   return (
     <>
+      <PageSeoScripts pageKey="our-team" />
       <TeamHero content={content} />
 
       {/* Founders, Our Leaders, and the BPO/R&D team photos — all with a

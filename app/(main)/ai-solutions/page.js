@@ -11,6 +11,7 @@ import { getServicePageContent } from "@/lib/servicePageContent";
 import { mergeServiceContent } from "@/lib/serviceContentRegistry";
 import { getPageContent } from "@/actions/pageContentActions";
 import { buildPageMetadata } from "@/lib/pageMetadata";
+import PageSeoScripts from "@/components/sections/pageSeoScripts";
 
 export async function generateMetadata() {
   return buildPageMetadata("service-ai-solutions", {
@@ -31,6 +32,7 @@ export default async function AISolutions() {
 
   return (
     <>
+      <PageSeoScripts pageKey="service-ai-solutions" />
       <BpoHero
         heading={content.heroHeading}
         description={content.heroDescription}

@@ -20,6 +20,7 @@ import { getPageContent } from "@/actions/pageContentActions";
 import RichText from "@/components/ui/richText";
 import AnimatedButton from "@/components/ui/animatedButton";
 import { buildPageMetadata } from "@/lib/pageMetadata";
+import PageSeoScripts from "@/components/sections/pageSeoScripts";
 
 export async function generateMetadata() {
   return buildPageMetadata("guides", {
@@ -138,6 +139,7 @@ export default async function GuidesPage() {
 
   return (
     <>
+      <PageSeoScripts pageKey="guides" />
       <GuidesHero content={content} />
 
       {/* Guides — list + sidebar, dark theme */}

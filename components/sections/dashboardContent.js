@@ -9,6 +9,7 @@ import { PAGE_CONTENT_REGISTRY, getPageMeta } from "@/lib/pageContentRegistry";
 import { uploadFileDirect } from "@/lib/directUpload";
 import InlineRichEditor from "@/components/ui/inlineRichEditor";
 import MediaLibraryButton from "@/components/sections/mediaLibrary";
+import SeoPanel from "@/components/sections/dashboardSeo";
 
 function MediaField({ value, onChange, label, kind }) {
   const [uploading, setUploading] = useState(false);
@@ -329,6 +330,14 @@ export default function DashboardContent() {
               </div>
             </div>
           ))}
+
+          <SeoPanel
+            key={pageKey}
+            pageKey={pageKey}
+            page={page}
+            values={values}
+            onChange={(key, value) => handleChange(key, value)}
+          />
 
           <div className="flex items-center gap-3">
             <button
