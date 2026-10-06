@@ -48,8 +48,8 @@ export default function IndustryDetailPage({
   capabilitiesHoverReveal = false,
   // "numbered": a 3-column list of numbered circles (01, 02, ...) with the
   // title and full description beside each — no card boxes or icons.
-  // Default "cards" keeps every other industry's grid exactly as it was.
-  capabilitiesLayout = "cards",
+  // "cards" is the older icon-card grid; every industry now uses "numbered".
+  capabilitiesLayout = "numbered",
   // Optional "How We Turn Searches Into [Outcome]" breakdown — an array
   // of { number, title, desc, ctaText, services[] }. Only industries that
   // pass this via lib/industryPageContent.js get the section.
