@@ -62,7 +62,7 @@ export default function IndustriesShowcase({ content }) {
       {items.map((industry, i) => {
         const index = offset + i;
         const itemClass = `block w-full text-left py-1.5 text-lg font-medium transition-colors cursor-pointer ${
-          index === active ? "text-[#40A2D8]" : "text-white/40 hover:text-white/70"
+          index === active ? "text-[#40A2D8]" : "text-white/60 hover:text-white"
         }`;
         return (
           <li key={industry.label}>
@@ -147,6 +147,7 @@ export default function IndustriesShowcase({ content }) {
               </p>
               <Link
                 href={`/industries/${current.slug}`}
+                aria-label={`Know more about ${current.label}`}
                 className="inline-flex items-center gap-1.5 border border-white text-white hover:bg-white hover:text-black rounded-full px-5 py-2.5 text-sm font-semibold transition w-fit"
               >
                 Know More

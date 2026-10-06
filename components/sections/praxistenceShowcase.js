@@ -39,8 +39,8 @@ export default function PraxistenceShowcase({ content }) {
   // /aiservice.webp doesn't exist in /public — was a broken poster
   // reference (silently masked before by the video always loading fast
   // enough to cover it up); using an existing, on-brand AI photo instead.
-  const posterImage = content?.praxistencePosterImage || "/AI solutions 2.png";
-  const videoSrc = content?.praxistenceVideo || "/praxis-vid.mp4";
+  const posterImage = content?.praxistencePosterImage || "/AI solutions 2.webp";
+  const videoSrc = content?.praxistenceVideo || "/praxis-vid.webm";
   const buttonLink = content?.praxistenceButtonLink || "https://praxistence.com/";
   const buttonText = content?.praxistenceButtonText || "Explore Praxistence";
 

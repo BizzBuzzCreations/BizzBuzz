@@ -33,6 +33,7 @@ export default function AnimatedButton({
   variant = "white",
   size,
   className = "",
+  srText,
   children,
 }) {
   const classes = [
@@ -48,7 +49,10 @@ export default function AnimatedButton({
   const inner = (
     <>
       <ArrowIcon className="arr-2" />
-      <span className="text">{children}</span>
+      <span className="text">
+        {children}
+        {srText && <span className="sr-only"> {srText}</span>}
+      </span>
       <span className="circle" />
       <ArrowIcon className="arr-1" />
     </>

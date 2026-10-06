@@ -43,8 +43,8 @@ export default function ClioShowcase({ content }) {
   // /aiservice.webp doesn't exist in /public — was a broken poster
   // reference (silently masked before by the video always loading fast
   // enough to cover it up); using an existing, on-brand AI photo instead.
-  const posterImage = content?.clioPosterImage || "/AI solutions 2.png";
-  const videoSrc = content?.clioVideo || "/ai-vid.mp4";
+  const posterImage = content?.clioPosterImage || "/AI solutions 2.webp";
+  const videoSrc = content?.clioVideo || "/ai-vid.webm";
   const buttonLink = content?.clioButtonLink || "https://clio.praxistence.com/";
   const buttonText = content?.clioButtonText || "Explore Clio AI";
 

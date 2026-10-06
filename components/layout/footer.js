@@ -237,9 +237,9 @@ export default function Footer() {
             {/* Quick contact — number, mail, timings only (no address,
                 the office card below already covers that). */}
             <div>
-              <h4 className="text-xs font-semibold uppercase tracking-wide text-white mb-4 mt-2">
+              <h3 className="text-xs font-semibold uppercase tracking-wide text-white mb-4 mt-2">
                 Get In Touch
-              </h4>
+              </h3>
               <div className="flex flex-col gap-4 text-sm">
                 <div className="flex flex-wrap items-center gap-x-2 gap-y-2">
                   <a

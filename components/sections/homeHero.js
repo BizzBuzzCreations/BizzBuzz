@@ -127,7 +127,7 @@ export default function HomeHero({
               preload="metadata"
               className="hidden md:block absolute inset-0 w-full h-full object-cover bg-black"
             >
-              <source src="/hero-sec.mp4" type="video/mp4" />
+              <source src="/hero-sec.webm" type="video/webm" />
             </video>
           )
         )}
@@ -246,7 +246,7 @@ export default function HomeHero({
                     preload="metadata"
                     className="absolute inset-0 w-full h-full object-cover bg-black"
                   >
-                    <source src="/hero-sec.mp4" type="video/mp4" />
+                    <source src="/hero-sec.webm" type="video/webm" />
                   </video>
                 )
               )}

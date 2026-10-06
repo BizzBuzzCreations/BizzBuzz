@@ -85,7 +85,11 @@ export default function CategoriesShowcase() {
               </p>
             </div>
             <div className="shrink-0 self-start sm:self-center">
-              <AnimatedButton href={activeService.href} size="sm">
+              <AnimatedButton
+                href={activeService.href}
+                size="sm"
+                srText={`about ${activeService.label}`}
+              >
                 Learn More
               </AnimatedButton>
             </div>

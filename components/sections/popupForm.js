@@ -297,7 +297,7 @@ export default function ConsultationPopup({ content }) {
                 rel="noopener noreferrer"
                 className="flex-1"
               >
-                <button className="cursor-pointer w-full flex items-center justify-center gap-2 border border-green-500 text-green-500 py-3 rounded-md text-sm hover:bg-green-500 hover:text-white transition">
+                <button className="cursor-pointer w-full flex items-center justify-center gap-2 border border-green-700 text-green-700 py-3 rounded-md text-sm hover:bg-green-700 hover:text-white transition">
                   <MessageCircle size={16} />
                   WhatsApp
                 </button>

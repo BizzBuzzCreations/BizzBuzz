@@ -17,6 +17,10 @@ const nextConfig = {
     ],
   },
   experimental: {
+    // Inline the (small) CSS into the HTML so it is no longer a
+    // render-blocking request — the PageSpeed "Render-blocking requests"
+    // insight, which was delaying first paint of the hero text.
+    inlineCss: true,
     // Default Server Action body limit is 1MB — too small for featured
     // image uploads (blogEditor.js sends the file as base64 to the
     // uploadBlogImage action), which silently rejects the request before
@@ -24,6 +28,22 @@ const nextConfig = {
     serverActions: {
       bodySizeLimit: "10mb",
     },
+  },
+  // /public files (images, videos, fonts) were served with max-age=0, so
+  // every repeat visit re-downloaded them ("Use efficient cache lifetimes").
+  async headers() {
+    return [
+      {
+        source:
+          "/:path*.(png|jpg|jpeg|webp|avif|gif|svg|ico|mp4|webm|woff|woff2)",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=2592000, stale-while-revalidate=86400",
+          },
+        ],
+      },
+    ];
   },
   async redirects() {
     return [

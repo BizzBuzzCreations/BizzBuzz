@@ -2,9 +2,31 @@
 
 import Script from "next/script";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function AllScripts() {
   const pathname = usePathname();
+  // Google Analytics is ~190KB and was the single biggest main-thread cost
+  // on mobile (Total Blocking Time). Load it on the visitor's first
+  // interaction, or after 6s if they never interact, instead of competing
+  // with the page's own startup work.
+  const [loadGA, setLoadGA] = useState(false);
+  useEffect(() => {
+    const events = ["scroll", "pointerdown", "keydown", "touchstart"];
+    const start = () => {
+      events.forEach((e) => window.removeEventListener(e, start));
+      window.clearTimeout(timer);
+      setLoadGA(true);
+    };
+    const timer = window.setTimeout(start, 6000);
+    events.forEach((e) =>
+      window.addEventListener(e, start, { once: true, passive: true }),
+    );
+    return () => {
+      events.forEach((e) => window.removeEventListener(e, start));
+      window.clearTimeout(timer);
+    };
+  }, []);
   // The UK landing page ships its own schema (lib/ukPageSchema.js); this
   // India LocalBusiness block would be a conflicting duplicate there.
   const skipLocalBusiness = pathname?.startsWith(
@@ -13,12 +35,14 @@ export default function AllScripts() {
 
   return (
     <>
+      {loadGA && (
+        <>
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-Z0B5EJDR4C"
-        strategy="lazyOnload"
+        strategy="afterInteractive"
       />
 
-      <Script id="ga-init" strategy="lazyOnload">
+      <Script id="ga-init" strategy="afterInteractive">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
@@ -26,6 +50,8 @@ export default function AllScripts() {
           gtag('config', 'G-Z0B5EJDR4C');
         `}
       </Script>
+        </>
+      )}
 
       {!skipLocalBusiness && (
       <Script id="local-business-schema" type="application/ld+json">
