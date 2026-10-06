@@ -23,21 +23,39 @@ export async function generateMetadata() {
 
 export default async function Contact() {
   const content = await getPageContent("contact");
+  // Sections switched off in the dashboard (Remove section).
+  const hidden = new Set(content?.hiddenSections || []);
 
   return (
     <>
       <PageSeoScripts pageKey="contact" />
+      {!hidden.has("contactHero") && (
+      <>
       <ContactSection content={content} />
+      </>
+      )}
 
       {/* Wavy divider — ContactSection and GlobeTrust are both black, so
           without this the two sections just blend into one another. */}
+      {!hidden.has("globeTrust") && (
+      <>
       <div className="bg-black pt-3 pb-2 md:pt-4 md:pb-3">
         <WavyDivider />
       </div>
+      </>
+      )}
 
+      {!hidden.has("globeTrust") && (
+      <>
       <GlobeTrust content={content} />
+      </>
+      )}
 
+      {!hidden.has("marketingCTA") && (
+      <>
       <MarketingCTA content={content} />
+      </>
+      )}
 
       {/* FAQs — sits between the marketing-services CTA and Join Our Team,
           5 questions specific to reaching out/working with us.
@@ -45,6 +63,8 @@ export default async function Contact() {
           inside this box instead of collapsing through it and exposing a
           gap before JoinTeamCTA. Same particle backdrop as the rest of
           the page, continuing the effect through this section too. */}
+      {!hidden.has("contactFaq") && (
+      <>
       <div className="relative bg-black pt-16 overflow-hidden">
         <div
           className="absolute inset-0 z-0 pointer-events-none"
@@ -64,8 +84,14 @@ export default async function Contact() {
           <ContactFAQ content={content} />
         </div>
       </div>
+      </>
+      )}
 
+      {!hidden.has("joinTeam") && (
+      <>
       <JoinTeamCTA content={content} />
+      </>
+      )}
     </>
   );
 }

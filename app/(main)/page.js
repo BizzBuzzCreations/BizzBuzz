@@ -52,32 +52,34 @@ export async function generateMetadata() {
 
 export default async function Home() {
   const content = await getPageContent("home");
+  // Sections switched off in the dashboard (Remove section).
+  const hidden = new Set(content?.hiddenSections || []);
 
   return (
     <>
       <PageSeoScripts pageKey="home" />
       {/* Home Hero Section */}
-      <HomeHero content={content} separated showGlow={false} />
+      {!hidden.has("hero") && <HomeHero content={content} separated showGlow={false} />}
 
       {/* About section */}
-      <HomeAbout content={content} separated />
+      {!hidden.has("about") && <HomeAbout content={content} separated />}
 
       {/* Our Services */}
-      <OurServices content={content} />
+      {!hidden.has("services") && <OurServices content={content} />}
 
       {/* Case Studies — client work carousel */}
-      <CaseStudies content={content} />
+      {!hidden.has("caseStudies") && <CaseStudies content={content} />}
 
       {/* Stats showcase — auto-scrolling numbers/logos/services carousel —
           now directly after Case Studies. */}
-      <StatsShowcase content={content} />
+      {!hidden.has("stats") && <StatsShowcase content={content} />}
 
       {/* Praxistence — same video + feature-cards split as the Clio AI section */}
-      <PraxistenceShowcase content={content} />
+      {!hidden.has("praxistenceShowcase") && <PraxistenceShowcase content={content} />}
 
       {/* Our Process — mobile only here, between Praxistence and Clio AI. On
           desktop it keeps its usual spot below the AI section (copy below). */}
-      <WhatMAkesUs content={content} className="md:hidden" />
+      {!hidden.has("process") && <WhatMAkesUs content={content} className="md:hidden" />}
 
       {/* Scroll-pinned "Know More About Us" zoom-text transition — releases
           straight into AiShowcase below with no divider/gap in between, so
@@ -85,31 +87,31 @@ export default async function Home() {
       <ScrollZoomReveal />
 
       {/* AI showcase — video + AI services split section */}
-      <AiShowcase content={content} />
+      {!hidden.has("aiShowcase") && <AiShowcase content={content} />}
 
       {/* What Makes Us Different section */}
-      <WhatMAkesUs content={content} className="max-md:hidden" />
+      {!hidden.has("process") && <WhatMAkesUs content={content} className="max-md:hidden" />}
 
       {/* Why choose us */}
-      <WhyChooseUs dark content={content} />
+      {!hidden.has("whyChooseUs") && <WhyChooseUs dark content={content} />}
 
       {/* Industries we work with — same list as the navbar's mega-menu */}
-      <IndustriesShowcase content={content} />
+      {!hidden.has("industries") && <IndustriesShowcase content={content} />}
 
       {/* Reviews section */}
-      <Reviews content={content} />
+      {!hidden.has("reviews") && <Reviews content={content} />}
 
       <LatestBlogs dark />
 
       <div className="bg-black pt-10">
         {/* FAQ section */}
-        <FAQ content={content} />
+        {!hidden.has("faq") && <FAQ content={content} />}
 
         {/* CTA section */}
-        <CTA content={content} />
+        {!hidden.has("cta") && <CTA content={content} />}
       </div>
       {/* Popup form */}
-      <ConsultationPopup content={content} />
+      {!hidden.has("popup") && <ConsultationPopup content={content} />}
     </>
   );
 }

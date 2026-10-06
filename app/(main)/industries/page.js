@@ -121,6 +121,8 @@ export async function generateMetadata() {
 
 export default async function IndustriesIndexPage() {
   const content = await getPageContent("industries");
+  // Sections switched off in the dashboard (Remove section).
+  const hidden = new Set(content?.hiddenSections || []);
 
   const heroEyebrow = content?.industriesHeroEyebrow || "Industries";
   const heroHeading = content?.industriesHeroHeading || "Digital Growth Solutions for Every Industry";
@@ -159,6 +161,8 @@ export default async function IndustriesIndexPage() {
       {/* md:min-h-screen — fills the full viewport on desktop/laptop (was
           a fixed 560px, which left empty black / the next section showing
           below the hero on the first screen). */}
+      {!hidden.has("industriesHero") && (
+      <>
       <section className="relative overflow-hidden md:min-h-screen flex items-center pt-10 md:pt-32 pb-12 md:pb-20 px-6 md:px-12 lg:px-24 text-white bg-black">
         {/* Full-bleed version — desktop/tablet only. On mobile this sat
             dimmed behind the gradient with text stacked on top, hard to
@@ -220,8 +224,12 @@ export default async function IndustriesIndexPage() {
           </Link>
         </div>
       </section>
+      </>
+      )}
 
       {/* Industries grid */}
+      {!hidden.has("industriesGrid") && (
+      <>
       <section className="bg-black py-20 px-6 md:px-12 lg:px-24 border-t border-white/10">
         <div className="max-w-6xl mx-auto">
           <p className="text-xs font-bold uppercase tracking-widest text-[#40A2D8] mb-3">
@@ -291,6 +299,8 @@ export default async function IndustriesIndexPage() {
           </div>
         </div>
       </section>
+      </>
+      )}
 
       {/* Case studies — real BizzBuzz clients */}
       <div className="border-t border-white/10">
@@ -298,6 +308,8 @@ export default async function IndustriesIndexPage() {
       </div>
 
       {/* Certifications carousel */}
+      {!hidden.has("industriesCertifications") && (
+      <>
       <section className="bg-black py-20 px-6 md:px-12 lg:px-24 border-t border-white/10">
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
@@ -309,14 +321,24 @@ export default async function IndustriesIndexPage() {
           <CertificationsCarousel />
         </div>
       </section>
+      </>
+      )}
 
       {/* FAQs — questions specific to working across industries */}
+      {!hidden.has("industriesFaq") && (
+      <>
       <DarkFAQSection
         faqs={content?.industriesFaqItems?.length > 0 ? content.industriesFaqItems : INDUSTRIES_FAQS}
         heading={content?.industriesFaqHeading || "Frequently Asked Questions"}
       />
+      </>
+      )}
 
+      {!hidden.has("cta") && (
+      <>
       <CTA content={content} />
+      </>
+      )}
     </>
   );
 }

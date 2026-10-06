@@ -29,20 +29,28 @@ const staticContent = getServicePageContent("bpo-services");
 export default async function BPO() {
   const overrides = await getPageContent("service-bpo-services");
   const content = mergeServiceContent(staticContent, overrides);
+  // Sections switched off in the dashboard (Remove section).
+  const hidden = new Set(content.hiddenSections || []);
 
   return (
     <>
       <PageSeoScripts pageKey="service-bpo-services" />
+      {!hidden.has("hero") && (
+      <>
       <BpoHero
         heading={content.heroHeading}
         description={content.heroDescription}
         img={content.heroImage}
         ctaText={content.heroCtaText}
       />
+      </>
+      )}
 
       {/* "Outsourcing Built to Scale You, Not Slow You Down" — dark
           section, glow accents behind the copy so the black background
           doesn't feel flat/empty. */}
+      {!hidden.has("intro") && (
+      <>
       <section className="relative overflow-hidden bg-black py-20">
 
         <div className="relative flex lg:flex-row flex-col px-5 lg:gap-20 gap-10 justify-center items-center max-w-6xl mx-auto">
@@ -98,10 +106,14 @@ export default async function BPO() {
           </div>
         </div>
       </section>
+      </>
+      )}
 
       {/* "Six Ways We Support Your Operations" — fanned card deck over a
           half-circle badge, same dark treatment, continuous with the
           section above. */}
+      {!hidden.has("servicesGrid") && (
+      <>
       <section className="bg-black py-20">
         <div className="container max-w-6xl mx-auto px-5">
           <BpoServicesGrid
@@ -111,10 +123,14 @@ export default async function BPO() {
           />
         </div>
       </section>
+      </>
+      )}
 
       {/* "How We Take Work Off Your Plate" — auto-scrolling carousel
           (right-to-left, pauses on hover) instead of a static accordion,
           so the six-step process reads as motion. */}
+      {!hidden.has("roadmap") && (
+      <>
       <section className="bg-black py-20 px-5">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-white text-center mb-2">
@@ -124,6 +140,8 @@ export default async function BPO() {
           <RoadmapCarousel steps={content.roadmapSteps} />
         </div>
       </section>
+      </>
+      )}
 
       {/* Divider, contained to content width (not edge-to-edge) so the
           two black sections still read as separate. */}
@@ -131,6 +149,8 @@ export default async function BPO() {
         <div className="max-w-5xl mx-auto border-t border-white" />
       </div>
 
+      {!hidden.has("weAre") && (
+      <>
       <section className="bg-black pt-20 pb-20 px-5">
         <BpoWeAre
           title={content.weAreHeading}
@@ -138,15 +158,23 @@ export default async function BPO() {
           points={content.weArePoints}
         />
       </section>
+      </>
+      )}
 
+      {!hidden.has("faq") && (
+      <>
       <DarkFAQSection
         faqs={content.faqs}
         heading={content.faqHeading}
         subheading={content.faqSubheading}
       />
+      </>
+      )}
 
       {/* "Why Businesses Trust Us With Their Operations, and Where We're
           Rooted" — heading on top, copy on the left, image on the right. */}
+      {!hidden.has("trust") && (
+      <>
       <section className="relative overflow-hidden bg-black py-20">
         <div className="relative max-w-6xl mx-auto px-5">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-2 text-center">
@@ -184,9 +212,13 @@ export default async function BPO() {
           </div>
         </div>
       </section>
+      </>
+      )}
 
       {/* Page-local CTA — heading + paragraph + two buttons, both pointing
           to /contact, instead of the shared email-form CTA. */}
+      {!hidden.has("cta") && (
+      <>
       <div className="bg-black px-5 py-10 scroll-mt-34" id="CTA">
         <div
           className="md:flex md:items-stretch rounded-3xl border-2 border-[#0B60B0] shadow-lg shadow-black md:max-w-3xl lg:max-w-5xl xl:max-w-6xl mx-auto container"
@@ -227,6 +259,8 @@ export default async function BPO() {
       <div className="w-full bg-black pt-8 md:pt-10">
         <div className="w-full border-t border-white" />
       </div>
+      </>
+      )}
     </>
   );
 }

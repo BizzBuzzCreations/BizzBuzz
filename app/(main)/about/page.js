@@ -58,6 +58,8 @@ export async function generateMetadata() {
 
 export default async function About() {
   const content = await getPageContent("about");
+  // Sections switched off in the dashboard (Remove section).
+  const hidden = new Set(content?.hiddenSections || []);
 
   const storyHeading = content?.storyHeading || "Our Story";
   const storySubheading = content?.storySubheading || "From Local Projects to Global Ambition";
@@ -120,9 +122,15 @@ export default async function About() {
   return (
     <>
       <PageSeoScripts pageKey="about" />
+      {!hidden.has("aboutHero") && (
+      <>
       <AboutHero content={content} />
+      </>
+      )}
 
       {/* Who we are */}
+      {!hidden.has("story") && (
+      <>
       <div className="bg-black py-20">
         <h2 className="text-3xl font-bold mb-10 text-center text-white">{storyHeading}</h2>
         <div className="mx-auto 2xl:px-15 px-5 flex lg:flex-row flex-col justify-center items-center gap-15">
@@ -175,8 +183,12 @@ export default async function About() {
           </div>
         </div>
       </div>
+      </>
+      )}
 
       {/* Our Mission & Vision */}
+      {!hidden.has("missionVision") && (
+      <>
       <div className="bg-black py-20 px-5">
         <div className="mx-auto 2xl:px-10 flex lg:flex-row flex-col justify-center items-start gap-15">
         <div>
@@ -263,11 +275,19 @@ export default async function About() {
         </div>
         </div>
       </div>
+      </>
+      )}
 
       {/* Our Journey — 2022 to 2026 */}
+      {!hidden.has("journey") && (
+      <>
       <OurJourney content={content} />
+      </>
+      )}
 
       {/* What Makes BizzBuzz Creations Different */}
+      {!hidden.has("differentiators") && (
+      <>
       <div className="bg-black py-20 px-5">
         <div>
           <h2 className="text-3xl font-bold mb-10 text-center text-white">
@@ -281,11 +301,19 @@ export default async function About() {
           <DifferentiatorsCarousel items={content?.differentiatorItems} />
         </div>
       </div>
+      </>
+      )}
 
       {/* Culture — real ownership, one team, growing together */}
+      {!hidden.has("culture") && (
+      <>
       <AboutCulture content={content} />
+      </>
+      )}
 
       {/* The Roadmap Behind Every Digital Success */}
+      {!hidden.has("roadmap") && (
+      <>
       <div className="bg-black py-20 px-5">
         <h2 className="text-3xl font-bold mb-2 text-center text-white">
           {roadmapHeading}
@@ -330,11 +358,19 @@ export default async function About() {
           className="text-lg leading-relaxed text-center max-w-3xl mx-auto mt-16 font-medium text-white"
         />
       </div>
+      </>
+      )}
 
       {/* Recognised for Excellence */}
+      {!hidden.has("recognitions") && (
+      <>
       <Recognitions content={content} showIcons={false} />
+      </>
+      )}
 
       {/* Why Businesses Across India Trust Us */}
+      {!hidden.has("trust") && (
+      <>
       <div className="bg-black py-20 px-5">
         <h2 className="text-3xl font-bold mb-5 text-center text-white">
           {trustHeading}
@@ -353,12 +389,26 @@ export default async function About() {
           className="text-lg leading-relaxed text-center max-w-3xl mx-auto mt-12 font-medium text-white"
         />
       </div>
+      </>
+      )}
 
+      {!hidden.has("whyChooseUs") && (
+      <>
       <WhyChooseUs dark content={content} />
+      </>
+      )}
 
       {/* FAQ's */}
+      {!hidden.has("aboutFaq") && (
+      <>
       <AboutFAQ content={content} />
+      </>
+      )}
+      {!hidden.has("cta") && (
+      <>
       <CTA content={content} />
+      </>
+      )}
     </>
   );
 }

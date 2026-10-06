@@ -103,9 +103,14 @@ export default function ServiceDetailPage({
   ctaPrimaryText,
   ctaSecondaryText,
   ctaImage,
+  hiddenSections,
 }) {
+  // Sections switched off in the dashboard (Remove section).
+  const hidden = new Set(hiddenSections || []);
   return (
     <>
+      {!hidden.has("hero") && (
+      <>
       {/* Hero — full-bleed background photo (same treatment as the
           service-hub pages' BpoHero, minus the dotted texture overlay)
           when heroImage is supplied; otherwise the plain gradient hero.
@@ -207,6 +212,10 @@ export default function ServiceDetailPage({
         </div>
       </section>
 
+      </>
+      )}
+      {!hidden.has("capabilities") && (
+      <>
       {/* Core capabilities */}
       <section className="bg-black py-20 px-6 md:px-12 lg:px-24 border-t border-white/10">
         <div className="max-w-6xl mx-auto">
@@ -245,10 +254,12 @@ export default function ServiceDetailPage({
         </div>
       </section>
 
+      </>
+      )}
       {/* Service breakdown — optional, only rendered when supplied. Each
           card flips on click to reveal its full list of specific
           services on the back face. */}
-      {serviceBreakdown && serviceBreakdown.length > 0 && (
+      {!hidden.has("serviceBreakdown") && serviceBreakdown && serviceBreakdown.length > 0 && (
         <section className="bg-black py-20 px-6 md:px-12 lg:px-24 border-t border-white/10">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-2xl md:text-3xl font-bold text-white text-center mb-14">
@@ -263,7 +274,7 @@ export default function ServiceDetailPage({
           Deliberately not another card grid: an alternating timeline down
           a center spine, so this differentiator list reads as a distinct
           visual moment on the page. */}
-      {differentiators && differentiators.length > 0 && (
+      {!hidden.has("differentiators") && differentiators && differentiators.length > 0 && (
         <section className="bg-black py-20 px-6 md:px-12 lg:px-24 border-t border-white/10">
           <div className="max-w-5xl mx-auto">
             <h2 className="text-2xl md:text-3xl font-bold text-white text-center mb-16 md:mb-20">
@@ -325,7 +336,7 @@ export default function ServiceDetailPage({
           carousel (left-to-right, pauses on hover) instead of a static
           grid, so the step-by-step process reads as motion rather than
           another block of cards. */}
-      {roadmapCarouselSteps && roadmapCarouselSteps.length > 0 && (
+      {!hidden.has("roadmap") && roadmapCarouselSteps && roadmapCarouselSteps.length > 0 && (
         <section className="bg-black py-20 px-6 md:px-12 lg:px-24 border-t border-white/10">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-2xl md:text-3xl font-bold text-white text-center mb-14">
@@ -344,7 +355,7 @@ export default function ServiceDetailPage({
           regardless of topic), but localityImage lets specific pages use
           a different, more relevant shot here without changing their
           hero. */}
-      {localityText && (
+      {!hidden.has("locality") && localityText && (
         <section className="bg-[#050505] py-20 px-6 md:px-12 lg:px-24 border-t border-white/10">
           <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 md:gap-16 items-center">
             <div>
@@ -518,7 +529,9 @@ export default function ServiceDetailPage({
       )}
 
       {/* FAQ */}
-      <DarkFAQSection faqs={faqs} heading="Frequently Asked Questions" />
+      {!hidden.has("faq") && (
+  <DarkFAQSection faqs={faqs} heading="Frequently Asked Questions" />
+      )}
 
       {/* Why choose us — optional, on by default; pass showWhyChooseUs:
           false to omit it entirely. Otherwise replaced with a single
@@ -559,6 +572,8 @@ export default function ServiceDetailPage({
       </section>
       )}
 
+      {!hidden.has("cta") && (
+      <>
       {ctaHeading ? (
         <>
           {/* Page-local CTA — heading + paragraph + two buttons, both
@@ -608,6 +623,8 @@ export default function ServiceDetailPage({
         </>
       ) : (
         <CTA content={{ ctaImage }} />
+      )}
+      </>
       )}
     </>
   );

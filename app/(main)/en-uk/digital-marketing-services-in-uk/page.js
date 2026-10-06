@@ -1,43 +1,14 @@
-import CTA from "@/components/sections/CTA";
-import FAQ from "@/components/sections/FAQ";
-import HomeAbout from "@/components/sections/homeAbout";
-import HomeHero from "@/components/sections/homeHero";
-import OurServices from "@/components/sections/ourServices";
-import CaseStudies from "@/components/sections/caseStudies";
-import StatsShowcase from "@/components/sections/statsShowcase";
-import WhoWeAreBox from "@/components/sections/whoWeAreBox";
-import ClioShowcase from "@/components/sections/clioShowcase";
-import PraxistenceShowcase from "@/components/sections/praxistenceShowcase";
-import Reviews from "@/components/sections/reviews";
-import VideoTestimonial from "@/components/sections/videoTestimonial";
-import WhatMAkesUs from "@/components/sections/whatMakesUs";
-import Recognitions from "@/components/sections/recognitions";
-import IndustriesShowcase from "@/components/sections/industriesShowcase";
-import WhyChooseUs from "@/components/sections/WhyChooseUs";
-import ConsultationPopup from "@/components/sections/popupForm";
-import LatestBlogs from "@/components/sections/latestBlogs";
-import { getPageContent } from "@/actions/pageContentActions";
 import { buildPageMetadata } from "@/lib/pageMetadata";
-import PageSeoScripts from "@/components/sections/pageSeoScripts";
-import { ukPageSchema } from "@/lib/ukPageSchema";
-import { hasCustomSchema } from "@/lib/seo";
+import OutsideLocationPage from "@/components/sections/outsideLocationPage";
 
-// Hidden landing page — mostly the same sections as the real homepage,
-// except: the hero's background is an either/or Image-or-Video choice
-// here (HomeHero's `heroMediaChoice`), read from the dashboard's own
-// fields, instead of the real homepage's fixed local video file; the
-// hero's big outlined "BizzBuzz Creations" wordmark is dropped here only
-// (`showWordmark={false}`); and the "Know More About Us" scroll-zoom
-// section (ScrollZoomReveal) is swapped for WhoWeAreBox here only — same
-// content (Who We Are blurb, stats, quick-links), just a plain static
-// card instead of the pinned 400vh scroll-jacking animation. The real
-// homepage keeps all three unchanged.
-// Has its own editable content (dashboard: "Outside Location Page",
-// below Sub-Service Pages) and its own pageKey, so editing it never
-// touches the real homepage. Deliberately not linked from the navbar,
-// footer, or anywhere else on the site — only reachable at this exact
-// URL (search engines / paid campaigns), which is why it's still listed
-// in sitemap.xml (so it can be indexed) despite having no internal links.
+// Hidden landing page — same layout as every Outside Location page (see
+// components/sections/outsideLocationPage.js). Has its own editable
+// content (dashboard: "Outside Location Page") and its own pageKey, so
+// editing it never touches the real homepage. Deliberately not linked
+// from the navbar, footer, or anywhere else on the site — only reachable
+// at this exact URL (search engines / paid campaigns), which is why it's
+// still listed in sitemap.xml (so it can be indexed) despite having no
+// internal links.
 export async function generateMetadata() {
   return buildPageMetadata("outside-location-uk", {
     title: "Digital Marketing Services in UK | BizzBuzz Creations",
@@ -57,45 +28,8 @@ export async function generateMetadata() {
   });
 }
 
-export default async function DigitalMarketingServicesInUk() {
-  const content = await getPageContent("outside-location-uk");
-
-  return (
-    <>
-      <PageSeoScripts pageKey="outside-location-uk" />
-      {/* Page-specific structured data. The site-wide India LocalBusiness
-          schema is skipped on this route (see allScripts.js); `<` is escaped
-          so no field can close the script tag early. */}
-      {!hasCustomSchema(content) && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(ukPageSchema).replace(/</g, "\\u003c"),
-          }}
-        />
-      )}
-      <HomeHero content={content} showWordmark={false} heroMediaChoice separated />
-      <HomeAbout content={content} separated />
-      <OurServices content={content} />
-      <CaseStudies content={content} plainLogos />
-      <StatsShowcase content={content} />
-      <PraxistenceShowcase content={content} />
-      <WhoWeAreBox content={content} />
-      <ClioShowcase content={content} />
-      <WhatMAkesUs content={content} />
-      <WhyChooseUs dark content={content} />
-      <Recognitions content={content} showIcons={false} />
-      <IndustriesShowcase content={content} />
-      <Reviews content={content} />
-      <VideoTestimonial content={content} />
-      <LatestBlogs dark />
-      <div className="bg-black pt-10">
-        <FAQ content={content} />
-        <CTA content={content} />
-      </div>
-      <ConsultationPopup content={content} />
-    </>
-  );
+export default function DigitalMarketingServicesInUk() {
+  return <OutsideLocationPage pageKey="outside-location-uk" />;
 }
 
 export const dynamic = "force-dynamic";

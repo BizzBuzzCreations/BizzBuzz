@@ -192,6 +192,8 @@ const DEFAULT_FAQS = [
 
 export default async function HowWeWorkPage() {
   const content = await getPageContent("how-we-work");
+  // Sections switched off in the dashboard (Remove section).
+  const hidden = new Set(content?.hiddenSections || []);
 
   const heroHeading =
     content?.hwwHeroHeading || "We Don't Wing It. Here's Our Process";
@@ -301,6 +303,8 @@ export default async function HowWeWorkPage() {
           a fixed 500px, which left the next section peeking in at the
           bottom of the first screen). Mobile keeps its own shorter
           heights. */}
+      {!hidden.has("hwwHero") && (
+      <>
       <section className="relative overflow-hidden min-h-[440px] sm:min-h-[500px] md:min-h-screen flex items-center pt-20 pb-16 px-6 md:px-12 lg:px-24 bg-black">
         <div
           className="absolute inset-0"
@@ -352,8 +356,12 @@ export default async function HowWeWorkPage() {
           </a>
         </div>
       </section>
+      </>
+      )}
 
       {/* Our principles */}
+      {!hidden.has("principles") && (
+      <>
       <section className="bg-black py-20 px-6 md:px-12 lg:px-24 text-white">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold mb-4 max-w-2xl">
@@ -406,8 +414,12 @@ export default async function HowWeWorkPage() {
           </div>
         </div>
       </section>
+      </>
+      )}
 
       {/* Engagement roadmap */}
+      {!hidden.has("hwwRoadmap") && (
+      <>
       <section className="bg-black py-20 px-6 md:px-12 lg:px-24 border-t border-white/10">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-center text-white mb-16">
@@ -416,8 +428,12 @@ export default async function HowWeWorkPage() {
           <RoadmapTimeline steps={roadmapSteps} dark />
         </div>
       </section>
+      </>
+      )}
 
       {/* The Tools Behind Every Strategy */}
+      {!hidden.has("tools") && (
+      <>
       <section className="bg-black py-20 px-6 md:px-12 lg:px-24 border-t border-white/10 text-white">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">
@@ -449,8 +465,12 @@ export default async function HowWeWorkPage() {
           </div>
         </div>
       </section>
+      </>
+      )}
 
       {/* How we onboard new clients */}
+      {!hidden.has("onboarding") && (
+      <>
       <section className="bg-black py-20 px-6 md:px-12 lg:px-24 border-t border-white/10">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-3 max-w-2xl">
@@ -465,8 +485,12 @@ export default async function HowWeWorkPage() {
           <OnboardingCarousel content={content} />
         </div>
       </section>
+      </>
+      )}
 
       {/* What You Can Expect */}
+      {!hidden.has("expectations") && (
+      <>
       <section className="bg-black py-20 px-6 md:px-12 lg:px-24 border-t border-white/10 text-white">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-2">
@@ -501,8 +525,12 @@ export default async function HowWeWorkPage() {
           </div>
         </div>
       </section>
+      </>
+      )}
 
       {/* Industries we apply this process to */}
+      {!hidden.has("hwwIndustries") && (
+      <>
       <section className="bg-black py-20 px-6 md:px-12 lg:px-24 text-white border-t border-white/10">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-2">
@@ -539,8 +567,12 @@ export default async function HowWeWorkPage() {
           </div>
         </div>
       </section>
+      </>
+      )}
 
       {/* Categories we work across */}
+      {!hidden.has("categories") && (
+      <>
       <section className="bg-black text-white py-20 px-6 md:px-12 lg:px-24 border-t border-white/10">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold mb-4 max-w-2xl">
@@ -555,8 +587,12 @@ export default async function HowWeWorkPage() {
           <CategoriesShowcase />
         </div>
       </section>
+      </>
+      )}
 
       {/* FAQ */}
+      {!hidden.has("hwwFaq") && (
+      <>
       <section className="bg-black pt-20 pb-20 px-6 md:px-12 lg:px-24 border-t border-white/10">
         <FAQSection
           faqs={faqs}
@@ -575,9 +611,13 @@ export default async function HowWeWorkPage() {
           answerIconClassName="text-[#40A2D8]"
         />
       </section>
+      </>
+      )}
 
       {/* CTA — page-specific content (not the shared site-wide CTA), same
           visual treatment as it, with a button instead of an email form. */}
+      {!hidden.has("cta") && (
+      <>
       <div className="bg-black px-5 pt-4 pb-10 scroll-mt-34" id="CTA">
         <div
           className="md:flex md:items-stretch rounded-3xl border-2 border-[#0B60B0] shadow-lg shadow-black md:max-w-3xl lg:max-w-5xl xl:max-w-6xl mx-auto container"
@@ -609,12 +649,18 @@ export default async function HowWeWorkPage() {
           <CtaSideImage src={content?.ctaImage} />
         </div>
       </div>
+      </>
+      )}
 
       {/* Full-width white divider before the footer — same as the shared
           CTA's divider, so this page still ends the same way. */}
+      {!hidden.has("cta") && (
+      <>
       <div className="w-full bg-black pt-8 md:pt-10">
         <div className="w-full border-t border-white" />
       </div>
+      </>
+      )}
     </>
   );
 }

@@ -307,6 +307,8 @@ export function RoleCard({
 }
 
 export default function TeamGrids({ content } = {}) {
+  // Sections switched off in the dashboard (Remove section).
+  const hidden = new Set(content?.hiddenSections || []);
   const foundersHeading = content?.foundersHeading || "Meet the Founders";
   const foundersSubheading = content?.foundersSubheading || "The Minds Behind BizzBuzz Creations";
   const foundersParagraph =
@@ -337,6 +339,8 @@ export default function TeamGrids({ content } = {}) {
   return (
     <>
       {/* Founders */}
+      {!hidden.has("founders") && (
+      <>
       <section className="bg-black py-20 px-6 md:px-12 lg:px-24 border-t border-white/10">
         <div className="max-w-6xl mx-auto text-center">
           <motion.div {...fadeUp(0)} className="mb-10">
@@ -356,8 +360,12 @@ export default function TeamGrids({ content } = {}) {
           </div>
         </div>
       </section>
+      </>
+      )}
 
       {/* Our Leaders */}
+      {!hidden.has("leaders") && (
+      <>
       <section className="bg-black py-20 px-6 md:px-12 lg:px-24 border-t border-white/10">
         <div className="max-w-6xl mx-auto">
           <motion.div {...fadeUp(0)} className="mb-10 text-center">
@@ -378,8 +386,12 @@ export default function TeamGrids({ content } = {}) {
           </div>
         </div>
       </section>
+      </>
+      )}
 
       {/* Meet Our Team — BPO & R&D, alternating photo side */}
+      {!hidden.has("teamGroups") && (
+      <>
       <section id="meet-our-team" className="bg-black py-20 px-6 md:px-12 lg:px-24 border-t border-white/10">
         <div className="max-w-6xl mx-auto">
           <motion.h2
@@ -433,8 +445,12 @@ export default function TeamGrids({ content } = {}) {
           </div>
         </div>
       </section>
+      </>
+      )}
 
       {/* What Each Team Brings — the specialities across all our teams */}
+      {!hidden.has("specialties") && (
+      <>
       <section className="bg-black py-20 px-6 md:px-12 lg:px-24 border-t border-white/10">
         <div className="max-w-6xl mx-auto text-center">
           <motion.div {...fadeUp(0)} className="mb-14">
@@ -463,10 +479,14 @@ export default function TeamGrids({ content } = {}) {
           </div>
         </div>
       </section>
+      </>
+      )}
 
       {/* Why It Works Together — auto-scrolling right-to-left marquee,
           paused on hover; the list is duplicated once so the loop is
           seamless at exactly -50%. */}
+      {!hidden.has("whyItWorks") && (
+      <>
       <section className="bg-black py-20 overflow-hidden border-t border-white/10">
         <motion.h2
           {...fadeUp(0)}
@@ -493,6 +513,8 @@ export default function TeamGrids({ content } = {}) {
           </div>
         </div>
       </section>
+      </>
+      )}
     </>
   );
 }

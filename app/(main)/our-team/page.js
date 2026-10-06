@@ -22,6 +22,8 @@ export async function generateMetadata() {
 
 export default async function OurTeamPage() {
   const content = await getPageContent("our-team");
+  // Sections switched off in the dashboard (Remove section).
+  const hidden = new Set(content?.hiddenSections || []);
 
   const ctaHeading = content?.teamCtaHeading || "Want to Work With the People Behind the Work?";
   const ctaParagraph =
@@ -33,7 +35,11 @@ export default async function OurTeamPage() {
   return (
     <>
       <PageSeoScripts pageKey="our-team" />
+      {!hidden.has("teamHero") && (
+      <>
       <TeamHero content={content} />
+      </>
+      )}
 
       {/* Founders, Our Leaders, and the BPO/R&D team photos — all with a
           staggered one-by-one reveal as they scroll into view. */}
@@ -41,6 +47,8 @@ export default async function OurTeamPage() {
 
       {/* Contact — same working form as the Contact page, with its own
           page-scoped heading/copy overrides. */}
+      {!hidden.has("teamContact") && (
+      <>
       <ContactSection
         content={{
           contactHeroHeading: content?.teamContactHeading,
@@ -49,9 +57,13 @@ export default async function OurTeamPage() {
           contactFormButtonText: content?.teamContactFormButtonText,
         }}
       />
+      </>
+      )}
 
       {/* CTA — page-specific (not the shared site-wide CTA), same visual
           treatment as it, with two audiences instead of an email form. */}
+      {!hidden.has("teamCta") && (
+      <>
       <div className="bg-black px-5 py-10 scroll-mt-34">
         <div
           className="md:flex md:items-stretch rounded-3xl border-2 border-[#0B60B0] shadow-lg shadow-black md:max-w-3xl lg:max-w-5xl xl:max-w-6xl mx-auto container"
@@ -96,12 +108,18 @@ export default async function OurTeamPage() {
           <CtaSideImage src={content?.teamCtaImage} />
         </div>
       </div>
+      </>
+      )}
 
       {/* Full-width white divider before the footer — same as the shared
           CTA's divider, so this page still ends the same way. */}
+      {!hidden.has("teamCta") && (
+      <>
       <div className="w-full bg-black pt-8 md:pt-10">
         <div className="w-full border-t border-white" />
       </div>
+      </>
+      )}
     </>
   );
 }

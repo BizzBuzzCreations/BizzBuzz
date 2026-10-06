@@ -28,6 +28,8 @@ export default async function Career() {
   };
 
   const content = await getPageContent("career");
+  // Sections switched off in the dashboard (Remove section).
+  const hidden = new Set(content?.hiddenSections || []);
   const openPositionsHeading = content?.openPositionsHeading || "Open Positions";
 
   const response = await getAllJobs();
@@ -36,11 +38,21 @@ export default async function Career() {
   return (
     <>
       <PageSeoScripts pageKey="career" />
+      {!hidden.has("careerHero") && (
+      <>
       <CareerHero content={content} />
+      </>
+      )}
 
+      {!hidden.has("careerWhyUs") && (
+      <>
       <CareerWhyUs content={content} />
+      </>
+      )}
 
       {/* Open roles */}
+      {!hidden.has("openPositions") && (
+      <>
       <section id="open-positions" className="bg-black py-16 px-6 md:px-12 lg:px-24 scroll-mt-20 border-t border-white/10">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-center text-white mb-3">
@@ -75,13 +87,23 @@ export default async function Career() {
           )}
         </div>
       </section>
+      </>
+      )}
 
+      {!hidden.has("careerJoinTeam") && (
+      <>
       <CareerJoinTeam content={content} />
+      </>
+      )}
 
       {/* CTA — just above the footer */}
+      {!hidden.has("cta") && (
+      <>
       <div className="bg-black pt-4">
         <CTA content={content} />
       </div>
+      </>
+      )}
     </>
   );
 }

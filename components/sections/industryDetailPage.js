@@ -90,9 +90,14 @@ export default function IndustryDetailPage({
   ctaPrimaryText,
   ctaSecondaryText,
   ctaImage,
+  hiddenSections,
 }) {
+  // Sections switched off in the dashboard (Remove section).
+  const hidden = new Set(hiddenSections || []);
   return (
     <>
+      {!hidden.has("hero") && (
+      <>
       {/* Hero — full-bleed background photo (same treatment used for the
           sub-service pages' heroImage) when supplied; otherwise the plain
           gradient hero. These industry photos are all a uniform 1440x504
@@ -197,6 +202,10 @@ export default function IndustryDetailPage({
         </div>
       </section>
 
+      </>
+      )}
+      {!hidden.has("capabilities") && (
+      <>
       {/* Core capabilities */}
       <section className="bg-black py-20 px-6 md:px-12 lg:px-24 border-t border-white/10">
         <div className="max-w-6xl mx-auto">
@@ -237,10 +246,12 @@ export default function IndustryDetailPage({
         </div>
       </section>
 
+      </>
+      )}
       {/* Service breakdown — optional, only rendered when the industry
           supplies it via lib/industryPageContent.js. Each card expands on
           click to reveal its full list of specific services. */}
-      {serviceBreakdown && serviceBreakdown.length > 0 && (
+      {!hidden.has("serviceBreakdown") && serviceBreakdown && serviceBreakdown.length > 0 && (
         <section className="bg-black py-20 px-6 md:px-12 lg:px-24 border-t border-white/10">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-2xl md:text-3xl font-bold text-white text-center mb-14">
@@ -255,7 +266,7 @@ export default function IndustryDetailPage({
           industry supplies it. Deliberately not another card grid: an
           alternating timeline down a center spine, so this differentiator
           list reads as a distinct visual moment on the page. */}
-      {differentiators && differentiators.length > 0 && (
+      {!hidden.has("differentiators") && differentiators && differentiators.length > 0 && (
         <section className="bg-black py-20 px-6 md:px-12 lg:px-24 border-t border-white/10">
           <div className="max-w-5xl mx-auto">
             <h2 className="text-2xl md:text-3xl font-bold text-white text-center mb-16 md:mb-20">
@@ -317,7 +328,7 @@ export default function IndustryDetailPage({
           Auto-scrolling carousel (left-to-right, pauses on hover) instead
           of a static grid, so the step-by-step process reads as motion
           rather than another block of cards. */}
-      {roadmapCarouselSteps && roadmapCarouselSteps.length > 0 && (
+      {!hidden.has("roadmap") && roadmapCarouselSteps && roadmapCarouselSteps.length > 0 && (
         <section className="bg-black py-20 px-6 md:px-12 lg:px-24 border-t border-white/10">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-2xl md:text-3xl font-bold text-white text-center mb-14">
@@ -471,8 +482,12 @@ export default function IndustryDetailPage({
       )}
 
       {/* FAQ */}
-      <DarkFAQSection faqs={faqs} heading={faqsHeading || "Frequently Asked Questions"} />
+      {!hidden.has("faq") && (
+  <DarkFAQSection faqs={faqs} heading={faqsHeading || "Frequently Asked Questions"} />
+      )}
 
+      {!hidden.has("whyChooseUs") && (
+      <>
       {/* Why choose us — replaced with a single custom heading + paragraph
           when whyChooseUsText is supplied (e.g. Healthcare's local-market
           positioning copy); otherwise the generic trustPoints checklist
@@ -551,6 +566,10 @@ export default function IndustryDetailPage({
         </div>
       </section>
 
+      </>
+      )}
+      {!hidden.has("cta") && (
+      <>
       {ctaHeading ? (
         <>
           {/* Page-local CTA — heading + paragraph + two buttons, both
@@ -600,6 +619,8 @@ export default function IndustryDetailPage({
         </>
       ) : (
         <CTA content={{ ctaImage }} />
+      )}
+      </>
       )}
     </>
   );

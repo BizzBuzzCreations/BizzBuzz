@@ -18,15 +18,29 @@ export async function generateMetadata() {
 
 export default async function FAQPage() {
   const content = await getPageContent("faq");
+  // Sections switched off in the dashboard (Remove section).
+  const hidden = new Set(content?.hiddenSections || []);
 
   return (
     <>
       <PageSeoScripts pageKey="faq" />
+      {!hidden.has("faqHero") && (
+      <>
       <FaqHero content={content} />
+      </>
+      )}
+      {!hidden.has("faqTopics") && (
+      <>
       <FaqTopics content={content} />
+      </>
+      )}
+      {!hidden.has("cta") && (
+      <>
       <div className="bg-black pt-4">
         <CTA content={content} />
       </div>
+      </>
+      )}
     </>
   );
 }

@@ -183,6 +183,8 @@ function ServiceCard({ service, description, buttonText }) {
 
 export default async function ServicesIndexPage() {
   const content = await getPageContent("services");
+  // Sections switched off in the dashboard (Remove section).
+  const hidden = new Set(content?.hiddenSections || []);
   const services = Object.values(SERVICES);
 
   const heroHeading = content?.servicesHeroHeading || "Stop Juggling Agencies. Start Growing.";
@@ -254,6 +256,8 @@ export default async function ServicesIndexPage() {
       {/* md:min-h-screen — fills the full viewport on desktop/laptop (was
           a fixed 520px, which left the next section peeking in on the
           first screen). */}
+      {!hidden.has("servicesHero") && (
+      <>
       <section className="relative overflow-hidden md:min-h-screen flex items-center pt-10 md:pt-28 pb-12 md:pb-20 px-6 md:px-12 lg:px-24 text-white bg-black">
         {/* The icon-grid artwork is a very wide (~3.45:1) strip. Stretched
             edge-to-edge with `cover` over a full-viewport-tall section it
@@ -353,8 +357,12 @@ export default async function ServicesIndexPage() {
           </div>
         </div>
       </section>
+      </>
+      )}
 
       {/* Services grid */}
+      {!hidden.has("servicesGrid") && (
+      <>
       <section id="services-grid" className="relative bg-black py-20 px-6 md:px-12 lg:px-24 border-t border-white/10 overflow-hidden">
         {/* Same animated particle backdrop used on the contact page */}
         <div className="absolute inset-0 z-0 pointer-events-none" aria-hidden="true">
@@ -398,8 +406,12 @@ export default async function ServicesIndexPage() {
           </div>
         </div>
       </section>
+      </>
+      )}
 
       {/* What every engagement includes — real, company-wide facts */}
+      {!hidden.has("engagement") && (
+      <>
       <section className="bg-[#050505] py-20 px-6 md:px-12 lg:px-24 border-t border-white/10">
         <div className="max-w-6xl mx-auto">
           <p className="text-xs font-bold uppercase tracking-widest text-[#40A2D8] text-center mb-3">
@@ -436,8 +448,12 @@ export default async function ServicesIndexPage() {
           </div>
         </div>
       </section>
+      </>
+      )}
 
       {/* Not sure where to start — self-select by problem, flowing carousel */}
+      {!hidden.has("scenarios") && (
+      <>
       <section className="bg-black py-20 px-6 md:px-12 lg:px-24 border-t border-white/10">
         <div className="max-w-6xl mx-auto mb-14 text-center">
           <p className="text-xs font-bold uppercase tracking-widest text-[#40A2D8] mb-3">
@@ -459,8 +475,12 @@ export default async function ServicesIndexPage() {
           }))}
         />
       </section>
+      </>
+      )}
 
       {/* Why Choose Us */}
+      {!hidden.has("servicesProcess") && (
+      <>
       <section className="bg-black py-20 px-6 md:px-12 lg:px-24 border-t border-white/10">
         <div className="max-w-6xl mx-auto">
           <p className="text-xs font-bold uppercase tracking-widest text-[#40A2D8] text-center mb-3">
@@ -491,14 +511,24 @@ export default async function ServicesIndexPage() {
           </div>
         </div>
       </section>
+      </>
+      )}
 
       {/* FAQs — questions specific to choosing/working with our services */}
+      {!hidden.has("servicesFaq") && (
+      <>
       <DarkFAQSection
         faqs={content?.servicesFaqItems?.length > 0 ? content.servicesFaqItems : SERVICES_FAQS}
         heading={content?.servicesFaqHeading || "Frequently Asked Questions"}
       />
+      </>
+      )}
 
+      {!hidden.has("cta") && (
+      <>
       <CTA content={content} />
+      </>
+      )}
     </>
   );
 }

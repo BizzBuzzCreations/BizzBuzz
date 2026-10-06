@@ -100,6 +100,8 @@ const DEFAULT_GUIDES_FAQS = [
 
 export default async function GuidesPage() {
   const content = await getPageContent("guides");
+  // Sections switched off in the dashboard (Remove section).
+  const hidden = new Set(content?.hiddenSections || []);
 
   const allGuidesHeading = content?.allGuidesHeading || "All Guides";
   const guidesRaw = content?.guides?.length > 0 ? content.guides : DEFAULT_GUIDES;
@@ -140,9 +142,15 @@ export default async function GuidesPage() {
   return (
     <>
       <PageSeoScripts pageKey="guides" />
+      {!hidden.has("guidesHero") && (
+      <>
       <GuidesHero content={content} />
+      </>
+      )}
 
       {/* Guides — list + sidebar, dark theme */}
+      {!hidden.has("allGuides") && (
+      <>
       <section id="all-guides" className="bg-black text-white py-16 px-6 md:px-12 lg:px-24">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-[1fr_320px] gap-12">
           <div>
@@ -179,6 +187,7 @@ export default async function GuidesPage() {
             </div>
           </div>
 
+          {!hidden.has("guidesSidebar") && (
           <aside className="lg:sticky lg:top-28 lg:self-start">
             <div
               className="relative flex flex-col rounded-2xl p-7 overflow-hidden border border-white/20 shadow-2xl shadow-[#0B60B0]/30"
@@ -210,19 +219,30 @@ export default async function GuidesPage() {
               </div>
             </div>
           </aside>
+          )}
         </div>
       </section>
+      </>
+      )}
 
       {/* FAQs — questions specific to the guides/resources library */}
+      {!hidden.has("guidesFaq") && (
+      <>
       <DarkFAQSection faqs={GUIDES_FAQS} heading={faqHeading} />
+      </>
+      )}
 
       {/* Latest blogs — real, live content from the blog */}
       <LatestBlogs dark />
 
       {/* CTA — just above the footer */}
+      {!hidden.has("cta") && (
+      <>
       <div className="bg-black pt-4">
         <CTA content={content} />
       </div>
+      </>
+      )}
     </>
   );
 }

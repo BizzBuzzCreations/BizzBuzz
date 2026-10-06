@@ -5,12 +5,24 @@ import {
   getPageContentForEditor,
   savePageContent,
 } from "@/actions/pageContentActions";
+import {
+  createOutsidePage,
+  deleteOutsidePage,
+  listOutsidePages,
+} from "@/actions/outsidePageActions";
 import { OUTSIDE_LOCATION_REGISTRY } from "@/lib/outsideLocationRegistry";
+import { originalPathFor } from "@/lib/seo";
 import { getPageMeta } from "@/lib/pageContentRegistry";
 import { uploadFileDirect } from "@/lib/directUpload";
 import InlineRichEditor from "@/components/ui/inlineRichEditor";
 import MediaLibraryButton from "@/components/sections/mediaLibrary";
 import SeoPanel from "@/components/sections/dashboardSeo";
+import SectionHeader from "@/components/ui/sectionHeader";
+import {
+  canRemoveSection,
+  isSectionRemoved,
+  toggleSectionRemoved,
+} from "@/lib/hiddenSections";
 import { ICON_OPTIONS } from "@/lib/iconOptions";
 
 // Identical field controls to DashboardContent (components/sections/dashboardContent.js)
@@ -227,6 +239,77 @@ export default function DashboardOutsideLocation() {
   const [saving, setSaving] = useState(false);
   const [savedAt, setSavedAt] = useState(null);
 
+  // Pages created from this dashboard (on top of the built-in UK page).
+  // Every one has exactly the UK page's structure.
+  const [created, setCreated] = useState([]);
+  const [formOpen, setFormOpen] = useState(false);
+  const [newName, setNewName] = useState("");
+  const [newSlug, setNewSlug] = useState("");
+  const [slugEdited, setSlugEdited] = useState(false);
+  const [formError, setFormError] = useState("");
+  const [busy, setBusy] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+    listOutsidePages().then((pages) => {
+      if (!cancelled) setCreated(pages);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const pageOptions = [
+    ...OUTSIDE_LOCATION_REGISTRY.map((p) => ({ key: p.key, label: p.label })),
+    ...created.map((p) => ({ key: p.pageKey, label: p.label })),
+  ];
+  const isCreatedPage = created.some((p) => p.pageKey === pageKey);
+  const livePath = originalPathFor(pageKey);
+
+  const slugify = (text) =>
+    text
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "")
+      .slice(0, 80);
+
+  const handleCreate = async () => {
+    setFormError("");
+    setBusy(true);
+    const res = await createOutsidePage({ label: newName, slug: newSlug });
+    setBusy(false);
+    if (!res?.success) {
+      setFormError(res?.message || "Failed to create the page.");
+      return;
+    }
+    setCreated((prev) => [...prev, res.page]);
+    setPageKey(res.page.pageKey);
+    setFormOpen(false);
+    setNewName("");
+    setNewSlug("");
+    setSlugEdited(false);
+  };
+
+  const handleDelete = async () => {
+    const label = created.find((p) => p.pageKey === pageKey)?.label || "this page";
+    if (
+      !window.confirm(
+        `Delete "${label}"? The page and everything saved on it will be removed from the website. This can't be undone.`,
+      )
+    ) {
+      return;
+    }
+    setBusy(true);
+    const res = await deleteOutsidePage(pageKey);
+    setBusy(false);
+    if (!res?.success) {
+      alert(res?.message || "Failed to delete the page.");
+      return;
+    }
+    setCreated((prev) => prev.filter((p) => p.pageKey !== pageKey));
+    setPageKey(OUTSIDE_LOCATION_REGISTRY[0]?.key || "");
+  };
+
   const page = getPageMeta(pageKey);
 
   useEffect(() => {
@@ -291,13 +374,20 @@ export default function DashboardOutsideLocation() {
         </div>
         <div className="flex items-center gap-3">
           <MediaLibraryButton />
+          <button
+            type="button"
+            onClick={() => setFormOpen((o) => !o)}
+            className="rounded-lg bg-linear-to-br from-indigo-500 to-violet-500 px-4 py-2.5 text-sm font-semibold text-white"
+          >
+            {formOpen ? "Cancel" : "+ Create New Page"}
+          </button>
           <div className="relative">
             <select
               value={pageKey}
               onChange={(e) => setPageKey(e.target.value)}
               className="min-w-[220px] appearance-none rounded-lg border border-slate-200 bg-white py-2.5 pl-4 pr-9 text-sm font-medium text-slate-700 outline-none focus:border-slate-400"
             >
-              {OUTSIDE_LOCATION_REGISTRY.map((p) => (
+              {pageOptions.map((p) => (
                 <option key={p.key} value={p.key}>
                   {p.label}
                 </option>
@@ -316,6 +406,88 @@ export default function DashboardOutsideLocation() {
         </div>
       </div>
 
+      {formOpen && (
+        <div className="mb-6 rounded-xl border border-indigo-100 bg-indigo-50/50 p-5">
+          <h3 className="mb-1 text-sm font-bold text-slate-800">Create a new Outside Location page</h3>
+          <p className="mb-4 text-xs text-slate-500">
+            The new page gets exactly the same structure and starting content as
+            the UK page — every section, in the same order. Edit its content,
+            SEO and sections here afterwards. It lives at{" "}
+            <b>/en-uk/&lt;url-slug&gt;</b>.
+          </p>
+          <div className="grid gap-4 sm:grid-cols-2">
+            <div>
+              <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wide text-slate-400">
+                Page name
+              </label>
+              <input
+                type="text"
+                value={newName}
+                placeholder="e.g. Digital Marketing Services in Canada"
+                onChange={(e) => {
+                  setNewName(e.target.value);
+                  if (!slugEdited) setNewSlug(slugify(e.target.value));
+                }}
+                className="w-full rounded-lg border border-slate-200 bg-white px-3.5 py-2.5 text-sm outline-none focus:border-slate-400"
+              />
+            </div>
+            <div>
+              <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wide text-slate-400">
+                URL slug
+              </label>
+              <input
+                type="text"
+                value={newSlug}
+                placeholder="digital-marketing-services-in-canada"
+                onChange={(e) => {
+                  setSlugEdited(true);
+                  setNewSlug(slugify(e.target.value));
+                }}
+                className="w-full rounded-lg border border-slate-200 bg-white px-3.5 py-2.5 text-sm outline-none focus:border-slate-400"
+              />
+              <p className="mt-1 text-xs text-slate-400">
+                Live URL: https://bizzbuzzcreations.com/en-uk/{newSlug || "…"}
+              </p>
+            </div>
+          </div>
+          {formError && <p className="mt-3 text-sm text-red-500">{formError}</p>}
+          <button
+            type="button"
+            onClick={handleCreate}
+            disabled={busy || !newName.trim() || !newSlug}
+            className="mt-4 rounded-[10px] bg-linear-to-br from-indigo-500 to-violet-500 px-6 py-2.5 text-sm font-semibold text-white disabled:opacity-60"
+          >
+            {busy ? "Creating..." : "Create Page"}
+          </button>
+        </div>
+      )}
+
+      {livePath && (
+        <div className="mb-5 flex flex-wrap items-center gap-3 text-xs text-slate-500">
+          <span>
+            Live URL:{" "}
+            <a
+              href={livePath}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-indigo-600 hover:underline"
+            >
+              https://bizzbuzzcreations.com{livePath}
+            </a>
+          </span>
+          {isCreatedPage && (
+            <button
+              type="button"
+              onClick={handleDelete}
+              disabled={busy}
+              className="rounded-lg border border-red-200 bg-white px-3 py-1.5 text-xs font-semibold text-red-600 hover:bg-red-50 disabled:opacity-60"
+            >
+              Delete this page
+            </button>
+          )}
+        </div>
+      )}
+
       {loading ? (
         <p className="text-sm text-slate-400">Loading content...</p>
       ) : (
@@ -325,10 +497,19 @@ export default function DashboardOutsideLocation() {
               key={section.key}
               className="rounded-xl border border-slate-100 bg-slate-50/60 p-5"
             >
-              <h3 className="mb-4 text-sm font-bold text-slate-800">
-                {section.label}
-              </h3>
-              <div className="grid gap-4 sm:grid-cols-2">
+              <SectionHeader
+                title={section.label}
+                removable={canRemoveSection(page, section.key)}
+                removed={isSectionRemoved(values, section.key)}
+                onToggle={() =>
+                  handleChange("hiddenSections", toggleSectionRemoved(values, section.key))
+                }
+              />
+              <div
+                className={`grid gap-4 sm:grid-cols-2 ${
+                  isSectionRemoved(values, section.key) ? "hidden" : ""
+                }`}
+              >
                 {section.fields.map((field) => (
                   <div
                     key={field.key}

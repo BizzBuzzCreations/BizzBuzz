@@ -10,6 +10,12 @@ import { uploadFileDirect } from "@/lib/directUpload";
 import InlineRichEditor from "@/components/ui/inlineRichEditor";
 import MediaLibraryButton from "@/components/sections/mediaLibrary";
 import SeoPanel from "@/components/sections/dashboardSeo";
+import SectionHeader from "@/components/ui/sectionHeader";
+import {
+  canRemoveSection,
+  isSectionRemoved,
+  toggleSectionRemoved,
+} from "@/lib/hiddenSections";
 
 function MediaField({ value, onChange, label, kind }) {
   const [uploading, setUploading] = useState(false);
@@ -300,10 +306,19 @@ export default function DashboardContent() {
               key={section.key}
               className="rounded-xl border border-slate-100 bg-slate-50/60 p-5"
             >
-              <h3 className="mb-4 text-sm font-bold text-slate-800">
-                {section.label}
-              </h3>
-              <div className="grid gap-4 sm:grid-cols-2">
+              <SectionHeader
+                title={section.label}
+                removable={canRemoveSection(page, section.key)}
+                removed={isSectionRemoved(values, section.key)}
+                onToggle={() =>
+                  handleChange("hiddenSections", toggleSectionRemoved(values, section.key))
+                }
+              />
+              <div
+                className={`grid gap-4 sm:grid-cols-2 ${
+                  isSectionRemoved(values, section.key) ? "hidden" : ""
+                }`}
+              >
                 {section.fields.map((field) => (
                   <div
                     key={field.key}
