@@ -241,9 +241,9 @@ export default function IndustryDetailPage({
               {capabilities.map(({ title, desc }, i) => (
                 <div
                   key={title}
-                  className="flex h-full items-start gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-6"
+                  className="group flex h-full items-start gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-[#40A2D8]/50 hover:bg-[#0B60B0] hover:shadow-xl hover:shadow-[#0B60B0]/20"
                 >
-                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/10 text-base font-bold text-[#40A2D8]">
+                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/10 text-base font-bold text-[#40A2D8] transition-colors duration-300 group-hover:border-white group-hover:bg-white group-hover:text-[#0B60B0]">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <div className="min-w-0 flex-1">
@@ -252,7 +252,9 @@ export default function IndustryDetailPage({
                     <h3 className="mb-3 text-sm font-bold uppercase tracking-wide text-white sm:min-h-[2.5rem]">
                       {title}
                     </h3>
-                    <p className="text-sm leading-relaxed text-white">{desc}</p>
+                    <p className="text-sm leading-relaxed text-white transition-colors duration-300 group-hover:text-white/85">
+                      {desc}
+                    </p>
                   </div>
                 </div>
               ))}
