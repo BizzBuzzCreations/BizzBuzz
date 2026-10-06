@@ -13,9 +13,12 @@ export default function AllScripts() {
 
   return (
     <>
-      <Script src="https://www.googletagmanager.com/gtag/js?id=G-Z0B5EJDR4C" />
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-Z0B5EJDR4C"
+        strategy="lazyOnload"
+      />
 
-      <Script id="ga-init">
+      <Script id="ga-init" strategy="lazyOnload">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}

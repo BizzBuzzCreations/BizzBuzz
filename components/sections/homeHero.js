@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { RICH_TEXT_CLASS, richTextHTML, richTextScopeClass } from "@/components/ui/richText";
 
@@ -44,6 +44,32 @@ export default function HomeHero({
   const chosenVideo = heroMediaChoice ? content?.heroVideo : "";
   const chosenImage = heroMediaChoice && !chosenVideo ? content?.heroPosterImage : "";
 
+  // Mobile PageSpeed: the page used to render BOTH <video> elements (the
+  // desktop one is only display:none on phones, which still fetches it) and
+  // start them during the initial load, competing with the LCP text/CSS/JS.
+  // Now the video that matches the viewport is mounted only after the page
+  // has finished loading (and is skipped entirely on Data Saver).
+  const [mediaMode, setMediaMode] = useState(null); // null | "desktop" | "mobile"
+  useEffect(() => {
+    if (navigator.connection?.saveData) return;
+    const mq = window.matchMedia("(min-width: 768px)");
+    let idleId;
+    const start = () => {
+      const run = () => setMediaMode(mq.matches ? "desktop" : "mobile");
+      idleId =
+        "requestIdleCallback" in window
+          ? window.requestIdleCallback(run, { timeout: 2500 })
+          : window.setTimeout(run, 1200);
+    };
+    if (document.readyState === "complete") start();
+    else window.addEventListener("load", start, { once: true });
+    return () => {
+      window.removeEventListener("load", start);
+      if ("cancelIdleCallback" in window) window.cancelIdleCallback(idleId);
+      else window.clearTimeout(idleId);
+    };
+  }, []);
+
   return (
     <>
       <div className="relative overflow-hidden min-h-screen text-white flex flex-col justify-center pb-30 -mt-14 pt-14 md:-mt-[72px] md:pt-[72px] bg-black">
@@ -69,7 +95,7 @@ export default function HomeHero({
             section's own dark scrim/background. */}
         {heroMediaChoice ? (
           <>
-            {chosenVideo && (
+            {chosenVideo && mediaMode === "desktop" && (
               <video
                 key={chosenVideo}
                 src={chosenVideo}
@@ -86,22 +112,24 @@ export default function HomeHero({
               <img
                 src={chosenImage}
                 alt=""
+                decoding="async"
                 className="hidden md:block absolute inset-0 w-full h-full object-cover bg-black"
               />
             )}
           </>
         ) : (
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            className="hidden md:block absolute inset-0 w-full h-full object-cover bg-black"
-          >
-            <source src="/hero-sec.webm" type="video/webm" />
-            <source src="/Sequence 01 1.mp4" type="video/mp4" />
-          </video>
+          mediaMode === "desktop" && (
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              className="hidden md:block absolute inset-0 w-full h-full object-cover bg-black"
+            >
+              <source src="/hero-sec.mp4" type="video/mp4" />
+            </video>
+          )
         )}
 
         {/* Dark scrim so text stays readable over any video/image */}
@@ -136,7 +164,7 @@ export default function HomeHero({
 
         <div className="relative z-10 2xl:px-20 px-5 md:pt-20 pt-6 max-w-3xl">
           <motion.h1
-            initial={{ opacity: 0, y: 24 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={reveal}
             className="md:text-3xl xl:text-4xl text-xl font-bold mb-4"
@@ -157,7 +185,7 @@ export default function HomeHero({
             </motion.svg>
           )}
           <motion.h2
-            initial={{ opacity: 0, y: 24 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ ...reveal, delay: 0.22 }}
             className="text-lg md:text-xl font-semibold text-white mt-4 mb-4"
@@ -165,7 +193,7 @@ export default function HomeHero({
             {subheading}
           </motion.h2>
           <motion.p
-            initial={{ opacity: 0, y: 24 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ ...reveal, delay: 0.3 }}
             className={`max-w-xl mb-10 ${RICH_TEXT_CLASS} ${richTextScopeClass(subtext)}`}
@@ -188,16 +216,18 @@ export default function HomeHero({
             >
               {heroMediaChoice ? (
                 chosenVideo ? (
-                  <video
-                    key={chosenVideo}
-                    src={chosenVideo}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="metadata"
-                    className="absolute inset-0 w-full h-full object-cover bg-black"
-                  />
+                  mediaMode === "mobile" && (
+                    <video
+                      key={chosenVideo}
+                      src={chosenVideo}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      preload="metadata"
+                      className="absolute inset-0 w-full h-full object-cover bg-black"
+                    />
+                  )
                 ) : (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img
@@ -207,17 +237,18 @@ export default function HomeHero({
                   />
                 )
               ) : (
-                <video
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  preload="metadata"
-                  className="absolute inset-0 w-full h-full object-cover bg-black"
-                >
-                  <source src="/hero-sec.webm" type="video/webm" />
-                  <source src="/Sequence 01 1.mp4" type="video/mp4" />
-                </video>
+                mediaMode === "mobile" && (
+                  <video
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
+                    className="absolute inset-0 w-full h-full object-cover bg-black"
+                  >
+                    <source src="/hero-sec.mp4" type="video/mp4" />
+                  </video>
+                )
               )}
             </motion.div>
           )}

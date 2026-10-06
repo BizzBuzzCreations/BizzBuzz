@@ -114,9 +114,7 @@ export default async function Home() {
   );
 }
 
-// LatestBlogs fetches from MongoDB — force-dynamic so this page renders at
-// request time instead of during `next build`, where the build sandbox
-// can't reliably resolve the Atlas mongodb+srv:// DNS record (this was
-// causing the Netlify build to fail outright). Same pattern already used
-// on /career and /blog.
-export const dynamic = "force-dynamic";
+// ISR — served from cache and regenerated at most every 60s (and instantly
+// on dashboard saves / blog publishes via revalidatePath). Replaces
+// force-dynamic, which hit MongoDB on every request and slowed TTFB.
+export const revalidate = 60;

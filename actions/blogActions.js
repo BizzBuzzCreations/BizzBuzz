@@ -281,8 +281,8 @@ export async function getPublishedBlogsMongo(page = 1, category = "all", perPage
 }
 
 export async function getLatestThreeBlogsMongo() {
-  await connectDB();
   try {
+    await connectDB();
     await publishDueScheduledPosts();
     const blogs = await Blog.find({ status: "published" })
       .sort({ publishedAt: -1 })

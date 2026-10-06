@@ -44,7 +44,7 @@ export default function ClioShowcase({ content }) {
   // reference (silently masked before by the video always loading fast
   // enough to cover it up); using an existing, on-brand AI photo instead.
   const posterImage = content?.clioPosterImage || "/AI solutions 2.png";
-  const videoSrc = content?.clioVideo || "/ai-vid.webm";
+  const videoSrc = content?.clioVideo || "/ai-vid.mp4";
   const buttonLink = content?.clioButtonLink || "https://clio.praxistence.com/";
   const buttonText = content?.clioButtonText || "Explore Clio AI";
 
@@ -132,7 +132,8 @@ export default function ClioShowcase({ content }) {
         </div>
 
         {/* Content side */}
-        <div className="order-3 lg:order-none lg:col-start-2 lg:row-start-3 px-8 sm:px-12 lg:px-16 pt-6 pb-8 sm:pb-12 lg:pt-0 lg:pb-16 flex flex-col gap-6 text-white">
+        <div className="order-3 lg:order-none lg:col-start-2 lg:row-start-3 px-8 sm:px-12 lg:px-16 pt-6 pb-8 sm:pb-12 lg:pt-0 lg:pb-16 flex flex-col gap-6 text-white">
+
           <RichText as="p" text={paragraph} className="text-white max-w-xl" />
 
           {/* 2x2 on every screen below lg (was sm:grid-cols-2, so phones

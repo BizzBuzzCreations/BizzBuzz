@@ -64,7 +64,6 @@ export default function RootLayout({ children }) {
           sparkCount={8}
           duration={450}
         />
-        <Script src="/js/flowbite.min.js" strategy="afterInteractive" />
         <ToastContainer
           position="top-right"
           autoClose={5000}
