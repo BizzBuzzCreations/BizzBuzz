@@ -237,14 +237,19 @@ export default function IndustryDetailPage({
               collapsed card height across every industry (all 15 use
               capabilitiesHoverReveal). */}
           {capabilitiesLayout === "numbered" ? (
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
               {capabilities.map(({ title, desc }, i) => (
-                <div key={title} className="flex items-start gap-5">
-                  <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/10 text-lg font-bold text-[#40A2D8]">
+                <div
+                  key={title}
+                  className="flex h-full items-start gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-6"
+                >
+                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/10 text-base font-bold text-[#40A2D8]">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <div className="min-w-0">
-                    <h3 className="mb-2 text-sm font-bold uppercase tracking-wide text-white">
+                  <div className="min-w-0 flex-1">
+                    {/* Fixed two-line title height so every description in a
+                        row starts at the same level, whatever the title length. */}
+                    <h3 className="mb-3 text-sm font-bold uppercase tracking-wide text-white sm:min-h-[2.5rem]">
                       {title}
                     </h3>
                     <p className="text-sm leading-relaxed text-white">{desc}</p>
