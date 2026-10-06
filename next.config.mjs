@@ -47,6 +47,16 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      // www -> the main (non-www) domain, which is what every canonical
+      // URL, the sitemap and Search Console use. Needs the www DNS record
+      // (CNAME www -> bizzbuzzcreations.com) to exist for visitors to
+      // reach this at all.
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.bizzbuzzcreations.com" }],
+        destination: "https://bizzbuzzcreations.com/:path*",
+        permanent: true,
+      },
       // Service pages renamed for clarity — 301s preserve existing SEO
       // rankings/backlinks and any bookmarked or Google-indexed old URLs.
       {
