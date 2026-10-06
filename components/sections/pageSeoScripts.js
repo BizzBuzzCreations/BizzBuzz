@@ -1,5 +1,5 @@
 import { getPageContent } from "@/actions/pageContentActions";
-import { isTrue, parseSchemaJson } from "@/lib/seo";
+import { hasCustomSchema, isTrue, parseSchemaJson } from "@/lib/seo";
 import ImageAltPatcher from "@/components/sections/imageAltPatcher";
 
 // Rendered once near the top of every dashboard-editable page. Outputs
@@ -29,6 +29,9 @@ export default async function PageSeoScripts({ pageKey }) {
       {jsonLd && (
         <script
           type="application/ld+json"
+          // Lets the site-wide default schema (allScripts.js) see that this
+          // page carries its own and not add a duplicate.
+          data-custom-schema="true"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
           }}

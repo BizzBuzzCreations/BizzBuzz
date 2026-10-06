@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import {
-  getPageContent,
+  getPageContentForEditor,
   savePageContent,
 } from "@/actions/pageContentActions";
 import { PAGE_CONTENT_REGISTRY, getPageMeta } from "@/lib/pageContentRegistry";
@@ -209,7 +209,7 @@ export default function DashboardContent() {
         setSavedAt(null);
       }
     }, 0);
-    getPageContent(pageKey).then((data) => {
+    getPageContentForEditor(pageKey).then((data) => {
       if (!cancelled) {
         setValues(data);
         setLoading(false);

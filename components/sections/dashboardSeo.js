@@ -10,12 +10,14 @@ import {
   collectImages,
   currentSlugFor,
   isTrue,
+  isValidHreflangCode,
   parseSchemaJson,
   publicPathFor,
   schemaTemplate,
   setValueAtPath,
   splitKeywords,
 } from "@/lib/seo";
+import { defaultSchemaJsonFor, defaultSchemaTypeFor } from "@/lib/siteSchema";
 
 const inputCls =
   "w-full rounded-lg border border-slate-200 bg-white px-3.5 py-2.5 text-sm outline-none focus:border-slate-400";
@@ -220,6 +222,22 @@ export default function SeoPanel({ pageKey, page, values, onChange }) {
       null,
       2,
     );
+
+  // The page's built-in schema (what's live today until custom is enabled).
+  const defaultSchemaJson = defaultSchemaJsonFor(pageKey);
+  const schemaIsDefault = (() => {
+    const a = parseSchemaJson(schemaJson);
+    const b = parseSchemaJson(defaultSchemaJson);
+    return a.ok && b.ok && JSON.stringify(a.data) === JSON.stringify(b.data);
+  })();
+
+  // Hreflang rows ({ lang, url }). Kept as-is while editing (blank / half-
+  // filled rows allowed); the server cleans and validates on save.
+  const hreflang = Array.isArray(values?.hreflang) ? values.hreflang : [];
+  const setHreflang = (rows) => onChange("hreflang", rows);
+  const updateHreflang = (i, patch) =>
+    setHreflang(hreflang.map((row, idx) => (idx === i ? { ...row, ...patch } : row)));
+  const hreflangCodes = hreflang.map((r) => String(r.lang || "").trim().toLowerCase());
 
   const robotsIndex = v("robotsIndex", "index") || "index";
   const robotsFollow = v("robotsFollow", "follow") || "follow";
@@ -483,8 +501,22 @@ export default function SeoPanel({ pageKey, page, values, onChange }) {
         <Toggle
           checked={schemaEnabled}
           onChange={(on) => onChange("schemaEnabled", on)}
-          label={schemaEnabled ? "Schema is enabled on this page" : "Schema is disabled"}
+          label={
+            schemaEnabled
+              ? "Custom schema is ON — it replaces the page's default schema"
+              : "Custom schema is OFF — the page's default schema (shown below) stays live"
+          }
         />
+        <div className="rounded-lg border border-sky-100 bg-sky-50 p-3 text-xs text-sky-800">
+          The box below starts with the schema this page already has live
+          today
+          {pageKey === "outside-location-uk"
+            ? " (this page's own @graph)"
+            : " (the site-wide LocalBusiness schema)"}
+          . Read it, compare it, edit it, then switch <b>Custom schema</b> ON
+          and save — your version then replaces the default. Switch it OFF
+          to go back to the default.
+        </div>
         <div className="grid gap-4 sm:grid-cols-[220px_auto] sm:items-end">
           <Field label="Schema Type">
             <select
@@ -525,6 +557,23 @@ export default function SeoPanel({ pageKey, page, values, onChange }) {
             </button>
             <button
               type="button"
+              disabled={schemaIsDefault}
+              onClick={() => {
+                if (
+                  window.confirm(
+                    "Restore the page's original schema? Your edits in the box will be replaced.",
+                  )
+                ) {
+                  onChange("schemaJson", defaultSchemaJson);
+                  onChange("schemaType", defaultSchemaTypeFor(pageKey));
+                }
+              }}
+              className="rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 disabled:opacity-50"
+            >
+              Restore original
+            </button>
+            <button
+              type="button"
               disabled={!schemaCheck?.ok}
               onClick={() =>
                 onChange("schemaJson", JSON.stringify(schemaCheck.data, null, 2))
@@ -552,9 +601,98 @@ export default function SeoPanel({ pageKey, page, values, onChange }) {
             <p className="text-xs text-red-500">{schemaCheck.error}</p>
           ))}
         <p className="text-xs text-slate-400">
-          Only output on the live page when enabled and the JSON is valid.
-          Test it with Google&apos;s Rich Results Test.
+          A custom schema is only output on the live page when it&apos;s
+          switched on and the JSON is valid. Test it with Google&apos;s Rich
+          Results Test.
         </p>
+      </Group>
+
+      <Group
+        title="Hreflang"
+        hint="Tell Google which language / region version of this page to show where"
+      >
+        <p className="text-xs text-slate-400">
+          Add one row per version of this page — including this page itself.
+          Use codes like <b>en</b>, <b>en-gb</b>, <b>en-in</b>, <b>hi-in</b>{" "}
+          or <b>x-default</b> (the fallback for everyone else). Each URL must
+          be the full address of that version. These become{" "}
+          <code>&lt;link rel=&quot;alternate&quot; hreflang=&quot;…&quot;&gt;</code>{" "}
+          tags on the live page. Leave empty for no hreflang.
+        </p>
+        {hreflang.length > 0 && (
+          <div className="space-y-2">
+            {hreflang.map((row, i) => {
+              const code = String(row.lang || "").trim();
+              const badCode = code && !isValidHreflangCode(code);
+              const dupe =
+                code && hreflangCodes.indexOf(code.toLowerCase()) !== i;
+              return (
+                <div key={i} className="flex flex-wrap items-start gap-2">
+                  <div className="w-32 shrink-0">
+                    <input
+                      type="text"
+                      className={`${inputCls} ${badCode || dupe ? "border-red-300" : ""}`}
+                      placeholder="en-gb"
+                      value={row.lang ?? ""}
+                      onChange={(e) =>
+                        updateHreflang(i, { lang: e.target.value.trim() })
+                      }
+                    />
+                  </div>
+                  <div className="min-w-[220px] flex-1">
+                    <input
+                      type="text"
+                      className={inputCls}
+                      placeholder={pageUrl}
+                      value={row.url ?? ""}
+                      onChange={(e) => updateHreflang(i, { url: e.target.value })}
+                    />
+                    {badCode && (
+                      <p className="mt-1 text-xs text-red-500">
+                        Not a valid hreflang code.
+                      </p>
+                    )}
+                    {dupe && !badCode && (
+                      <p className="mt-1 text-xs text-red-500">
+                        This code is already listed.
+                      </p>
+                    )}
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setHreflang(hreflang.filter((_, idx) => idx !== i))}
+                    className="rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-xs font-semibold text-red-500 hover:bg-red-50"
+                  >
+                    Remove
+                  </button>
+                </div>
+              );
+            })}
+          </div>
+        )}
+        <div className="flex flex-wrap gap-2">
+          <button
+            type="button"
+            onClick={() => setHreflang([...hreflang, { lang: "", url: "" }])}
+            className="rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50"
+          >
+            + Add language / region
+          </button>
+          {hreflang.length === 0 && (
+            <button
+              type="button"
+              onClick={() =>
+                setHreflang([
+                  { lang: "en", url: v("seoCanonical") || pageUrl },
+                  { lang: "x-default", url: v("seoCanonical") || pageUrl },
+                ])
+              }
+              className="rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50"
+            >
+              Start with this page (en + x-default)
+            </button>
+          )}
+        </div>
       </Group>
 
       <Group

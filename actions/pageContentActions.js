@@ -6,6 +6,7 @@ import { getSession } from "@/actions/authActions";
 import { getPageDefaults } from "@/lib/pageContentRegistry";
 import { revalidatePath } from "next/cache";
 import { validateSeoFields } from "@/lib/seoValidate";
+import { defaultSchemaJsonFor, defaultSchemaTypeFor } from "@/lib/siteSchema";
 
 async function requireSession() {
   const session = await getSession();
@@ -52,6 +53,22 @@ export async function getPageContent(pageKey) {
     console.error("Get page content failed:", error);
     return defaults;
   }
+}
+
+// Same as getPageContent, for the dashboard's editor only: the Schema field
+// is pre-filled with the schema the page already has live today (the
+// site-wide LocalBusiness block, or the UK page's own @graph) whenever
+// nothing custom is saved, so an editor can read, compare and rewrite it.
+// Kept out of getPageContent on purpose — that one feeds every public page,
+// and shipping ~3KB of JSON into each page's props would only slow them down.
+export async function getPageContentForEditor(pageKey) {
+  const content = await getPageContent(pageKey);
+  const saved = String(content?.schemaJson ?? "").trim();
+  return {
+    ...content,
+    schemaJson: saved || defaultSchemaJsonFor(pageKey),
+    schemaType: content?.schemaType || defaultSchemaTypeFor(pageKey),
+  };
 }
 
 // Admin/writer only — upserts the whole fields object for a page.

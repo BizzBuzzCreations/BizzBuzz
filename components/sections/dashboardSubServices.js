@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import {
-  getPageContent,
+  getPageContentForEditor,
   savePageContent,
 } from "@/actions/pageContentActions";
 import { SUB_SERVICE_CONTENT_REGISTRY, SUB_SERVICE_PAGE_OPTIONS } from "@/lib/subServiceContentRegistry";
@@ -224,7 +224,7 @@ export default function DashboardSubServices() {
         setSavedAt(null);
       }
     }, 0);
-    getPageContent(pageKey).then((data) => {
+    getPageContentForEditor(pageKey).then((data) => {
       if (!cancelled) {
         setValues(data);
         setLoading(false);

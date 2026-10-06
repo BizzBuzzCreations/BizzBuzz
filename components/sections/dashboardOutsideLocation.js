@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import {
-  getPageContent,
+  getPageContentForEditor,
   savePageContent,
 } from "@/actions/pageContentActions";
 import { OUTSIDE_LOCATION_REGISTRY } from "@/lib/outsideLocationRegistry";
@@ -237,7 +237,7 @@ export default function DashboardOutsideLocation() {
         setSavedAt(null);
       }
     }, 0);
-    getPageContent(pageKey).then((data) => {
+    getPageContentForEditor(pageKey).then((data) => {
       if (!cancelled) {
         setValues(data);
         setLoading(false);

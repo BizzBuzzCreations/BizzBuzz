@@ -20,6 +20,7 @@ import { getPageContent } from "@/actions/pageContentActions";
 import { buildPageMetadata } from "@/lib/pageMetadata";
 import PageSeoScripts from "@/components/sections/pageSeoScripts";
 import { ukPageSchema } from "@/lib/ukPageSchema";
+import { hasCustomSchema } from "@/lib/seo";
 
 // Hidden landing page — mostly the same sections as the real homepage,
 // except: the hero's background is an either/or Image-or-Video choice
@@ -65,12 +66,14 @@ export default async function DigitalMarketingServicesInUk() {
       {/* Page-specific structured data. The site-wide India LocalBusiness
           schema is skipped on this route (see allScripts.js); `<` is escaped
           so no field can close the script tag early. */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(ukPageSchema).replace(/</g, "\\u003c"),
-        }}
-      />
+      {!hasCustomSchema(content) && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(ukPageSchema).replace(/</g, "\\u003c"),
+          }}
+        />
+      )}
       <HomeHero content={content} showWordmark={false} heroMediaChoice separated />
       <HomeAbout content={content} separated />
       <OurServices content={content} />

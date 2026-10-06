@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import {
-  getPageContent,
+  getPageContentForEditor,
   savePageContent,
 } from "@/actions/pageContentActions";
 import { INDUSTRY_CONTENT_REGISTRY } from "@/lib/industryContentRegistry";
@@ -206,7 +206,7 @@ export default function DashboardIndustries() {
         setSavedAt(null);
       }
     }, 0);
-    getPageContent(pageKey).then((data) => {
+    getPageContentForEditor(pageKey).then((data) => {
       if (!cancelled) {
         setValues(data);
         setLoading(false);
