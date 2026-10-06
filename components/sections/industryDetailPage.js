@@ -238,26 +238,59 @@ export default function IndustryDetailPage({
               capabilitiesHoverReveal). */}
           {capabilitiesLayout === "numbered" ? (
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
-              {capabilities.map(({ title, desc }, i) => (
-                <div
-                  key={title}
-                  className="group flex h-full items-start gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-[#40A2D8]/50 hover:bg-[#0B60B0] hover:shadow-xl hover:shadow-[#0B60B0]/20"
-                >
-                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/10 text-base font-bold text-[#40A2D8] transition-colors duration-300 group-hover:border-white group-hover:bg-white group-hover:text-[#0B60B0]">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <div className="min-w-0 flex-1">
-                    {/* Fixed two-line title height so every description in a
-                        row starts at the same level, whatever the title length. */}
-                    <h3 className="mb-3 text-sm font-bold uppercase tracking-wide text-white sm:min-h-[2.5rem]">
+              {/* Six boxes, 3 × 2. Each description is split into its two
+                  parts — the challenge (first sentence) and what we do
+                  about it (the rest) — so it reads as a structured block
+                  instead of one wall of text. */}
+              {capabilities.slice(0, 6).map(({ title, desc }, i) => {
+                const parts = String(desc || "")
+                  .split(/(?<=[.!?])\s+(?=["A-Z])/)
+                  .filter(Boolean);
+                const challenge = parts.length > 1 ? parts[0] : null;
+                const help = parts.length > 1 ? parts.slice(1).join(" ") : desc;
+                return (
+                  // Each card is a subgrid spanning 3 rows of the parent
+                  // grid (title / challenge / how we help), so those rows
+                  // line up across all three boxes in a row.
+                  <div
+                    key={title}
+                    className="group grid grid-cols-[3rem_1fr] grid-rows-subgrid row-span-3 gap-x-4 gap-y-4 rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-[#40A2D8]/50 hover:bg-[#0B60B0] hover:shadow-xl hover:shadow-[#0B60B0]/20"
+                  >
+                    <span className="col-start-1 row-start-1 flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/10 text-base font-bold text-[#40A2D8] transition-colors duration-300 group-hover:border-white group-hover:bg-white group-hover:text-[#0B60B0]">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <h3 className="col-start-2 row-start-1 text-sm font-bold uppercase tracking-wide text-white">
                       {title}
                     </h3>
-                    <p className="text-sm leading-relaxed text-white transition-colors duration-300 group-hover:text-white/85">
-                      {desc}
-                    </p>
+                    {challenge && (
+                      <div className="col-start-2 row-start-2">
+                        <p className="mb-1 text-[11px] font-bold uppercase tracking-widest text-[#40A2D8] transition-colors duration-300 group-hover:text-white">
+                          The Challenge
+                        </p>
+                        <p className="text-sm leading-relaxed text-white transition-colors duration-300 group-hover:text-white/85">
+                          {challenge}
+                        </p>
+                      </div>
+                    )}
+                    <div
+                      className={`col-start-2 row-start-3 ${
+                        challenge
+                          ? "border-t border-white/10 pt-4 transition-colors duration-300 group-hover:border-white/30"
+                          : ""
+                      }`}
+                    >
+                      {challenge && (
+                        <p className="mb-1 text-[11px] font-bold uppercase tracking-widest text-[#40A2D8] transition-colors duration-300 group-hover:text-white">
+                          How We Help
+                        </p>
+                      )}
+                      <p className="text-sm leading-relaxed text-white transition-colors duration-300 group-hover:text-white/85">
+                        {help}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           ) : (
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 items-start">
