@@ -153,6 +153,9 @@ export async function uploadContentVideo(formData) {
     return { success: true, url: result.secure_url };
   } catch (error) {
     console.error("Content video upload failed:", error);
-    return { success: false, message: "Video upload failed. The file may be too large." };
+    return {
+      success: false,
+      message: "Video upload failed. The file may be too large.",
+    };
   }
 }
