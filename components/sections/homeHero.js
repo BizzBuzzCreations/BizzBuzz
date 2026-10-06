@@ -237,18 +237,33 @@ export default function HomeHero({
                   />
                 )
               ) : (
-                mediaMode === "mobile" && (
-                  <video
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="metadata"
+                <>
+                  {/* Poster paints instantly (37KB); the 540KB mobile
+                      video fades over it once mounted after page load.
+                      The full 4MB desktop file is never sent to phones. */}
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/hero-sec-poster.webp"
+                    alt=""
+                    width={800}
+                    height={321}
+                    decoding="async"
                     className="absolute inset-0 w-full h-full object-cover bg-black"
-                  >
-                    <source src="/hero-sec.webm" type="video/webm" />
-                  </video>
-                )
+                  />
+                  {mediaMode === "mobile" && (
+                    <video
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      preload="metadata"
+                      poster="/hero-sec-poster.webp"
+                      className="absolute inset-0 w-full h-full object-cover bg-black"
+                    >
+                      <source src="/hero-sec-mobile.webm" type="video/webm" />
+                    </video>
+                  )}
+                </>
               )}
             </motion.div>
           )}

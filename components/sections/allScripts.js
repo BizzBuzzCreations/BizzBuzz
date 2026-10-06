@@ -8,7 +8,7 @@ export default function AllScripts() {
   const pathname = usePathname();
   // Google Analytics is ~190KB and was the single biggest main-thread cost
   // on mobile (Total Blocking Time). Load it on the visitor's first
-  // interaction, or after 6s if they never interact, instead of competing
+  // interaction, or after 10s if they never interact, instead of competing
   // with the page's own startup work.
   const [loadGA, setLoadGA] = useState(false);
   useEffect(() => {
@@ -18,7 +18,7 @@ export default function AllScripts() {
       window.clearTimeout(timer);
       setLoadGA(true);
     };
-    const timer = window.setTimeout(start, 6000);
+    const timer = window.setTimeout(start, 10000);
     events.forEach((e) =>
       window.addEventListener(e, start, { once: true, passive: true }),
     );

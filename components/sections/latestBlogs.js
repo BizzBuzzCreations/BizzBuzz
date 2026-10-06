@@ -1,5 +1,5 @@
 import { getLatestThreeBlogsMongo } from "@/actions/blogActions";
-import { getFeaturedImage } from "@/lib/getFeaturedImage";
+import { getFeaturedImage, optimizedImageUrl, imageSrcSet } from "@/lib/getFeaturedImage";
 import Link from "next/link";
 import he from "he";
 import { ImageOff, ArrowUpRight, CalendarDays } from "lucide-react";
@@ -53,7 +53,11 @@ export default async function LatestBlogs({ dark = false }) {
                 >
                   {featuredImage ? (
                     <img
-                      src={featuredImage}
+                      src={optimizedImageUrl(featuredImage, 640)}
+                      srcSet={imageSrcSet(featuredImage, [400, 640, 900])}
+                      sizes="(max-width: 768px) 100vw, 400px"
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-105"
                       alt={e?.title}
                     />

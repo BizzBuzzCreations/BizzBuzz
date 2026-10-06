@@ -24,6 +24,9 @@ const OLD_AMP_IMAGE = /^\/[^?#]*&[^?#]*\.(png|webp|jpe?g)$/i;
 
 function fixRenamedImagePaths(value) {
   if (typeof value === "string") {
+    // Poster was converted to WebP (541KB -> 47KB); saved copies of the
+    // old default path get the new file.
+    if (value === "/AI solutions 2.png") return "/AI solutions 2.webp";
     return OLD_AMP_IMAGE.test(value)
       ? value.replace(/ & /g, " and ").replace(/&/g, "and")
       : value;

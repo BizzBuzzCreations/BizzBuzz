@@ -34,7 +34,7 @@ export default function ConsultationPopup({ content }) {
   const pathname = usePathname();
 
   useEffect(() => {
-    // Opens 5s after every load of one of POPUP_PAGES — including a
+    // Opens 10s after every load of one of POPUP_PAGES — including a
     // refresh. (It used to remember a "shown once" flag in localStorage,
     // which is why it never came back after the first time.) Trailing
     // slash trimmed so "/en-uk/…/" still matches.
@@ -47,7 +47,7 @@ export default function ConsultationPopup({ content }) {
       return () => clearTimeout(timer);
     }
 
-    const timer = setTimeout(() => setOpen(true), 5000);
+    const timer = setTimeout(() => setOpen(true), 10000);
     return () => clearTimeout(timer);
   }, [pathname]);
 
