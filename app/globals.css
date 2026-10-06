@@ -247,6 +247,11 @@ body {
   stroke: white;
   font-size: 120px;
 }
+@media (max-width: 767px) {
+  .animated-text text {
+    animation: stroke 1.4s ease-out 1 forwards;
+  }
+}
 @keyframes stroke {
   0% {
     fill: rgba(72, 138, 20, 0);

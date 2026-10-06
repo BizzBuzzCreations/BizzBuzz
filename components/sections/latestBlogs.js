@@ -111,6 +111,7 @@ export default async function LatestBlogs({ dark = false }) {
                     aria-label={`Read more about ${e?.title}`}
                   >
                     Read More
+                    <span className="sr-only"> about {e?.title}</span>
                     <ArrowUpRight size={14} />
                   </Link>
                 </div>

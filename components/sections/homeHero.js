@@ -173,7 +173,7 @@ export default function HomeHero({
           </motion.h1>
           {showWordmark && (
             <motion.svg
-              initial={{ opacity: 0, y: 24 }}
+              initial={false}
               animate={{ opacity: 1, y: 0 }}
               transition={{ ...reveal, delay: 0.15 }}
               className="animated-text"
@@ -209,7 +209,7 @@ export default function HomeHero({
               standing between "page interactive" and everything else. */}
           {(!heroMediaChoice || chosenVideo || chosenImage) && (
             <motion.div
-              initial={{ opacity: 0, y: 24 }}
+              initial={false}
               animate={{ opacity: 1, y: 0 }}
               transition={{ ...reveal, delay: 0.38 }}
               className="md:hidden relative w-full max-w-sm aspect-video rounded-2xl overflow-hidden shadow-xl mb-8"
@@ -254,7 +254,7 @@ export default function HomeHero({
           )}
 
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ ...reveal, delay: 0.45 }}
           >
