@@ -8,6 +8,7 @@ import { ImageOff } from "lucide-react";
 
 // Same reasoning as the single-post page: blog content is edited/scheduled
 // via the dashboard, so this listing must always read fresh from the DB.
+// (Stays dynamic: AllBLogs reads useSearchParams, which can't be prerendered.)
 export const dynamic = "force-dynamic";
 
 export const metadata = {

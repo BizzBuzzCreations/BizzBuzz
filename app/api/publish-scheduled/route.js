@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { publishDueScheduledPosts } from "@/actions/blogActions";
 
 // Point a free external cron service (e.g. cron-job.org) at this URL every
@@ -12,5 +13,6 @@ export async function GET(request) {
   }
 
   const result = await publishDueScheduledPosts();
+  if (result?.publishedCount > 0) revalidatePath("/", "layout");
   return NextResponse.json(result);
 }

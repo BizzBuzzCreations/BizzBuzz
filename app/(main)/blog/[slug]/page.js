@@ -1,5 +1,6 @@
 import { getBlogBySlugMongo } from "@/actions/blogActions";
-import { getFeaturedImage } from "@/lib/getFeaturedImage";
+import { cache } from "react";
+import { getFeaturedImage, optimizedImageUrl, imageSrcSet } from "@/lib/getFeaturedImage";
 import { extractTableOfContents } from "@/lib/extractTableOfContents";
 import { sanitizeBlogContent } from "@/lib/sanitizeBlogContent";
 import BlogContactForm from "@/components/sections/blogContactForm";
@@ -9,16 +10,28 @@ import CTA from "@/components/sections/CTA";
 import { User, ImageOff } from "lucide-react";
 import { notFound } from "next/navigation";
 
-// Blog content is edited live through the dashboard (and auto-publishes on
-// schedule) — this page must always read the current DB state, never a
-// build-time or ISR-cached snapshot, or edits/scheduled posts wouldn't
-// appear on the live site without a redeploy.
-export const dynamic = "force-dynamic";
+// ISR: served from cache and regenerated at most every 60s. Dashboard
+// saves/deletes call revalidatePath("/", "layout") and the scheduled-post
+// cron route does too, so edits and newly-published posts still go live
+// right away. Replaces force-dynamic, which hit MongoDB (and ran the
+// scheduled-post publisher) on every single request — the main cause of
+// the slow mobile LCP on blog posts.
+export const revalidate = 60;
+
+// No posts are pre-built (the build can't rely on reaching MongoDB) — an empty
+// list just opts the route into on-demand ISR: each post is rendered on its
+// first visit, then cached and refreshed per `revalidate` above.
+export function generateStaticParams() {
+  return [];
+}
+
+// generateMetadata and the page both need the post — fetch it once.
+const getPost = cache((slug) => getBlogBySlugMongo(slug));
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
 
-  const res = await getBlogBySlugMongo(slug);
+  const res = await getPost(slug);
 
   if (!res?.success) {
     return {
@@ -48,7 +61,7 @@ export async function generateMetadata({ params }) {
 export default async function SingleBlog({ params }) {
   const { slug } = await params;
 
-  const res = await getBlogBySlugMongo(slug);
+  const res = await getPost(slug);
 
   if (!res?.success) {
     return notFound();
@@ -64,7 +77,13 @@ export default async function SingleBlog({ params }) {
   });
 
   const rawContent = sanitizeBlogContent(post?.content);
-  const { html: filteredData, toc } = extractTableOfContents(rawContent);
+  const { html: extractedHtml, toc } = extractTableOfContents(rawContent);
+  // Images inside the article body sit below the fold — lazy-load them so
+  // they don't compete with the featured image (the LCP element).
+  const filteredData = extractedHtml?.replace(
+    /<img(?![^>]*loading=)/gi,
+    '<img loading="lazy" decoding="async"',
+  );
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -156,9 +175,14 @@ export default async function SingleBlog({ params }) {
         </div>
         {/* Featured Image */}
         {featuredImage ? (
+          // eslint-disable-next-line @next/next/no-img-element
           <img
-            src={featuredImage}
+            src={optimizedImageUrl(featuredImage, 1100)}
+            srcSet={imageSrcSet(featuredImage)}
+            sizes="(max-width: 768px) 100vw, 768px"
             alt={post?.title}
+            fetchPriority="high"
+            decoding="async"
             className="w-full h-auto mb-8 rounded-lg"
           />
         ) : (

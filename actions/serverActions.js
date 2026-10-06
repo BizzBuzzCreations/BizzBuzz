@@ -221,8 +221,8 @@ export async function updateJob({
 
 // Function to get all jobs
 export async function getAllJobs() {
-  await connectDB();
   try {
+    await connectDB();
     const jobs = await Job.find({}).lean();
     const plainJobs = jobs.map((job) => ({
       ...job,

@@ -86,4 +86,5 @@ export default async function Career() {
   );
 }
 
-export const dynamic = "force-dynamic";
+// ISR — jobs add/edit/delete already call revalidatePath("/career").
+export const revalidate = 60;
