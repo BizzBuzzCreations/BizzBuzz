@@ -46,6 +46,10 @@ export default function IndustryDetailPage({
   // text. Off by default so every other industry's 6-card grid keeps
   // showing its description plainly.
   capabilitiesHoverReveal = false,
+  // "numbered": a 3-column list of numbered circles (01, 02, ...) with the
+  // title and full description beside each — no card boxes or icons.
+  // Default "cards" keeps every other industry's grid exactly as it was.
+  capabilitiesLayout = "cards",
   // Optional "How We Turn Searches Into [Outcome]" breakdown — an array
   // of { number, title, desc, ctaText, services[] }. Only industries that
   // pass this via lib/industryPageContent.js get the section.
@@ -232,6 +236,23 @@ export default function IndustryDetailPage({
               one-line title and a two-line title still produce the same
               collapsed card height across every industry (all 15 use
               capabilitiesHoverReveal). */}
+          {capabilitiesLayout === "numbered" ? (
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12">
+              {capabilities.map(({ title, desc }, i) => (
+                <div key={title} className="flex items-start gap-5">
+                  <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/10 text-lg font-bold text-[#40A2D8]">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div className="min-w-0">
+                    <h3 className="mb-2 text-sm font-bold uppercase tracking-wide text-white">
+                      {title}
+                    </h3>
+                    <p className="text-sm leading-relaxed text-white">{desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 items-start">
             {capabilities.map(({ icon: CapIcon, title, desc }) => (
               <CapabilityCard
@@ -243,6 +264,7 @@ export default function IndustryDetailPage({
               />
             ))}
           </div>
+          )}
         </div>
       </section>
 
