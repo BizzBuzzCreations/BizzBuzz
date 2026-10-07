@@ -8,6 +8,15 @@ const submissionSchema = new Schema(
     subject: { type: String },
     phone: { type: Number },
     message: { type: String },
+    // Optional PDF/Doc uploaded through the contact form. The file bytes
+    // live in `data` (select: false, so list queries never load them) and
+    // are served to the dashboard via /api/submissions/[id]/attachment.
+    attachment: {
+      name: { type: String },
+      contentType: { type: String },
+      size: { type: Number },
+      data: { type: Buffer, select: false },
+    },
   },
   { timestamps: true },
 );

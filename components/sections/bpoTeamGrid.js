@@ -39,13 +39,15 @@ const BPO_TEAM = [
   { name: "Hritik Kesarwani", role: "Advisor", photo: "/team-images/hritik.jpeg" },
   { name: "Kanchi Singh", role: "Advisor", photo: "/team-images/kanchi.jpeg" },
   { name: "Manasvi Gupta", role: "Advisor", photo: "/team-images/manasvi.jpeg" },
-  { name: "Monika Sharma", role: "Advisor", photo: "/team-images/monika.jpeg" },
   { name: "Shreya Dubey", role: "Advisor", photo: "/team-images/shreya.jpeg" },
   { name: "Ziauddin Khan", role: "Advisor", photo: "/team-images/ziaa.jpg" },
 ].map((person) => ({ ...person, icon: ROLE_ICONS[person.role] }));
 
 export default function BpoTeamGrid({ content } = {}) {
-  const savedTeam = content?.bpoTeamMembers?.length > 0 ? content.bpoTeamMembers : null;
+  const savedTeam =
+    content?.bpoTeamMembers?.length > 0
+      ? content.bpoTeamMembers.filter((p) => p.name !== "Monika Sharma")
+      : null;
   // ROLE_ICONS[role] falls back to undefined for a role an admin typed
   // that isn't one of the 5 known titles — RoleCard just shows the photo
   // with no icon fallback in that case, which is harmless since every

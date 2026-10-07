@@ -40,6 +40,8 @@ const toastOptions = {
   transition: Bounce,
 };
 
+const MAX_FILE_BYTES = 4 * 1024 * 1024;
+
 const inputClasses =
   "w-full border border-gray-300 focus:border-[#0B60B0] rounded-lg outline-none px-4 py-2.5 text-sm transition";
 
@@ -60,7 +62,8 @@ export default function ContactSection({ content }) {
     contact: "",
     message: "",
   });
-  const [fileName, setFileName] = useState("");
+  const [file, setFile] = useState(null);
+  const fileName = file?.name || "";
   const [submitting, setSubmitting] = useState(false);
 
   const handleChange = (e) => {
@@ -69,26 +72,47 @@ export default function ContactSection({ content }) {
   };
 
   const handleFile = (e) => {
-    setFileName(e.target.files?.[0]?.name || "");
+    const picked = e.target.files?.[0] || null;
+    if (picked && picked.size > MAX_FILE_BYTES) {
+      toast.error("Attachment must be 4MB or smaller.", toastOptions);
+      e.target.value = "";
+      setFile(null);
+      return;
+    }
+    setFile(picked);
   };
+
+  // File -> base64 (without the data: prefix) for the server action.
+  const readAsBase64 = (f) =>
+    new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(String(reader.result).split(",")[1] || "");
+      reader.onerror = reject;
+      reader.readAsDataURL(f);
+    });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitting(true);
 
-    // File uploads aren't wired to a storage/email attachment yet — we note
-    // the filename in the message body so the team knows to ask the client
-    // to re-send it, rather than silently dropping it.
-    const text = fileName
-      ? `${form.message}\n\nAttached file mentioned: ${fileName} (ask client to re-send by email — attachments aren't automated yet).`
-      : form.message;
+    let attachment;
+    if (file) {
+      try {
+        attachment = { name: file.name, base64: await readAsBase64(file) };
+      } catch {
+        setSubmitting(false);
+        toast.error("Couldn't read the attached file.", toastOptions);
+        return;
+      }
+    }
 
     const response = await sendMail({
       name: form.name,
       email: form.email,
       subject: form.subject,
-      text,
+      text: form.message,
       contact: form.contact,
+      attachment,
     });
 
     setSubmitting(false);
@@ -96,7 +120,7 @@ export default function ContactSection({ content }) {
     if (response?.success) {
       toast.success(response.message, toastOptions);
       setForm({ name: "", email: "", subject: "", contact: "", message: "" });
-      setFileName("");
+      setFile(null);
     } else {
       toast.error(response?.message || "Something went wrong.", toastOptions);
     }

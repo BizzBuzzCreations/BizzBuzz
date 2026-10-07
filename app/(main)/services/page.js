@@ -426,7 +426,9 @@ export default async function ServicesIndexPage() {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {engagementFeatures.map(({ icon: Icon, title, desc }, i) => (
-              <div key={i} className="relative">
+              <div key={i} className="relative flex">
+                {/* flex makes the card stretch to the full grid-row height,
+                    so every card in a row is the same size. */}
                 {/* Mobile-only connector — sits only in the gap above this
                     card (never over its body/icon). A full-height spine
                     behind the cards (the previous approach) still showed

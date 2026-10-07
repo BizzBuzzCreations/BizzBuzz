@@ -56,13 +56,13 @@ const DEFAULT_TEAM_GROUPS = [
     title: "Meet Our BPO Team",
     tagline: "The People Keeping Every Customer Interaction Moving",
     desc: "Our BPO team handles customer support, lead follow-ups, communication, and day-to-day customer interactions, helping businesses stay responsive while creating smoother experiences for their customers.",
-    image: "/team-images/team-bpo.jpeg",
+    image: "/BPO-team-cover-img.jpg",
   },
   {
     title: "Meet Our R&D Team",
     tagline: "Exploring What’s Next in Digital",
     desc: "Our R&D team researches and tests emerging technologies across AI search, SEO, automation, digital tools, and evolving search behaviour. Their work helps us turn new developments into practical strategies and smarter solutions for the businesses we serve.",
-    image: "/team-images/team-rnd.jpeg",
+    image: "/R%26D-team-cover-img.png",
   },
 ];
 

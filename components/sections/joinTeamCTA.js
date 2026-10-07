@@ -18,7 +18,7 @@ export default function JoinTeamCTA({ content }) {
   // rather than sharing one JSX value, since a plain `w-full` on the
   // desktop row would fight its `flex` sizing instead of the grid's.
   const emailLink = (
-    <AnimatedButton href="mailto:info@bizzbuzzcreations.com" variant="blue" size="sm">
+    <AnimatedButton href="mailto:info@bizzbuzzcreations.com" size="sm">
       {emailButtonText}
     </AnimatedButton>
   );
@@ -28,7 +28,7 @@ export default function JoinTeamCTA({ content }) {
     </AnimatedButton>
   );
   const emailLinkFull = (
-    <AnimatedButton href="mailto:info@bizzbuzzcreations.com" variant="blue" size="sm" className="w-full">
+    <AnimatedButton href="mailto:info@bizzbuzzcreations.com" size="sm" className="w-full">
       {emailButtonText}
     </AnimatedButton>
   );
@@ -39,25 +39,26 @@ export default function JoinTeamCTA({ content }) {
   );
 
   return (
-    <section
-      className="overflow-hidden"
-      style={{
-        // Brand blue, strongest on the right, fading through to white on
-        // the left where the text sits. (No more dotted overlay — removed
-        // per feedback, plain gradient only now.)
-        backgroundImage:
-          "linear-gradient(90deg, #ffffff 0%, #eaf4fb 38%, #7ec2e8 72%, #0B60B0 100%)",
-      }}
-    >
-      <div className="max-w-6xl mx-auto grid lg:grid-cols-2 items-center gap-10 px-6 md:px-12 py-14">
+    <section className="relative overflow-hidden bg-black border-t border-t-white/10 border-b border-b-white">
+      {/* Soft brand-blue glows on black for depth */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        aria-hidden="true"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 85% 50%, rgba(11,96,176,0.35), transparent 55%)",
+        }}
+      />
+      <div className="relative max-w-6xl mx-auto grid lg:grid-cols-2 items-center gap-10 px-6 md:px-12 py-16 md:py-20">
         <div>
-          <p className="text-xs font-bold uppercase tracking-widest text-[#0B60B0] mb-3">
+          <p className="text-xs font-bold uppercase tracking-widest text-[#40A2D8] mb-3">
             {eyebrow}
           </p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-black mb-3">
+          <h2 className="text-3xl sm:text-5xl font-bold text-white mb-4 leading-tight">
             {heading}
           </h2>
-          <RichText as="p" text={paragraph} className="text-black/60 mb-8 max-w-sm" />
+          <div className="h-1 w-16 rounded-full bg-gradient-to-r from-[#40A2D8] to-[#0B60B0] mb-5" />
+          <RichText as="p" text={paragraph} className="text-white/80 mb-8 max-w-sm leading-relaxed" />
 
           {/* Desktop/tablet: buttons stay right under the paragraph, in
               their own text column, same as before. */}
@@ -68,9 +69,9 @@ export default function JoinTeamCTA({ content }) {
         </div>
 
         <div className="relative h-56 sm:h-72 lg:h-80 flex items-center justify-center">
-          {/* Decorative brand-blue backdrop shape behind the team photo */}
-          <div className="absolute w-40 h-40 sm:w-52 sm:h-52 bg-[#0B60B0] rotate-45 rounded-2xl" />
-          <div className="relative w-full h-full max-w-md rounded-2xl overflow-hidden">
+          {/* Offset brand-blue frame behind the team photo */}
+          <div className="absolute inset-0 max-w-md mx-auto w-full translate-x-3 translate-y-3 rounded-2xl border-2 border-[#0B60B0]" />
+          <div className="relative w-full h-full max-w-md rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-[#0B60B0]/30">
             <Image
               src={image}
               alt="The BizzBuzz Creations team"
@@ -78,6 +79,7 @@ export default function JoinTeamCTA({ content }) {
               sizes="(max-width: 1024px) 90vw, 448px"
               className="object-cover"
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
           </div>
         </div>
 

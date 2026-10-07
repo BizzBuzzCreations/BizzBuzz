@@ -537,6 +537,17 @@ export default function Dashboard({ role = "user", name = "" }) {
                       <p className="mt-2 text-sm text-slate-600">
                         Phone: {submission.phone}
                       </p>
+                      {submission.attachment && (
+                        <a
+                          href={`/api/submissions/${submission._id}/attachment`}
+                          className="mt-3 inline-flex items-center gap-2 rounded-md bg-indigo-50 px-3 py-1.5 text-sm font-medium text-indigo-600 hover:bg-indigo-100"
+                        >
+                          📎 Download {submission.attachment.name}
+                          {submission.attachment.size
+                            ? ` (${Math.max(1, Math.round(submission.attachment.size / 1024))} KB)`
+                            : ""}
+                        </a>
+                      )}
                     </div>
                     <div className="flex shrink-0 flex-col items-end gap-2">
                       <span className="rounded-md bg-green-50 px-3 py-1 text-sm text-green-500">

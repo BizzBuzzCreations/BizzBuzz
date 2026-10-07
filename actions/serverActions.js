@@ -29,8 +29,29 @@ async function requireSession() {
 }
 
 // Function to send email
-export async function sendMail({ name, email, subject, text, contact }) {
+const ATTACHMENT_MAX_BYTES = 4 * 1024 * 1024;
+const ATTACHMENT_TYPES = {
+  pdf: "application/pdf",
+  doc: "application/msword",
+  docx: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+};
+
+// `attachment` (optional) = { name, base64 } from the contact form.
+export async function sendMail({ name, email, subject, text, contact, attachment }) {
   const now = Date.now();
+
+  let file = null;
+  if (attachment?.base64) {
+    const ext = String(attachment.name || "").split(".").pop().toLowerCase();
+    const buffer = Buffer.from(attachment.base64, "base64");
+    if (!ATTACHMENT_TYPES[ext]) {
+      return { success: false, message: "Only PDF, DOC or DOCX files are allowed." };
+    }
+    if (buffer.length > ATTACHMENT_MAX_BYTES) {
+      return { success: false, message: "Attachment must be 4MB or smaller." };
+    }
+    file = { name: attachment.name, contentType: ATTACHMENT_TYPES[ext], size: buffer.length, data: buffer };
+  }
 
   if (!email) {
     return {
@@ -59,6 +80,7 @@ export async function sendMail({ name, email, subject, text, contact }) {
       to: process.env.SITE_MAIL_RECIEVER,
       replyTo: email,
       subject: subject,
+      ...(file && { attachments: [{ filename: file.name, content: file.data }] }),
       html: `
     <div style="font-family: Arial, sans-serif; background:#f4f7fb; padding:20px;">
       <div style="max-width:600px; margin:0 auto; background:#ffffff; border-radius:8px; padding:20px;">
@@ -90,6 +112,7 @@ export async function sendMail({ name, email, subject, text, contact }) {
       subject,
       phone: contact,
       message: text,
+      ...(file && { attachment: file }),
     });
 
     await newSub.save();
@@ -280,6 +303,9 @@ export async function getAllSubmissions() {
       .lean();
     const plainSubmissions = submissions.map((sub) => ({
       ...sub,
+      attachment: sub.attachment?.name
+        ? { name: sub.attachment.name, size: sub.attachment.size }
+        : null,
       _id: sub._id.toString(), // ✅ convert ObjectId
       createdAt: sub.createdAt?.toISOString(), // ✅ convert Date
       updatedAt: sub.updatedAt?.toISOString(), // ✅ convert Date
